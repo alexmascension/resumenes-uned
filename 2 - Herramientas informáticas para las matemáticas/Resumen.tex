@@ -1,0 +1,850 @@
+\documentclass[a4paper]{article}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish]{babel}
+
+\usepackage{multicol}
+
+\usepackage{booktabs}
+
+\title{\Huge{\vspace{-1em}Resumen HIM}}
+\author{\Large{\vspace{-1em}Alex Mart\'inez Ascensi\'on}}
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\makeatother
+
+\usepackage{xcolor}
+
+\usepackage{wrapfig}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[default]{gillius}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\newcommand{\dd}{\ensuremath{\operatorname{d}}}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+
+\begin{document}
+	\maketitle
+
+\section{Operaciones}
+ \centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Suma & + & +\\
+	Resta & - & -\\
+	Multiplicación & * & * \\
+	División & / & / \\
+	Potencia & ** o \^{} & ** o \^{} \\ \midrule
+	Factorial & \verb|factorial()| & \verb|factorial()|\\
+	Logaritmo natural & \verb|log()| & \verb|log()|\\
+	Logaritmo decimal & - & \verb|log10()| \\
+	Exponencial & \verb|exp()| & \verb|exp()| \\
+	Raíz cuadrada & \verb|sqrt()| &\verb|sqrt()| \\ \midrule
+	y & \verb|and| & \& \\
+	o & \verb|or| & | \\
+	not & \verb|not| & \~{} \\ \midrule
+	igualdad & \verb|=| & \verb|==|\\
+	desigualdad & \verb|#| & \verb|<>|\\
+	menor & \verb|<| & \verb|<|\\
+	menor o igual & \verb|<=| & \verb|<=|\\
+	mayor & \verb|>| & \verb|>|\\
+	mayor o igual & \verb|>=| & \verb|>=|\\
+	Ejecución & is(a=b) & a==b\\ \midrule
+	Producto matricial & . & * \\
+	Producto elemental & * & .* \\
+	División matricial &  & / \\
+	División elemental & / & ./ \\
+	Potencia matricial & \^{}\^{} & \^{} \\
+	Potencia elemental & \^{} & .\^{} \\ \midrule
+	Función $\Gamma$ & \verb|gamma(x)| & \verb|gamma(x)|\\
+	Función $\beta$ & \verb|beta(x)| & \verb|beta(x)|\\ \midrule
+	Comentarios & \verb!/* ... */! & \verb!//! \\ 
+\end{tabular}
+
+Nota: en Máxima, si dos expresiones numéricas son diferentes y el valor es el mismo, \verb|is(a=b)| dará fallo. Hay que escribir \verb|is(equal(a,b))|
+\raggedright
+\section{Respuestas}
+ \centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Respuesta anterior & \% & \verb|ans| \\
+	Respuesta determinada & \%\verb|oX| &   \\
+\end{tabular}
+
+\raggedright
+\section{Variables}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	$\pi$ & \%\verb|pi| & \%\verb|pi| \\
+	$e$ & \%\verb|e| & \%\verb|e|  \\
+	$i$ & \%\verb|i| & \%\verb|i| \\
+	Verdadero & \verb|True| o \verb|true| &  \%\verb|T| o \%\verb|t| \\
+	False & \verb|False| o \verb|false| &  \%\verb|F| o \%\verb|f| \\
+	$+\infty$ & \verb|inf| &   \\
+\end{tabular}
+
+
+\raggedright
+\section{Estructuras de datos}
+\subsection{Arrays}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+ Inicialización & \verb|array(nombre, N_FILAS-1, N_COLS-1)| & 
+ 				  \verb|nombre = cell(N_FILAS, N_COLS)|| \\
+	Asignación & \verb|nombre[I,J]: X| & \verb|nombre{I,J} = X|  \\
+Impresión & \verb|listarray(nombre)| & \verb|nombre| \\
+\end{tabular}
+
+\raggedright
+\subsection{Estructuras}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Inicialización &  & 	\verb|nombre = struct('a1','b1','a2','b2',...,'an','bn')| \\
+	Asignación & & 	\verb|nombre.ak = 'bk'| \\
+	Impresión & & \verb|nombre| -> a1: b1; a2: b2; ... , an:bn \\
+	 & & \verb|nombre.a1| \\
+\end{tabular}
+
+
+\raggedright
+\subsection{Listas}
+\centering
+
+Las listas en Scilab se declaran usando los comandos \verb|tlist| o \verb|mlist| si son listas con tipo u orientadas a matrices, o \verb|list| si son ordinarias. El primer elemento de la lista es el índice, el segundo el nombre de las columnas, y las siguientes, las filas restantes. Por ejemplo:
+\begin{verbatim}
+	elementos=tlist(['Lista_elementos', 'Campos', 'Plutonio', 'Radio'],
+					['Masa', 'Radio', 'P_fusion', 'Densidad'], 
+					[244, 175, 912.5, 19816],
+					[266.02, 215, 973, 5000])
+\end{verbatim}
+
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Inicialización &\verb|nombre:['A', 'B', ['C1', 'C2']]| & 	\verb|nombre = tlist()| \\
+	Impresión & \verb|part(nombre, posición)| & \verb|nombre| \\
+	& & \verb|nombre.Campos(1)| \\
+\end{tabular}
+
+\raggedright
+\subsection{Matrices}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Inicialización &\verb|nombre: matrix([1,2,3],[4,5,6],[7,8,9])|  & 	\verb|nombre = [1 2 3; 4 5 6; 7 8 9]| \\
+	Asignación de elemento & \verb|nombre[i,j] : X|  & 	\verb|nombre(i,j) = X| \\
+	Asignación de fila & - & 	\verb|nombre(i,:) = [a b c]| \\
+	Asignación de columna & - & 	\verb|nombre(:,) = [a b c]| \\
+	Impresión & \verb|nombre| o \verb|nombre[i,j]| 
+	 & \verb|nombre| o \verb|nombre(i,j)| o \verb|nombre(2,:)| \\
+	 & 				o \verb|submatrix(i1, i2, ..., nombre, j1, j2, ...)| & \\
+	Agregación de filas/cols & \verb|addrow(r1,r2,...)| o \verb|addcol(c1, c2, ...)| & \\
+	Tamaño de matriz & \verb|matrix_size(nombre)| & \verb|size(matrix)|\\
+	Matriz inversa & \verb|invert(nombre)| o  \verb|nombre^^-1| & \verb|inv(A)| \\
+	Determinante & \verb|determinant(nombre)| & \verb|det(nombre)| \\
+	Transpuesta & \verb|transpose(nombre)| & \verb|nombre'| \\
+	Rango & \verb|rank(nombre)| & \verb|rank(nombre)|\\
+	Identidad & \verb|ident(n)| &\verb|eye(nombre)| \\
+	Matriz nula & \verb|zeromatrix(i,j)| & \verb|zeros(nombre)|\\
+	Autovalores & \verb|eigenvalues(nombre)| &  \\
+	Autovectores & \verb|eigenvectors(nombre)| &  \\
+	Devolver índices & & \verb!find(vector == x)! \\
+	Vector a lista & \verb|list_matrix_entries(matrix)| & \\
+\end{tabular}
+
+\raggedright
+\section{Operaciones trigonométricas}
+Son operaciones iguales en máxima y scilab. La lista de operaciones comunes es \verb|acos, acosh, acot, acoth, acsc, acsch, asec, asech, asin, asinh, atan, atanh, cos, cosh, cot, coth|, \verb|csc, csch, sec, sech, sin, sinh, tan| y \verb|tanh|.
+
+Para operar y simplificar expresiones trigonométricas hay varias funciones:
+\begin{itemize}
+	\item \verb|trigreduce()| simplifica una expresión a sumas de senos y cosenos.
+	\item \verb|trigexpand()| transforma expresiones con sumas de ángulos a expresiones simplificadas.
+	\item \verb|trigsimp()| transforma expresiones con \verb|tan|, \verb|sec|, etc. a sus versiones con \verb|sen| y \verb|cos|.
+	\item \verb|trigrat()| expande funciones trigonométricas a otras con combinaciones lineales de sus argumentos.
+	\item \verb|exponentialize()| transforma funciones trigonométricas en forma exponencial.
+\end{itemize}
+
+\raggedright
+\section{Operaciones polinomiales}
+En Máxima pueden crearse polinomios del estilo \verb|P1: x^2-2*x+1| y \verb|P2: a*x^3+b*x|, y se pueden hacer relaciones con ellos, del tipo \verb|P1+P2| o \verb|3*P1/P2|. 
+
+Además de las operaciones matemáticas usuales, existen funciones que operan con polinomios.
+
+\centering
+
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Factorización numérica y polinomial & \verb|factor(P)| & \\
+	Agrupación de variables & \verb|factorout(P)| &\\
+	Expansión polinómica & \verb|expand(P)| & \\
+	Cálculo de ceros de polinomio & \verb|allroots(P)| & \\
+	MCD Polinómico & \verb|gcd(P)| & \\
+	División polinómica & \verb|divide(P1, P2)| & \\
+	Simplificación polinómica racional & \verb|partfrac(P, var)| & \\
+\end{tabular}
+
+
+\raggedright
+\section{Otras operaciones}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Sustitución variables & \verb|X:matrix([a,b,c])| & 	 \verb|a=1;b=2;c=3|\\
+& \verb|a:1$b:2$c:3;| &  \verb|X=[a b c]|	 \\
+& \verb|X,num;| & \verb|X|	 \\
+\end{tabular}
+
+
+\raggedright
+\section{Resolución de ecuaciones}
+
+Las ecuaciones pueden resolverse simbólicamente con Máxima con diferentes funciones dependiendo del grado de complejidad de la ecuación o sistema de ecuaciones.
+\begin{itemize}
+	\item Ecuación simple: \verb|solve(eq, var)|
+	\item Ecuación simple con varias incógnitas: \verb|solve(eq, [v1, v2, ...])|
+	\item Ecuación trascendente (u otro tipo, más general): \verb|find_root(eq, var, intervalo_0, intervalo_f)|
+	\item Sistema lineal de ecuaciones con varias incógnitas: \verb|linsolve([eq1, eq2, ...],[v1,v2,...])|
+	\item Sistema algebráico de ecuaciones: \verb|algsys([eq1, eq2, ...], [v1, v2, ...])|
+	\item Resolución por método de Newton: \verb|load(mnewton);mnewton([eq1, eq2, ...], [v1, v2, ...], [v1_0, v2_0, ...])|. El último elemento es un vector inicial que usa \verb|mnewton| para hallar la solución. Si el sistema tiene más de una solución, el punto de inicio aproximará una solución u otra.
+	\item \verb|ev(f, x, y)| te evalua una expresión poniéndole los parametros \verb!x=a! e \verb!y=b!, siendo por ejemplo \verb!x! e \verb!y! las variables a evaluar.
+	\item Si tenemos una expresión como, por ejemplo, \verb|exp: [x+y = 2y + a*b]|, generada por una función \verb|solve|, o algo por el estilo, ejecutamos \verb|rhs(part(exp,1))| para quedarnos con el primer elemento de la lista, y luego con el lado derecho de la ecuación.
+	\item Resolución de inecuaciones: \verb|load(fourier_elim)$ fourier_elim([expr > val], [x])|
+\end{itemize}
+
+En Scilab se puede hacer una resolución numérica de ecuaciones con \verb|fsolve|. Suponemos el sistema de ecuaciones $y - x^2+1=0$; $y - e^x*\tan(x) = 0$. Entonces, definimos una función que toma $x$ e $y$ y almacena los resultados del lado izquierdo de ambas ecuaciones. Luego usamos esa función, y un vector inicial para hallar la solución.
+
+\begin{verbatim}
+function res=f(xy); res(1) = xy(2)- xy(1)^2+1; res(2) = xy(2) - exp(xy(1))*tan(xy(1)); endfunction
+xy0 = [0;1];
+xsol = fsolve(xy0, f)
+\end{verbatim}
+
+El resultado es \verb|xsol = [-0.748;-0.439]|, pero no sabemos si es la única.
+
+\raggedright
+\section{Representaciones gráficas}
+\raggedright
+\subsection{Plot 2D simple}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	De manera dicreta, se crean los puntos con una matriz, y luego se aplica la función.
+	\begin{verbatim}
+	x: [0,0.5,1,1.5,2,2.5,3,3,3.5]$
+	y: 2*x+3$
+	plot2d([discrete,x,y]);
+	\end{verbatim}
+	
+	Sin embargo, también se puede hacer de manera continua, especificando los límites y la variable.
+	\begin{verbatim}
+		plot2d(2*x+3, [x,0,3.5]);
+	\end{verbatim}
+	\columnbreak
+	
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	Se crea un array de puntos en \verb|x|, y luego se aplica la función.
+	\begin{verbatim}
+	x = 0:0.01:10;
+	y = 2*x+3;
+	plot(x,y)
+	\end{verbatim}
+	
+\end{multicols}
+
+\subsection{Plot 2D parametrizado}
+En Máxima podemos hacer un plot de una función parametrizada para \verb|x(t)| y \verb|y(t)|. La función es:
+\begin{verbatim}
+plot2d([parametric, x(t), y(t), [t, t_0, t_f], [nticks, X]])
+\end{verbatim}
+
+El parámetro \verb|nticks| puede omitirse y, en ese caso, te dibuja la función de manera ``continua''.
+
+\subsection{Representación de varias funciones}
+Tanto en Máxima como en Scilab se pueden representar funciones con una sola función. Simplemente, hay que hacer una lista de funciones individuales.
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+
+	\begin{verbatim}
+	plot2d([2*x+1,    
+	       [discrete, [-1,-0.5,0,1], [0,1,0,1]],  
+	       [parametric, sin(t), cos(t), 
+	       [t,0,%pi*2]],  
+	       [parametric, sin(t), cos(t^2), 
+	       [t,0,2*%pi]]], 
+	       [x, -1,1]);
+	\end{verbatim}
+	\begin{verbatim}
+	plot2d([cos(x), x*cos(x), x^2], 
+	[x, 0, 10]);
+	\end{verbatim}
+
+	\columnbreak
+	
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+¡El vector tiene que ser vector columna!
+	\begin{verbatim}
+	x=[0:0.01:10]';
+	plot(x, [cos(x), x.*cos(x), x.^2])
+	\end{verbatim}
+\end{multicols}
+
+
+\subsection{Gráficas en 3D}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	Para crear una gráfica en 3D primero creamos la función \verb|z(x,y)|, y luego hacemos el plot.
+	\begin{verbatim}
+	z(x,y) := exp(x)*sin(y)^2$
+	plot3d(z, [x,0,1], [y,0,1])
+	\end{verbatim}
+	
+	\columnbreak
+	
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	\begin{verbatim}
+	x=[0:0.01:10]';
+	y=[0:0.01:10]';
+	z=exp(x)*sin(y')^2;
+	plot3d(x,y,z)
+	\end{verbatim}
+	
+	Aquí es muy importante hacer que \verb|x| e \verb|y| sean matrices columna. Si no, no sale el gráfico. A veces es más fácil definir la función con la función \verb|deff| y nos ahorramos ese paso. En este caso usamos \verb|fplot3d()| para plotear.
+	
+	\begin{verbatim}
+	deff(z=f(x,y)', 'z=exp(x).*sin(y)^2');
+	fplot3d(x,y,z)
+	\end{verbatim}
+	
+\end{multicols}
+
+\subsection{Gráficas de contorno}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	Primero se define la función, luego unos parámetros de ploteo y, por último, se hace el contorno.
+	\begin{verbatim}
+	z(x,y) := 1+(1/4000)*(x^2+y^2)-
+	cos(x)*cos(y/2^0.5)$
+	set_plot_option	([gnuplot_preamble, 
+	"set cntrparam levels 10"])$
+	contour_plot (z, [x,-6,6], [y,-6,6]);
+	\end{verbatim}
+	\columnbreak
+	
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	
+	Primero se definen los vectores \verb|x| e \verb|y|, luego se crea la función y por último se crea el contorno.
+	\begin{verbatim}
+	x=-6:0.01:6; o x=linspace(-6,6,100);
+	y=-6:0.01:6; 
+	
+	function f = z(x,y);
+	f=1+(1/4000)*(x.^2+y.^2)-cos(x).*cos(y/2^0.5)
+	endfunction
+	
+	contour (x,y,z,10)
+	\end{verbatim}
+	
+\end{multicols}
+
+\subsection{Otros gráficos}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Histograma &  & \verb|histplot(nbins, data)|\\
+	Subplots &  & \verb|subplot(n_rows, n_cols, idx)| 	 \\
+
+\end{tabular}
+
+\raggedright
+\section{Límites}
+\subsection{1 variable}
+Ponemos de ejemplo el límite $\lim_{x\rightarrow\pi/2} \frac{\sin(x)}{\cos(x)}$.
+
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+
+	Simplemente usamos la función \verb|limit|.
+
+	\verb|limit(sin(x)/cos(x),x,%pi/2,minus) >>| $\infty$
+	\verb|limit(sin(x)/cos(x),x,%pi/2,plus) >>| $-\infty$
+	\verb|limit(sin(x)/cos(x),x,%pi/2) >> infinity|
+	
+	Para límites en infinito se emplean los términos \verb|inf| y \verb|minf| en \verb|limit|.
+	\columnbreak
+	
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	
+	Primero se definimos un \verb|x| arbitrariamente cercano al valor del límite, y aplicamos \verb|x| a la función.
+	\begin{verbatim}
+	x1=%pi/2 + 1D-15;
+	limit1=sin(x1)/cos(x1) >> -9.5D+14
+	x2=%pi/2 - 1D-15;
+	limit2=sin(x2)/cos(x2) >> 8.5D+14
+	\end{verbatim}
+	
+\end{multicols}
+
+
+
+\section{Diferenciación}
+\subsection{1 variable}
+Tomamos la función $f(x) = x^2\sin(x)$.
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	La función calcula la derivada n-ésima 
+	\verb|diff (x^2*sin(x),x,n);|
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	Sólamente podemos hacer una aproximación numérica empleando la definición de derivada $f'(x) = \lim_{h\rightarrow 0} \frac{f(x+h) - f(x)}{h}$. 
+	\begin{verbatim}
+	x = 0:0.01:1;
+	h = 1D-5;
+	x_h = x + h;
+	d_f = (x_h.^2.*sin(x_h) - x.^2.*sin(x))/h;
+	\end{verbatim}
+\end{multicols}
+
+\subsection{Varias variables}
+El procedimiento es similar, en Máxima, solo que se define la variable de diferenciación:
+
+\verb|diff (x^2-x*y+sin(x*y^2), y)|.
+
+
+En el caso de tener funciones con dependencias, como $f(u,v)$ y $g(u,v)$ éstas se establecen con la función \verb|depends|.
+
+\verb|depends([f,g],[u,v]) >> [f(u,v), g(u,v)]|
+
+\section{Integración}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	\verb|integrate (f,x) / integrate (f,x,a,b)|
+	
+	Podemos definir cambios de variable en tres pasos: \linebreak
+	1) Definimos la integral SIN EVALUAR\linebreak
+	\verb|'integrate(f,x);|\linebreak
+	2) Cambiamos la variable definiendo la función de cambio $g(t,x)$. Por ejemplo, el cambio $t = x^2$ se definiría como \verb|g = x^2-t|\linebreak
+	\verb|changevar(%, g, t, x);|\linebreak
+	3) Evaluamos la nueva integral\linebreak
+	\verb|ev(%, nouns)|
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	\begin{verbatim}
+	function y=f(x), y=x^2, endfunction
+	integrate('x^2', 'x', 0, 1)
+	intg(0, 1, f)
+	
+	x = 0:0.01:1
+	intsplin(t, t^2)
+	inttrap(t, t^2)
+	\end{verbatim}
+
+\end{multicols}
+
+\subsection{Integrales dobles y triples}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	Simplemente se concatenan varios integrate:
+	\verb|integrate(integrate(f(u,v),v,v1,v2),u,u1,u2)|
+	
+	Y lo mismo para integrales triples:
+	\begin{verbatim}
+	integrate(integrate(integrate(
+	f(u,v,w),w,w1,w2),
+	v,v1,v2), u,u1,u2)
+	\end{verbatim}
+	
+
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	Para las integrales definidas, definimos los vectores \verb|X|, \verb|Y|, \verb|Z|, que son los puntos de los triángulos o tetraedros que definen la malla de la superficie.
+	
+	La función $f$ se define con \verb|deff|:
+	\verb|deff('k=f(x,y,z)','k=x*y*z');|
+	\begin{verbatim}
+	[res, error] = int2d(X, Y, f)
+	[res, error] = int3d(X, Y, Z, f)
+	\end{verbatim}
+	
+\end{multicols}
+
+
+
+\raggedright
+\section{Sumas y series (Máxima)}
+
+Las sumas de una expresión se realizan con \verb|sum(expresión, i, i_0, i_f)|. En el caso en el que se quiera resolver la suma, se añade \verb|, simpsum| a la expresión anterior.
+
+Los desarrollos de Taylor se hacen con la función \verb|taylor(expresión, variable, x_0, nivel_de_truncamiento)|. El desarrollo va a tener un término más que el nivel de truncamiento.
+
+La función \verb|pade| hace el inverso de Taylor para funciones racionales. \verb|pade| necesita un objeto de desarrollo de Taylor, y toma los siguientes argumentos: \verb|pade(expresión_taylor, grado_numerador, grado_denominador)|. 
+
+\verb|taylor (1 + x + x^2 + x^3, x, 0, 3)$|
+\verb|pade (%, 1, 1);|
+
+La función \verb|powerseries| hace un desarrollo de potencias de la expresión en $x_0$. La expresión es \verb|powerseries(expresión, variable, x_0)|.
+
+\section{Funciones y bucles}
+\subsection{Funciones}
+
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	Sólo acepta un argumento de salida.
+	\begin{verbatim}
+	fun(arg1, arg2, ...) := *Cuerpo de la función
+	\end{verbatim}
+	
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+		\begin{verbatim}
+	function [o1, o2, ...] = f(arg1, arg2, ...)  
+	ó  function o = f(arg1, arg2, ...);
+	// Código de la función. o1, o2, ... deben 
+	// asignarse en algún punto de la función.
+	// en el caso de ser o una lista, 
+	// se puede escribir 
+	//o(1)=... , o(2)=...
+	endfunction
+	\end{verbatim}
+	
+\end{multicols}
+
+\subsection{Bucles}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	
+	\begin{verbatim}
+	if cond then resp1 else resp2
+	\end{verbatim}
+	
+	Máxima no acepta cláusulas \verb|elseif| como Scilab, sino que estas se programan directamente:
+	
+	\begin{verbatim}
+	if cond1 then resp1 
+	else if cond2 then resp2 
+	else resp3
+	\end{verbatim}
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	Scilab permite hacer uso del típico \verb|if|, así como del caso \verb|select|
+	\begin{verbatim}
+	if (cond) then 
+	resp1 
+	elseif cond2
+	resp2
+	else resp3
+	end
+	\end{verbatim}
+	
+	El caso \verb|select| toma el valor de una variable, y ejecuta las condiciones según el valor de la variable.
+	\begin{verbatim}
+	select var
+	case opcion1 resp1
+	case opcion2 resp2
+	else resp3
+	end
+	\end{verbatim}
+\end{multicols}
+
+
+\subsection{Bucles}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	Los bucles derivan del bucle \verb|for|, que tiene tres variantes:
+	
+	\begin{verbatim}
+	for v: v1 step v2 thru v3 do expr
+	for v: v1 step v2 while cond do expr
+	for v: v1 step v2 unless cond do expr
+	for v in lista do expr
+	\end{verbatim}
+	
+	Por un lado, el parámetro \verb|step| no es necesario si, por ejemplo, el paso es 1.
+	Así, podemos conseguir hacer
+	\begin{verbatim}
+	for v: v1 thru v3 do expr
+	\end{verbatim}
+	
+	Por último, podemos escribir \verb|while| y \verb|unless| sin \verb|for|:
+	\begin{verbatim}
+	while cond do expr
+	unless cond do expr
+	\end{verbatim}
+	
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	\begin{verbatim}
+ 	for var = v_0:step:v_f
+ 	ó for var = v_0:v_f
+ 	ó for var = lista
+ 	
+ 	expr
+ 	end
+	\end{verbatim}
+	
+	La estructura de los bucles \verb|while| es:
+	\begin{verbatim}
+	while (cond) expr end
+	\end{verbatim}
+	
+	La expresión \verb|break| termina el bucle cuando se invoca; y la expresión \verb|continue| hace que se salte ese ciclo y pase al siguiente. En ambos casos se pasa por alto el resto de la expresión del \verb|for| o \verb|while|.
+\end{multicols}
+
+\raggedright
+\section{Ecuaciones diferenciales}
+Como siempre, Máxima te puede dar una solución simbólica, y Scilab te dará una solución numérica.
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+		En primer lugar, siempre se define la ecuación: ($\frac{d}{dx}y = \frac{d^2}{d^2x}y+x$)
+		\verb|ec:'diff(y,x) = x + 'diff(y, x, 2)|
+		Si la ecuación es EDO de hasta grado 2, se resuelve con 
+		\verb|ode2(ec, y, x) >> y=%k1*%e^x+(x^2+2*x+2)/2+%k2|
+		Si queremos resolverla con condiciones iniciales:
+		\verb|ic2(%, x=1, y=-1, diff(y,x)=2)|
+		Si por el contrario queremos poner puntos de contorno:
+		\verb|bc2(%, x=-1, y=3, x=0, y=0)|
+	\columnbreak
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	Se define la ecuación diferencial (del tipo $\frac{d}{dt}y=f(t,y)$ con una función:
+	\verb|function dydt=func(t,x,x0)|
+	\verb|dydt=2^t*log(2)*x0; endfunction|
+	Ahora hacemos set de x0, t0 y t como vector de tiempos:
+	\verb|x0=10, t0=0, t=0:1:10|
+	\verb|x = ode('rk', x0, t0, t, func)|
+
+\end{multicols}
+
+
+\section{Optimización}
+En máxima, la optimización se resuelve de manera analítica. Para resolverla de manera numérica, puede realizarse con Scilab.
+Para ello empleamos la función \verb|[x, fval, exitflag, output] = fminsearch(func, x0, opt)|
+Donde \verb|x| y \verb|fval| son el valor de $x$ óptimo y su correspondiente valor. \verb|func| es la función a optimizar, \verb|x0| es un valor inicial para buscar el mínimo, y \verb|opt| son unas opciones de optimización. Un ejemplo es \verb|opt=optimset("TolX", 0.0001)|, que establece un valor de tolerancia específico.
+
+Para problemas más complejos de optimización, se puede emplear la función \verb|optim|. Esta función requiere la función de coste, así como el gradiente. Un ejemplo para la función $S = ab + V/b + V/a$, $\partial S/\partial a = 2*(b-V/a^2)$, $\partial S/\partial b = 2*(a-V/b^2)$. Así, el código es:
+\begin{verbatim}
+function [S, dS, ind] = paral(x, V, ind)
+a=x(1)
+b=x(2)
+c=V/(a*b)
+S=2*(a*b+V/b+V/a)
+dS(1) = 2*(b-V/a^2)
+dS(2) = 2*(1-V/b^2)
+endfunction
+[S,x,dS]=optim(paral, [1;1])
+\end{verbatim}
+
+\raggedright
+\section{Operaciones con ficheros}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Cambiar directorio de trabajo & \verb|chdir(dir)|  & \verb|chdir(dir)| \\
+	Abrir un archivo & \verb|read_matrix(dir)| & \verb|a = file('open', dir, 'old')|   \\
+		 &  & \verb|n = read(a, n_filas, n_cols)|  \\
+			 &  &  \verb|file('close', a)| \\
+	Abrir un archivo (2) & \verb|read_list(dir)| & \verb|n = csvRead(dir, separator))|\\
+	Escribir matriz en archivo & \verb|write_data(n, dir)| &\verb|csvWrite(n, dir, separator)|\\
+	Buscar un archivo & \verb|file_search(dir)| & \\
+	Ordenar una lista/matriz & & \verb|[listaord, indices] = gsort(lista, opciones, orden)|
+\end{tabular}
+
+A la hora de ordenar, las opciones son \verb|r|: ordena la fila, \verb|c|: ordena la columna, \verb|g|: ordena todo, \verb|lr|: ordena la file lexicográficamente, \verb|lc|: ordena la columna lexicográficamente.
+Con respecto al orden, \verb|i|: increase; y \verb|d|: decrease. 
+
+\raggedright
+\section{Estadísticos descriptivos, y ajuste de datos}
+\centering
+\begin{tabular}{lcc}
+	& Máxima & Scilab \\ \midrule
+	Rango & \verb|range()|  & \verb|strange(dir)| \\
+    Máximo & \verb|smax()| & \verb|max('open', dir, 'old')|   \\
+	Mínimo & \verb|smin()|  & \verb|min()|  \\
+	Media& \verb|mean()| &  \verb|mean()| \\
+	Desviación (s/N-1)& \verb|std1()| & \verb|st_deviation()| \\	
+	Desviación (s/N)& \verb|std()| &  \\
+
+\end{tabular}
+
+\begin{center}
+	Ajuste lineal de datos
+\end{center}
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	\begin{verbatim}
+	m: matrix([a1,b1],[a2,b2],...,[an,bn])$
+	load("lsquares")$
+	
+	pol1: lsquares_estimates(m, [x,y], y=a1*x+a0, 
+	[a1, a0]), numer;
+	mse1: lsquares_residual_mse(mdatos, [x,y], 
+	y=a1*x+a0, first(pol1))
+	
+	pol2: lsquares_estimates(m, [x,y], 
+	y=a2*x^2+a1*x+a0, [a2, a1, a0]), numer;
+	mse2: lsquares_residual_mse(mdatos, [x,y], 
+	y=a2*x^2+a1*x+a0, first(pol2))
+	\end{verbatim}
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	\begin{verbatim}
+	[m,b,sig] = reglin(x,y)
+	\end{verbatim}
+	
+	Para hacer ajustes polinómicos debería crearse la función
+	\begin{verbatim}
+	function cf = polyfit(x,y,n)
+	A = ones(length(x),n+1)
+	for i=1:n
+	A(:,i+1) = x(:).^i
+	end
+	cf = lsq(A,y(:))
+	endfunction
+	\end{verbatim}
+	
+\end{multicols}
+
+
+\begin{center}
+	Interpolación
+\end{center}
+\raggedright
+\begin{multicols}{2}
+	\begin{center}
+		\textbf{Máxima}
+	\end{center}
+	En el caso de máxima, las interpolaciones que realiza son una interpolación lineal, una interpolación cubica con splines y una interpolación de Lagrange. El código para las interpolaciones y las gráficas es el siguiente:
+	
+	\begin{verbatim}
+	m: matrix([a1,b1],[a2,b2],...,[an,bn])$
+	load(interpol)$
+	
+	y: linearinterpol(mdatos)$
+	ftl(x):= ''y;
+	
+	y: cspline(mdatos)$
+	fs(x):= ''y;
+	
+	y: lagrange(mdatos)$
+	fpl(x):= ''y;
+	
+	xm:list_matrix_entries(submatrix(mdatos,2));
+	ym:list_matrix_entries(submatrix(mdatos,1));
+	
+	plot2d([[discrete, x, ym], 
+	ftl(x), fs(x), fpl(x)], 
+	[x, 0.5, 6.5], [style, points, 
+	lines, lines, lines])
+	\end{verbatim}
+	
+	\begin{center}
+		\textbf{Scilab}
+	\end{center}
+	
+	\verb|ipl = interp1(x, y, xp, tipo, 'extrap')|
+	
+	Aquí, \verb|x, y| son los datos, \verb|xp| es la lista de puntos de x donde se va a hacer la interpolación, y \verb|tipo| es el tipo de interpolación. Por ejemplo, \verb|'linear'| hace una interpolación linear punto a punto, \verb|'spline'| hace una interpolación por splines, y \verb|'nearest'| hace una interpolación escalonada.
+	
+	Así por ejemplo, para hacer las interpolaciones y graficar todo a la vez:
+		
+	\begin{verbatim}
+	mdatos = [1 0; 2 1; 3 3; 4 2; 5 4; 6 5]
+	x = mdatos(:, 1)
+	y = mdatos(:, 2)
+	xp = min(x) - 0,5:0.05:max(x)+0.5
+	ypl = interp1(x, y, xp, 'linear', 'extrap')
+	ypc = interp1(x, y, xp, 'spline', 'extrap')
+	plot(x, y, 'o', xp, ypl, 'r', xp, ypc, 'k')
+	\end{verbatim}
+	
+	Si queremos hallar el valor de la interpolación lineal, podemos aplicar la siguiente función:
+	\verb|interpln(mdatos', 2.5);|
+	
+\end{multicols}
+
+\end{document}
