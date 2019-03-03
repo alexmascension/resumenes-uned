@@ -1,0 +1,301 @@
+\documentclass[a4paper]{article}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+
+\usepackage{xcolor}
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{Matemática discreta}
+\rhead{\today}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[default]{gillius}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\begin{document}
+\section*{Algoritmos de división y Euclides}
+Dados a, b, c, d y m, con m $\neq$0. Si
+$$a \mod m = c \mod m   \qquad\qquad\qquad  b \mod m = d \mod m$$
+Entonces
+$$(a+b)\mod m = (c+d) \mod m  \qquad\qquad\qquad (ab)\mod m = (cd) \mod m $$
+\hrulefill
+
+Algoritmo de Euclides para hallar $d=\text{mcd}(a,b)$.
+\begin{enumerate}
+	\item Hallamos $q_1$ y $r_1$ tales que $a = bq_1+r_1$
+	\item Seguimos con $b = r_1q_2+r_2$
+	\item $r_1 = r_2q_3+r_3$, etc.
+	\item Hasta que llegamos a un punto tal que $r_i = r_{i+1}q_{i+2} + 0$. En este punto tenemos que $d = \text{mcd}(a,b) = r_{i+1}$.
+\end{enumerate}
+\hrulefill
+
+Si $d = \text{mcd}(a,b)$, entonces existen $x$ e $y$ tales que $d = ax+by$. Por tanto, si existen $x'$ e $y'$ tales que $ax'+by'=1$, entonces $a$ y $b$ son primos entre sí.
+
+\hrulefill
+
+Si $k>0$, entonces $\text{mcd}(ka,kb) = k \text{mcd}(a,b)$.
+
+\hrulefill	
+
+Si 	$\text{mcd}(a,b) = d$, entonces $\text{mcd}(\frac{a}{d},\frac{b}{d}) = 1$
+
+\section*{Número primos y Teorema fundamental de la Aritmética}
+Lema de Euclides: sean $a$, $b$ y $c$ enteros. Si $a$ y $c$ son primos entre sí y $a|bc$, entonces $a|b$.
+
+De aquí sacamos que si $p|a_1a_2a_3\cdots a_k$, entonces $\exists i : p|a_i$.
+
+\hrulefill
+
+Teorema fundamental de la Aritmética: Sea $n>1$, entonces existen números primos $p_1,p_2,\cdots,p_i$ tales que $n=p_1p_2\cdots p_i$. Además, esta factorización es única.
+
+De ahí derivamos que la factorización única de $n$ es de la forma:
+$$|n| = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_t^{\alpha_t}$$
+
+\hrulefill
+
+Dados $a = p_1^{\alpha_1}p_2^{\alpha_2}\cdots p_t^{\alpha_t}$ y $b = p_1^{\beta_1}p_2^{\beta_2}\cdots p_t^{\beta_t}$...
+
+$$\text{mcd}(a,b) = p_1^{\min(\alpha_1,\beta_1)}p_2^{\min(\alpha_2,\beta_2)}\cdots p_t^{\min(\alpha_t,\beta_t)}\qquad \qquad \text{mcm}(a,b) = p_1^{\max(\alpha_1,\beta_1)}p_2^{\max(\alpha_2,\beta_2)}\cdots p_t^{\max(\alpha_t,\beta_t)}$$
+	
+\hrulefill
+
+\section*{Ecuaciones diofánticas}
+Ecuaciones del tipo $ax+by=n$.
+\begin{itemize}
+	\item Hallamos $d=\text{mcd}(a,b)$ y ascendemos en el algoritmo de Euclides hasta obtener la expresión $aq_1^*+ bq_2^*=d$.
+	\item Entonces: $x_0=\frac{nq_1^*}{d}$ e $y_0 = \frac{nq_2^*}{d}$.
+	\item Las soluciones generales son: $x = x_0+t\frac{b}{d}$ e $y=y_0+t\frac{a}{d}$.
+\end{itemize}
+
+Ecuaciones del tipo $x^2-y^2=n$. 
+\begin{itemize}
+	\item Sólo puede solucionarse si $n$ tiene una factorización de números $n=ab$ con igual paridad.
+	\item Si es así, las soluciones son:
+	$$x = \frac{a+b}{2} \qquad\qquad y = \frac{a-b}{2}$$
+\end{itemize}
+
+Algoritmo de Factorizació de Fermat: si $n$ es impar, y fuera compuesto, entonces se cumpliría que $n = \left(\frac{a+b}{2}\right)^2 - \left(\frac{a-b}{2}\right)^2 = x^2-y^2$. Entonces, demostrar que $n$ es compuesto es equivalente a resolver $x^2-n=y^2$, con $\sqrt{n}\le x \le \frac{n+1}{2}$. Es decir, probar $x$ en ese intervalo, y ver si el resultado de la resta es un número cuadrado. Si no lo es, entonces $n$ es primo.
+
+Ecuaciones que desenboquen en ternas pitagóricas.
+\begin{itemize}
+	\item Asegurar que $x$, $y$ y $z$ son primos entre sí. Si no lo son, entonces hallar el mcd y dividir los números por el mcd.
+	\item Alguno de los valores, es divisible por 2. Hacemos que este valor sea $x$.
+	\item Entonces, existen $s$ y $t$, de distinta paridad, tales que
+	$$x = 2st \qquad y = s^2-t^2 \qquad z=s^2+t^2$$
+\end{itemize}
+
+\section*{Congruencias}
+Recordemos que $a$ y $b$ son congruentes módulo $m$ ($a\equiv b \mod m$) sii $m|(a-b)$. 
+
+Tenemos que si $a\equiv b \mod m$ y $c\equiv d \mod m$, entonces $a+c\equiv b+d \mod m$ y $ac \equiv bd \mod m$. También, si $d|m$, entonces, $a\equiv b \mod d$.
+
+\hrulefill
+
+La ecuación $ax \equiv b \mod m$ tiene solucion sii $d|b$, $d = \text{mcd}(a,b)$.
+Además, sería el equivalente a resolver la ecuación diofántica $ax+my=b$.
+
+\hrulefill
+
+Teorema chino del resto. Si tenemos un sistema de congruencias $a_i \equiv b_i \mod m_i$ con $\text{mcd}(m_i,m_j)=1 \;\;\forall i,j$ y $\text{mcd}(a_i,m_i)=1 \;\;\forall i$, el sistema tiene una solución $x_0$, única, y las demás soluciones son de la forma $x=x_0+\lambda(m_1m_2\cdots m_k)$.
+
+La solución $x_0$ es: $x_0 = \sum_{i = 1}^{k} x_it_iy_i$. Donde
+\begin{itemize}
+	\item $x_i$ es la solución trivial del sistema $a_ix \equiv b_i \mod m_i$.
+	\item $t_i = \frac{m}{m_i} \;\;\;\; m = \prod m_i$
+	\item $y_i$ es la solución de la ecuación $t_iy \equiv 1 \mod m_i$.
+	\item Una vez tenemos $x_0$ la menor solución, $x^*$ va a ser al solución de la congruencia $x_0 \equiv x^* \mod m$.	
+\end{itemize}
+
+\hrulefill
+
+Función $\phi$ de Euler. Definimos $\phi(n)$ al numero de enteros positivos menores de $n$ y primos con este. Tenemos que $\phi(p) = p-1$, con $p$ primo.
+
+Dicho esto, $\phi(p^r) = p^r - p^{r-1} = p^r\left(1-1/p\right)$. Si $n = p_1^{r_1}p_2^{r_2}\cdots p_t^{r_t}$ entonces $\phi(n) = n\cdot\left(1-1/p_1\right)\left(1-1/p_2\right)\cdots\left(1-1/p_t\right)$.
+
+\hrulefill
+
+Teorema de Euler. Sean $a$ y $m$ dos enteros con $\text{mcd}(a,m) = 1$, entonces $a^{\phi(m)}=1\mod m$. De aquí sacamos el pequeño teorema de Fermat: $a^{p-1}=1\mod p$. 
+
+\hrulefill
+
+Teorema de Wilson. Si $p$ es primo, entonces $(p-1)! \equiv -1 \mod p$.
+
+\section*{Criterios de divisibilidad}
+
+Teorema de la base. Si $b>2$, entonces cualquier número n puede expresarse en la forma $n = a_0 + a_1b + a_2b^2 + a_3b^3 + \cdots a_kb^k$.
+
+Entonces, para hallar un criterio de divisibilidad empleamos los siguientes pasos:
+\begin{itemize}
+	\item Si $n \equiv 0 \mod m$, entonces $ a_0 + a_1b + a_2b^2 + a_3b^3 + \cdots a_kb^k \equiv 0 \mod m$. Así, buscamos el criterio de divisibilidad para cada sumando, y sumamos todos los criterios.
+\end{itemize}
+
+
+\section*{Grafos, Digrafos y Multigrafos}
+
+Primer teorema de de la Teoría de Grafos. Sea $G=(V,E)$ un grafo. Se cumple que la suma de los grados de los vértices equivale al doble del número de aristas del grafo:
+$$\sum_{i=1}^{p} \text{gr}(v_i)=2\#E$$
+
+\hrulefill
+
+Definiciones:
+\begin{itemize}
+	\item Multigrafo: dos vértices tienen dos o más aristas que los unan.
+	\item Pseudografo: uno o más vértices tiene una arista consigo mismo.
+	\item Digrafo: grafo que indica direccionalidad de las aristas.
+	\item Grafos isomorfos: si existe una biyección entre $G$ y $G'$.
+	\item Regular: grafo que tiene el mismo número de aristas en todos los vértices.
+	\item Completo: si el grafo con $n$ vértices tiene $n-1$ aristas para todos los vértices.
+\end{itemize}
+
+\section*{Grafos eulerianos y hamiltonianos}
+Más definiciones:
+\begin{itemize}
+	\item Camino: sucesion de vertices y aristas conectados.
+	$$v_0,v_0v_1,v_1,v_1v_2,\cdots,v_{n-1},v_{n-1}v_n,v_n$$
+	\item Camino cerrado: camino donde $v_0=v_n$.
+	\item Camino simple: camino donde no se repiten aristas.
+	\item Ciclo: camino cerrado donde no hay repetición de vértices (sólo el primero y el último).
+	\item Circuito: camino cerrado que no repite aristas.
+	\item Grafo conexo/desconexo: grafo donde todos los vertices tienen una conexión. En otras palabras, si para cada par de vértices $u,v$, existe un camino que conecte ambos vértices.
+	\item Grafo euleriano: grafo donde todos los vértices pueden crear un camino que contenga una única vez todas las aristas.
+	\item Grafo hamiltoniano: un grafo que admite un ciclo hamiltoniano, es decir, un ciclo que contiene todos los vértices del grafo. 
+\end{itemize}
+
+\hrulefill
+
+Un grafo es euleriano si el grado de todos los vértices es par o si todos menos dos vértices tienen grado par. En este último caso, el camino tiene que empezar por uno de los vértices con grado impar y acabar por el otro. Si el grafo no cumple estas características no es euleriano.
+
+\hrulefill
+
+Si para un grafo $G=(V,E)$ se cumple que, para todo $v$, $\text{gr}(v) \ge \frac{n-1}{2}$, entonces admite un camino hamiltoniano. Esto también es cierto si para todo par de vértices $v,w$, $v\neq w$, $\text{gr}(v)+\text{gr}(w) \ge n-1$. Además, si para todo $v$, $\text{gr}(v) \ge \frac{n}{2}$, entonces $G$ es hamiltoniano. Aviso: esto no quiere decir que si $\text{gr}(v) \le \frac{n}{2}$ entonces $G$ no sea hamiltoniano.
+
+\section*{Exploración de grafos}
+
+Sea $\mathcal{M}$ la matriz de adyacencia de un grafo. $\mathcal{M}^n$ es la matriz que indica todos los caminos de longitud $n$ disponibles entre los pares de vertices $v_i,v_j$ del grafo. 
+
+\hrulefill
+
+La matriz $\mathcal{C} = \mathcal{M}^{p-1}+\mathcal{M}^{p-2}+\mathcal{M}^2+\mathcal{M}$, con $p$ el número de vértices del grafo, indica todos los posibles caminos de longitud $<p$. Si alguna entrada de $\mathcal{C}$ es nula, el grafo no es conexo.
+
+\hrulefill
+
+Un arbol es un grafo conexo sin ciclos. Por tanto, un grafo es un árbol sii cada dos vértices distintos del árbol se conectan por un único camino simple. Si el árbol $T$ es un subgrafi de un grafo conexo $G$, $T$ es un subárbol conectante / maximal.
+
+\hrulefill
+
+Sea $(T,r)$ un árbol con raíz, y $v$ y $w$ dos vértices de $T$. Si dice que $v \ge w$ si el camino que une $r$ con  $w$ pasa por $v$.
+
+\section*{Mapas y coloraciones}
+
+Un grafo es plano si admite una representación gráfica en el plano de modo que cad arista corta únicamente a otra arista en un vértice que sea extremo de ambas. Un mapa es la representación de un grafo plano. Cada porción pintada de un mapa se denomina región. El grado de la región es la longitud del camino que la bordea.
+
+\hrulefill
+
+La suma de los grados de la regiones de un mapa es igual al doble del número de aristas de este.
+
+\hrulefill
+
+Teorema de Euler. Sea $M$ un mapa conexo con $\#R$ regiones. Entonces se cumple que $\#V + \#R - \#E = 2$.
+
+\hrulefill
+
+Si $G=(V,E)$ es un grafo plano conexo con $\#V \ge 2$, entonces $\#E \le 3\#V-6$. Si tenemos que en $G$ no existe ningún grafo isomorfo al grafo completo $K_3$, entonces $\#E \le 2\#V-4$.
+
+\hrulefill
+
+Teorema de Kurtakowski. Un grafo es plano si no contiene ninguna subdivisión de $K_5$ o $K_{3,3}$.
+
+\hrulefill
+
+Un grafo es bipartito si admite una coloración con dos colores, $\gamma: V\rightarrow\{0,1\}$. Un grafo es bipartito sii o ciclos de longitud impar.
+
+\hrulefill
+
+Un clique es un conjunto de vértices tal que para cada par de vértices haya una arista que los conecte. Es decir, es un subgrafo completo.
+
+\section*{Métodos combinatorios: técnicas básicas}
+Principio de adición: sean $A_1, A_2, \cdots, A_n$ conjuntos finitos tales que $A_i \cup A_j = \emptyset$, entonces $|\bigcup A_i| = \sum |A_i|$.
+
+Principio de multiplicación:  $A_1, A_2, \cdots, A_n$ conjuntos finitos, entonces $|A_1 \times A_2 \times \cdots \times A_n| = |A_1||A_2|\cdots|A_n|$.
+
+Principio de distribución: dados $n$ enteros $m_1,m_2,m_3,\cdots,m_n$ tales que $(\sum m_i) / n  > p$, entonces existe un $m_i > p$.
+
+\section*{Permutaciones, combinaciones y variaciones}
+
+\begin{itemize}
+	\item Variaciones = número de aplicaciones inyectivas: V$(n,r) = \frac{n!}{(n-r)!}$
+	\item Variaciones con repetición ($n$ letras diferentes en $r$ posiciones): VR$(n,r) = n^r$.
+	\item Combinaciones: C$(n,r) = \frac{n!}{r!(n-r)!}$.
+	\item Combinaciones con repetición, equivalente a resolver $x_1+x_2+\cdots+x_r=n$: CR$(n,r)=$ C$(n+r-1,n)$
+	\item Permutaciones circulares de $n$ objetos en $r$ posiciones: P$(n,r)$ = C$(n,r)\cdot(r-1)!$.
+\end{itemize}
+
+\section*{Teorema del Binomio}
+Fórmula de Pascal. 
+$${n \choose k} = {n-1 \choose k} + {n-1 \choose k-1}  \qquad\qquad\rightarrow\qquad\qquad
+{n+1 \choose k} = {n \choose k} + {n \choose k-1} $$
+
+\hrulefill
+
+Teorema del Binomio.
+$$(x+y)^n = \sum^{n}_{i=0} {n \choose i}x^iy^{n-i} \qquad \rightarrow \qquad \sum^{n}_{i=0} {n \choose i} =  2^n$$ 
+
+\hrulefill
+
+Para cada $m,k\in \mathbb{N}\cup\{0\}$ y para $k\le m$ se tiene la igualdad.
+$${m+1 \choose k+1} = {k \choose k} + {k+1 \choose k} + \cdots + {m \choose k}$$
+
+
+\hrulefill
+
+Coeficiente multinómico. Dados $n$ objetos de $k$ tipos, cuales el número de combinaciones con $n_i$ objetos del tipo $i$.
+$$P(n,n_1,n_2,\cdots,n_k) = {n \choose n_1}{n - n_1 \choose n_2}{n-n_1-n_2 \choose n_3}\cdots = \frac{n!}{n_1!n_2!\cdots n_k!}$$
+Este es el mismo coeficiente que se aplicaria para un desarrollo de la fórmula de Leibniz: $(x_1+x_2+...+x_k)^n$.
+
+\section*{Principio de inclusión-exclusión}
+Sea $S$ un conjunto finito y $P_1, P_2, \cdots, P_n$ propiedades de cada uno de los elementos de S, que pueden o no satisfacerse. Entonces, $S_i$ es el conjunto de elementos que satisfacen la propiedad $P_i$, mientras que $\overline{S_i}$ es el conjunto de elementos que no la satisfacen. Dicho esto, definimos dos expresiones:
+$$\left| \bigcap^n_{i=1}{\overline{S_i}}\right| = |S| - \sum^n_{i=1}|S_i| + \sum |S_{i1}\cap S_{i2}| + \cdots + (-1)^k \sum |S_{i1}\cap S_{i2}\cap \cdots \cap S_{ik}| + \cdots +  (-1)^n \sum |S_{1}\cap S_{2}\cap \cdots \cap S_{n}| $$
+
+$$\left| \bigcup^n_{i=1}{\overline{S_i}}\right| = \sum^n_{i=1}|S_i| - \sum |S_{i1}\cap S_{i2}| + \cdots + (-1)^{k-1} \sum |S_{i1}\cap S_{i2}\cap \cdots \cap S_{ik}| + \cdots +  (-1)^{n-1} \sum |S_{1}\cap S_{2}\cap \cdots \cap S_{n}| $$
+
+\hrulefill
+
+Desordenaciones. El número de permutaciones tales que ninguno de los elementos de la permutación coincide con el original es el número de desordenaciones, $d(n)$.
+$$d(n) = n! \sum_{j=0}^n\frac{(-1)^j}{j!}$$
+
+\section*{Recursividad y relaciones recurrentes}
+Una relación de recurrencia de la forma $r(n) = a_1r(n-1)+a_2r(n-2)+\cdots+a_tr(n-t)+k(n)$ es una relación de recurrencia lineal. Si $k(n) = 0$, entonces es lineal homogénea.
+
+Sea $r(n) - a_1r(n-1)-a_2r(n-2)-\cdots-a_tr(n-t)=0$ una relación de recurrencia lineal y homogénea. La expresión $x^t-a_1x^{t-1}-a_2x^{t-2}-\cdots-a_{t-1}x-a_t = 0$ es la ecuación característica asociada.
+
+Sean $b_1, b_2, \cdots, b_t$ las soluciones a la ecuación característica, entonces, la expresión original de la recurrencia puede expresarse como $r(n) = c_1b_1^n + c_2b_2^n+\cdots+c_tb_t^n$, con $c_1, c_2, \cdots, c_t$ los coeficientes que se obtienen resolviendo los sistemas asociados a las $t$ condiciones iniciales:
+$$
+\begin{cases}
+	r(1) = c_1b_1 + c_2b_2+\cdots+c_tb_t\\
+	r(2) = c_1b_1^2 + c_2b_2^2+\cdots+c_tb_t^2\\
+	\vdots\\
+	r(t) = c_1b_1^t + c_2b_2^t+\cdots+c_tb_t^t\\
+\end{cases}
+$$
+
+Si alguna de las raíces $b_i$ aparece repetida la solución general de la recurrencia es de la forma:
+$$r(n) = c_1b_1^n + c_2b_2^n+\cdots+(c_{i1}+c_{i2}n+c_{i3}n^2+\cdots+c_{ik}n^{k-1})b_i^n+\cdots+c_tb_t^n$$
+
+
+\end{document}
