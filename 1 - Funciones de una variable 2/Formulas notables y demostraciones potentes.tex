@@ -1,0 +1,786 @@
+\documentclass[a4paper]{article}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+
+\usepackage[spanish]{babel}
+
+\title{\Huge{\vspace{-1em}Resumen F1V2: Fórmulas notables y demostraciones potentes}}
+\author{\Large{\vspace{-1em}Alex Mart\'inez Ascensi\'on}}
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\makeatother
+
+\usepackage{xcolor}
+
+\usepackage{wrapfig}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[default]{gillius}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\newcommand{\dd}{\ensuremath{\operatorname{d}}}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+\newcommand{\parfrac}[1]{\frac{\partial}{\partial {#1}}}
+
+
+\newcommand{\qed}{\begin{flushright}
+		{$\newline\square$}
+	\end{flushright}}
+\begin{document}
+	\maketitle
+	
+	\section{Integral de Riemann}
+		\textbf{Si $f$ es monótona en $[a,b]$ entonces es integrable.}
+	
+	
+	Si $f$ es monótona (suponemos creciente), entonces suponemos una partición regular $P$ de $f$ tenemos que $$\sup\{f(x):x\in[x_i, x_{i+1}] \} = f(x_{i+1})$$ y $$\inf\{f(x):x\in[x_i,x_{i+1}]\} = f(x)$$.
+	
+	Por tanto, $U(P,f) - L(P,f) = \frac{b-a}{n}\sum_i^n \left( f(x_{i+1})-f(x_i) \right) = \frac{b-a}{n}(f(x_1) - f(a) + f(x_2) - f(x_1) + \cdots +$\linebreak $+f(x_{n-1}) - f(x_{n-2}) + f(b) - f(x_{n-1})) = \frac{(b-a)(f(b)-f(a))}{n}$
+	
+	Podemos ver que la expresión sólo depende de $n$ y está en el denominador, luego podremos elegir cualquier $n$ tal que $\frac{(b-a)(f(b)-f(a))}{n} < \varepsilon$ para cualquier $\varepsilon$ y, así, $\int^b_a f = \lim_n U(P,f) - L(P,f) < \varepsilon$.	 \qed
+	
+	\textbf{Si $f$ es continua en $[a,b]$, entonces es integrable.}
+	
+	Supongamos una partición $P$ de $f$ en $n$ partes iguales. Para todo elemento $i$ de la partición existen $y_i$ y $z_i$ que cumplen que 
+	$$m_i = \inf\{f(x):x\in[x_i, x_{i+1}]\} = f(y_i) \qquad 
+	M_i = \sup\{f(x):x\in[x_i, x_{i+1}]\} = f(z_i)$$
+	
+	
+	Por tanto, al elegir dicha partición se cumple que $|z_i-y_i| \le x_i-x_{i-1} = \frac{b-a}{n}<\delta$ y, por tanto, $M_i-m_i = |M_i-m_i| = |f(z_i) - f(y_i)| \le \frac{\varepsilon}{b-a} $
+	
+	Y, con esto en mente:
+	$$U(P,f) - L(P,f) = \sum^n_i(M_i-n_i)(x_i-x_{i-1}) \le \frac{\varepsilon}{b-a}\sum^n_i(x_i-x_{i-1}) = 
+	(b-a)\frac{\varepsilon}{b-a} = \varepsilon$$
+	
+	IMPORTANTE: tenemos que la condición $\delta\epsilon$ la podemos emplear porque f es continua en el compacto $[a,b]$, está acotada y es uniformemente continua. En estas condiciones se cumple que para todo $\varepsilon>0$ existe un $\delta> 0$ tal que cuando $|x-y|<\delta$ entonces $|f(x)-f(y)|<\varepsilon$.\qed
+	
+
+\section{Teoremas fundamentales del cálculo}
+\textbf{Teorema del valor medio: Si $f$ es continua en $[a,b]$ entonces existe un $c\in[a,b]$ tal que $\int^b_a f = f(c)(b-a)$}
+
+Tomamos los valores $m$ y $M$ tales que:
+$$m = \min\{f(x):x\in[a,b]\}\qquad M = \max\{f(x):x\in[a,b]\}$$
+
+Por tanto, como $m\le f(x) \le M$:
+$$m(b-a) =  \int_a^b m \le \int_a^b f \le \int_a^b M = M(b-a)$$
+
+Y, si dividimos entre $b-a$:
+$$m \le \frac{1}{b-a} \int_a^b f \le  M$$
+
+Por tanto, tiene que haber un $c$ tal que $f(c) = \frac{1}{b-a}\int_a^b$, completando así el teorema.
+
+\textbf{Teorema del valor medio ponderado: si $f$ es continua en $[a,b]$ y $g$ es acotada e integrable con signo constante, entonces existe un $c \in [a,b]$ tal que $\int_a^bfg = f(c)\int_b^ag$.}
+
+La demostración es similar al teorema del valor medio. Tenemos que en $f$ existe un valor mínimo $m$ y un valor máximo $M$ comprendidos para algunos valores comprendidos en $[a,b]$. Así, $m\le f(x)\le M$. Por tanto, si suponemos $g(x)>0$, $mg(x) \le f(x)g(x) \le Mg(x)$ y:
+\[ \int_a^b mg(x) = m \int_a^bg(x) \le \int_a^b f(x)g(x) \le M \int_a^b g(x) = \int_a^b Mg(x)  \]
+
+Y si dividimos entre $\int_a^b g(x)$:
+\[  m  \le \frac{\int_a^b f(x)g(x)}{\int_a^bg(x)} \le M   \]
+
+Luego tiene que haber un valor $c$ que haga que $f(c) = \frac{\int_a^b f(x)g(x)}{\int_a^bg(x)}$, completando el teorema.\qed
+
+\textbf{Propiedad de la continuidad: si $f$ es integrable y acotada en $[a,b]$, entonces $F$ es continua}
+
+Como $f$ es acotada, entonces existe un $M$ tal que $|f(x)| \le M$ para todo $x \in [a,b]$. Por la definición de límite, una función $f$ es continua si para todo $\varepsilon> 0$ tal que $|x-a| \le \delta$, entonces $|f(x) - f(a)| \le \varepsilon $. Partiendo de esta base, recordamos que $F(x) = \int_c^xf$ para cualquier $c \in [a,b]$, $x\ge c$. Entonces, si tomamos $0 \le h \le x-b$, tenemos que 
+
+\[ |F(x+h) - F(x)| = \left|\int_c^{x+h} f(t)\d t - \int_c^xf(t)\d t\right| = \left|\int_x^{x+h}f(t)\d t\right| \le \int_x^{x+h}|f(t)\d t| \le Mh \]
+
+Por tanto, si $|x+h-x| = |h| \le \delta = \varepsilon/M$, entonces $Mh < M\frac{\varepsilon}{M} = \varepsilon$, y la función $F$ es continua. \qed
+
+\textbf{Primer teorema fundamental del cálculo: si $f$ es continua en $x\in[a,b]$, entonces $F$ es derivable y $F'(x) = f(x)$}
+
+Para demostrar el teorema nos basamos en la continuidad de $f$, y en la definición de derivada. En primer lugar, si para todo $\varepsilon > 0$ tomamos un $h$ tal que $|(x+h)-x| = |h| < \delta$, entonces $|f(x+h)-f(x)| \le \varepsilon$. Si tomamos un $t\in[x,x+h]$, por tanto, tenemos que $|f(t)-f(x)|\le|f(x+h)-f(x)|\le\varepsilon$. Reservamos este resultado para más tarde.
+
+En segundo lugar, si tomamos $F(x) = \int_c^xf(t)\d t$, entonces, por la definición de derivada:
+$$F'(x) = \lim_{h\rightarrow0}\frac{F(x+h)-F(x)}{h} =  \lim_{h\rightarrow0}\frac{\int^{x+h}_{x}f(t)\d t}{h}  =  \lim_{h\rightarrow0}\frac{\int^{x+h}_{x}f(t) -f(x)+f(x)\d t}{h} = $$
+$$= \lim_{h\rightarrow0}\frac{\int^{x+h}_{x}f(t)-f(x)\d t}{h} +  \lim_{h\rightarrow0}\frac{\int^{x+h}_{x}f(x)\d t}{h}$$
+
+Por un lado,
+ $$\lim_{h\rightarrow0}\frac{\int^{x+h}_{x}f(t)-f(x)\d t}{h}\le \lim_{h\rightarrow0}\frac{\int^{x+h}_{x}|f(t)-f(x)|\d t}{h}\le\lim_{h\rightarrow0}\frac{\int^{x+h}_{x}\varepsilon \d t}{h} = \lim_{h\rightarrow0}\frac{\varepsilon[(x+h)-(x)]}{h} =\lim_{h\rightarrow0}\frac{\varepsilon h}{h} = \varepsilon$$
+
+Y por otro,
+$$\lim_{h\rightarrow0}\frac{\int^{x+h}_{x}f(x)\d t}{h} = \lim_{h\rightarrow0}\frac{f(x)[(x+h)-(x)]}{h} = \lim_{h\rightarrow0}\frac{h f(x)}{h} = f(x)$$
+
+Así, $F'(x) = \varepsilon + f(x) = f(x)$ y el teorema queda demostrado.\qed
+
+\textbf{Segundo teorema del cálculo: Si $f$ es integrable en $[a,b]$ y existe $F$ tal que $g'(x) = f(x)$ para todo $x\in[a,b]$, entonces $\int_a^bf(x) = g(b)-g(a)$}
+
+Para demostrar este teorema vamos a necesitar el teorema del valor medio y la definición de integral de Riemann por $U(P,f)$ y $L(P,f)$. En primer lugar, por el teorema del valor medio tenemos que para una partición $P$ de f en $[a,b]$, y para todo $x_i$, entonces:
+$$g(x_i)-g(x_{i-1}) = g'(k_i)(x_i-x_{i-1}) = f(k_i)(x_i-x_{i-1})$$
+
+En segundo lugar, tenemos que si $m_i$ y $M_i$ son el ínfimo y supremo de $f$ en $[x_{i-1},x_i]$, entonces $m_i \le f(k_i) \le M_i$ y, por tanto:
+
+$$m_i(x_i-x_{i-1}) \le f(k_i)(x_i-x_{i-1}) \le M_i(x_i-x_{i-1})$$
+$$m_i(x_i-x_{i-1}) \le g(x_i)-g(x_{i-1}) \le M_i(x_i-x_{i-1})$$
+ $$\sum_i m_i(x_i-x_{i-1}) \le \sum_i g(x_i)-g(x_{i-1}) \le \sum_i M_i(x_i-x_{i-1})$$
+ $$m(b-a) \le g(b)-g(a) \le M(b-a)$$
+
+Por otra parte, según la definición de integral de Riemman, si $f$ es integrable entonces $U(P,f) = L(P,f) = \int_a^bf$. En base a esto, y a la última expresión, $m(b-a) = L(P,f) = U(P,f) = M(b-a) = \int_a^bf$ y, por la regla del sandwich:
+	$$\int_a^bf = g(b)-g(a)$$
+	Tal y como queríamos demostrar. \qed
+	
+	
+\textbf{Teorema del cambio de variable: Sea $g$ una función de derivada continua en $I = [c,d]$ y $f$ continua en $g(I)$. Sean $a=g(c)$ y $b=g(d)$. Si $F:g(I)\rightarrow\mathbb{R}$ definida como $F(y) = \int_a^yf(s)ds$, para cada $y\in[a,b]$, entonces para cada $x\in I$ existe la integral $F(g(x)) = \int_x^c (f\circ g)\cdot g'$ y, en particular $\int_a^bf(s)ds = \int_c^df(g(t))\cdot g'(t) \d t$}
+
+Como paso cero, demostramos que $(f\circ g)g'$ existe y es continuo. En primer lugar, $f$ y $g$ son continuas y, como $g$ es continua en $I$ y $f$ continua en $g(I)$, $f\circ g$ es continua. Por otra parte, $g'$ es continua por definición. Así, por tanto, $(f \circ g)g'$ es continua porque el producto de dos funciones continuas es continua. Esto implica, por el Teorema de continuidad, que $\int_c^x (f \circ g)g'$ ha de existir para todo $x\in I$.
+
+Para demostrar este teorema partimos de la regla de la cadena. Empleamos dos funciones:
+$$G(x) =  \int_c^x(f \circ g)g' = \int_c^xf(g(t))g'(t)\d t \quad \text{y} \quad H(x) = F(g(x))$$ 
+
+Primero, por el primer teorema fundamental del cálculo, $G'(x) = f(g(x))g'(x)$. 
+
+Segundo, por la regla de la cadena: $H'(x) = F'(g(x))g'(x)$. Además, como $F'(z) = f(z)$ para todo $z\in g(I)$ por el primer teorema fundamental, entonces $H'(x) = f(g(x))g'(x)$.
+
+Vemos que $H'(x) = G'(x)$ luego $H(x) - G(x) = k$ para todo $x\in I$. Así, si hacemos $x=c$, nos sale
+$$H(c) - G(c) = F(g(c)) - G(c) = F(a) - G(c) = \int_a^a f(s) ds - \int_c^c f(g(t))g'(t)\d t = 0 - 0 = 0$$
+
+Entones, $H(x) = F(g(x)) = G(x)$ para todo $x \in I$. Así, por tanto,
+
+$$F(b) = F(g(d)) \iff \int_a^b f(s)ds = \int_{g(c)}^{g(d)} f(s)ds = \int_c^df(g(t))g'(t)\d t$$ \qed
+
+\textbf{Expresión de la integral como suma infinita de sumandos}
+
+Si $f$ es integrable en $[a,b]$ entonces 
+
+$$\lim_n \frac{b-a}{n} \sum_i f\left(a+i\frac{b-a}{n}\right) = \int_a^bf$$
+
+\section{Funciones logarítmicas y exponenciales}
+
+\textbf{Origen de la función $\ln$}
+
+Estamos interesados en encontrar una función derivable que cumpla que $F(st) = F(s) + F(t)$.
+
+Primer punto: si $s=t=1$, entonces $F(1) = F(1) + F(1) = 2F(1) \iff F(1) = 0$. Así, ya tenemos un valor de la función.
+
+Por otra parte, vamos a estudiar su derivabilidad. 
+\[ \parfrac{t} F(st) = \parfrac{st} F(st) \parfrac{t}(st) = s\cdot F'(st)  = \parfrac{t}F(t) + \parfrac{t}F(s) = F'(t) \xrightarrow{t = 1} sF'(s) = F'(1) \]
+
+A partir de este punto, definimos $F'(1) = 1$ para $\ln$, ya que para otros logaritmos el valor de $F'(1)$ difiere. Entonces, por tanto, $F'(s) = 1/s$ y empleando el primer teorema fundamental del cálculo:
+$$\ln(s) = F(s) = \int_1^s \frac{\d t}{t}$$
+La integral tiene como límite inferior $1$ ya que, como hemos dicho $F(1) = \int_1^1 \frac{\d t}{t} = 0$
+
+La propiedad más conocida de $\ln$ es $\ln(xy) = \ln(x)+\ln(y)$. Para demostrar esto, tomamos la función
+$$F(x) = \ln(xy) - \ln(x) - \ln(y)$$
+Y derivamos
+$$F'(x) = \frac{(xy)'}{xy} - \frac{1}{x} = \frac{1}{x} - \frac{1}{x} = 0 \iff F(x) = k$$
+Como $F(x)$ es constante, lo es para todo $x$, luego, sabiendo que $F(1) = \ln(y) - \ln(1) - \ln(y) = 0$, entonces $F(x) = 0$ y se cumple que $\ln(xy) = \ln(x) + \ln(y)$.\qed
+\textbf{Funciones exponenciales}
+$$a^x = e^{x\ln(a)} \qquad x^a = e^a\ln(x)\qquad \log_a(x) = \frac{\ln(x)}{\ln(a)}$$
+
+
+\textbf{Funciones hiperbólicas}
+
+Las funciones hiperbólicas son las siguientes:
+$$\sinh(x) = \frac{e^x-e^{-x}}{2} \qquad \cosh(x) = \frac{e^x+e^{-x}}{2} \qquad \tanh(x) = \frac{\sinh(x)}{\cosh(x)}$$
+
+Un modo de sacar estas funciones de manera `chapucera' es con la fórmula de los senos y cosenos en función de números complejos:
+$$e^{i\theta} = \cos\theta + i\sin\theta \qquad e^{-i\theta} = \cos(-\theta) + i\sin(-\theta) =\cos\theta - i\sin\theta $$
+Por tanto:
+$$e^{i\theta} + e^{-i\theta} = 2\cos\theta \iff \cos\theta = \frac{e^{i\theta} + e^{-i\theta}}{2}$$
+y
+$$e^{i\theta} - e^{-i\theta} = 2i\sin\theta \iff \sin\theta = \frac{e^{i\theta} - e^{-i\theta}}{2i}$$
+
+Si `eliminamos' $i$ de las expresiones y cambiamos $\theta$ por $x$, tenemos las funciones hiperbólicas.
+
+Recordemos la identidad análoga a las de seno y coseno: 
+$$\sinh(x)^2-\cosh(x)^2 = \frac{(e^{2x}-2e^xe^{-x}+e-2x) - (e^{2x}+2e^xe^{-x}+e-2x)}{4} = -\frac{4e^xe^{-x}}{4} = -1$$
+
+\section{Funciones trigonométricas}
+\textbf{Si $f$ es periódica con periodo $p$ y derivable en $a$, entonces, para todo entero $k$, $f$ es derivable en $a+kp$ y $f'(a) = f'(a+kp)$}
+
+
+La derivada de $f$ en $a$, por definición, es:
+$$f'(a) = \lim_{h\rightarrow0}\frac{f(a+h) - f(a)}{h}$$
+
+Si tenemos en cuenta que $f(a) = f(a+kp)$, entonces:
+$$\lim_{h\rightarrow0}\frac{f(a+h)-f(a)}{h} = \frac{f(a+kp+h)-f(a+kp)}{h} = f'(a+kp)$$\qed
+
+
+\textbf{Demostrar que para todo $x$ e $y$ se cumple que}
+$$\sin(x+y) = \sin x\cos y  + \cos y \sin x \qquad \cos(x+y) = \cos x \cos y - \sin x \sin y$$
+
+En primer lugar, definimos la función $f(x) = \sin(x+y) - \sin x\cos y - \cos x \sin y$ y obtenemos su primera y segunda derivada:
+$$f'(x) = \parfrac{x}f = \cos(x+y)-\cos x \cos y +\sin x \sin y \qquad f''(x) = -\sin(x+y)+\sin x \cos x + \cos x \sin y$$
+
+Observamos que $f(x) + f''(x) = 0$ y si multiplicamos por $2f'(x)$, entonces $2f(x)f'(x) + 2f'(x)f''(x) = 0$
+
+Ahora bien, $2f(x)f'(x) = [f(x)^2]'$ y $2f'(x)f''(x) = [f'(x)^2]'$, luego $[f(x)^2 + f'(x)^2]' = 0 \iff f(x)^2 + f'(x)^2 = k$.
+
+Para demostrar que $k = 0$, hacemos que $x = 0$:
+$$f(0) = \sin y - \sin0\cos y - \cos 0 \sin y = \sin y - \sin y = 0 \qquad f'(0) = \cos y - \cos 0 \cos y + \sin 0 \sin y = \cos y - \cos y = 0$$
+Y por tanto, 
+
+$$f(0)^2 + f'(0)^2 = k = 0 \iff k = 0$$
+
+Así pues, demostramos que $[f(x)]^2 + [f'(x)]^2 = 0$ y como el cuadrado de un número ha de ser siempre mayor o igual que cero, entonces $f(x) = 0$ y $f'(x) = 0$, concluyendo así la demostración.
+
+Además, si hacemos $y = x$, tenemos que 
+$$\sin(x+x) = \sin x\cos x  + \cos x \sin x \qquad \cos(x+x) = \cos x \cos x - \sin x \sin x$$
+$$\sin(2x) = 2\sin x\cos x    \qquad \cos(2x) =  \cos^2 x - \sin^2 x$$\qed
+
+Sin embargo, si no nos piden demostrar esto, sacar la fórmula de la suma es tedioso mediante este método, además de que tienes que conocerla a priori. Así pues, podemos emplear la fórmula de De Moivre para sacar la relación de forma un poco chapucera. La fórmula dice que $(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i \sin(n\theta)$. Para el caso $n=2$:
+$$(\cos\theta + i\sin\theta)^2 = \cos^2\theta - \sin^2\theta + i[2\sin\theta\cos\theta]  = \cos(2\theta) + i \sin(2\theta)$$
+
+Entonces, $\cos^2\theta - \sin^2\theta = \cos(2\theta)$ y $2\sin\theta\cos\theta = \sin(2\theta)$. Con un poco de picardía, podemos `desdoblar' la simetría de la función y hacer que 
+$$\cos^2\theta \rightarrow \cos x \cos y \qquad \sin^2\theta \rightarrow \sin x \sin y \qquad \cos(2\theta)\rightarrow \cos(x+y)$$
+$$2\sin\theta\cos\theta \rightarrow \sin x\cos y + \sin y \cos x  \qquad \sin(2\theta) \rightarrow \sin(x+y)$$
+y así obtener las relaciones necesarias.
+
+Si queremos obtener identidades de ángulos triples y superiores, nos armamos de paciencia y vamos desdoblando las identidades haciendo $y = mx$ hasta quedarnos con una fórmula simple.
+
+Otras identidades importantes, sobre todo para integrales son:
+$$ \sin^2x = \frac{1-\cos(2x)}{2} \qquad \cos^2x = \frac{1+\cos(2x)}{2}$$
+
+Estas identidades puede derivarse de $\cos(2x) = \cos^2x-\sin^2x$ y $\sin^2x-\cos^2x = 1$. Vamos a sumar y restar por $1$:
+
+$$\cos(2x) = \cos^2x-\sin^2x -1+1$$
+
+Si expandimos el término $+1$ tenemos que 
+$$\cos(2x) = \cos^2x-\sin^2x-1+\cos^2x+\sin^2x = 2\cos^2x-1\rightarrow \cos^2x = \frac{1+\cos(2x)}{2}$$
+
+Por otro lado, si expandimos el término $-1$ tenemos que
+$$\cos(2x) = \cos^2x-\sin^2x+1-\cos^2x-\sin^2x = -2\sin^2x+1\rightarrow \sin^2x = \frac{1-\cos(2x)}{2}$$\qed
+
+Otras identidades, útiles sobre todo para integrales, son:
+$$ \sin(ax) \sin(bx) = \frac{1}{2}\left[\cos((a-b)x) - \cos((a+b)x)\right]$$
+$$ \sin(ax) \cos(bx) = \frac{1}{2}\left[\sin((a-b)x) + \sin((a+b)x)\right]$$
+$$ \cos(ax) \cos(bx) = \frac{1}{2}\left[\cos((a-b)x) + \cos((a+b)x)\right]$$
+\section{Cálculo de primitivas}
+\textbf{Integrales por partes. Demostrar que para dos funciones $f$ y $g$ integrables, se cumple que}
+$$\int fg' = fg - \int f'g$$
+
+Tenemos en primer lugar que $f'g$ y $fg'$ son continuas, luego $\int f'g$ y $\int fg'$ existen.
+
+Tenemos, que si $F\in \int fg'$ entonces $F' = fg'$ y que si $ G = fg - F$, entonces
+ $$G' = f'g + g'f + F' = f'g + g'f - fg' = f'g$$
+ y por tanto $G \in \int f'g$. Así pues $F = fg-G \iff \int fg' = fg - \int f'g$.
+ 
+ Lo mismo sucede a la inversa, definiendo primero $G$ y, a partir de ahí, obteniendo $F$. Por tanto, demostramos que la relación es recíproca para cualquier $\int f'g$ y cualquier $\int fg'$. \qed
+ 
+ Otra manera de demostrarlo, no sé si igual de rigurosa. Si tenemos que $f$ y $g$ son derivables en $I$, entonces $f'$ y $g'$ serán continuas en $I$. Por tanto, si tenemos $fg$, que será derivable en $I$, entonces
+	$$(fg)' = f'g + fg'$$
+	Y como $f$ y $g$ son derivables, entonces $f'$ y $g'$ serán continuas en sus respectivos intervalos. Ahora bien, como ambas funciones son continuas, y $g$ y $f$ lo son, entonces $f'g$ y $g'f$ son continuas y, por tanto, integrables. Así pues
+	
+	$$\int(fg)' = \int f'g + \int fg' \iff  fg =  \int f'g + \int fg' \iff \int fg' = fg - \int f'g$$\qed
+
+
+\textbf{Método de Hermite para integrales racionales}
+
+Si $P$ y $Q$ son dos polinomios, hallamos $Q_1$, el máximo común divisor de $Q$ y $Q'$, y $Q_2 = Q/Q_1$. Entonces, se cumple que existe una descomposición de $P$ en $P_1$ y $P_2$ tal que 
+$$\int \frac{P}{Q} = \frac{P_1}{Q_1} + \int \frac{P_2}{Q_2}$$
+
+\subsection*{Cálculo de algunos tipos de primitivas}
+\subsubsection*{Trigonométricas}
+El cambio de variable más común para las integrales trigonométricas es
+$$t = \tan\left(\frac{x}{2}\right) \qquad x = 2\arctan(t) \rightarrow \d{x} = \frac{2\d{t}}{1+t^2}$$
+$$\sin(x) = \frac{2t}{1+t^2} \qquad \cos(x) = \frac{1-t^2}{1+t^2}$$
+
+Para hallar el desarrollo de $\sin(x)$ y $\cos(x)$ aplicamos las fórmulas de ángulo doble:
+$$\sin(x) = \frac{2\sin\left(\frac{x}{2}\right)\cos\left(\frac{x}{2}\right) }{1} = 
+   \frac{2\sin\left(\frac{x}{2}\right)\cos\left(\frac{x}{2}\right) }{\sin^2\left(\frac{x}{2}\right)+\cos^2\left(\frac{x}{2}\right)} \xrightarrow{1/\cos^2(x/2)}
+    \frac{2\frac{\sin\left(\frac{x}{2}\right)}{\cos\left(\frac{x}{2}\right)} }{1+\frac{\sin^2\left(\frac{x}{2}\right)}{\cos^2\left(\frac{x}{2}\right)}} = 
+   \frac{2\tan\left(\frac{x}{2}\right) }{1+\tan^2\left(\frac{x}{2}\right)} =  \frac{2t}{1+t^2} $$
+$$\cos(x) = \frac{\cos^2\left(\frac{x}{2}\right) - \sin^2\left(\frac{x}{2}\right)}{1} = 
+\frac{\cos^2\left(\frac{x}{2}\right) - \sin^2\left(\frac{x}{2}\right) }{\sin^2\left(\frac{x}{2}\right)+\cos^2\left(\frac{x}{2}\right)} \xrightarrow{1/\cos^2(x/2)}
+\frac{1-\frac{\sin^2\left(\frac{x}{2}\right)}{\cos^2\left(\frac{x}{2}\right)} }{1+\frac{\sin^2\left(\frac{x}{2}\right)}{\cos^2\left(\frac{x}{2}\right)}} = 
+\frac{1-\tan^2\left(\frac{x}{2}\right)}{1+\tan^2\left(\frac{x}{2}\right)} =  \frac{1-t^2}{1+t^2} $$
+
+En algunos casos, como cuando suelen salir tangentes o senos y cosenos en potencias pares, conviene hacer este cambio de variable:
+$$t = \tan\left(x\right) \qquad x = \arctan(t) \rightarrow \d{x} = \frac{\d{t}}{1+t^2}$$
+$$\sin(x) = \frac{1}{\sqrt{1+t^2}} \qquad \cos(x) = \frac{t}{\sqrt{1+t^2}} $$
+
+El desarrollo para $\sin(x)$ y $\cos(x)$ es similar:
+$$\sin^2(x) = \frac{\sin^2(x)}{\sin^2(x) + \cos^2(x)} \xrightarrow{1/\cos^2(x/2)} 
+\frac{\frac{\sin^2(x)}{\cos^2(x)}}{1+\frac{\sin^2(x)}{\cos^2(x)}} = \frac{\tan^2(x)}{1+\tan^2(x)} = \frac{t^2}{1+t^2} \rightarrow \sin(x) = \frac{t}{\sqrt{1+t^2}} $$
+$$\cos^2(x) = \frac{\cos^2(x)}{\sin^2(x) + \cos^2(x)} \xrightarrow{1/\cos^2(x/2)} 
+\frac{1}{1+\frac{\sin^2(x)}{\cos^2(x)}} = \frac{1}{1+\tan^2(x)} = \frac{1}{1+t^2} \rightarrow \cos(x) = \frac{1}{\sqrt{1+t^2}} $$
+
+\subsubsection*{Radicales}
+Discerniremos seis casos diferentes.
+\begin{enumerate}
+	\item Integrales de tipo $\int\sqrt{a^2-x^2}$ y $\int\sqrt{a^2+x^2}$.
+	
+		\subitem $$\int\sqrt{a^2-x^2} \d{x} = \int\sqrt{a^2 \left( 1-\left(\frac{x}{a}\right)^2\right)}\d{x} \rightarrow
+		\begin{cases}
+		\sin t = \frac{x}{a}\\
+		a\cos t \d{t} = \d{x}
+		\end{cases} \rightarrow a\int\sqrt{ 1-\sin^2(x)}\cos(x)\d{x} = a\int\cos^2(x)\d{x}$$
+		Y $\int\cos^2(x)\d{x}$ puede resolverse por partes o haciendo $\cos^2(x) = \frac{1+\cos(2x)}{2}$
+		
+		\subitem$$\int\sqrt{a^2+x^2} \d{x} = \int\sqrt{a^2 \left( 1+\left(\frac{x}{a}\right)^2\right)}\d{x} \rightarrow
+		\begin{cases}
+		\sinh t = \frac{x}{a}\\
+		a\cosh t \d{t} = \d{x}
+		\end{cases} \rightarrow a\int\sqrt{ 1+\sinh^2(x)}\cosh(x)\d{x} = $$
+		$$ =  a\int\cosh^2(x)\d{x} =  a\int \frac{e^t+e^{-t}}{2}\d{x} $$
+		
+	\item Integrales del tipo $\int\sqrt{ax^2+bx+c}$
+		\subitem Intentamos descomponer el binomio en la forma $\int\sqrt{ax^2+bx+c} = \int\sqrt{\alpha^2 \pm (x\pm \beta)^2} = \alpha\int\sqrt{1 \pm (\frac{x\pm \beta}{\alpha})^2}$ que se resuelve como una integral de tipo 1. 
+		\subitem Si no puede resolverse así, tenemos tres cambios de variables posibles:
+		$$\begin{cases}
+		a>0 & \sqrt{ax^2+bx+c} = \sqrt{a}x+t\\
+		a<0 \text{ y } c>0 & \sqrt{ax^2+bx+c} = tx+c\\
+		\text{resto} & \sqrt{ax^2+bx+c} = t(x-\alpha) \quad \alpha \text{ es una raíz de la ecuación}\\
+		\end{cases}$$
+	\item Integrales del tipo $\int \frac{1}{\sqrt{ax^2+bx+c}}$. Se hace la descomposición $\sqrt{\alpha \pm (x\pm \beta)^2}$ y tenemos tres casos:
+	 \subitem $$\int \frac{\d{x}}{\sqrt{\alpha^2-(x\pm\beta)^2}} = 
+	 \frac{1}{\alpha}\int \frac{\d{x}}{\sqrt{1-\left(\frac{x\pm\beta}{\alpha}\right)^2}} \rightarrow 
+	 \begin{cases}
+	 \frac{x\pm\beta}{\alpha} = u\\\d{x}=\d{u}
+	 \end{cases} \rightarrow \frac{1}{\alpha}\int\frac{\d{u}}{\sqrt{1-u^2}} = \frac{1}{\alpha}\arcsin(u) $$ 
+	 
+	 \subitem $$\int \frac{\d{x}}{\sqrt{\alpha^2+(x\pm\beta)^2}} = 
+	 \frac{1}{\alpha}\int \frac{\d{x}}{\sqrt{1+\left(\frac{x\pm\beta}{\alpha}\right)^2}} = \frac{1}{\alpha}\arg\sinh\left(\frac{x\pm\beta}{\alpha}\right) = \frac{1}{\alpha} \ln{\sqrt{\left(\frac{x\pm\beta}{\alpha}\right)^2+1}+\left(\frac{x\pm\beta}{\alpha}\right)} $$ 
+	 
+	 	 \subitem $$\int \frac{\d{x}}{\sqrt{(x\pm\beta)^2-\alpha^2}} = 
+	 \frac{1}{\alpha}\int \frac{\d{x}}{\sqrt{\left(\frac{x\pm\beta}{\alpha}\right)^2-1}} = \frac{1}{\alpha}\arg\cosh\left(\frac{x\pm\beta}{\alpha}\right) = \frac{1}{\alpha} \ln{\left(\frac{x\pm\beta}{\alpha}+\sqrt{\frac{x\pm\beta}{\alpha}+1}\sqrt{\frac{x\pm\beta}{\alpha}-1}\right)} $$ 
+	
+	\item Integrales del tipo $\int \frac{P_n(x)}{\sqrt{ax^2+bx+c}}$, con $P_n(x)$ un polinomio de grado $n$. En este caso aplicamos el método de Hermite con la siguiente expresión:
+	$$\int \frac{P_n(x)}{\sqrt{ax^2+bx+c}} = Q_{n-1}(x)\sqrt{ax^2+bx+c} + \lambda\int\frac{\d{x}}{\sqrt{ax^2+bx+c}}$$
+	Es decir, derivamos a ambos lados de la expresión y obtenemos los coeficientes para $Q_{n-1}$ y $\lambda$ (por ejemplo, si $P_n = 3x^3-3x^2+4$, entonces $Q_{n-1}(x) = Ax^2+Bx+C$). La segunda integral se resolvería como el caso 3.
+	
+	\item Integrales del tipo $\int \frac{\d{x}}{(x-\alpha)^n\sqrt{ax^2+bx+c}}$. Si aplicamos $\{\frac{1}{t} = (x\pm\alpha)\}$, entonces la integral queda como  $\int \frac{t^k}{\sqrt{a't^2+b't+c'}}$, que es resoluble como el modo 4.
+
+	\item Integrales del tipo $\int\sqrt{\frac{ax+b}{cx+d}}\d{x}$. Se aplica el cambio de variable $t^2 = \frac{ax+b}{cx+d}$, y queda en forma de integral racional.
+\end{enumerate}
+
+\subsubsection*{Binómicas}
+Se trata de las integrales de tipo $\int x^m(a+bx^n)^p$. El primer paso es pasarlas al tipo $\int t^\alpha(1+t)^\beta$ con el cambio de variable $bx^n = at$, y hacer las trasformaciones correspondientes. Una vez tenemos la segunda integral, podemos discernir 3 casos:
+\begin{itemize}
+	\item Si $\beta$ es entero, desarrollamos el binomio de Newton y la integral es inmediata.
+	\item Si $\alpha$ es entero pero $\beta$ es racional ($\beta = p/q$), entonces aplicamos el cambio $1+t = z^q$.
+	\item Si ni $\alpha$ ni $\beta$ son enteros, aplicamos:
+	$$\int t^\alpha(1+t)^\beta = \int t^\alpha(1+t)^\beta \frac{t^\beta}{t^\beta} = \int t^{\alpha+\beta}\left(\frac{1+t}{t}\right)^\beta \rightarrow \left\lbrace \frac{1+t}{t} = z^q \right\rbrace $$
+\end{itemize}
+
+\section{Integrales impropias}
+
+Ahora vamos a demostrar los criterios de comparación de las integrales.
+
+\textbf{Primer criterio. Sean $f$ y $g$ de $[a, +\infty)$ integrables en $[a,\alpha]$ y suponemos que existe $b>a$ tal que $0\le f(x)\le g(x)$ para todo $x>b$. Así, si $\int_a^{+\infty}g$ converge, entonces $\int_a^{+\infty}f$ converge; y si $\int_a^{+\infty}f$ diverge, entonces $\int_a^{+\infty}g$ diverge.}
+
+Para el primer caso, si $\int_a^{+\infty}g$ converge, entonces $\int_b^{+\infty}g$ también lo hace. Además, como para todo $x\ge b \;\; g(x) \ge 0$ entonces la función $G(\alpha) = \int^\alpha_b g$ está acotada superiormente.
+
+Además, como $f(x) \le g(x)$ entonces $F(\alpha) = \int^\alpha_b f < G(\alpha)$ y, por tanto, está acotada superiormente, luego  $\int_b^{+\infty}f$ converge y, por ende,  $\int_a^{+\infty}f$ también.
+
+Para el segundo caso, si  $\int_a^{+\infty}f$ diverge, entonces  $\int_b^{+\infty}f$ también lo hace y, por tanto, $F(\alpha)$ no tiene cota superior. Como $g(x) \ge f(x)$ para todo $x\ge b$, entonces $G(\alpha)$ tampoco puede estar acotada. Luego si $G(\alpha)$ no está acotada, entonces $\int_b^{+\infty}g$ diverge y, por ende, también lo hace $\int_a^{+\infty}g$.\qed
+
+\textbf{Segundo criterio. Si $f$ y $g$ en $[a,+\infty)$ son no negativas e integrables en $[a,\alpha]$ y suponemos que}
+$$\lim_{x\rightarrow +\infty} \frac{f(x)}{g(x)} = l$$
+\textbf{Si $l\neq 0$, entonces $\int_a^{+\infty} f$ y  $\int_a^{+\infty} g$ tienen el mismo carácter. Si $l=0$ y  $\int_a^{+\infty} g$ converge, entonces  $\int_a^{+\infty} f$ también converge.}
+
+
+Empecemos con $l\neq0$. Entonces existe un $b \ge a$ tal que para todo $x\ge b$, se cumple que 
+$$\frac{1}{2}l \le \frac{f(x)}{g(x)} \le \frac{3}{2}l \iff \frac{1}{2}l g(x) \le f(x) \le \frac{3}{2}l g(x)$$
+
+Entonces, ahora aplicamos el primer criterio de comparación. Si  $\int_a^{+\infty} g$ converge, entonces, independientemente del valor de $l$, como $\frac{3}{2}l$ es finito, $\frac{3}{2}l$ $\int_a^{+\infty} g$ también converge. Como $f(x) \le\frac{3}{2}l g(x) $ entonces $\int_a^{+\infty} f \le$ $\frac{3}{2}l$$\int_a^{+\infty} g$ y, por tanto, $\int_a^{+\infty} f$ converge.
+
+Por otro lado, si $\int_a^{+\infty} g$ diverge entonces $\frac{1}{2}l\int_a^{+\infty} g$ también lo hace. $\frac{1}{2}l g(x) \le f(x)$, entonces por el primer criterio de comparación, $\frac{1}{2}l\int_a^{+\infty} g$$<\int_a^{+\infty} f$ y, por tanto $\int_a^{+\infty} f$ diverge.
+
+Por otra parte, si $l = 0$, existe un punto $b$ tal que para todo $x\ge b$, 
+$$\frac{f(x)}{g(x)} \le 1 \iff f(x) \le g(x)$$
+
+Así pues, aplicando de nuevo el primer criterio de comparación, si $\int_a^{+\infty} g$ converge, entonces $\int_a^{+\infty} f$ también lo hace. Sin embargo, si $\int_a^{+\infty} g$ diverge, no podemos decir nada de $\int_a^{+\infty} f$.\qed
+
+Como nota, decir que si en lugar de $\int_a^{+\infty} g$ tenemos $\int_a^{b^-} g$, entonces estaríamos hablando de integrales impropias de segunda especie, y la demostración de los criterios de comparación son prácticamente idénticos.
+
+\textbf{Convergencia absoluta. Sea $f:[a,+\infty)\rightarrow\mathbb{R}$ integrable en $[a,\alpha]$. Si $\int_a^{+\infty} |f|$ es convergente, entonces $\int_a^{+\infty} f$ también lo es.}
+
+Para demostrar la proposición, nos basamos en el primer criterio de comparación de nuevo. Tenemos que para todo $x\ge a$
+$$f(x) \le |f(x)|$$
+Sin embargo, el primer criterio de comparación se rige para funciones positivas. Elaborando un poco la relación anterior:
+$$f(x) \le |f(x)| \iff -|f(x)| \le f(x) \le |f(x)| \iff 0 \le f(x) + |f(x)| \le 2|f(x)|$$
+
+Ahora aplicamos el primer criterio de comparación. Si $\int_a^{+\infty} |f|$ es convergente, entonces $\int_a^{+\infty} 2|f|$ es convergente también y, por el primer criterio, $\int_a^{+\infty} |f| + f$ lo es también.
+
+Ahora, si tomamos la relación 
+$$\int_a^\alpha f = \int_a^\alpha |f| - \int_a^\alpha (|f| - f)$$
+
+Observamos que, si $\int^{+\infty}_a |f|$ es convergente, entonces $\int^{\alpha}_a |f|$ también por ser $\alpha < +\infty$. Para demostrar que $\int_a^\alpha (|f| - f)$ converge, nos basamos en que, si $f(x) > 0$, entonces $0<|f(x)| - f(x) < |f(x)|$, y por el primer criterio de comparación, $\int_a^\alpha (|f| - f) < \int^{\alpha}_a |f|$, luego es convergente. Si $f(x) < 0$, entonces aplicamos el criterio de comparación con $-|f(x)| \le f(x) \le |f(x)|$, puesto que, en este caso, $-\int^{\alpha}_a |f| < \int_a^\alpha (|f| - f) < \int^{\alpha}_a |f|$. 
+
+Vemos que, con $\alpha \rightarrow +\infty$, entonces $\int_a^{+\infty} f$ converge, tal y como queríamos demostrar. \qed
+
+\section{Funciones eulerianas}
+
+Primero definimos las funciones y sus propiedades, y luego demostramos sus lemas.
+
+\textbf{Función gamma}
+
+$$\Gamma(p) = \int_{0^+}^{\infty^+} x^{p-1} e^{-x} \d{x}$$
+
+Como propiedades de la función gamma tenemos:
+\begin{enumerate}
+	\item $\Gamma(p+1) = p \Gamma(p) = p!$
+	\item Fórmula de los complementos: $\Gamma(p)\Gamma(1-p) = \frac{\pi}{\sin(p\pi)}$
+	\item $\Gamma(p + 1/2) = \frac{(2p-1)!!}{2^{p}}\sqrt{\pi}$
+\end{enumerate}
+\textbf{Función beta}
+$$\beta(p,q) = \int_{0^+}^{1^-} x^{p-1}(1-x)^{q-1} \d x$$ 
+
+Como propiedades de la función beta tenemos:
+\begin{enumerate}
+	\item $\beta(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$
+	\item $\beta(p,q) = \beta(q,p)$
+	\item $\beta(p,q) = 2\int_{0^+}^{\pi/2^-} \sin^{2p-1} \theta \cos^{2q-1} \theta \d \theta$
+\end{enumerate}
+
+Ahora pasamos a demostrar algunas de las propiedades de estas funciones.
+
+\textbf{La función Gamma es convergente en $(0,+\infty)$.}
+
+Para demostrar la convergencia, desdoblamos la integral en dos integrales:
+$$\int_{0^+}^{\infty^+} x^{p-1} e^{-x} \d{x} = \int_{0^+}^{1} x^{p-1} e^{-x} \d{x} + \int_{1}^{\infty^+} x^{p-1} e^{-x} \d{x}$$
+
+Empezamos con $I = \int_{0^+}^{1} x^{p-1} e^{-x} \d{x}$. 
+Si $p\ge 1$ entonces $I$ converge. Podemos aplicar el teorema del valor medio ponderado con $f(x) = x^{p-1}$:
+$$\int_0^1 0\cdot e^{-x} \d x = 0 \le \int_{0^+}^{1} x^{p-1} e^{-x} \d{x} \le \int_{0^+}^{1} 1^{p-1} e^{-x} \d{x} = \int_{0^+}^{1} 1 e^{-x} \d{x} = 1-e$$
+
+Luego nuestra integral está acotada y converge. Para $0 < p < 1$, como la función está definida en $(0, +\infty)$, y tenemos que 
+$$x^{p-1}\cdot e^{-\infty} = 0 < x^{p-1}e^{-x} < x^{p-1}e^{0} = x^{p-1}$$
+
+Además, como $\int_0^1 x^{p-1} \d x = \frac{x^{p+1}}{p+1}$, con valor definido para $p$ y $x$, entonces, $I$ también converge por el primer criterio de comparación.
+
+Ahora pasamos a demostrar que $J = \int_{1}^{\infty^+} x^{p-1} e^{-x} \d{x}$ también converge.
+Para ello, empleamos la integral convergente $\int_{1}^{\infty^+} x^{-2} \d{x} = -\frac{1}{x}|^{+\infty}_1 = 1$ y aplicamos el segundo criterio de comparación:
+$$ \lim_{x\rightarrow\infty} \frac{x^{p-1} e^{-x}}{x^{-2}} = \lim_{x\rightarrow\infty} x^{p+1} e^{-x} = 0$$
+
+Como $l= 0$ y $\int_{1}^{\infty^+} x^{-2} \d{x}$ converge, entonces $J$ converge.
+
+Así pues, si tanto $I$ como $J$ convergen, $\Gamma = I + J$ también converge. \qed
+
+\textbf{Demostrar que $\Gamma(p+1) = p \Gamma(p) = p!$}
+
+La demostración es simple si aplicamos integración por partes, tomando $\Gamma(p+1)$:
+$$\Gamma(p+1) = \int_{0^+}^{\infty^+} x^{p} e^{-x} \d{x} \rightarrow 
+\begin{cases}
+f = x^{p}  & \rightarrow  f' = (p)x^{p-1}\\
+g' = e^{-x} & \rightarrow  g = -e^{-x}\\
+\end{cases}$$
+$$\int_{0^+}^{\infty^+} x^{p} e^{-x} \d{x} = \left| -x^{p}e^{-x}\right|^{+\infty}_0 + p\int_{0^+}^{\infty^+} x^{p-1} e^{-x} \d{x} = \left(\lim_{x\rightarrow+\infty} -\frac{x^p}{e^{x}}\right) - 0 + p\Gamma(p)\rightarrow\Gamma(p+1) = p\Gamma(p)$$
+
+Ahora, si seguimos expandiendo la expresión:
+$$\Gamma(p+1) = p\Gamma(p) = p(p-1)\Gamma(p-1) \cdots p! \Gamma(1) = p! \int_{0^+}^{\infty^+} e^{-x} \d{x} = p! (1-0) = p!$$
+
+Para el caso $\Gamma(p+\frac{1}{2})$, el desarrollo es similar:
+$$\Gamma\left(p+\frac{1}{2}\right) = \left(p-\frac{1}{2}\right)\Gamma\left(p-\frac{1}{2}\right) = \frac{2p-1}{2}\Gamma\left(p-\frac{1}{2}\right)$$
+Si seguimos con el mismo procedimiento acabamos con 
+$$\Gamma\left(p+\frac{1}{2}\right) =\frac{2p-1}{2}\frac{2p-3}{2}\frac{2p-5}{2}\cdots\frac{1}{2}\Gamma\left(\frac{1}{2}\right) = \frac{(2p-1)!!}{2^p}\Gamma\left(\frac{1}{2}\right) = \frac{(2p-1)!!}{2^p}\sqrt{\pi}$$\qed
+
+
+\textbf{La función beta es convergente en $(0,1)$}
+
+Similar a la función gamma, podemos desdoblar la función beta en dos integrales:
+$$\beta(p,q) = \int_{0^+}^{1^-} x^{p-1}(1-x)^{q-1} \d x = I+J =  \int_{0^+}^{\frac{1}{2}} x^{p-1}(1-x)^{q-1} \d x + \beta(p,q) +  \int_{\frac{1}{2}}^{1^-} x^{p-1}(1-x)^{q-1} \d x$$
+
+Para $I$ aplicamos el segundo criterio integral con $x^{p-1}$:
+$$\int_{0^+}^{\frac{1}{2}} x^{p-1} \d x = \left|\frac{x^{p+1}}{p+1}\right|^\frac{1}{2}_0 = \frac{1}{2^{p+1}(p+1)}$$
+Como esta última expresión está acotada para todo $p> 0$, entonces la integral converge. Así, aplicando el segundo criterio de comparación para integrales impropias de segunda especie tenemos:
+$$\lim_{x\rightarrow 0^+} \frac{x^{p-1}(1-x)^{q-1}}{x^{p-1}} = 1$$
+
+Luego $I$ converge, ya que $\frac{1}{2^{p+1}(p+1)}$ está definida para todo $p>0$.
+
+Análogamente, empleamos el mismo procedimiento para $J$. 
+En este caso aplicamos el segundo criterio integral con $(1-x)^{q-1}$:
+$$\int_{0^+}^{\frac{1}{2}} (1-x)^{q-1} \d x = \left|-\frac{(1-x)^{q}}{q}\right|-\frac{1}{2}^1 = \left|\frac{(1-x)^{q}}{q}\right|^\frac{1}{2}_1 = \frac{1}{2^{q}(q)}$$
+Como esta expresión también está acotada para $q>0$, entonces, aplicando el segundo criterio de comparación para integrales impropias de segunda especie:
+$$\lim_{x\rightarrow 1^-} \frac{x^{p-1}(1-x)^{q-1}}{(1-x)^{q-1}} = 1$$
+
+Luego $J$ converge, ya que $\frac{1}{2^{q}(q)}$ está definida para todo $q>0$.\qed
+
+\textbf{Demostrar que $\beta(p,q) = \int_{0^+}^{1^-} x^{p-1}(1-x)^{q-1} \d x  = 2\int_{0^+}^{\pi/2^-} \sin^{2p-1} \theta \cos^{2q-1} \theta \d \theta$}
+
+La demostración es sencilla si aplicamos el cambio de variable siguiente:
+$$\begin{cases}
+x = \sin^2 \theta \rightarrow & \d x = 2\sin\theta\cos\theta \d \theta\\
+(1-x) = 1- \sin^2\theta = \cos^2\theta & \theta = \arcsin\sqrt x
+\end{cases}$$
+
+Luego, aplicando el cambio de variable:
+$$\int_{0^+}^{1^-} x^{p-1}(1-x)^{q-1} \d x = 2\int_{\arcsin{0^+}}^{\arcsin{1^-}} \sin^{2p-2} \theta \cos^{2q-2}\theta \sin\theta\cos\theta \d \theta = 2\int_{\arcsin{0^+}}^{\arcsin{1^-}} \sin^{2p-1} \theta \cos^{2q-1}\theta \d \theta
+$$
+$$\rightarrow \begin{cases}
+\arcsin1 = \frac{\pi}{2}\\\arcsin0 = 0
+\end{cases}\rightarrow 2\int_{\arcsin{0^+}}^{\arcsin{1^-}} \sin^{2p-1} \theta \cos^{2q-1}\theta \d \theta = 2\int_{0^+}^{\pi/2^-} \sin^{2p-1} \theta \cos^{2q-1} \theta \d \theta$$\qed
+
+\section{Sucesiones de funciones}
+
+\textbf{Criterio de Cauchy. Sea $A\subset\mathbb{R}$. Una sucesión $f_n$ de $A$ converge uniformemente en $A$ si y sólo si para cada $\varepsilon>0$ existe un $n_0\subset\mathbb{N}$ tal que, para todo par $n>m\ge n_0$ y para todo $x\in A$ cumpla que $|f_m(x) - f_n(x)|<\varepsilon$.}
+
+$A \rightarrow B$:
+
+Si $f_n$ converge a $f$ ha de existir para cada $\varepsilon$ un $n_0$ que satisfaga que $|f_n(x) - f(x)|< \frac{\varepsilon}{2}$ para todo $n > n_0$. Por otra parte, lo mismo sucede para $f_m$, es decir, si $f_m$ converge a $f$ ha de existir para cada $\varepsilon$ un $m_0$ que satisfaga que $|f_m(x) - f(x)|< \frac{\varepsilon}{2}$ para todo $n > m_0$. 
+
+
+Por tanto, teniendo en cuenta esto:
+$$|f_n(x)-f_m(x)| = |f_n(x)-f_m(x) + f(x) - f(x)| = |[f_n(x)-f(x)] - [f_m(x) - f(x)]| \le |f_n(x)-f(x)| + |f_m(x) - f(x)| \le  2\frac{\varepsilon}{2} = \varepsilon $$
+
+$B \rightarrow A$:
+
+Si se cumple la segunda parte del enunciado, entonces tenemos que $f(x) = \lim_n f_(x)$ y por tanto converge puntualmente. Vamos a demostrar la convergencia uniforme, es decir, que para todo $x$ y todo $\varepsilon$ existe la convergencia. 
+
+Tenemos que, por las condiciones del enunciado, para todo $\varepsilon>0$ y para todo $x\in A$ se cumple que $|f_m(x) - f_n(x)|<\varepsilon$, es decir
+$$f_m(x) - \varepsilon < f_n(x) < f_m(x)+\varepsilon$$
+
+Y como $\lim_m f_m(x) = f(x)$, por definición, en el límite:
+$$f(x) - \varepsilon < f_n(x) < f(x)+\varepsilon \iff |f_n(x) - f(x)|<\varepsilon \qquad\forall x\forall\varepsilon$$
+
+Luego $f_n$ converge uniformemente a $f$ en $A$.\qed
+
+\textbf{Si $f_n$ en $A$ converge uniformemente a $f$, y cada una de las funciones de $f_n$ es continua en $a \in A$, entonces $f$ también es continua en $a$.}
+
+Como $f_n$ converge uniformemente a $f$ en $A$, para todo $\varepsilon>0$ y todo $x\in A$ existe un $n_0$ tal que para todo $n>n_0$  
+$$|f_n(x) - f(x)| \le  \frac{\varepsilon}{3}$$
+
+Además, si $f_n$ converge uniformemente, también lo hace puntualmente, luego en las mismas condiciones, pero en $a$ en lugar de en todo $x$:
+$$|f_n(a) - f(a)| \le  \frac{\varepsilon}{3}$$
+
+Por último, decimos que $f_n$ es continua en $a$ para todo $n$, luego para todo $\varepsilon$ existe un entorno $N(a)$ que cumple que:
+$$|f_n(x) - f_n(a)| \le  \frac{\varepsilon}{3}$$
+
+Por tanto, como buscamos que $f$ sea continua en $a$, se debe cumplir que $|f(x) - f(a)| < \varepsilon$. Vamos a comprobarlo.
+
+$$|f(x) - f(a)| = |f(x) - f(a) +\textcolor{red}{f_n(x)}-\textcolor{red}{f_n(x)}+\textcolor{blue}{f_n(a)}-\textcolor{blue}{f_n(a)}| \le \overbrace{|f(x) - \textcolor{red}{f_n(x)}|}^{\text{c. uniforme}} + 
+\overbrace{|\textcolor{blue}{f_n(a)} - f(a)|}^{\text{c. puntual}} +
+\overbrace{|\textcolor{red}{f_n(x)} - \textcolor{blue}{f_n(a)}|}^{\text{continuidad}}$$$$\le 
+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3} = \varepsilon$$\qed
+
+\textbf{Teorema de Dini. Sea $A$ compacto y $f_n$ una sucesión de funciones continuas en $A$ que converge puntualmente a $f$ en $A$. Si para cada $x\in A$ la sucesión $f_n$ es monótona, entonces $f_n$ converge uniformemente a $f$ en $A$.}
+
+Suponemos el teorema para $f$ creciente. Como $f_n$ converge puntualmente a $f$, entonces para cada $x$ existe un $\varepsilon_x$ tal que para todo $n\ge n_x$ cumpla que $|f(x)-f_{n_x}(x)|<\varepsilon_x$.
+
+Por otro lado, $f$ y $f_{n_x}$ son continuas en $x$, luego existe un conjunto abierto $A(x)$ tal que para todo $y\in A\cap A(x)$ cumpla que  $|f(y)-f_{n_x}(y)|<\varepsilon$
+
+Por último, hemos dicho que $A$ es compacto, luego existe un recubrimiento tal que $A \subset A(x_1) \cup A(x_2) \cup A(x_3)\cup\cdots\cup A(x_m)$ para unos $x_1,x_2,\cdots,x_m$.
+
+Así pues, sea $n_0 = \max\{n_{x_1}, \cdots, n_{x_m}\}$. Para cada $y\in A$, por existir dicho recubrimiento, ha de existir al menos un $A(x_i)$ que contenga a $y$ y, en tal caso, 
+$$0 \le f(y) - f_n(y) \le f(y) - f_{n_i}(y) \le \varepsilon$$\qed
+
+Ahora mostramos otra demostración del teorema.
+
+Supongamos $f_n$ monótona creciente y sean $\varepsilon > 0$ y $x \in A$, entonces existe un $n_x > 0$ tal que $|f(x) - f_m(x)| < \varepsilon/3$ para todo $m \ge n_x$, por converger $f_m$ puntualmente a $f$ en $x$.
+
+Además, como $f$ y $f_n$ son continuas, existe un entorno $A(x)$ de $x$ tal que si $y \in A(x)$ entonces $|f(x)-f(y)| < \varepsilon/3$ y $|f_{n_x}(x) - f_{n_x}(y)|<\varepsilon/3$.
+
+Partiendo de estas dos premisas, tenemos que 
+$$f(y) - f_{n_x}(y) = |f(y) - f_{n_x}(y)| = |f(y) -f(x)+f(x)-f_{n_x}(x)+f_{n_x}(x) - f_{n_x}(y)|$$$$\le  |f(y) -f(x)|+|f(x)-f_{n_x}(x)|+|f_{n_x}(x) - f_{n_x}(y)| \le \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon$$ 
+
+Por tanto, en $A(x)$ tenemos que $f(y)$ converge a $f_{n_x}(y)$. Como $A$ es compacto, entonces existe un subrecubrimiento finito $\{A(x_1), A(x_2), A(x_3),\cdots , A(x_p) \}$, y si $n_0 = \max\{ n_{x_1},n_{x_2},\cdots,n_{x_p} \}$ entonces para cada $x$ existe un recubrimiento donde $f(y)$ converja a $f_{n_0}(x)$ y, si $n\ge n_0$
+$$f(x)-f_n(x) \le f(x)-f_{n_0}(x) \le \varepsilon$$
+
+Como esta proposición se cumple para todo $x$ y para todo $\epsilon$, entonces se cumple que $f_n$ converge uniformemente a $f$ en $A$.
+\qed
+
+
+Vamos a ver que la compacidad de $A$ es imprescindible para que el teorema se cumpla.
+
+Tomamos por ejemplo $f_n = \frac{1}{1+nx}$ para $x\in(0,1)$. Entonces vemos que $f_n$ es decreciente para todo $x$ y que converge puntualmente a $f = 0$.  Ahora bien, el supremo de $f_n$ es 
+$$\sup\{|f_n(x) - f(x)|:x\in(0,1)\} = \sup\{|f_n(x) 0|:x\in(0,1)\} = \sup\left\lbrace \frac{1}{1+nx} :x\in(0,1)\right\rbrace = 1$$
+
+Nota: recordemos que el supremo de un conjunto es la menor de las cotas superiores, por lo que en este punto la menos de las cotas se encuentra en la frontera, cuando $x = 0$.
+
+Sin embargo, vemos que 
+$$\lim_n\sup\{|f_n(x) - f(x)|:x\in(0,1)\} = 1 \neq 0$$
+
+Luego no se cumple el teorema.
+
+Si partiéramos de un conjunto $A = [0,1]$, tendríamos que $f = \begin{cases}
+1 \text{ si } x = 0 \\ 0 \text{ si } x>0
+\end{cases}$ y, por tanto, la convergencia no podría ser ya uniforme.
+
+
+A continuación enunciamos los teoremas de integración y derivación para series. No los demuestro porque sólo ha caído enunciarlos en el examen, y las demostraciones se acaban haciendo un poco largas.
+
+\textbf{Integrabilidad. Sea $f_n$ una sucesion de funciones en $[a,b]$ que converge uniformemente a $f[a,b]$. Si cada una de las funciones $f_n$ es integrable en $[a,b]$ entonces $f$ también lo es, y se cumple que $\lim_n \int^b_af_n = \int^b_a f$}
+
+Nota: existen funciones como $f_n = \frac{nx}{1+nx}$ que no convergen uniformemente (en este caso $f = 0$ si $x = 0$ y $f = 1$ si $x\neq0$), pero que cumple que $\lim_n \int^1_0f_n = \int^1_0 f$.
+
+\textbf{Sea $f_n$ una sucesión de funciones derivables con derivada finita en $(a,b)$ y supongamos $c\in (a,b)$. Entonces, si la sucesión $f_n(c)$ converge y $f'_n$ converge uniformemente en $(a,b)$, entonces $f_n$ converge uniformemente en $(a,b)$ y $f$ es derivable, verificando que $f'(x) = \lim_n f'_n(x)$}
+
+Nota: hay que fijarse en que el enunciado aquí es más restrictivo. Que $f_n$ sea convergente uniformemente a $f$ no es suficiente, ya que existen funciones $f_n$ derivables que tengan $f$ no derivable y que, a efectos prácticos, $f'_n$ no converga a $f'$ ni puntualmente.
+
+
+
+
+\section{Series de funciones}
+\textbf{Criterio de Cauchy para la convergencia uniforme. Una serie $\sum f_n$ converge uniformemente en $A$ si y solo si para todo $\varepsilon > 0$ existe un $n_0$ tal que, para todo $n>m\ge n_0$ y para todo $x\in A$, cumpla que}
+$$\left| \sum^n_{k = m+1} f_k(x) \right| < \varepsilon$$ 
+
+
+Por la definición de convergencia uniforme en el enunciado, se cumple que para todo $\varepsilon> 0$ existe un $n_0$ tal que para todo $n > n_0$ 
+$$\left| \sum^n_{i = 1} f_i(x) - F(x)\right| < \frac{\varepsilon}{2}$$ 
+Donde $F(x)$ es el límite de la serie de funciones. 
+
+Por otro lado, del mismo modo, se cumple que para todo $\varepsilon> 0$ existe un $n_0$ tal que para todo $m > n_0$ 
+$$\left| \sum^m_{i = 1} f_i(x) - F(x)\right| < \frac{\varepsilon}{2}$$ 
+
+Si combinamos ambas expresiones tenemos que 
+$$\left| \sum^n_{i = 1} f_i(x) - F(x) -  \sum^m_{i = 1} f_i(x) + F(x)\right| = \left| \sum^n_{i = 1} f_i(x) -  \sum^m_{i = 1} f_i(x) \right| = $$$$= \left| (f_1(x)+ f_2(x) + \cdots + f_m(x) + f_{m+1}(x) + \cdots + f_n(x)) - (f_1(x)+ f_2(x) + \cdots + f_m(x))\right| = 
+\left|  f_{m+1}(x) + \cdots + f_n(x)\right| $$$$ =
+\left| \sum^n_{k = m+1} f_k(x) \right| \le \left| \sum^n_{i = 1} f_i(x) - F(x)\right| + \left| \sum^m_{i = 1} f_i(x) - F(x)\right| = \frac{\varepsilon}{2}+\frac{\varepsilon}{2} = \varepsilon$$\qed
+
+Ahora enunciamos tres teoremas de continuidad/integrabilidad/derivabilidad de series.
+
+\textbf{Sea $\sum f_n$ una serie de funciones que converge uniformemente a $F$ en $A$. Si cada $f_n$ es continua en $a\in A$ entonces $F$ también es continua en $a$.}
+
+\textbf{Sea $\sum f_n$ una serie de funciones que converge uniformemente a $F$ en $[a,b]$. Si cada $f_n$ es integrable en $[a,b]$ entonces $F$ también es integrable en $[a,b]$ y $\sum_n^\infty\int_a^bf_n = \int_a^bF$ }
+
+\textbf{Sea $\sum f_n$ una serie de funciones que converge uniformemente a $F$ en $[a,b]$. Si cada $f_n$ es derivable con derivada finita en $(a,b)$ y supongamos que para un $c\in(a,b)$ $\sum f_n(c)$ converge y que la serie de derivadas $\sum f'_n$ converge UNIFORMEMENTE en $(a,b)$. Entonces $\sum f_n$ converge uniformemente en $(a,b)$ a $F$, también derivable en $(a,b)$ y $\sum_n^\infty f'_n = F'$ }
+
+Todas estas proposiciones se pueden demostrar con las proposiciones homólogas en las series de funciones. Siendo menos rigurosos, además, podemos demostrar la derivabilidad e integrabilidad partiendo de que la derivada de la suma es la suma de derivadas y la integral de la suma es la suma de integrales.
+
+\textbf{Criterio de Weierstrass. Sea $f_n$ en $A$ y supongamos que existe una sucesion $M_n$ tal que $|f_n(x)| \le M_n$ para todo $n$ y todo $x\in A$. Entonces, si $\sum M_n$ converge, $\sum f_n$ converge absoluta y uniformemente en $A$.}
+
+Como $\sum M_n$ converge, entonces para todo $\varepsilon$ existe un $n_0$ tal que para todo $n>m\ge n_0$ se cumple que 
+$$\sum_{k = m+1}^n M_k < \varepsilon$$
+
+Dicho esto, la demostración es simple:
+$$\left| \sum^n_{k = m+1} f_k(x) \right| \le \sum^n_{k = m+1}\left|  f_k(x) \right| \le\sum_{k = m+1}^n M_k < \varepsilon$$
+
+Entonces, como $\left| \sum^n_{k = m+1} f_k(x) \right| \le \varepsilon$ (por el criterio de Cauchy) la serie converge uniformemente, y como $\sum^n_{k = m+1}\left|  f_k(x) \right| \le \varepsilon$ la serie converge absolutamente.\qed
+
+Ahora enunciamos los criterios de Dirichlet y Abel.
+
+\textbf{Criterio de Dirichlet. Sean $A$, $\sum f_n$ una serie de funciones en $A$ y $F_n(x) = \sum_1^n f_n(x)$. Si $F_n$ está uniformemente acotada en $A$ y $g_n$ es una sucesión tal que (1) $g_{n+1}(x) \le g_{n}(x)$ para todo $n$ y todo $x\in A$ y que (2) converge uniformemente a 0 en $A$, entonces $\sum f_ng_n$ converge uniformemente en $A$.}
+
+Así, por ejemplo, sabiendo que $\sum \cos(nx) \le \frac{1}{\sin(x/2)}$ y $\sum \sin(nx) \le \frac{1}{\sin(x/2)}$ en $[\delta, 2\pi-\delta]$, si $g(x)$ cualquiera cumple el criterio de Dirichlet, entonces $\sum g(x)\cos (nx)$ y $\sum g(x) \sin(nx)$ convergen uniformemente en $[\delta, 2\pi-\delta]$.
+
+\textbf{Criterio de Abel. Sean $A$, $\sum f_n$ una serie de funciones en $A$ y $F_n(x) = \sum_1^n f_n(x)$. Si $F_n$ está uniformemente acotada en $A$ y $g_n$ es una sucesión tal que  $g_{n+1}(x) \le g_{n}(x)$ para todo $n$ y todo $x\in A$, entonces $\sum f_ng_n$ converge uniformemente en $A$.}
+
+Si nos fijamos, cualquier serie que cumpla el criterio de Abel no hace falta que cumpla el de Dirichlet. Así, como el criterio de Abel es mas laxo, es el que generalmente utilizaremos.
+
+\hrulefill
+
+Como si de cualquier otra serie se tratara, podemos aplicar los criterios de convergencia de series usuales, y aplicarlos convenientemente a las series de funciones. A continuación mostramos los criterios para series numéricas más importantes.
+
+\begin{enumerate}
+	\item Criterio de Leibniz. Si $\lim_n a_n = 0$ entonces $\sum_n (-1)^n a_n$ converge.
+	\item Primer criterio de comparación. Dadas dos funciones $a_n$ y $b_n$ tal que $a_n \le b_n$ para todo $n$, si (1) $a_n$ diverge entonces $b_n$ también y (2) si $b_n$ converge entonces $a_n$ también.
+	\item Segundo criterio de comparación. Sean $a_n \ge 0 $ y $b_n > 0$, y $l = \lim_n \frac{a_n}{b_n}$, entonces:
+		\subitem Si $l\neq0$, entonces $\sum a_n$ y $\sum b_n$ tienen el mismo carácter
+		\subitem Si $l = 0$ y $\sum b_n$ converge, $\sum a_n$ también lo hace
+	\item Criterio integral. Sea $a_n$ la manera discreta de la función $f(n)$. Entonces $\sum a_n$ y $\int^{+\infty}_1f(n)$ tienen el mismo carácter.
+	\item Criterio del cociente. Sea $l = \lim_n \frac{a_{n+1}}{a_n}$. Si $l>1$ entonces $\sum a_n$ diverge y si $l<1$ $\sum a_n$ converge. Si $l=1$ el criterio no es concluyente.
+	\item Criterio de Raabe. Sea $l = \lim_n n(1-\frac{a_{n+1}}{a_n})$. Si $l<1$ entonces $\sum a_n$ diverge y si $l>1$ $\sum a_n$ converge. Si $l=1$ el criterio no es concluyente.
+	\item Criterio de la raíz. Sea $l = \lim_n \sqrt[n]{a_n}$, par $a_n>0$. Si $l>1$ entonces $\sum a_n$ diverge y si $l<1$ $\sum a_n$ converge. Si $l=1$ el criterio no es concluyente.
+	
+	
+	Como comentario, la demostración del criterio integral cayó en un examen (no sin tener polémica), así que la incluyo.
+	
+	\textbf{Sea $f:[1,+\infty) \rightarrow \mathbb{R}$ una función positiva y DECRECIENTE y, para cada $n\in \mathbb{N}$, sea $a_n=f(n)$. Entonces, la serie $\sum a_n$ y la integral impropia $\int_1^{+\infty} f$ tienen el mismo carácter.}
+	
+	Sea $A_n$ la sucesión de sumas parciales de $\sum a_n$. Por ser $f$ decreciente, para cada $k\in \mathbb{N}$ se verifica que 
+	$$a(k+1) = f(k+1) \le \int_k^{k+1}f\le f(k) = a(k)$$
+	
+	Nota: esto se ve fácilmente dibujando una curva y tomando dos puntos. Tenemos que $f(k+1) = \inf\{f(x):x \in [k, k+1] \}$ mientras que $f(k) = \sup\{f(x):x \in [k, k+1] \}$. Entonces si tomamos los rectángulos de base 1 en $f(k)$ y $f(k+1)$, $\int_k^{k+1}f$ tiene un área entre los dos rectángulos.
+	
+	Así pues, 
+	$$a(2) \le \int_1^{2}f\le a(1) \quad a(3) \le \int_2^{3}f\le a(2) \quad a(4) \le \int_3^{4}f\le a(3) \quad \cdots$$
+	
+	Y si hacemos la suma hasta $n+1$:
+    $$A_{n+1}-a_1 \le \int_1^{n+1}f \le A_n$$
+    
+    Entonces, tanto $A_n$ como $\int_1^{n+1}$ tienen que tener el mismo carácter, ya que si la integral converge, como $a_1$ está acotado, entonces $A_n$ tiene que converger, ya que si no convergiera, $A_{n+1}$ tampoco lo haría, y el teorema del sándwich no se cumpliría.\qed
+	
+		
+
+\end{enumerate}
+
+\section{Series de potencias}
+
+\textbf{Si una serie de potencias $\sum a_n x^n$ converge para un $x_0\neq0$ entonces la serie converge absolutamente si $|x| < |x_0|$}
+
+Si $\sum a_n x^n$ converge, entonces $\lim_n a_nx^n_0 = 0$, ya que de lo contrario la serie sería divergente. Por tanto, la sucesión $a_nx^n_0$ está acotada superiormente para todo $n$. Pongamos una cota $c>0$ tal que $|a_nx_0^n| < c$ para todo $n$. Entonces
+$$|a_nx^n| = |a_nx_0^n|\left|\frac{x}{x_0}\right|^n < c \left|\frac{x}{x_0}\right|^n$$
+
+Por tanto, si $|x|<|x_0|$, entonces $\sum \left|\frac{x}{x_0}\right|^n$ converge y $\sum c\left|\frac{x}{x_0}\right|^n$ y, por el primer criterio de comparación $\sum a_n x^n$ converge absolutamente.\qed
+
+\textbf{Dada una serie de potencias $\sum a_nx^n$, existe un $r\ge0$ al que la serie converge absolutamente si $|x|<r$ y diverge si $|x|>r$ Además, si $x_0 \in (0,r)$, entonces la serie también converge uniformemente en $[-x_0,x_0]$.}
+
+Si $r = 0$ entonces $x = 0$ y $\sum a_n x^n = 0$. Sin embargo, también puede ser que $r>0$. En ese caso, basándonos en la proposición anterior, esta proposición será cierta siempre que $|x| < |r|$.
+
+Para la segunda proposición, simplemente tenemos que fijarnos en que como $|a_nx^n| < |a_nx_0^n|$ si $|x|<|x_0|$, entonces, aplicando el criterio de Weierstrass, $\sum a_nx^n$ converge uniformemente. 
+\qed
+
+
+\textbf{Dada una serie de potencias $\sum a_nx^n$, si $\overline{\lim_n} \sqrt[n]{|a_n|} = l$ entonces el radio de convergencia de $r$ es (1) $+\infty$ si $l=0$, (2) $1/l$ si $l\in(0, +\infty)$ o (3) $0$ si $l = +\infty$}
+
+Para demostrar esto aplicamos el criterio de la raíz: 
+$$\overline{\lim_n} \sqrt[n]{|a_nx^n|} = |x|l$$
+
+Recordemos que por este criterio, si $|x|l < 1$ entonces la serie es convergente. Por tanto, considerando $r = |x| \rightarrow r = 1/l$, y de ahí surge el criterio.
+
+Este mismo razonamiento puede aplicarse con el criterio del cociente.\qed
+
+
+
+Ahora vamos a desarrollar proposiciones para la integrabilidad y derivabilidad de las series de potencias similares a las de anteriores apartados.
+
+\textbf{Si $r > 0$ en una serie de potencia $\sum a_n x^n$, entonces la serie de potencias $\sum na_nx^{n-1}$ también tiene radio de convergencia $r$ y la función definida por $f(x) = \sum_{n=0}^{\infty}a_nx^n$ es derivable y $f'(x) = \sum_{n=1}^\infty na_nx^{n-1}$ para cada $x\in(-r,r)$.}
+
+Partiendo de la definición de $f(x)$ aplicamos la derivada y tenemos que
+$$f'(x) = \parfrac{x}\left(\sum_{n=0}^{\infty}a_nx^n\right) = \parfrac{x}a_0 + \parfrac{x}a_1x + \parfrac{x}a_2x^2 + \parfrac{x}a_3x^3 + \dots = a_1 + 2a_2x + 3a_3x^2 + \cdots = \sum_{n=1}^\infty na_nx^{n-1} $$
+
+Sólo nos queda comprobar que tienen el mismo ratio de convergencia.
+Si aplicamos el criterio del cociente a la serie original teníamos que 
+$$\lim_n  \frac{ a_{n+1} x^{n+1}}{ a_n x^n}= \lim_n \frac{a_{n+1}}{a_n} x = lx$$
+
+Si aplicamos el mismo criterio a la serie de derivadas tenemos que 
+$$\lim_n  \frac{ (n+1)a_{n+1} x^{n}}{ (n)a_n x^{n-1}}= \lim_n \frac{{n+1}}{n}\frac{a_{n+1}}{a_n} x = 1\cdot lx$$
+
+Como vemos, el límite es el mismo en ambos casos y, por tanto, el criterio de convergencia es el mismo.\qed
+
+Nota: Si aplicamos este criterio, tendremos que el ratio de convergencia se mantiene igual para $f^{(k)}(x) = \sum_{n=k}^\infty n(n-1)\cdots(n-k+1)a_nx^{n-k}$.
+
+\textbf{Si $r > 0$ en una serie de potencia $\sum a_n x^n$, entonces la serie de potencias $\sum_0^\infty \frac{a_n}{n+1}x^{n+1}$ también tiene radio de convergencia $r$ y la función definida por $f(x) = \sum_{n=0}^{\infty}a_nx^n$ es integrable  y $F(x) = \int_0^{+\infty} f(t) \d t = \sum_0^\infty \frac{a_n}{n+1}x^{n+1}$ para cada $x\in(-r,r)$.}
+
+Partiendo de la definición de $f(x)$ aplicamos la integral y llegamos a la expresión correspondiente.
+
+Sólo nos queda comprobar que tienen el mismo ratio de convergencia.
+Si aplicamos el criterio del cociente a la serie original teníamos que 
+$$\lim_n  \frac{ a_{n+1} x^{n+1}}{ a_n x^n}= \lim_n \frac{a_{n+1}}{a_n} x = lx$$
+
+Si aplicamos el mismo criterio a la serie de integrales tenemos que 
+$$\lim_n  \frac{ \frac{a_{n+1}}{n+2}x^{n+2}}{\frac{a_n}{n+1}x^{n+1}}= \lim_n \frac{{n+1}}{n+2}\frac{a_{n+1}}{a_n} x = 1\cdot lx$$
+
+Como vemos, el límite es el mismo en ambos casos y, por tanto, el criterio de convergencia es el mismo.\qed
+
+\textbf{Si $r>0$ es el radio de convergencia de una serie $\sum a_n x^n$ y la serie numérica $\sum a_nr^n$ converge, entonces $\sum a_nx^n$ converge uniformemente en $[0,r]$}
+
+Sean $f_n$ y $g_n$ definidas en $x\in[0,r]$ como:
+$$f_n(x) = a_nr^n \qquad g_n(x) = \left(\frac{x}{r}\right)^n$$
+
+Entonces, tenemos que la serie $\sum f_n$ converge uniformemente ya que se puede aplicar el criterio de Weierstrass (tenemos que $|f_n(x)| = |a_nr^n| \le M_n = a_nr^n$ si $r\ge0$ y $a_n> 0$). Por otro lado, tenemos que $g_{n+1} \le g_{n}$, luego aplicando el criterio de Abel para series de funciones, tenemos que $\sum f_ng_n = a_nx^n$ converge uniformemente en $[0,r]$.\qed
+
+
+\textbf{Teoría del límite de Abel. Sea $\sum a_n x^n$ una serie de potencias con $r>0$ y sea $f$ definida en $(-r,r)$ por $f(x) = \sum_0^{\infty} a_nx^n$. Entonces, si $\sum a_n r^n$ converge, existe $\lim_{x\rightarrow r^-}f(x)$ y se verifica que   $\lim_{x\rightarrow r^-}f(x) = \sum_0^{\infty} a_n r^n$}
+
+Por la proposición anterior, $\sum a_nx^n$ converge uniformemente en $[0,r]$ a una función $g$ que coincide con $f$ en $[0,r)$ y como las funciones $f_n(x) = a_nx^n$ son continuas en todo punto, $g$ es continua en $r$, y, por tanto
+
+$$\lim_{x\rightarrow r^-}f(x) = \lim_{x\rightarrow r^-}g(x) = g(r)  = \sum_0^{\infty} a_n r^n$$\qed
+
+
+
+
+
+
+\end{document}
