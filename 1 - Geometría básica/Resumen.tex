@@ -1,0 +1,160 @@
+\documentclass[a4paper, ]{article}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish]{babel}
+
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\usepackage{multicol}
+\title{\Huge{\vspace{-1em}La(s) hoja(s) de Chema}}
+\author{}
+\date{}
+\makeatletter
+
+
+\usepackage{xcolor}
+
+\usepackage{wrapfig}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+
+
+\usepackage{fourier}
+
+\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+\usepackage{Alegreya}
+
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.1em}
+\renewcommand{\baselinestretch}{1.15}
+\setlength\itemsep{0em}
+
+
+\newenvironment{itemizex}%
+{\begin{itemize}[noitemsep]%
+		\setlength{\itemsep}{0 em}%
+		\setlength{\parskip}{0pt}
+				\vspace*{-1em}
+	}%
+	{\end{itemize}}
+
+
+
+\newcommand{\dd}{\ensuremath{\operatorname{d}}}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\m}{\text{medio}}
+\newcommand{\iso}{\text{Isom}}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+\definecolor{azul}{HTML}{107896}
+\definecolor{naranja}{HTML}{C2571A}
+\definecolor{rojo}{HTML}{9A2617}
+\definecolor{amarillo}{HTML}{BCA136}
+\definecolor{verde}{HTML}{829356}
+\definecolor{gris}{HTML}{909090}
+\definecolor{rosa}{HTML}{F9A7B0}
+\definecolor{amarillochillon}{HTML}{FBB117}
+
+\newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+\newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+\newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+\newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+\newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+\newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+\newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+\newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+
+\newcommand{\dem}[1]{\textcolor{gris}{\normalsize{Demostración. #1}}}
+
+\newcommand{\importante}{\textcolor{amarillochillon}{\textbf{\danger} \,}}
+
+
+
+\begin{document}
+		\maketitle
+
+	\fontsize{12pt}{12pt}\selectfont
+	\vspace*{-4em}
+	
+	\begin{multicols}{2}
+	[
+	\section{Espacios métricos}
+	]
+	\input{1.tex}
+	\end{multicols}
+	
+	\pagebreak
+	\textcolor{gris}{\textit{Page intentionally left in blank}}
+	\newpage
+	\pagebreak
+	
+	
+	\begin{multicols*}{2}
+	[\section{Axiomas para la geometría euclidiana plana}]
+	\input{2.tex}\end{multicols*}\pagebreak
+
+
+	\begin{multicols*}{2}
+	[\section{Isometrías del plano}]
+	\input{3.tex}\end{multicols*}\pagebreak
+	
+	
+	\begin{multicols*}{2}
+	[\section{Ángulos}]
+	\input{4.tex}\end{multicols*}\pagebreak
+	
+		
+	
+	
+	
+	
+	 \noindent\rule{\linewidth}{0.4pt}
+	 \doclicenseThis
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	  	
+ 	
+ 	
+ 	
+ 	
+ 	
+\end{document}

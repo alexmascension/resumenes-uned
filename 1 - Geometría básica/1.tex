@@ -1,0 +1,35 @@
+
+	\defi{1.1} $\delta: M \times M \rightarrow \R $ es una métrica o \textbf{distancia} si cumple que 
+	\begin{itemizex}
+		\item $\delta(x,y) > 0$ si $x \neq y$, o $\delta(x,x) = 0$
+		\item $\delta(x,y) = \delta(y,x)$
+		\item $\delta(x,z) \le \delta(x,y) + \delta(y,z)$
+	\end{itemizex}
+	
+	\ej{1.1} Por inducción, la desigualdad triangular se puede generalizar a: $\delta(p^1, p^n) \le \delta(p^1, p^2) + \cdots + \delta(p^{n-1}, p^n)$
+	
+	\tma{1.4} Si $M' \subset M$ y existe el espacio métrico $(M, \delta)$, entonces también existe $(M', \delta)$, y se llama \textbf{métrica inducida} por $(M,\delta)$.
+	
+	\defi{1.5} Sean $(M,\delta), (M', \delta')$ y $g: M \rightarrow M'$. Se dice que $g$ conserva las distancias si $\delta'(g(x), g(y)) = \delta(x, y)\;\; \forall \; \; x,y \in M$. Si además $g$ es biyectiva, entonces es una \textbf{isometría}.
+	
+	\tma{1.7} Si existen $(M, \delta), (M', \delta'), (M'', \delta'')$ y $g: M\rightarrow M'$ y $h: M\rightarrow M'$ son isometrías, entonces $h\circ g$ y $g^{-1}$ también son isometrías.
+	
+	\defi{1.8} La composición de isometrías forma un \textbf{grupo} pues
+	\begin{itemizex}
+		\item $(g \circ h) \circ i = g \circ (h \circ i)$
+		\item Si $g \in \text{Isom}(M)$ entonces $g^{-1} \in \text{Isom}(M)$
+		\item La isometría identidad, $\text{id}_M \in \text{Isom}(M)$
+	\end{itemizex}
+	
+	\defi{1.12} Si $(M, \delta)$, para $a,b \in M$ se llama \textbf{segmento} de extremos $a$ y $b$ y se representa por $[a,b]$ al conjunto $[a,b] = \{x \in M \;|\; \delta(a,x) + \delta(x,b) = \delta(a,b) \}$. Asimismo, $x,y,z \in M$ están alineados si ($x < y < z$) $y \in [x,z]$.	 
+	
+	\ej{1.5} Para $\sigma \in \{1,-1\}$ y $\tau \in \R$, la aplicación $f(x) = \sigma x+\tau$ es una isometría para $(\R, d_{\R})$
+	
+
+	 
+	 
+	 
+	 
+	 
+	 
+	 
