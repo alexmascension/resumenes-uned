@@ -1,0 +1,154 @@
+%							PLANTILLA GENÉRICA DE RESUMEN
+
+
+\documentclass[a4paper, ]{article}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+
+
+% Usepackages
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish]{babel}
+
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+\usepackage{xcolor}
+\usepackage{wrapfig}
+
+\usepackage{multicol}
+
+% Valores del título
+\title{\Huge{\vspace{-1em} Plantilla de UNED}}
+\author{}
+\date{}
+\makeatletter
+
+
+% Cabecera
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+
+
+
+
+% Fuentes. 
+% Alegreya tiene este toque antiguo con serifa, y la tipografía de las ecuaciones es también interesante. 
+% Gillius no tiene serifa, y también es equilibrada.
+\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+\usepackage{Alegreya}
+
+
+% Paquete para añadir Creative Commons al final del documento
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+
+% Propiedades de párrafo
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.1em}
+\renewcommand{\baselinestretch}{1.15}
+\setlength\itemsep{0em}
+
+% Con itemizex se quita el exceso de espacio que se genera y que no se resuelve con 
+% parindent o parskip generalmente.
+\newenvironment{itemizex}%
+{\begin{itemize}[noitemsep]%
+		\setlength{\itemsep}{0 em}%
+		\setlength{\parskip}{0pt}
+				\vspace*{-1em}
+	}%
+	{\end{itemize}}
+
+
+% Definición de comandos. Muchos de ellos han surgido para Geometría, aunque se 
+% irá actualizando la lista.
+\newcommand{\dd}{\ensuremath{\operatorname{d}}}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\m}{\text{medio}}
+\newcommand{\iso}{\text{Isom}}
+
+% Para incluir mathcal en las ecuaciones. El /mathcal para Alegreya es el viejo 
+% y floritural estilo que odio.
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+% Definición de colores agradables a la vista
+\definecolor{azul}{HTML}{107896}
+\definecolor{naranja}{HTML}{C2571A}
+\definecolor{rojo}{HTML}{9A2617}
+\definecolor{amarillo}{HTML}{BCA136}
+\definecolor{verde}{HTML}{829356}
+\definecolor{gris}{HTML}{909090}
+\definecolor{rosa}{HTML}{F9A7B0}
+\definecolor{amarillochillon}{HTML}{FBB117}
+
+% Definición de comandos para teoremas, etc. El comando también incluye
+% como argumento un texto, del estilo Teorema 3.5
+\newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+\newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+\newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+\newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+\newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+\newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+\newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+\newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+
+% La demostración es igual pero va con una letra más pequeña y en gris.
+\newcommand{\dem}[1]{\textcolor{gris}{\normalsize{Demostración. #1}}}
+
+% Esto pone un triangulito de peligro para cuando algo es importante.
+\usepackage{fourier}
+\newcommand{\importante}{\textcolor{amarillochillon}{\textbf{\danger} \,}}
+
+% Para usar columnas emplea este trozo de código
+% \begin{multicols*}{2}
+% [\section{Axiomas para la geometría euclidiana plana}]
+% \input{2.tex}\end{multicols*}\pagebreak
+% multicols* obliga a terminar una columna antes de empezar la siguiente.
+
+\begin{document}
+		\maketitle
+
+	\fontsize{12pt}{12pt}\selectfont
+	\vspace*{-4em}
+		
+	
+
+	
+	 \noindent\rule{\linewidth}{0.4pt}
+	 \doclicenseThis
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	  	
+ 	
+ 	
+ 	
+ 	
+ 	
+\end{document}
