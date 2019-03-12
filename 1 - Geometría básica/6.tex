@@ -4,7 +4,7 @@
 	\includegraphics[width=3.5cm]{figuras/6-1.png}
 	\vspace{-1em}
 \end{figure}
-\dem{Consideramos el punto $S\in r_{BC}$ tal que $r_{SA}\perp r_{CB}$. Pese a que es evidente, hay que demostrar que $S\in[B,C]$. Observamos que $SC < CA < BC$, la primera igualdad por $\cos \angle C = \frac{SC}{CA} < 1 \iff SC < CA$. Del mismo modo, $BS < BC$. Entonces, $S\in [B,C]$.\linebreak
+\obligatorio\dem{Consideramos el punto $S\in r_{BC}$ tal que $r_{SA}\perp r_{CB}$. Pese a que es evidente, hay que demostrar que $S\in[B,C]$. Observamos que $SC < CA < BC$, la primera igualdad por $\cos \angle C = \frac{SC}{CA} < 1 \iff SC < CA$. Del mismo modo, $BS < BC$. Entonces, $S\in [B,C]$.\linebreak
 Ahora observamos que
 $$\cos \angle C = \frac{CA}{CB} = \frac{CS}{CA}$$
 Por otra parte, también vemos que 
@@ -48,6 +48,32 @@ $$\frac{AB}{\sen \angle C} = \frac{AC}{\sen \angle B}  = \frac{BC}{\sen \angle A
 \dem{Seguimos con la figura de la \defi{6.6}. Vemos que $BP_{hB} = BC\sen \angle C = BA\sen\angle A$. Si el triángulo es obtusángulo también se cumple porque los senos se mantienen.
 Simplemente, igualando $BP_{hB}$ tenemos que $\frac{BC}{\sen \angle A} = \frac{BA}{\sen \angle C}$. El resto de igualdades se consiguen con las demás alturas.}
 
+\tma{6.11}  Para $\triangle ABC$...
+\begin{itemizex}
+	\item Si se conoce $\measuredangle A$ y $AB, AC$ (adyacentes), entonces se pueden hallar $\measuredangle B, \measuredangle C, BC$. 
+	\item Si se conocen $AB, AC, BC$ entonces se pueden hallar $\measuredangle A, \measuredangle B, \measuredangle C$.
+	\item Si se conocen $AB, \measuredangle A, \measuredangle B$ entonces se pueden hallar $BC, AC, \measuredangle C$.
+\end{itemizex}
+
+\cor{6.12 [Criterios de congruencia de $\triangle$]} Dados $\triangle ABC$ y $\triangle A'B'C'$ entonces
+\begin{itemizex}
+	\item $\measuredangle A =  \measuredangle A', AB = A'B', AC = A'C'$ [LAL]
+	\item $AB = A'B', AC = A'C', BC = B'C'$ [LLL]
+	\item $\measuredangle A = \measuredangle A', \measuredangle B = \measuredangle B', AB = A'B'$ [ALA]
+\end{itemizex}
+Entonces existe una isometría $\eta$ tal que $\eta(A) = A'$, etc. y $\triangle ABC = \triangle A'B'C'$. Hay que considerar que para emplear isometrías pares hay que definir la orientación de los triángulos.
+
+\cor{6.14} Sean $\angle P$ y $\angle Q$ no nulos, y sumables. Entonces
+$$ \sen(\angle P  + \angle Q) = \sen(\angle P)\cos(\angle Q) + \sen(\angle Q)\cos(\angle P) $$
+$$ \cos(\angle P  + \angle Q) = \cos(\angle P)\cos(\angle Q) - \sen(\angle P)\sen(\angle Q)$$
+
+\cor{6.15} Sean  $\angle P$ y $\angle Q$ no nulos, y sumables. Entonces 
+$$\measuredangle (\angle P  + \angle Q) = \measuredangle P + \measuredangle Q$$
+\dem{Nota: en el punto final se demuestra que $$\cos(\angle P + \angle Q) = \cos(\measuredangle P + \measuredangle Q)$$
+Sabiendo que $\measuredangle P = \arccos(\cos \angle P)$
+entonces $\arccos(\cos(\angle P +\angle Q)) = \measuredangle(\angle P + \angle Q)$ y, por tanto,
+$$ \measuredangle(\angle P + \angle Q) = \arccos(\cos(\measuredangle P + \measuredangle Q)) = \measuredangle P + \measuredangle Q$$}
+\cor{6.16} Si $\angle V$ es un ángulo y $n$ es entero, entonces existe $n\angle V$ y $\measuredangle (n \angle V) = n \measuredangle V$.
 
 
 
