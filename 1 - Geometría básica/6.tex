@@ -1,0 +1,54 @@
+\tma{6.1 [Pitágoras]} Para todo triángulo rectángulo $\angle ABC$ con $\angle A$ recto, se tiene que $$BC^2 = AC^2+ AC^2$$
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=3.5cm]{figuras/6-1.png}
+	\vspace{-1em}
+\end{figure}
+\dem{Consideramos el punto $S\in r_{BC}$ tal que $r_{SA}\perp r_{CB}$. Pese a que es evidente, hay que demostrar que $S\in[B,C]$. Observamos que $SC < CA < BC$, la primera igualdad por $\cos \angle C = \frac{SC}{CA} < 1 \iff SC < CA$. Del mismo modo, $BS < BC$. Entonces, $S\in [B,C]$.\linebreak
+Ahora observamos que
+$$\cos \angle C = \frac{CA}{CB} = \frac{CS}{CA}$$
+Por otra parte, también vemos que 
+$$\cos \angle B = \frac{BS}{AB} = \frac{AB}{BC}$$
+De ambas expresiones tenemos que (1) $CA^2 = CB\cdot CS$ y (2) $AB^2 = BS\cdot BC$. Así, $CB\cdot CS + CB\cdot BS = CB(CS+BS) = CB^2 = CA^2 + BA^2$.
+}
+
+\cor{6.3} Sea $\angle C$, entonces $$\sen^2 \angle C + \cos^2 \angle C = 1$$  
+
+\dem{Si tenemos que $BC = 1$, entonces $\cos \angle C = \frac{CA}{CB}  = CA$ y $\sen \angle C = \frac{BA}{BC} = BC$. Aplicando el teorema de Pitágoras, entonces $ \sen^2 \angle C + \cos^2 \angle C =  BA^2 + CA^2 = BC^2 = 1$.} 
+
+\tma{6.4} Dado $x \in [0, \pi] \subset \R$, existe un ángulo $\angle V$ tal que $\measuredangle V = x$.
+
+\tma{6.5}  $\angle P = \angle Q$ sii $\measuredangle P = \measuredangle Q$
+
+\defi{6.6} Sea $\triangle ABC$ y $h_B \perp r_{CA}$ y que pasa por $B$, y sea el punto $P_{h,b}$ el punto de corte de $h_B$ y $r_{CA}$. Entonces, $P_{h,b}$ es el \textbf{pie de la altura de $B$}, y $[P_{h,b},B]$ es la \textbf{altura} de $\triangle ABC$ desde $B$.
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=3.5cm]{figuras/6-6.png}
+	\vspace{-1em}
+\end{figure}
+
+\tma{6.7} En el triángulo de la \defi{6.6}, si $\angle A$ y $\angle C$ son agudos, entonces $P_{h,b} \in [C,A]$. Si $\angle A$ o $\angle C$ es obtuso, entonces $P_{h,b} \not\in [C,A]$.
+
+\tma{6.8 [Fórmula del coseno]} Sea $\triangle ABC$ un triángulo, entonces se cumple que $$BC^2 = AB^2 + AC^2 - 2\cdot AB \cdot AC \cdot \cos \angle A$$
+\dem{Basándonos en la figura de la \defi{6.6}, y por el \tma{6.7} [en el caso de $\triangle$ acutángulo], entonces se forman dos triángulos rectángulos $\triangle P_{hB}BC$ y $\triangle P_{hB}BA$ donde se verifica que $CA = CP_{hB} + P_{hB}A$
+Por el \tma{de Pitágoras} tenemos que
+$$AB^2 = P_{hB}A^2 + P_{hB}B^2 \qquad BC^2 = BP_{hB}^2+P_{hB}C^2$$
+Si sustituimos una igualdad en otra tenemos que 
+$$BC^2 = CP_{hB}^2 + AB^2 - P_{hB}A^2$$
+Como $CA = CP_{hB} + P_{hB}A$ entonces
+$$BC^2 = (CA - P_{hB}A)^2 + AB^2 - P_{hB}A^2 = $$
+$$CA^2  \textcolor{SkyBlue}{+P_{hB}A^2} - 2\cdot CA\cdot P_{hB}A  + AB^2  \textcolor{SkyBlue}{-P_{hB}A^2}$$
+Si quitamos las partes en azul, y consideramos que $P_{hB}A = AB\cos\angle A$, entonces queda el teorema demostrado.}
+
+\cor{6.9} Dado un triángulo donde $BC^2 = AB^2 + AC^2$ entonces es un triángulo rectángulo, con $\angle A$ recto. 
+\dem{Si aplicamos el \tma{del coseno}, entonces, el término $ 2\cdot AB \cdot AC \cdot \cos \angle A = 0$, y como $AB \neq 0, AC \neq 0$, entonces $\cos \angle A = 0 \iff \angle A$ es recto (\tma{6.5}).} 
+
+\tma{6.10 [Fórmula de los senos]} Sea $\triangle ABC$, entones se verifica
+$$\frac{AB}{\sen \angle C} = \frac{AC}{\sen \angle B}  = \frac{BC}{\sen \angle A}$$
+\dem{Seguimos con la figura de la \defi{6.6}. Vemos que $BP_{hB} = BC\sen \angle C = BA\sen\angle A$. Si el triángulo es obtusángulo también se cumple porque los senos se mantienen.
+Simplemente, igualando $BP_{hB}$ tenemos que $\frac{BC}{\sen \angle A} = \frac{BA}{\sen \angle C}$. El resto de igualdades se consiguen con las demás alturas.}
+
+
+
+
+
