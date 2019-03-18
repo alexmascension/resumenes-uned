@@ -1,0 +1,1199 @@
+\documentclass[a4paper]{article}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{commath}
+\usepackage{lipsum}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish]{babel}
+
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{booktabs}
+
+
+\title{\Huge{\vspace{-1em}Resumen Lenguajes de programación}}
+\author{\Large{\vspace{-1em}Alex Mart\'inez Ascensi\'on}}
+\makeatletter
+\let\newtitle\@title
+\let\newauthor\@author
+\makeatother
+
+\usepackage{xcolor}
+
+\usepackage{wrapfig}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+
+
+\usepackage[T1]{fontenc}
+\usepackage[default]{gillius}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\newcommand{\dd}{\ensuremath{\operatorname{d}}}
+\renewcommand{\d}[1]{\ensuremath{\operatorname{d}\!{#1}}}
+
+
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+
+
+\begin{document}
+	\maketitle
+	
+	\section{Tema 1: Fundamentos de programación}
+	El abaratamiento del hardware en los 70 hizo que se desarrollara una programación estructurada, legible por el programador.
+	
+	La base de los ordenadores se asienta en la máquina de von Neumann, que consiste en:
+	\begin{itemize}
+		\item Memoria: almacena instrucciones y datos en palabras binarias. Una dirección de memoria corresponde al número de la posición que almacena esa información. El acceso a la memoria es independiente de si se almacena una instrucción o un dato.
+		\item Unidad Central de Proceso (CPU)
+		\subitem 1) Unidad de control: lee la memoria y genera señales para realizar tareas. Las palabras de memoria que le la unidad de control son las instrucciones.
+		\subitem 2) Unidad aritmética: recibe señales de la unidad de control, los datos de la memoria y realiza operaciones aritméticas.
+		\item Unidad de entrada/salida: permite introducir datos en la máquina, y comunica los resultados.
+	\end{itemize}
+		
+	La memoria de la máquina de von Neumann tiene 1024 palabras, de 40 bits. Cada bit puede ser 0 o 1. La codificación es:
+	\begin{itemize}
+		\item Si la palabra es un dato, se representa como un entero con signo.
+		\item Si es una instrucción, representa dos instrucciones, codificadas en los primeros 20 bits (más significativos) y los últimos 20 bits.
+	\end{itemize}
+	
+	El tipo de instrucciones permitidas son:
+	\begin{itemize}
+		\item Operaciones aritméticas: incluye la operación y la ubicación de los operandos.
+		\item Movimiento de datos: incluye las posiciones de memoria base y destino.
+		\item Control de flujo: permite saltar en posiciones del programa. Las instrucciones de un programa se ejecutan secuencialmente. Para saltar entre líneas se emplea la sentencia \textit{goto}:
+		\subitem 1) El \textit{goto} incondicional salta a la posición X siempre.
+		\subitem 2) El \textit{goto} condicional salta si se cumple que el número a comparar sea mayor o igual que 0.
+	\end{itemize}
+	
+	La máquina tarda más en mover una instrucción de memoria a CPU que en ejecutar la instrucción, luego lo primero es el paso limitante en un programa.
+	
+	En las primeras máquinas de von Neumann se hacia referencia a posiciones de memoria específicas, es decir, existía un direccionamiento absoluto. Esto es un problema, porque si tenemos instrucciones codificadas en lineas con direccionamiento absoluto, y creamos una nueva instrucción, todas las instrucciones por debajo de esta tienen un nuevo número, y los \textit{goto} no sirven. Este problema tardó en resolverse. Asimismo, si se sustraía una instrucción, la manera "sencilla" de solventarlo era rellenar la línea de instrucción con una instrucción "no operación".
+	
+	\subsection{Lenguaje ensamblador}
+	En los 50 el ensamblador fue un avance, pues asignaba a cada operación de un código máquina un nombre. De este modo, era más legible para el programador entender el código máquina. Es decir, la instrucción 0001011010100010 pasa a ser \verb|LOAD J|, de modo que ensamblador toma \verb|LOAD J| y lo transforma a código máquina.
+	
+	El problema del ensamblador deriva en que el código máquina era único de cada máquina, luego cada ensamblador era diseñado específicamente para cada máquina.
+	
+	\subsection{FORTRAN}
+	FORmula TRANslation fue diseñado por IBM y permitia al programador especificar procedimientos numéricos concisamente, y pasarlo a código máquina. FORTRAN fue diseñado para que su compilación fuera óptima para la máquina IBM 704, en 1954. Esta máquina implementaba una sentencia de bifurcación con tres opciones: \verb!IF (expresion) N1, N2, N3! donde \verb|N1, N2, N3| son posiciones de memoria según si la comparación de la expresión era mayor, igual o menor.
+	
+	La sentencia iterativa de FORTRAN I era \verb|DO N1 variable = primer, ultimo|. De modo que se repetía las instrucciones donde \verb|N1| es la etiqueta de la última sentencia del fragmento de código a repetir.
+	
+	FORTRAN I no tipaba, sino que la primera letra de la variable indicaba el tipo: I, J, K, L, M, N indicaba entero, y el resto eran reales. Las variables podían tener hasta 6 caracteres.
+	
+	FORTRAN II (1958) permitía la compilación de subrutinas de manera separada. En los 60 llegó FORTRAN IV, en el 78 FORTRAN 77 y, en los 90, FORTRAN 90. Todas estas modalidades permitían la compilación en cualquier máquina siempre que existiera un compilador adecuado. 
+	
+	En FORTRAN 90 la palabra \verb|program| incluye las instrucciones del programa principal. Es decir, se inicializa con \verb|program XXXX| y se termina con \verb|end program|. \verb|implicit none| al inicio del programa obliga al programador a declarar todos los nombres de variables. La variables se declaran con tipo al inicio del programa: \verb|real::x|, y si proviene de un archivo externo (variable externa, función) se hace \verb|real, external::x|.
+ 	
+ 	\subsection{ALGOL}
+ 	ALGOL 58 fue diseñado en los 50 con la premisa de que su sintaxis ha de ser tan próxima a la notación matemática como fuera posible. También tenía que ser independiente de la máquina, como pasaba con FORTRAN I en la época. A diferencia de FORTRAN I (1) las variables podían tener cualquier longitud y (2) las variables vectoriales podían albergar cualquier número de dimensiones (FORTRAN I sólo 3) (3) el límite inferior de los vectores podía ser mayor que 1; y (4) se podían emplear sentencias de selección anidadas (en FORTRAN no).
+ 	
+ 	En ALGOL 60 se incluyeron unas cuantas mejoras:
+ 	\begin{itemize}
+ 		\item Se introdujo el concepto de bloque de código, donde se declaraban variables locales al bloque.
+ 		\item Se permitieron dos formas de pasar parámetros a los subprogramas: (1) paso por valor: se hace una copia del parámetro, y si la copia es modificada en el subprograma, el original se mantiene como al inicio; y (2) paso por referencia: el subprograma trabaja con el parámetro original, siendo afectado por cambios posteriores.
+ 		\item Se permitieron procedimientos recursivos.
+ 		\item Se podía declarar un tamaño de array variable, de modo que el tamaño del array venia dado por el valor de la variable en un momento.
+ 	\end{itemize}
+	
+	Aunque ALGOL 60 no triunfó, algunas de sus mejoras sí lo hicieron.
+	
+	\subsection{LISP}
+	 A raíz del desarrollo de la inteligencia artificial, se desarrolló el paradigma de la programación funcional. En el desarrollo de LIPS se implementaron las listas: secuencias con elementos que podían ser de varios tipos (bool, números, arrays, símbolos, caracteres, u otras listas). Operaciones de listas incluían extracción, transformación o eliminación de elementos, así como búsqueda o selección de elementos según condiciones.
+	 
+	 Todo este conocimiento de listas (desarrollado en 1956) se plasmó en el lenguaje IPL, y en 1958 se desarrolló LISP, usado ampliamente en IA.
+	 
+	 \subsection{COBOL}
+	 COBOL fue un lenguaje para negocios, y se desarrolló con una premisa: tenia que ser lo más cercano posible al inglés. COBOL incorporó conceptos como la sentencia \verb|define|, empleada en macros como lenguaje de alto nivel. También soportaba estructuras de datos jerárquicas.
+	 
+	 \subsection{Prolog}
+	 PROgramming LOGic fue desarrollado en los 70. El concepto de programación lógica se basa en el empleo de hechos y reglas para representar la información y usar deducción para responder preguntas. Las reglas son relaciones del tipo \verb|if and|, y los hechos son un tipo especial de regla que se verifica sin satisfacer ninguna condición.
+	 
+	 \subsection{SIMULA 67}
+	 SIMULA 67 es una extensión del ALGOL 60, e incluye el concepto de orientación a objetos, incluyendo conceptos como clase, objeto o herencia [AUNQUE Smalltalk fue el primer lenguaje en introducir la POO como tal]. SIMULA 67 introdujo también el concepto de puntero y gestión dinámica de memoria.
+	 
+	 \subsection{Pascal}
+	 La gran limitación de los lenguajes hasta la década de los 60 era que el control de flujo venía principalmente dado por sentencias \verb|goto|. En los 70 se desarrolló la programación estructurada, que buscaban acabar con el problema del código espagueti. 
+	 
+	 Pascal fue basado en ALGOL 60, y facilitaba la programación estructurada, de modo que el programa podía ser leído de arriba a abajo sin depender en las clásicas sentencias de control de flujo. Por esta razón fue ampliamente usado hasta los 90.
+	 
+	 Similar a FORTRAN 90, el programa principal va enclaustrado en la palabra reservada \verb|program|, terminando en \verb|end.| La primera parte del programa empieza con \verb|var| y es donde se declaraban las variables, que termina en \verb|end|. El segundo \verb|begin| incluye ya el cuerpo del programa.
+	 
+	 Asimismo las palabras \verb|function| y \verb|end| permiten la definición de una función, tanto dentro como fuera del programa. Si la función se escribe dentro del programa, va dentro de la parte de \verb|var|.
+	 
+	 A diferencia de FORTRAN, las asignaciones se hacen con \verb|:=|, en lugar de \verb|=|. Asimismo, las sentencias de ejecución siempre terminan en punto y coma.
+	 
+	 \subsection{Ada}
+	 
+	 Ada fue diseñado con un gasto de dinero bastante considerable por el Departamento de Defensa de EEUU, para acabar en agua de borrajas. Ada incluyó 4 principales características:
+	 \begin{itemize}
+	 	\item Permite declarar paquetes con objetos, tipos de datos y procedimientos.
+	 	\item Permite el tratamiento de excepciones.
+	 	\item Las unidades de programa pueden ser genéricas. Es decir, a la hora de instanciar la unidad pueden existir características de los parámetros que ya están precisadas.
+	 	\item Permite la ejecución de unidades de programa especiales, llamadas tareas.
+	 \end{itemize}
+	 
+	 
+	 \subsection{C++}
+	 
+	 Al contrario que FORTRAN 90 y Pascal, C++ distingue mayúsculas de minúsculas en el código, y tienen una estructura más flexibles, pues pueden declararse en cualquier punto del programa, siempre que se declaren antes de ser usadas.
+	 
+	 \subsection{Paradigmas de programación}
+	 
+	 \begin{itemize}
+	 	\item Programación imperativa. Recordamos de la máquina de von Neumann que el programa y los datos están en la memoria. La CPU ejecuta las ordenes con los datos, todo almacenado en la memoria. Por tanto, las variables que representan las celdas de memoria juegan un papel clave.
+	 	
+	 	En la programación imperativa se realiza (1) asignación de variables mediante sentencias de asignación, (2) repetición de acciones mediante iteración o recursividad [menos eficiente este último]. Un programa consiste en (1) la declaración de un estado compuesto por variables, y por un punto de control; (2) la especificación de la secuencia de acciones que modifican el estado mediante asignaciones en las que se evalúan expresiones y se cambian los valores de variables, y sentencias de control de flujo.
+	 	
+	 	Por lo general los lenguajes con paradigmas puramente imperativos suelen ser eficientes a la hora de traducirse a código máquina, pero son menos expresivos.
+	 	
+	 	\item Programación funcional. Se realiza la evaluación de expresiones construidas a partir de llamadas a funciones. Las funciones cumplen la propiedad de transparecia referencial: las funciones no tienen efectos laterales en el programa, y solo dependen de los argumentos de entrada. 
+	 	
+	 	Como tal, un lenguaje puramente funcional no emplea variables ni sentencias de asignación, sino que usan aplicaciones funcionales, expresiones condicionales y recursión. Un lenguaje funcional siempre suele implementar (1) funciones primitivas (2) formas funcionales que permiten crear funciones más complejas, (3) operaciones para la aplicación de la función y (4) estructuras para representar datos. 
+	 	
+	 	Por lo general, los lenguajes funcionales permiten una programación a más alto nivel, ya que no hay que preocuparse de gestionar variables, pero disminuye la eficiencia de la ejecución.
+	 	
+	 	\item Programación lógica: se basan en el cálculo preicativo. Este paradigma suele permitir el desarrollo en paralelo, y ha sido empleado para el procesamiento de lenguaje natural y el desarrollo de sistemas expertos.
+	 	
+	 	\item Orientación a objetos: La orientación a objetos tiene aplicaciones interesantes en a reutilización de software. El diseño orientado a objetos se basa en (1) la abstracción de usar un objeto sin conocer sus detalles internos, (2) la ocultación de información, es decir, que no todos los atributos del objeto sean accesibles al usuario y (3) la modularidad, es decir, la propiedad de descomponer un sistema en módulos que interactúan entre sí.
+	 	
+	 	Un lenguaje OO debe soportar tres conceptos. (1) Clase: descripción de un tipo de objeto, que tiene variables internas, y operaciones aplicadas a los objetos de esa clase, denominados métodos. (2) Herencia: permite compartir datos y operaciones entre clases, así como definir clases derivadas de una clase base, sin tener que redefinir los atributos de la clase. (3) Ligadura dinámica: al invocar un método de un objeto, el sistema examina la clase y aplica la operación adecuada. Esa examinación se hace a la hora de invocar la operación. Por el contrario, en la ligadura estática se realiza la elección a la hora de la compilación.
+	 \end{itemize}
+	 
+	 \subsection{Métodos de implementación}
+	 
+	 Recordamos, dos piezas clave de un ordenador son su memoria interna (almacena datos y órdenes) y el procesador (realiza las operaciones). Los programas escritos en lenguajes de alto nivel son denominados como código fuente, mientras que los de bajo nivel son código máquina. Generalmente, el código fuente se basa en un sistema operativo para implementar las órdenes a código máquina.
+	 
+	 Existen varios modos de implementación:
+	 \begin{itemize}
+	 	\item Interpretación pura: el intérprete le las instrucciones del programa fuente con los datos de entrada, y ejecuta directamente dichas sentencias. Este método es ventajoso porque los errores de ejecución se relacionan directamente a la línea del código fuente. Sin embargo, el tiempo de ejecución se reduce considerablemente.
+	 	\item Compilación: el código fuente se traduce a instrucciones en código máquina por el compilador, que genera el programa objeto. La compilación se hace en dos pasos: (1) un analizador léxico agrupa caracteres en unidades léxicas (operadores, símbolos, palabras especiales), que son reconocidas por el analizador sintáctico, que genera árbol de análisis con la estructura sintáctica del programa. Al contrario que la interpretación, la compilación es mucho más rápida, pero sus errores no son tan fáciles de rastrear.
+	 	\item Sistema híbrido: este sistema primero traduce el código fuente a un lenguaje intermedio, que permite una interpretación más sencilla, pasándolo por el analizador léxico, el analizador sintáctico y el generador de código intermedio. Este tipo de implementación es, por ejemplo, Java, que requiere su máquina virtual para ejecutar el código final.
+	 \end{itemize}
+	 
+	 \section{Tema 2: Comenzando a programar en C++}
+	 \verb|#include <iostream>| permite realizar operaciones de salida y entrada en consola.
+	 Ejemplos:
+	 \begin{itemize}
+	 	\item \verb|std::cout << "Texto"| Genera el texto cargándolo en el buffer de salida en consola.
+	 	\item \verb|std::endl| Finaliza la línea en consola.
+	 	
+	 \end{itemize}
+ 
+ 	\verb|std::cout| mantiene el texto en un buffer y lo lanza cuando se cumple que (1) se alcanza la capacidad máxima de \verb|std::cout|, (2) antes de ejecutarse una operación de lectura de datos o (3) se indica expresamente con \verb|std::endl| o \verb|std::flush|.  \verb|std::flush|
+	  se diferencia de \verb|std::endl| en que no añade un salto de línea.
+	  
+	  \verb|#include <iomanip>| es una directiva que permite manipular la manera en la que se enseñan los enteros o floats en consola. 
+	 
+	 \begin{itemize}
+	 	\item \verb|std::setprecision(X)| genera números con X cifras significativas (antes y después del punto, vamos), realizando redondeo cuando sea necesario.
+	 	\item \verb|std::scientific| transforma la salida en notación científica: 32.456 -> 3.2456+e001
+	 	\item \verb|std::fixed| transforma la salida en formato fijo.
+	 	\item \verb|std::setprecision(X)| en estos dos casos indica el número de dígitos detras del punto decimal.
+	 	\item \verb|std::hex| y \verb|std::oct| transforman los números enteros en números en representación hexadecimal u octal. \verb|std::showbase| añade \verb|0| o \verb|0x| a los octales o hexadecimales respectivamente.
+	 	\item \verb|std::boolalpha| enseña datos booleanos como booleanos en consola, mientras que \verb|std::noboolalpha| transforma \verb|true| en 1 y \verb|false| en 0.
+	 	
+	 	\item Si queremos rellenar una palabra con caracteres, \verb|std::setw(X)| nos rellena por la izquierda el restante de espacios en blanco. \verb|std::setfill('Y')| nos cambia el símbolo de relleno, y \verb|std::left| cambia el relleno por la derecha.
+	 \end{itemize}
+	 
+	 Lineas de ejemplo de lo anterior:
+	 \begin{itemize}
+	 	\item \verb|std::cout << std::scientific << std::setprecision(3) << 193.235| -> 1.932e+001
+	 	\item \verb|std::cout << std::hex << std::showbase << 11| -> \verb|0xB|
+	 	\item \verb|std::cout << std::noboolalpha << false| -> 0
+	 	\item \verb|std::cout << std::setw(8) << std::setfill('*') << "hola"| -> ****hola
+	 \end{itemize}
+ 
+ 	Además del flujo de salida \verb|std::cout| que hemos mencionado, existen otros flujos, como \verb|std::cin| que es el flujo de entrada desde teclado; \verb|std::cerr| que sirve para notificar errores, y \verb|std::clog|, que es un buffer de almacenamiento similar a \verb|cerr|, sólo que el primero se vuelca inmediatamente, lo cual disminuye la eficiencia computacional.
+	 
+	\section{Temas 3 y 4: declaración de variables}
+	
+	Una variable es una abstracción de una celda o celdas donde se almacenan datos. Cada variable tiene unos atributos, como (1) el nombre o identificador, con reglas según el lenguaje, y con prohibición de usar palabras reservadas; (2) dirección de la primera posición en la memoria; (3) el valor de la variable o (4) el tipo de dato.
+	
+	Las constantes son variables cuyo valor no puede ser cambiado a lo largo del programa, una vez declaradas. Las constantes se declaran con la palabra \verb|const| así: \verb|const double pi = 3.14;|
+	
+	La declaración de varias variables puede hacerse en una línea o varias:
+	
+	\verb|int a, b, c;|
+	
+	\verb|int a = 1, b = 2, c = 3;|
+	
+	El ámbito de una variable es la parte del programa en la que existe, como el bloque de código principal, o un bloque de código secundario. Existen variables locales, que sólo existen en un ámbito determinado, y fuera de él no; variable globales, cuyo ámbito es todo el código; y variables en memoria dinámica, que no tienen un nombre, sólo la dirección de memoria y el valor/tipo. También existen los parámetros formales, que son las variables que aparecen en la definición de la función.
+	
+	Si la variable puede referenciarse dentro de una parte del programa, entonces es visible. Una variable A oculta a una variable B cuando al llamar a la variable en un ámbito el valor es el de A.
+	
+	En C++, una variable global y una local pueden tener el mismo nombre. Para diferenciarlas, [si la variable es \verb|x|] se emplea el operador ámbito (\verb|::|) y se llama a la variable \verb|::x|
+	
+	\subsection{Tipos de datos}
+	El tipo de la variable define qué valores y qué operaciones puede tener la variable. Un tipo condiciona el número de posiciones que ocupará la variable en memoria. Distinguimos 3 categorías. 
+	\begin{itemize}
+		\item Nivel de máquina: tipos primitivos [entero, coma flotante, carácter]
+		\item Nivel de lenguaje: tipos estructurados [arrays, estructuras, listas]
+		\item Nivel de programador: tipos enumerados y clases.
+	\end{itemize}
+	
+	Los tipos primitivos más comunes son:
+	\begin{itemize}
+		\item Entero: los soporta directamente el hardware. El bit más significativo es el signo. Existen varios, como \verb|int|, \verb|long int| u otros.
+		\item Real en coma flotante: es un coeficiente multiplicado por diez elevado a un exponente entero. Según la precisión puede ser \verb|float| o \verb|double|. \verb|double| es mejor porque el hardware está optimizado para trabajar con ellos.
+		\item Boolean: sólo pueden tomar el valor \verb|true| o \verb|false|. Se puede representar con los enteros 0 y 1, pero como ocupa menos memoria que un entero, es más eficiente.
+		\item Caracter: C++ soporta Latin-1, que tiene 256 caracteres, mejor que ASCII (128). Para símbolos extendidos se usa unicode (16 bits = 65536).
+		\item void: en C++, \verb|void| se usa como el tipo de retorno de funciones que no devuelven nada; como tipo de punteros que apuntan a objetos con tipo desconocido.
+	\end{itemize}
+	
+	Para conocer el mayor y menor número (límite) de un tipo, se emplea la cabecera \verb|limits|, con la función \verb|numeric_limits|; de la siguiente manera:
+	
+	 \verb|#include <limits>|
+	 
+	 \verb|std::numeric_limits<double>::min(); std::numeric_limits<int>::max();|
+	
+	Asimismo, \verb|std::numeric_limits<T>::epsilon()| devuelve el \textit{epsilon} del número, es decir, el número positivo más pequeño tal que 1 + \textit{epsilon} - 1 > 0.
+	
+	A la hora de inicializar tipos básicos, existe un ``cero'' para todo tipo, de modo que, si la variable inicializada es GLOBAL, entonces presentará un valor de 0 por defecto. Si la variable es local, entonces tomará el valor que tenga la dirección de memoria. El valor cero es 0 en tipos numéricos, y el valor cero de la tabla de caracteres para \verb|char|, de modo que el carácter diferirá según el valor cero de la tabla que se use.
+	
+	En los tipos definidos por el programador / lenguaje hay varias opciones:
+	\begin{itemize}
+		\item Asignar un nombre a un tipo ya existente con \verb|typedef|. Por ejemplo, \verb|typedet in ArrayInt10[10];| genera el tipo \verb|ArrayInt10|, que es un array con 10 elementos.
+		\item Tipos enumerados: está construido por constantes que toman valores específicos según el usuario o por defecto (0, 1, 2, ...). Para construir una variable enumerada en C++ se emplea la palabra \verb|enum|:
+		
+		\verb|enum nombre_var {nombre1 = valor1, nombre2 = valor2, ...};| \linebreak
+		\verb|enum color{blanco, azul, verde, rojo};|
+		
+		\item Estructura [C++/Java/C] o record [Pascal]: es una colección de una o varias variables de diversos tipos, y agrupadas bajo un nombre común. Un ejemplo de estructura es el siguiente:
+		
+		\verb|struct Estrella {char tipo; double distancia; int brillo;};|\linebreak
+		\verb|Estrella e1 = {'a', 1.63, 4};|
+		
+		\item Uniones: está construido por varias variables, pero sólo se permite usar una de ellas al declararla. Por ejemplo:
+		
+		 \verb|union ID {int i; char nombre;}|.
+		
+		\item Arrays: son un grupo de variables con el mismo tipo, de modo que es preciso declarar el tipo de los elementos, así como el nombre o el número de elementos (tamaño). El array puede ser unidimensional, en cuyo caso se inicializa así \verb|int arr1D[3] = {1, 2, 3};|; o multidimensional (2D aquí), que se inicializa del siguiente modo: \verb|int arr2D[3][2] = {{1,2},{3,4},{5,6}};|. Para acceder a los elementos se hace: \verb|arr1D[x]| o \verb|arr2D[x][y]|
+	\end{itemize}
+	
+	Otro tipo especial es la cadena de caracteres, que se considera como un array de caracteres. Por ejemplo: \verb|char[] hola = "Hola!";|. Una cadena de caracteres siempre termina en el caracter nulo \verb|'\0'|. Importante: las cadenas de caracteres van en dobles comillas, y los caracteres a secas en simples.
+	
+	Se pueden hacer estructuras con arrays, y arrays de estructuras:
+	
+	\verb|struct \begin{Estrella {char nombre[30]; char tipo; double coordenadas[3]};|\linebreak
+	\verb|Estrella e[] = {{'abds', 'A', 1.2, 2.2, 2.1},{'dajw', 'B', 3, 4, 8.9}};|
+	
+	Un tipo de librería estandar interesante es \verb|std::string|, que a diferencia del array de caracteres convencional (1) no requiere un tamaño previo y (2) incluye el string nulo, que es el que se crea al inicializar la variable. Así, un ejemplo sería \verb|std::string frase = "Hola!";|
+	
+	Si seguimos la estructura \verb|std::string nombre(n,c)| nos generará una cadena del caracter \verb|c| repetida \verb|n| veces.
+	
+	Los flujos también tienen sus propios tipos: \verb|std::cout|, \verb|std::cerr| y \verb|std::clog| pertenecen al tipo \verb|std::ostream|; y \verb|std::cin| pertenece al tipo \verb|std::istream|. Por otra parte, los tipos \verb|std::ofstream| y \verb|std::ifstream| permiten la entrada y salida a ficheros.
+	
+	\subsection{Punteros}
+	Un tipo de variable especial es el puntero, cuyo objetivo es obtener el valor de una dirección de memoria. El puntero puede tener un valor concreto o un valor nulo. Existen dos operadores principales en punteros: el operador \textit{dirección-de}, que devuelve la dirección de memoria de una variable; e \textit{indirección}, que indica el valor asociado a la dirección de memoria.
+	
+	Cuando se declara un puntero, se declara el tipo de la variable a la que apunta. Supongamos el puntero \verb|p|, pues para definir el tipo de la variable a la que apunta, se declara así: \verb|int *p|. Es importante definir el tipo del puntero, porque el valor que tenga que almacenar igual tendrá más de una posición. Es decir, a un puntero \verb|int| no le podemos asignar un valor \verb|float| porque el espacio asignado no es suficiente.
+	
+	Otro operador asignado a un puntero es \verb|&|. \verb|&| asigna a un puntero la dirección de una variable. Veamos un ejemplo para entenderlo mejor
+	\begin{lstlisting}
+	int main(){
+	    int *p;
+		int v = 2;
+		
+		std::cout  << p << " " << *p  << std::endl;
+		std::cout  << &v << " " << v  << std::endl;
+		
+		p = &v;
+		
+		std::cout  << p << " " << *p  << std::endl;
+		std::cout  << &v << " " << v  << std::endl;
+		
+		*p = 9;
+		
+		std::cout  << p << " " << *p  << std::endl;
+		std::cout  << &v << " " << v  << std::endl;
+		return 0;
+	}
+	\end{lstlisting}
+	En la primera linea \verb!int *p! lo único que hace es crear el puntero, de modo que se asigna una dirección de memoria a \verb|p|, y \verb|*p| adquiere el valor del que haya en la dirección de memoria \verb|p|.
+	Ahora declaramos \verb|v|, en una dirección de memoria \verb|&v| y con un valor de 2. La primeras dos lineas de impresión retornan 0x401bdb 1528349827 // 0x61ff18 2. En la siguiente línea, \verb|p = &v| indicamos que la dirección de memoria de \verb|p| sea la de \verb|v|, de modo que ahora p tendrá el mismo valor y dirección que \verb|v|. El print lo demuestra: 0x61ff18 2 // 0x61ff18 2. 
+	Como ambas variables están puenteadas, si cambiamos el valor de \verb|*p|, entonces cambiamos el de \verb|v|: 0x61ff18 9 // 0x61ff18 9.
+	
+	IMPORTANTE: si en la primera línea queremos asignar directamente \verb|*p = 9| nos va a dar un fallo. Para hacer eso tenemos que declarar la variable en memoria dinámica.
+	
+	\subsection{Variables en memoria dinámica}
+	Por último, las variables en memoria dinámica son otro tipo especial de variables, ya que estas no dejan de existir cuando el bloque de código en el que se encuentran termina; de modo que son eliminadas por el usuario o al terminar el programa. Las variables en memoria dinámica, además, no tienen nombre asociado, luego la referencia ha da almacenarse en un puntero.
+	
+	Para declarar una variable en memoria dinámica se emplea la palabra \verb|new|. Un ejemplo de inicialización es el siguiente:
+	
+	\verb|int *p; p = new int; *p = 3|
+	
+	De este modo, \verb|p| es un valor en memoria (\verb|0x781928|) y \verb|*p| tiene un valor de 3.
+	
+	Para borrar la variable dinámica tenemos que borrar el puntero. Para ello escribimos \verb|delete p|
+	
+	El mal manejo de estas variables ocasiona dos errores típicos:
+	\begin{itemize}
+		\item Punteros a variables eliminadas, cuando el usuario ha borrado la variable dinámica. También pasa si se referencia una variable local que no está en su ámbito.
+		\item Variables dinámicas perdidas: si el puntero que apunta a la variable dinámica se pierde (por asignarse otra vez), no se puede borrar ni usar la variable; de modo que consume memoria hasta que el programa termina, ocasionando fugas de memoria. 
+	\end{itemize}
+	
+	
+	\subsection{Jibberjabber de lenguajes}
+	\begin{itemize}
+		\item Nombre de variables: En C++ puede empezar po letra o guion bajo y seguir con letras, números o guión bajo. En FORTRAN I la inicial de la variable implicaba su tipo. C++, C y Java distinguen mayúsculas y minúsculas.
+		\item Longitud de variables: FORTRAN 90 y C: 31 caracteres; C++, Ada y Java: no hay límite.
+		\item Inicialización: C++/Java lo permiten, Pascal o Modula-2 no. 
+		\item Lugar de declaración: C obliga al inicio, C++/Java no.
+		\item Constantes: en Pascal el valor ha de ser simple, en Modula-2/FORTRAN 90 puede ser resultado de expresión simple (constantes, operadores y otras constantes = ligaduras estáticas); y en Ada/C++/Java se permiten variables no constantes [el valor de la constante dependerá del del resto en el momento de la declaración = ligadura dinámica].
+		\item Bloques: en C/C++/Java se delimitan con {}, en Pascal se delimita con \verb|begin/end|
+		\item Booleanos: ALGOL 60 introdujo este tipo por primera vez. C no tiene el tipo, y recurre a expresiones numéricas.
+		\item Arrays (declaración): FORTRAN 90 emplea paréntesis y Pascal/C/C++/Java corchetes.
+		\item Arrays (límite inferior): C/C++/Java asocian un límite inferior de 0; u FORTRAN 77 / FORTRAN 90 en 1.
+		\item Arrays (almacenamiento): en FORTRAN se hace por columnas, y en el resto por filas.
+		\item Arrays (inicialización): FORTRAN 77/C/C++/Java lo permiten, Pascal/Modula-2 no.
+		\item Arrays (comprobación): Pascal/Ada/Java comprueban en la ejecución que no hay índices fuera de rango; C/C++/FORTRAN no se hace la comprobación (pero va más rápido).
+		\item Variables en memoria dinámica: se eliminan automáticamente en Java [recolector], pero no en C/C++.
+	\end{itemize}
+	 
+	 
+	 \section{Temas 5 y 6: Asignaciones y expresiones}
+	 Una sentencia de asignación especifica una expresión y el destino donde guardar esa expresión.
+	 En C++ una asignación se hace con el símbolo \verb|=|,es decir, \verb|variable = expresion|. También se pueden hacer varias asignaciones del estilo \verb|v1 = v2 = v3 = ... = expr| . Existen cuatro tipos principales de expresiones:
+	 \begin{itemize}
+	 	\item Aritméticas: se especifica un cálculo aritmético con operadores y/o llamadas a funciones.
+	 	\item Relacionales: se establece una comparación a través de un operador relacional (==, >=, <=, <, >, ...).
+	 	\item Booleanas: son expresiones compuestas por operadores booleanos (OR, NOT, AND) y otras expresiones relacionales.
+	 	\item Expresiones condicionales: consisten de un operador ternario \verb|?:| que toma tres expresiones: \verb|e1 ? e2 : e3|. Si se cumple \verb|e1| entonces se realiza \verb|e2|, y si no se cumple, se hace \verb|e3|. Sería un equivalente del típico \verb!IF e1 THEN e2 ELSE e3!
+	 \end{itemize}
+
+	\subsection{Operadores}
+	Existen varios tipos de operadores según varios criterios.
+	\begin{itemize}
+		\item Número de operandos
+			\subitem 1) Operadores unarios: admiten un operando. Ej. \verb|NOT|, \verb|+| y \verb|-| de signo de números.
+			\subitem 2) y 3) Operadores binarios (dos operandos) y ternarios (tres operandos).
+		\item Posición de notación
+			\subitem 1) Infija: el operador va entre los operandos (a+b).
+			\subitem 2) Prefija: el operador va antes (+ab).
+			\subitem 3) Postfija: el operador va después (ab+).
+	\end{itemize}
+	
+	En C++ se puede hacer una asignación con operadores aritméticos, es decir, la expresión \verb|var = var ? expr| se convierte en \verb|var ?= expr|. Los operadores aritméticos están optimizados para el compilador.
+	
+	Otro tipo de operador es el de incremento o decremento \verb|++| / \verb|--|. Aunque hacen lo mismo, el orden de asignación cambia según se haga a la izquierda (prefijo) o a la derecha (postfijo) de la variable.
+	\begin{itemize}
+		\item \verb|x = i++ | -> \verb| x = i; i = i + 1;|
+		\item \verb|x = ++i | -> \verb| i = i + 1; x = i;|
+	\end{itemize}
+	
+	\subsection{Asociatividad y precedencia}
+	
+	Precedencia: A grandes rasgos (de más a menos)
+	
+ \verb@[. => [] ++ --] [! - + * new] [* / \%] [+ -] [<< >>] [< > <= >=] [== !=] [&&] [||] [= ?=]@
+ 
+ \verb@       1              2          3      4       5         6         7     8     9    10@
+ 
+ \begin{itemize}
+ 	\item 1/2: Operaciones y funciones propias del lenguaje (indexación de arrays, negación, operadores unarios, desreferencia de punteros...).
+ 	\item 3/4: Operadores aritméticos al uso.
+ 	\item 5: Inserción y extracción (I/O).
+ 	\item 6/7: Igual que / menor o igual que / ...
+ 	\item 8/9: AND / OR.
+ 	\item 10: Asignación y asignación con operadores aritméticos.
+ \end{itemize}
+
+	Asociatividad: existen operaciones asociativas hacia la izquierda [a+b+c = ((a+b) + c)] o hacia la derecha [a**b**c = a**(b**c)].
+
+	\subsection{Sistema de tipos}
+	Sobrecarga de operadores: un operador está sobrecargado cuando, por la razón que sea, tiene una función adicional a la propia (básica) del sistema, o, más generalmente, cuando tiene funciones diferentes según al tipo al que esté asociado. Por ejemplo, el operador \verb|*| entre dos enteros difiere de entre un entero y un array.
+	
+	Conversiones de tipo: pueden ser explícitas, si el programador las define directamente en el programa (hacer un cast), o implícitas [coerciones] si las hace directamente el compilador. La coerción sucede porque la máquina sólo puede operar entre unos tipos de datos específicos. Existen reglas para hacer coerciones (entre tipos básicos, por ejemplo, \verb!double > float > int > char!, o si una función está definida como \verb|int|, el tipo del return será convertido a \verb|int| si se puede). El problema obvio de las coerciones es que el compilador pierde eficiencia.
+	
+	En C++, por compatibilidad con C, permite trabajar con enteros como si fueran booleanos. Así, 0 es \verb|false|, y cualquier entero positivo es \verb|true|. Así, \verb|true + true| es 2, por ejemplo.
+	
+	Debido a los problemas que puede originar trabajar con diversos tipos, los lenguajes implementan la verificación de tipos, que puede ser estática o dinámica. En la verificación estática se hace la comprobación una vez, al traducirse el programa a código máquina; y en la dinámica se hace durante la ejecución en el programa introduciendo el compilador código extra. Ya que esto último hace que la verificación dinámica sea más lenta, los lenguajes suelen implementar verificación dinámica. 
+	
+	En línea con esto último, un lenguaje es fuertemente tipado si todas sus expresiones pueden ser verificadas estáticamente.
+	
+	
+	\subsection{Operadores aritméticos, relacionales y lógicos}
+	Recordamos la jerarquía entre operadores aritméticos es \verb|++/-- > - (unario) > /*\% > +-|; entre relacionales y lógicos es \verb@! > [< <= > >=] > [== !=] > && > ||@. Entre los operadores aritméticos y los relacionales, los aritméticos tienen preferencia.
+	
+	Cuando se aplica \verb|/| a dos enteros se devuelve el cociente entero.
+	
+	En cuanto a la asociatividad, \verb!||! y \verb!&&! son asociativos por la izquierda. Así, con \verb!||!, si una de las expresiones por la izquiera es \verb|true|, entonces toda la expresión es \verb|true|, y no hace falta seguir evaluando. Para \verb|&&|, si por la izquierda una expresión es \verb|false|, entonces no hace falta seguir evaluando, y toda la expresión es \verb|false|.
+	
+	\subsection{Operadores $\ll$ y $\gg$}
+	En C++ estos operadores están sobrecargados. Por defecto, realizan acciones de desplazamiento a la derecha (\verb|>>|) o a la izquierda (\verb|<<|) de palabras de bits. Por ejemplo:
+	\begin{lstlisting}
+	int a = 9; // 0b0000000000000101 = 8 + 1 = 9
+	int b = 9 >> 1; // 0b0000000000010100 = 32 + 4 = 36
+	int c = 9 << 2; // 0b0000000000000010 = 2
+	\end{lstlisting}
+	 
+	 Sin embargo, para las cabeceras \verb|std::ostream| y \verb|std::istream| el significado de los operadores es el de poner en (\verb|<<|) y obtener de (\verb|>>|). El operador \verb|>>| ya se ha explicado con \verb|std::cout|; ahora explicamos cómo usar \verb|<<|. 
+	 
+	 \verb|<<| va junto con \verb|std::cin| para incluir una entrada de teclado en una variable. Para ello se asigna el contenido de \verb|std::in| a una variable:
+	 \begin{lstlisting}
+	 std::string nombre; std::cin >> nombre;
+	 \end{lstlisting}
+	 De este modo, el flujo de entrada se vuelva en la variable \verb|nombre|. El flujo de entrada se hace en los siguientes pasos (1) los caracteres del teclado se len y almacenan en el flujo de entrada \verb|st::cin|; (2) cuando hay un retorno, se vuelca el flujo a la variable. En el volcado, se desechan los salto de línea, espacios o tabuladores (con \verb|std::noskipws| sí se tienen en cuenta) y si se encuentra uno de ellos, se almacena en la variable el flujo de entrada hasta ese punto. 
+	 
+	 Así, por ejemplo:\begin{lstlisting}
+	 std::string var; // Introducimos "Hola mundo!"
+	 std::cin >> var; // var = "Hola"
+	 \end{lstlisting}
+	 
+	 La frase \verb|" mundo!"| queda reservada en el flujo de entrada hasta que se designe otra variable que lo soporte. En ese momento, se eliminará el espacio y se incluirá \verb|"mundo!"| en la segunda variable.
+	 
+	 También podemos almacenar las entradas en un array; como por ejemplo:
+	 \begin{lstlisting}
+	 int a[3];
+	 std::cin >> a[0] >> a[1] >> a[2];
+	 \end{lstlisting}
+	 
+	 \subsection{Operaciones matemáticas}
+	 La cabecera \verb|cmath| proporciona nuevas funciones como \verb|acos(x), atan(x), cos(x), cosh(x), log(x), pow(x,y)|, que sobrecargan las operaciones al uso (\verb|+-*/|) para acomodarlas a estas funciones.
+	 
+	 Asimismo, la librería estándar contiene la clase \verb|complex|, que permite trabajar con complejos. Estos complejos pueden tener a su vez diferentes tipos. Por ejemplo: \verb|std::complex<float> num(2.3, 1)| sería $2.3 + i$. Existen varias funciones aplicadas al tipo \verb|std::complex|:
+	 \begin{itemize}
+	 	\item \verb|x.real() / x.imag() | devuelven la parte real e imaginaria del número.
+	 	\item \verb|conj(x)| devuelve el conjugado.
+	 	\item \verb|norm(x) / abs(x) / arg(x) | devuelven la norma (cuadrado del módulo), el módulo y el ángulo de \verb|x|.
+	 \end{itemize}
+	 
+	 \subsection{Operando con strings}
+	 El tipo \verb|std::string| permite varias operaciones propias.
+	 \begin{itemize}
+	 	\item Concatenación: el operador \verb|+| está sobrecargado para que, con dos \verb|string| los junte. También se puede concatenar poniendo un espacio entre strings: \verb|std::string a = "hola" "mundo"|
+	 	\item Concatenación y asignación (\verb|+=|): A una variable le concatena otra variable. 
+	 	\item Comparación: la comparación se hace con los operadores \verb|<| y \verb|>| y usa un orden lexicográfico.
+	 	\item Tamaño: \verb|x.size()| devuelve la longitud del string.
+	 	\item Modificación: \verb|assign / append| son equivalentes a \verb|= / +|. \verb|x.replace(p,n,y)| replaza \verb|n| caracteres en la posición \verb|p| con la variable \verb|y|. \verb|x.replace(p, y)| inserta en la posición \verb|p| la variable \verb|y|. \verb|x.erase(p,n)| elimina \verb|n| caracteres en la posición \verb|p|.
+	 	\item Búsqueda: \verb|x.find(y)| busca la primera coincidencia de \verb|y| en \verb|x|, y \verb|x.find(y, p)| busca a partir de la posición \verb|p|. \verb|rfind| hace lo mismo pero de derecha a izquierda.
+	 	\item Comparación: \verb|compare| hace una comparación de string o de substrings. La forma más simple es \verb|x.compare(y)| que compara los strings enteros y devuelve un entero positivo si \verb|y > x|. La forma más comple es \verb|x.compare(px, nx, y, py, ny)|, que compara el substring de longitud \verb|nx| en posición \verb|px| de \verb|x| con el homólogo de \verb|y|.
+	 \end{itemize}
+	 
+	 Además de \verb|string|, existe la cabecera \verb|sstream| con el objeto \verb|std::stringstream| que permite almacenar strings que vengan de consola u otras fuentes. Par introducir strings en un objeto \verb|std::stringsream| se emplea la operación \verb|<<|. Un ejemplo:
+	 \begin{verbatim}
+	 std::stringstream msg;
+	 msg << "Hola, esto es " << "un " << "mensaje.";
+	 std::cout << msg.str() << std::endl;
+	 \end{verbatim}
+	 
+	 \subsection{Operando con punteros}
+	 En el anterior tema se había hablado de punteros. Ahora es lo mismo con más historia. Antes hablábamos de los operadores \verb|&| y \verb|*|. El operador \verb|&| (dirección de) proporciona la dirección de memoria en la que se almacena la variable; y el operador \verb|*| (indirección) proporciona el dato almacenado en la posición de memoria.
+	 
+	 Ponemos este ejemplo de uso:
+	 \begin{lstlisting}
+	 int i = 30;
+	 int *p;
+	 p = &i; // Asigna al punto la direccion de memoria de i.	 
+	 \end{lstlisting}
+	 
+	 Si ahora decimos que \verb|*p = 20|, entonces, como \verb|p| apunta a \verb|&i|, la dirección de memoria es la misma, luego el valor de \verb|i| es 25.
+	 
+	 Pongamos otro ejemplo:
+	 \begin{lstlisting}
+	 	int i1 = 1, i2 = 2, p1, p2;
+	 	p1 = &i1;
+	 	p2 = &i2;
+	 	p1 = p2 // Caso 1
+	 	*p1 = *p2 // Caso 2
+	 \end{lstlisting}
+	 
+	 En este caso, tenemos que \verb|i1| y \verb|i2| son dos variables con dos direcciones de memoria diferentes; luego \verb|p1| y \verb|p2| apuntan a direcciones diferentes. Haciendo \verb|p1 = p2|, el puntero \verb|p1| apunta a \verb|&i2|, luego el valor es 2, y la dirección de memoria es la misma que la de \verb|p2|.
+	 
+	 Si por el contrario escribimos \verb|*p1 = *p2|, el valor de \verb|*p1| es 2, pero la dirección de memoria es la de \verb|&i1|. Así, el valor de \verb|i1| ahora es 2.
+	 
+	 Si definimos un puntero por \verb|p|, la siguiente dirección de memoria viene dada por \verb|p+1|, y su valor por \verb|*(p+1)|. Esto sirve para acceder a arrays, ya que dos elementos contiguos están en dos direcciones de memoria contiguas. Así, por ejemplo, si definimos \verb|int v[4] = {1,2,3,4}; int p = &v[0];|, entonces \verb|*(p+2)| es 3.
+	 
+	 \subsection{Operando con vectores}
+	 El vector es un objeto definido por el tipo \verb|std::vector| de la libreria \verb|vector|. Los vectores se definen como \verb|std::vector<tipo> nombre = {1, 2, ...}| o como \verb|std::vector<tipo> nombre(n,d)| donde \verb|n| es el número de elementos, y \verb|d| es el valor del elemento repetido. Los vectores tienen varias operaciones.
+	 
+	 \begin{itemize}
+	 	\item Acceso. El acceso se hace con el operador \verb|[]| o con la función \verb|at|: \verb|v[i]| o \verb|v.at(i)|. A diferencia de \verb|[]|, cuando se llama \verb|at| primero se comprueba que el índice a buscar no esté fuera de rango. Si lo está, se lanza una excepción \verb|std::out_of_range|.
+	 	\item Acceso por iterador. Un iterador se define como \verb|std::vector<tipo>::iterator nombre_iterador|. Una vez declarado el iterador, se puede asignar a una posición de un vector (\verb|iter = v.begin()| o \verb|iter = v[2]|), y, como con un puntero, se puede acceder al valor de las siguientes posiciones haciendo \verb|*(iter + n)| o \verb|*(iter++)|.
+	 	\item Tamaño. \verb|v.size()|. Para saber si está vacío, se escribe \verb|v.empty()|. \verb|v.capacity()| te da el número de posiciones que tiene reservadas el vector, estén asignadas o no.
+	 	\item Asignación. La función \verb|assign| incluye elementos de un array en otro, y elimina los elementos que estaban anteriormente en esa posición. Existen varias maneras de asignar: (1) \verb|v.assign(n,d)| asigna \verb|n| posiciones con el valor \verb|d|; (2) \verb|v.assign(iter1, iter2)| se asigna el rango de valores que tomen los iteradores \verb|iter1| hasta \verb|iter2|; (3) \verb|v.assign(p1, p2)| se asigna el rango de valores que tomen los punteros \verb|p1| y \verb|p2| asignados a un array.
+	 	\item Inserción y eliminación: \verb|v.push_back(x)| añade el valor \verb|x| al final del array (si hay sitio), y \verb|v.pop_back()| elimina el último término. \verb|v.insert(p, x)| inserta el elemento \verb|x| en la posición \verb|p|; y \verb|v.insert(p, iter1, iter2)| inserta los elementos de un vector desde la posición asociada a \verb|iter1| hasta la asociada a \verb|iter2|. Similarmente, \verb|v.erase(p)| y \verb|v.erase(iter1, iter2)| eliminan las posición asociada a un iterador, o entre dos iteradores.
+	 	\item Reserva: \verb|v.reserve(n)| reserva \verb|n| espacios posteriores, si los hay. Si no, reubica el vector en una dirección de memoria que tenga los huecos libres necesarios.
+	 	\item Operaciones relacionales: los operadores \verb| == < <= > >= | están sobrecargados, y se emplea un orden lexicográfico para la comparación.
+	 \end{itemize}
+	 
+	 
+	 \subsection{Operando con estructuras}
+	 Las estructuras también tienen operaciones jugositas.
+	 
+	 \begin{itemize}
+	 	\item Acceso: para realizar acceso a un elemento de una estructura se emplea el operador punto \verb|.|. Por ejemplo, si desarrollamos \verb|struct Persona{char nombre[30]; int edad};| y creamos la estructura \verb|Persona Paco {"Francisco", 40};|, entonces podemos saber la edad de \verb|Paco| haciendo \verb|Paco.edad|. Si tenemos una estructura anidada tipo \verb|struct strGrande{strPeque p1, strPeque p2}|, podemos acceder a las variables de las subestructuras concatenando puntos: \verb|nombrestrGrande.p1.variable|.
+	 	\item Asignaciones: si dos estructuras tienen el mismo tipo de estructura, entonces haciendo \verb|nombre_estr_1 = nombre_estr_2| realizamos la asignación.
+	 	\item Punteros a estructuras: al igual que otros objetos, las estructuras aceptan punteros. Por ejemplo, \verb|Persona *p; p = &Paco| nos daría un puntero hacia la estructura \verb|Paco|. Así, podemos acceder a la edad de \verb|Paco| haciendo \verb|(*p).edad| [ponemos paréntesis porque \verb|.| precede a \verb|*|] o, con notación propia, \verb|p -> edad|.
+	 \end{itemize}
+	 
+	 
+	 
+	\subsection{Jibberjabber de lenguajes}
+	\begin{itemize}
+		\item Asignaciones: en C++/C/Java/FORTRAN/Basic con \verb|=|; en Ada/Modula-2/Pascal con \verb|:=|.
+		\item Expresiones condicionales / asignaciones con operadores aritméticos /incremento y decremento: C/C++/Java las tienen.
+		\item Mezcla de tipos: Ada sólo permite mezclar enteros con coma flotante; el resto son mejores.
+		\item En Java no hay coerciones; en C y C++ sí.
+	\end{itemize}
+	 
+	 
+	 
+	 
+	 
+	 \section{Temas 7 y 8: control de flujo}
+	 
+	 Los lenguajes de programación tienen sentencias de control de flujo para establecer decisiones y realizar diversas tareas durante la ejecución. Vamos a mirar las sentencias más importantes.
+	 
+	 \subsection{Sentencias de selección}
+	 C++ tiene dos sentencias de selección, if y switch.
+	 
+	 La forma de la sentencia if es:
+	 \begin{lstlisting}
+	 if (expresion)
+	 	codigo_clausula_then
+	 else
+	 	codigo_clausula_else
+	 \end{lstlisting}
+	 
+	 En este caso, \verb|if| y \verb|else| son palabras reservadas del lenguaje, y los códigos de clausulas pueden ir entre llaves o sin ellas (sólo si es una línea). La expresión puede ser booleana o aritmética. Si es aritmética, se toma \textit{false} si el valor es 0, y \textit{true} si es diferente de cero.
+	 
+     Se pueden generar estructuras más complejas anidando varias sentencias \verb|if|. La sentencia \verb|if| más próxima a una sentencia \verb|else| es la que la asocie. Una estructura típica es la escalera \verb|if-else-if|:
+     
+     \begin{lstlisting}
+     if (expr1)
+     	codigo1
+     else if (expr2)
+     	codigo2
+     ...
+     else
+     	codigo_else
+     \end{lstlisting}
+	 
+	 Por otro lado está la sentencia \verb|switch|, que permite seleccionar un caso según una constante que surja.
+	 \begin{lstlisting}
+	 switch (expresion de seleccion) {
+	 	case c1:
+	 		codigo1
+	 	case c2:
+	 		codigo2
+	 	...
+	 	default:
+	 		codigon
+	 		}
+	 \end{lstlisting}
+	 
+	 \subsection{Sentencias iterativas}
+	 También llamadas bucles, permiten la ejecución ininterrumpida de un código, hasta que se satisfaga una condición.
+	 
+	 La sentencia más general es el bucle \verb|for|, que tiene la siguiente forma:
+	 \begin{lstlisting}
+	 for (inicializacion; condicion; iteracion)
+	 	cuerpo del bucle
+	 \end{lstlisting}
+	
+	Similar al \verb|if|, el cuerpo ha de ir entre llaves y, si es una sentencia, puede ir sin ellas. La cabeza del bucle tiene 3 elementos: (1) inicialización de la variable: puede ser local al bucle o no, y puede ser una o más variables; (2) condición aritmética o Booleana que, mientras sea \textit{true} se ejecuta; (3) iteración donde se actualiza la variable de inicialización.
+	
+	Pese a que el \verb|for| usual tiene los tres elementos en la cabecera, pueden creare bucles con cabeceras incompletas. Por ejemplo:
+	\begin{lstlisting}
+	for ( ; fin ; ){}
+	for (; ; ){}
+	\end{lstlisting}
+	El primer bucle dura siempre que la variable \verb|fin| sea \verb|true|; y el segundo corre hasta que se termine por dentro con un \verb|break|.
+	
+	También existen los bucles \verb|while| [bucle lógico pre-condición] y \verb|do-while| [bucle lógico post-condición], que tienen la forma siguiente:
+	\begin{lstlisting}
+	while (condicion)
+		cuerpo while
+	\end{lstlisting}
+	
+	y 
+	\begin{lstlisting}
+	do
+	 cuerpo
+	while (condicion);
+	\end{lstlisting}	
+	
+	En el bucle \verb|while| se evalúa primero la condición y, si es cierta, la ejecuta. En el bucle \verb|do-while|, por el contrario, primero ejecuta el cuerpo y luego evalúa la condición. Entonces, si la condición es falsa desde el principio, \verb|do while| ejecuta una vez el cuerpo, y \verb|do-while| no lo ejecuta nunca.
+	
+	En cualquiera de los bucles podemos hacer dos tipos de ejecuciones inmediatas:
+	\begin{itemize}
+		\item La sentencia \verb|break| finaliza automáticamente la ejecución del bucle.
+		\item La sentencia \verb|continue| se salta el contenido del bucle y pasa a la siguiente iteración.
+	\end{itemize}
+	
+	\subsection{Excepciones}
+	Las excepciones son, como otros objetos, objetos con tipo propio, que paran la ejecución del programa. Para capturar un error, es decir, para cuando surja un error en un bloque, que el programa no finalice directamente, se emplea la cláusula \verb|try-catch|.
+	\begin{lstlisting}
+	try{
+	Bloque de codigo}
+	catch (tipo excepcion1 arg){
+	Bloque de catch}
+	catch (tipo excepcion2 arg){
+	Bloque de catch}
+	...
+	catch (tipo excepcionn arg){
+	Bloque de catch}
+	\end{lstlisting}
+	
+	Obviamente, el tipo de cada error debe ser diferente por cada catch. Si el tipo de excepción que surge no corresponde con ninguno del tipo de catch que hay, se pueden hacer dos cosas:
+	\begin{itemize}
+		\item Se emplea un código general de \verb|catch|, que consiste en tres puntos entre paréntesis:
+		\begin{lstlisting}
+		catch (...) {
+		Codigo
+		}
+		\end{lstlisting}
+		\item Si no hay nada más, el programa termina. Se invoca automáticamente una función de la librería estandar llamada \verb|terminate()|, que llama a \verb|abort()| y el programa termina.
+	\end{itemize}
+		En un \verb|catch| podemos mostrar el mensaje original empleando \verb|nombre.what()|:
+		\begin{lstlisting}
+		catch(std::invalid_argument errorx){
+		std::cout << "El error es este: \n" << errorx.what() << std::endl;}
+		\end{lstlisting}
+		
+
+	Además de atrapar excepciones las podemos generar con la sentencia \verb|throw|:
+	\begin{lstlisting}
+	throw nombre_excepcion;
+	throw std::domain_error ("Error: tu dominio esta fuera de rango.")
+	\end{lstlisting}
+	Si queremos hacer algo con la excepción, necesitamos ponerla dentro de un bloque \verb|try|.
+	
+	Los tipos más comunes de excepción son los siguientes:
+	\begin{itemize}
+		\item \verb|std::domain_error|
+		\item \verb|std::invalid_argument|: el argumento no es válido para la función
+		\item \verb|std::length_error|: error al crear un objeto muy largo
+		\item \verb|std::out_of_range|: un argumento de una función está fuera de rango.
+		\item \verb|std::overflow_error|: Overflow aritmético
+		\item \verb|std::range_error|: Error en un range interno
+		\item \verb|std::underflow_error|
+		\item \verb|std::bad_alloc|: sucede cuando, al crear una nueva variable en memoria dinámica con \verb|new|, no queda memoria en el almacenamiento dinámico.+
+	\end{itemize}
+	
+	\subsection{Entrada por teclado}
+	\verb|std::cin| es el método de introducción de datos por consola. Sin embargo, teníamos un problema cuando no sabíamos \textit{a priori} el número de veces que íbamos a necesitar la entrada por teclado. Ahora que sabemos usar bucles, podemos fácilmente hacerlo con un \verb|while|:
+	\begin{lstlisting}
+	while (std::cin >> variable_entrada){
+	Bloque de codigo}
+	\end{lstlisting}
+	
+	\verb|std:cin| incluye conversión a booleano porque pertenece al tipo \verb|std::istream|. Este bucle de código va a seguir activo hasta que:
+	\begin{itemize}
+		\item Se produzca un error con el teclado (de hardware o lo que sea).
+		\item Encuentra un carácter de fin de fichero. En este caso el flujo de entrada acaba en false y termina.
+		\item Encuentra un whitespace, en cuyo caso termina el ciclo, pero puede seguir otro nuevo.
+		\item Encuentre un carácter que no pertenezca al tipo asociado a la variable que recibe los caracteres.
+	\end{itemize}
+	
+	Si por ejemplo se introdujera "1 2 3 4 {return}" y \verb|variable_entrada| fuera \verb|int| por cada ciclo introduciría un número, ya que cuando encuentra un espacio. Cuando procesa el return, el programa se queda aún a la espera de un eof para salir del bucle.
+	
+	Existen varias funciones que se pueden llamar en el entorno \verb|std::cin|. 
+	\begin{itemize}
+		\item \verb|std::cin.eof()| Devuelve \verb|true| si se encuentra un fin de fichero.
+		\item \verb|std::cin.fail()| Devuelve \verb|true| si ha encontrado un fallo en el flujo de entrada.
+		\item \verb|std::cin.bad()| Devuelve \verb|true| si se ha producido un error fatal en el flujo de entrada.
+		\item \verb|std::cin.good()| Devuelve \verb|True| si NO se ha producido un error.
+		\item \verb|std::cin.clear()| Libera el flujo a un estado que le permite seguir trabajando.
+		\item \verb|std::cin.ignore(n,c)| Descarta caracteres del flujo de entrada hasta que el número es \verb|n| o encuentra un caracter \verb|c|.
+		\item \verb|std::cin.get()| Devuelve el primer caracter del flujo de entrada, extrayéndolo del flujo (considera los whitespace también).
+		\item \verb|std::cin.peek()| Devuelve el primer carácter del flujo de entrada, sin extraerlo del flujo (considera los whitespace también).
+	\end{itemize}
+	
+	Si, por la razón que sea, \verb|std::cin| es falso, es necesario usar \verb|std::cin.clear()|; y si tiene dentro caracteres, hay que usar \verb|std:cin.ignore()|. Para quitar todos los caracteres, se hace así: \verb|std::cin.ignore(std::numeric_limits<std::streamsize>::max())|
+	
+	Los resultados de \verb|std::cin.get()| o \verb|peek()| se pueden almacenar en una variable \verb|char|. 
+	
+	\subsection{Entrada y salida por fichero}
+	La entrada y salida de fichero se hace con la cabecera \verb|fstream|, concretamente con los tipos \verb|std::ifstream| y \verb|std::ofstream|. Por tanto, se declara la variable archivo con uno de esos tipos:
+	
+	\verb|std::ifstream archivo_entrada|
+	
+	Una vez se ha declarado la variable, hay que introducir o leer texto del fichero asociado. Para ello hay 3 modos:
+	\begin{itemize}
+		\item \verb|std::ios::in| Lee el texto
+		\item \verb!std::ios::out | std::ios::trunc! Escribe borrando el contenido del fichero antes.
+		\item \verb!std::ios::out | std::ios::app! Añade contenido al ya existente.
+	\end{itemize}
+	
+	La manera completa de leer/escribir es entonces
+	\begin{lstlisting}
+	std::ofstream archivo_out;
+	archivo_out.open("Ruta/de/archivo.txt", std::ios::out | std::ios::app)
+	\end{lstlisting}
+	
+	O, todo en una linea:
+	\begin{lstlisting}
+	std::ofstream archivo_out("Ruta/del/archivo.txt", std::ios::out | std::ios::app)
+	\end{lstlisting}
+	
+	Las operaciones de lectura y escritura se hacen con \verb|<< >>|, y el archivo se cierra con la función \verb|close()|.
+	
+	La lectura puede ser de dos modos principales:
+	\begin{itemize}
+		\item Carácter a carácter o palabra a palabra. Para ello se emplea la siguiente estructura:
+		\begin{lstlisting}
+		char c;
+		std::string s;
+		while (!f.eof()){
+			f >> std::noskipws >> c;
+			f >> s;
+		}
+		\end{lstlisting}
+		La diferencia principal es que si la carga de texto es a un \verb|char| se carga letra a letra, y si \verb|std::string| se carga palabra por palabra. \verb|std::noskipws| incluye los whitespaces en el texto.
+		\item Línea a línea: Se almacena toda la línea en un string, se hace con la función \verb|getline()|. 
+		\begin{lstlisting}
+		std::string s;
+		while (getline(f, s)){
+		f >> s;
+		}
+		\end{lstlisting}
+	\end{itemize}
+	
+	IMPORTANTE: Si se guarda el nombre de archivo en una variable, esta debe ser array de chars. Para transformar un string en array de chars se emplea \verb|nombre.c_str()|.
+	
+	 	\subsection{Jibberjabber de lenguajes}
+	 \begin{itemize}
+	 \item Originalmente las sentencias \verb|goto| eran las únicas de control de flujo. ALGOL 60 fue el primero en introducir las sentencias actuales.
+	 \item Los bloques de código se delimitan con llaves en C++/C/Java y con begin/end en Pascal.
+	 \item FORTRAN tenian una formula primitiva de case, ALGOL-W la generalizó, Pascal tiene la sentencia \verb|case| (con begin/end), en Ada la selección tiene que ser un tipo enumerado y tiene la opción de \textbf{others}; FORTRAN 90 tiene una sentencia case/when/others, y Java/C++/C tienen la sentencia switch que sabemos.
+	 \item Pascal tiene una sentencia \verb|for| con la forma \verb|for v := i to f do| para subidas, y \verb|for v := i downto f do| para descendentes. Solo sube/baja de 1 en 1. Si el bucle termina bien, la variable no se almacena; pero si falla, se queda el último valor. Ada es similar a Pascal.
+	 \item Expresión de control de bucle: en C++ puede ser aritmético o booleano, en C aritmético, y en Java booleano.
+	 \item En FORTRAN 90 no había bucles controlados por expresión booleana. En Ada, el equivalente del \verb|while| es el \verb|repeat-until|.
+	 \item El equivalente de \verb|break| en Modula-2 es \verb|exit|.
+	 \item C++/Java/Ada tienen control de excepciones; C/FORTRAN no.
+	 \end{itemize}
+	 
+	 \section{Temas 9 y 10: Subprogramas}	
+	 Un subprograma es un fragmento de código definido aparte del programa principal al que se le asigna un nombre y puede aceptar parámetros. Los subprogramas se clasifican en funciones, si retornan un valor, o procedimiento, si no lo retornan. 
+	 
+	 Toda función que se digne debe tener [en C++] (1) nombre (2) tipo de retorno (3) parámetros formales (4) algoritmo. Cuando se usa la función para algo se la llama o invoca. En ese momento se evalúan los parámetros. El paso de los parámetros puede ser por valor o por referencia:
+	 \begin{itemize}
+	 	\item Por valor: el valor de la variable se copia a otra dirección de memoria y se trabaja con él. Cualquier cambio en la variable interna no afectará a la externa.
+	 	\item Por referencia: el valor de la variable está asociado a su dirección de memoria, de mode que si la variable se modifica dentro de la función, fuera de ella también. En C++ los arrays siempre se pasan por referencia.
+	 \end{itemize}
+ 
+ 	En el caso en el que la variable se pase por referencia, hay dos modos de pasar los argumentos:
+ 	\begin{itemize}
+ 		\item Usando punteros: el parametro formal es un puntero al tipo de la variable y se pasa como parámetro la dirección de memoria.
+ 		\begin{verbatim}
+ 		void masuno(int * a){
+	 		*a += 1;
+	 		return;}
+ 		
+ 		int main(){
+	 		int s = 9;
+	 		masuno(&s);
+	 		return 0;}
+ 		\end{verbatim}
+ 
+ 		\item Usando parámetros de referencia: se declara la función con un parámetro que incluye el operador posición. En el resto de partes se emplea la variable a secas.
+ 		\begin{verbatim}
+ 		void masuno(int & a){
+	 		a += 1;
+	 		return;}
+ 		
+ 		int main(){
+	 		int s = 9;
+	 		masuno(s);
+	 		std::cout << s ;
+	 		return 0;}
+ 		\end{verbatim}
+	 \end{itemize}
+	 En C++ el tipo de la función es obligatorio. Si la función no retorna nada, se tiene que emplear el tipo \verb|void|: 
+	 
+	 \begin{verbatim}
+	 void f(){}
+	 \end{verbatim}
+	 
+	 En ese caso, las variables deberían pasarse por referencia si se quieren cambiar.
+	 
+	 Con respecto a la localidad de las variables, las variables son locales a la función y, dentro de ésta, siguen la misma jerarquía de bloques (se pueden ocultar). Las funciones también se pueden sobrecargar: 
+	 
+	 \begin{verbatim}
+	 int A(int n, int m, int p){
+	 	return n + m + p;}
+	 int A(int n, int m){
+	 	return n+m;}
+	 \end{verbatim}
+	 
+	 En C++ las variables dentro de una función pueden llevar la palabra reseravda \verb|static|. En ese caso, la variable se almacena de forma global, es decir, se mantiene una vez llamada la función, de modo que si se llama a la función de nuevo, conserva el valor de cuando se corrió la última función.
+	 
+	 Se puede llamar a \verb|A(2,3,4)| o a \verb|A(2,3)| sabiendo que el número de argumentos o sus tipos son diferentes.
+	 
+	 \subsection{Punteros}
+	 Punteros colgantes: cuando se hace un return, se genera una copia de la variable (como si se pasara por valor, cuando puede hacerse), y la variable retornada aparece en otra dirección; de modo que la variable interna es inaccesible.
+	 
+	Por ejemplo, este código
+	
+	\begin{lstlisting}
+	#include <iostream>
+	
+	int A(){
+		int i = 1;
+		std::cout << "i dentro de la funcion " << i << ' ' << &i << std::endl;
+		return i;
+	}
+	
+	
+	int* B(){
+		int j = 1;
+		std::cout << "j dentro de la funcion " << j << ' ' << &j << std::endl;
+		return &j;
+		}
+	
+	int main(){
+		int i = A();
+		std::cout << "i fuera de la funcion " << i << ' ' << &i << std::endl;
+		
+		int * j = B();
+		std::cout << "j fuera de la funcion " << j << ' ' << &j << std::endl;
+		return 0;
+	}
+	\end{lstlisting}
+	 
+	El output es 
+	
+	\begin{verbatim}
+	i dentro de la funcion 1 0x61feec                                                                                       
+	i fuera de la funcion 1 0x61ff1c                                                                                        
+	j dentro de la funcion 1 0x61feec                                                                                       
+	j fuera de la funcion 0 0x61ff18 
+	\end{verbatim}
+	 
+	 Vemos que en \verb|A|, \verb|i| toma una dirección de memoria diferente a cuando se hace el return. En \verb|B| pasa igual, pero además, la variable queda colgada porque estamos pasando una referencia: en lugar de pasar \verb|0x61feec|, el return pasa \verb|0x61ff18|, otra dirección distinta, que tiene otro valor asociado, por supuesto.
+	 
+	 Las funciones en C++ también pueden actuar como punteros. Si empleamos la siguiente construcción:
+	 \begin{verbatim}
+	 tipo_retorno (*nombre_puntero)(lista_tipo_params); //El paréntesis en nombre puntero es necesario
+	 \end{verbatim}
+	 
+	 Podemos crear una función que apunte a esa dirección. Esto nos es útil cuando en un sitio ha de emplearse una función genérica, de modo que varias funciones pueden ser llamadas donde está el puntero. 
+	 
+	 \begin{verbatim}
+	 int suma(int a, int b){
+		 return a+b;
+		 }
+	 int resta(int a, int b){
+		 return a-b;
+		 }
+	
+	 // Opción 1
+	 int main(){
+		 int (* operacion_binaria)(int, int);
+		 operacion_binaria = suma;
+		 std::cout << operacion_binaria(3, 4);
+		 return 0;}
+	 
+	 // Opción 2
+	 int aplica_operacion(int (* operacion_binaria)(int, int), int x, int y){
+	 std::cout << "El resultado de la operacion es " << (* operacion_binaria)(x, y);
+	 return 0;}
+	 
+	 int main(){
+	 aplica_operacion(suma, 3, 4);
+	 aplica_operacion(resta, 3, 4);
+	 return 0;}
+	 \end{verbatim}
+	 
+	 \subsection{Recursividad}
+	 Decimos que una función es recursiva cuando dentro de su algoritmo se hace una llamada a si misma. Toda función recursiva necesita un caso base para que pueda "salir", porque si no entraría en bucle.
+	 
+	 Existen tres tipos de recursividad principales:
+	 \begin{itemize}
+	 \item Lineal: La función $f$ llama, a lo sumo, una vez a $f$ de nuevo. En esta recursividad, cada vez que se llama a la función se tiene que mantener una memoria del valor anterior, de modo que si la función tiene que llamarse muchas veces puede haber un desbordamiento. En el tipico caso del factorial:
+	 \begin{verbatim}
+	 int fact(int n) {
+		 if (n == 0)
+		 return 1 ;
+		 else
+		 return n * fact(n-1) ;
+	 }
+	 \end{verbatim}
+	 Si hacemos \verb|fact(4)| tenemos que almacenar en memoria que hay que multiplicar 4 * \verb|fact(3)|, luego 4 * 3 * \verb|fact(2)|, y luego 4 * 3 * 2 * \verb|fact(1)|, lo cual puede ser tedioso.
+	 \item De cola: este tipo de recursividad modifica el argumento de llamada de modo que el valor es calculado sin necesidad de recursividad. Por ejemplo:
+	 \begin{verbatim}
+	 int fact(int n) {
+		 return tail_fact(n,1) ;
+	 }
+	 
+	 int tail_fact(int n, int a) {
+		 if (n == 0)
+		 return a ;
+		 else
+		 return tail_fact(n-1,n*a) ;
+	 }
+	 \end{verbatim}
+	 
+	 En este caso, \verb|tail_fact| ya mantiene el cálculo del factorial dentro de los argumentos, luego no hay que recuperar hacia atrás la información.
+	 
+	 \item Recursividad anidada: sucede cuando hay varias llamadas a la misma función o cuando en alguno de los argumentos de la llamada recursiva se encuantra la misma función. Un ejemplo es la función de Ackermann:
+	 	 \begin{verbatim}
+	 int A(int n, int m) {
+	 	if (n == 0) return m+1;
+	 	else if (m == 0) return A(n-1, 1);
+	 	else return A(n-1, A(n, m-1));
+	 }
+	
+	 \end{verbatim}
+	 \end{itemize}
+	 
+	 \subsection{Excepciones}
+	 Las excepciones son como siempre, solo que a la hora de escribir funciones, puede indicarse en la cabecera de la función (no es obligatorio), qué tipos de excepciones pueden lanzarse.
+	 
+	 \begin{verbatim}
+	 tipo_retorno nombre_funcion (lista_params)
+	 	throw (excep1, excep2, ...)
+	 	{ cuerpo_de_la_funcion }
+	 \end{verbatim}  
+	 
+	 \subsection{Prototipos}
+	 Toda función ha de ser declarada, y puede ser definida (declarada + algoritmo) al mismo tiempo o después. Para declarar una función simplemente hay que escribir
+	 
+	 \begin{verbatim}
+	 tipo_retorno nombre_funcion (lista_tipo_params)
+	 \end{verbatim}
+	 
+	 \subsection{Organización del programa en varios ficheros}
+	 Muchas veces interesa tener el programa principal con la función main, y el resto de subprogramas en 
+	 otras funciones. C++ permite guardar los programas en varios ficheros, siempre que se mantenga la siguiente estructura:
+	 \begin{itemize}
+	 	\item En un fichero .cpp se escriben las funciones que se deseé.
+	 	\item En un fichero .h (con el mismo nombre que el .cpp) se escriben los prototipos de las funciones
+	 	\item Tanto el fichero .cpp de las funciones como en el .cpp principal se tiene que hacer referencia al fichero cabecera escribiendo \verb|#include "cabecera.h"|.
+	 \end{itemize}
+	 
+	 Hay que fijarse en que va con comillas. Eso indica que el fichero está en el mismo direcorio que el ".cpp" original. Si se escribiera \verb|#include <cabecera.h>| se estaría llamando a la cabecera de la librería estandar.
+	 
+	 Además, si queremos generar un espacio de nombres (como \verb|std| para la librería estandar) tenemos que añadir tanto en el .h como el .cpp de las funciones el siguiente trozo:
+	 
+	 \begin{verbatim}
+	 namespace nombre_espacio {
+	 	declaraciones y definiciones
+	 }
+	 \end{verbatim}
+	 
+	 Por ejemplo, si el espacio es \verb|miesp|, entonces en el archivo principal, a la hora de llamar a la función \verb|x| habría que escribir \verb|miesp::x|.
+	 
+	 Para que el código corra hay que ejecutar los dos .cpp.
+	 
+	 \subsection{Jibberjabber de lenguajes}
+	 \begin{itemize}
+	 	\item En Ada/Modula/Pascal se puede distingir un procedimiento de una función con PROCEDURE y FUNCTION, mientras que C/C++/Java no consideran los procedimientos sino que los subprogramas se definen como funciones que pueden no devolver ningún dato (aunque tienen un return implicito).
+	 	\item FORTRAN77 no soporta recursividad.
+	 \end{itemize}
+	  
+	 
+	 \section{Temas 11 y 12: Estructuras de datos}	
+	 
+	Conforme desarrollemos cada estructura la complementaremos con su desarrollo en C++. Las estructuras de datos abstractas se han definido en función de unas operaciones que se aplican a tal estructura. Para que una estructura sea de un tipo abstracto se tiene que cumplir que al menos uno de los operandos o el resultado de la operación ha de ser de ese tipo abstracto.
+	
+	Muchas de estas estructuras están implementadas en la librería estándar (Standard template library, STL). Las ramas based de la STL son los contenedores, o objetos que alojan otros objetos, algoritmos aplicables sobre objetos, e iteradores, objetos similares a los punteros que permiten recorrer el contenedor como se recorre un array por punteros.
+	
+	\subsection{Listas}
+	Una lista es una secuencia de 0 o más elementos de un tipo. Si su longitud es 0, entonces la lista está vacía. La lista es flexible porque su longitud puede aumentar o disminuir, y se pueden insertar o eliminar elementos. Las operaciones básicas sobre una lista $L$ son: (1) INSERT($x$, $p$, $L$), (2) LOCATE($x$, $L$) encuentra la primera posición del elemento $x$, (3) RETRIEVE($p$, $L$) devuelve el elemento en la posición $p$, (4) DELETE($p$, $L$), (5,6) NEXT/PREVIOUS($p$, $L$), (7) MAKENULL($L$) vacía la lista y (8) FIRST($L$).
+	
+	Las listas pueden implementarse de dos formas:
+	\begin{itemize}
+		\item Usando un array: Se diseña la lista de modo que el elemento $i$ tome la posición $i-1$ del array. Dado que el array tiene un tamaño fijo, hay que crear un array más grande, y registrar el último elemento de la lista. El array es ventajoso en cuanto acceso, porque el $i$ elemento está en la $i$ posición de memoria, y no es necesario recorrer el array. Así, el acceso es rápido. Sin embargo, la inserción y eliminación son lentas, porque hay que desplazar todos los elementos a partir del elemento insertado / eliminado; además de que el tamaño máximo de la lista está restringido al tamaño del array.
+		\item Usando estructuras autorreferenciadas. En este caso, para cada elemento la estructura tiene el valor del elemento (o un puntero al valor) y un puntero a la siguiente dirección. En las listas doblemente enlazadas también hay un puntero al elemento anterior, para así recorrer la lista en ambos sentidos. Las ventajas/inconvenientes de esta estrategia se invierten: el acceso es más costoso porque hay que leer todos los elementos desde la cabecera hasta el deseado pero, por el contrario, eliminar e insertar elementos es mucho más rápido, ya que solo hay que cambiar los punteros asociados.
+	\end{itemize}
+	
+	Las listas están implementadas con el tipo de dato \verb|std::list|, y es una lista doblemente enlazada, con acceso secuencial; es decir, no se puede acceder al elemento $i$ si no se ha recorrido la lista entera hasta ese punto.
+	
+	La lista es declarada así
+	
+	\begin{verbatim}
+	#include<list>
+	std::list <tipo> nombre_lista;
+	\end{verbatim}
+	
+	También se puede inicializar (dos ejemplos):
+	
+	\begin{verbatim}
+	std::list<int> lst_a = {1, 2, 3, 4};
+	std::list<int> lst_b(2,100);  // (100, 100)
+	\end{verbatim}
+	
+	También se puede inicializar una lista con los elementos de otra
+	
+	\begin{verbatim}
+	std::list<int> lst2(lst1);
+	\end{verbatim}
+	
+	Las operaciones más importantes aplicables a listas son:
+	\begin{itemize}
+		\item \verb|lst.empty()| Devuelve \verb|true| si está vacía
+		\item \verb|lst.size()|
+		\item \verb|lst.push_back(x) / lst.push_front(x)| añade un elemento al final o inicio de la lista.
+		\item \verb|lst.pop_back(x) / lst.pop_front(x)| elimina el elemento del final o inicio.
+	\end{itemize}
+	
+	Los iteradores en listas se declaran así
+	
+	\begin{verbatim}
+	std::list<tipo>::iterator nombre_iterador;
+	\end{verbatim}
+	
+	Una vez el iterador ha sido declarado y asignado a un elemento de la lista (con \verb|lst.begin()| por ejemplo), podremos desplazarnos por el iterador usando \verb|nombre_iterador++| o \verb|nombre_iterador--|, o cualquier otra operación similar. Escribiendo \verb|*nombre_iterador| se accede al elemento asociado en la lista.
+	
+	\begin{itemize}
+		\item \verb|lst.begin() / lst.end()| Devuelve un iterador al inicio/fin de una lista. Para asignarlo hay que hacer \verb|std::list<tipo>::iterator p = lst.begin();|. Importante: para \verb|end()| el iterador marca NO el elemento final de la lista, sino lo siguiente. Para llegar al último elemento hay que escribir \verb|p--|. 
+		\item \verb|lst.insert(p, val) / lst.insert(p, n, val)| inserta \verb|n| elementos (o 1) con el valor \verb|val| en el sitio del iterador \verb|p|. Si se trata de \verb|insert(p, p1, p2)| inserta una copia de los elementos entre \verb|p1| y \verb|p2|. \verb|p| no cambia de sitio.
+		\item \verb|lst.erase(p)| o \verb|lst.erase(p1, p2)| elimina el elemento del iterador \verb|p| o entre los iteradores \verb|p1| y \verb|p2|.
+		\item \verb|lst.splice(p, lst_dest) / lst.splice(p, lst_dest, p0) / lst.splice(p, lst_dest, p1, p2)| inserta en \verb|lst| (en \verb|p| como última posición) la lista \verb|lst_dest|. Se puede elegir también la posición \verb|p0| del elemento de selección en \verb|lst_dest| o el inicio y final con \verb|p1| y \verb|p2|.																		
+	\end{itemize} 
+	
+	\subsection{Pilas}
+	La pila es una variación sobre una lista: en este caso los elementos se insertan y eliminan por uno de los extremos de la lista, siguiendo la disciplina LIFO (Last In First Out); es decir, los elementos que más tiempo llevan en la pila son los que salen antes. Las pilas aceptan las siguientes operaciones: (1) MAKENULL($S$), (2) TOP($S$) devuelve el elemento en la parte superior, (3) POP($S$) elimina el elemento superior, (4) PUSH($S$, $x$) inserta el elemento $x$ en la parte superior y (5) EMPTY($S$) devuelve \textit{true} si la lista está vacía.
+	
+	Las pilas se encuentran en la librería \verb|stack| y sus funciones son estas:
+	
+	\begin{itemize}
+		\item \verb|pila.empty() / pila.size()|
+		\item \verb|pila.push(val) pila.pop()| introduce o elimina el valor.
+		\item \verb|pila.top()|
+	\end{itemize}
+	
+	\subsection{Colas}
+	Similar a las pilas, pero en este caso la disciplina es FIFO (First In First Out). Las operaciones son las misma, solo que ahora se substituye TOP($S$) por FRONT($Q$), que devuelve el primer elemento; PUSH($S$, $x$) for ENQUEUE($Q$, $x$) para insertar el elemento, y se añade DEQUEUE($Q$), que elimina el primer elemento de la cola. 
+	
+	Por lo general, asi se emplean estructuras autorreferenciadas, conviene que se emplee un puntero para el último elemento de la cola. Si se emplea la estrategia del array, conviene implementar el array como si fuera un anillo, de modo que se tienen los punteros \verb|cab| y \verb|end| para el primer y último elementos de la cola y, como sabemos la longitud del array, si se alcanza el último elemento del array, el siguiente elemento de la cola empieza enla posición 0 del array. 	
+	
+	Las colas se encuentran en la librería \verb|queue| y sus funciones son estas:
+	
+	\begin{itemize}
+		\item \verb|cola.empty() / cola.size()|
+		\item \verb|cola.push(val) cola.pop()| introduce o elimina el valor.
+		\item \verb|cola.front() / cola.back()| indica el primer y último elemento.
+	\end{itemize}
+	
+	\subsection{Mapas}
+	Un mapa es una función que mapea (jeje) elementos de un tipo \textit{dominio} ($d$) a un tipo \textit{rango} ($r$), de modo que $r = M(d)$. Algunos mapas pueden ser implementados como una función (hacer un cálculo, por ejemplo, o contar el número de elementos para una lista) y otros necesitan ser descritos individualmente (como si fuera un diccionario). 
+	
+	Las operaciones sobre mapas son (1) MAKENULL($M$) vacía el mapa, (2) ASSIGN($M$, $d$, $r$) define que $M(d) = r$ tanto si ya está definido antes como si no; y (3) COMPUTE($M$, $d$, $r$) devuelve \textit{true} y asigna a una variable $r$ el resultado de $M(d)$, y \textit{false} si $M(d)$ no está definido.
+	
+	Los mapas vienen definidos en la librería  \verb|map|, puesto que cada elemento del mapa es una tupla, entonces la declaración de los mapas se hace así
+	
+	\begin{verbatim}
+	std::map<tipo_clave, tipo_valor> nombre_variable;
+	\end{verbatim}
+	
+	Los mapas también tienen las funciones \verb|map.empty() / map.size()|.
+	
+	Como las listas, los mapas también tienen iteradores:
+	
+	\begin{verbatim}
+	std::map<tipo_clave, tipo_valor>::iterator nombre_iterador;
+	\end{verbatim}
+	
+	Cada tupla de un mapa está guardado como objeto del tipo \verb|std::pair|, y se accede con el valor del puntero y los atributos \verb|first| y \verb|second|. Es decir, si \verb|p| es un puntero, los accesos son \verb|(*p).first| y \verb|(*p).second|.
+	
+	Para insertar nuevos elementos escribimos \verb|nombre_mapa[clave] = valor|. Si ya existía una clave, reemplaza el valor. También se puede insertar empleando un objeto de tipo \verb|std::pair|, pero es largo y absurdo. El primer campo del objeto \verb|pair| es un iterador al nuevo elemento, y el segundo es un booleano que, si es \verb|true|, inserta un elemento nuevo; y si es \verb|false|, es que ya se ha insertado.
+	
+	\verb|std::pair<std::map<tipo1, tipo2>::iterator, bool> p;|
+
+	\verb|p = m.insert(std::pair<std:string, int>("A", 1));|
+	
+	Para acceder al iterador se usa \verb|par.first|, y para el acceso a la variable booleana, se escribe \verb|par.second|. Si denominamos al iterador \verb|p|, entonces el acceso a la clave se hace como \verb|p->first| y \verb|p->second|. También podemos acceder al valor si conocemos la calve escribiendo \verb|map[clave]|. Si la clave no existe, entonces te devuelve un valor vacío (0 si es \verb|int|, por ejemplo)
+	
+	Para buscar si existe un par con una clave determinada se emplea la función \verb|find|. El resultado de la función es un iterador, luego el resultado ha de almacenarse en una variable iterador.
+	
+	\verb|std::map<std::string,int>::iterator p;|
+	\verb|p = map.find(clave);|
+	
+	Si la clave no existe, entonces el iterador apuntará a la posición siguiente del último elemento del mapa.
+	
+	También existe la función \verb|mapa.count(var)|, que devuelve 1 o 0 según si existe la clave o no. Para eliminar elementos l
+	
+	\subsection{Árboles}
+	El árbol es un tipo de dato abstracto que mantiene una jerarquía. Una estructura es un árbol si cumple que 
+	\begin{itemize}
+		\item Cualquier nodo tiene 0 o más nodos hijo.
+		\item Tiene un sólo nodo raíz.
+		\item Cualquier nodo, excepto el raíz, sólo tiene un nodo padre. Si varios nodos comparten el mismo padre, son nodos hermanos.
+		\item Por tanto, cualquier nodo (excepto el raíz) es descendiente del nodo raíz.
+	\end{itemize} 
+
+	La altura de un nodo se define como la longitud del camino más largo desde el nodo hasta una hoja. Por otra parte, la altura del árbol es la altura del nodo raíz.
+	
+	Los árboles admiten las siguientes operaciones: (1) PARENT($n$, $T$) devuelve el padre del nodo $n$ y si el nodo es el raíz, devuelve un nodo nulo; (2) LEFTMOST\_CHILD/RIGHTMOST\_CHILD($n$, $T$) devuelve el hijo del nodo $n$ que más a la izquierda/derecha esté; (3) LABEL($n$, $T$) devuelve la etiqueta del nodo $n$; (4) CREATE($i$, $v$, $T_1$, $\cdots$, $T_n$) crea un nodo $r$ con la etiqueta $v$ y los árboles hijos $T_1, \cdots, T_n$ en la posición $i$; (5) ROOT($T$) devuelve el nodo raíz del árbol y (6) MAKENULL($T$) hace nulo el árbol.
+	
+	La implementación del árbol se hace con estructuras autorreferenciadas o mediante arrays. Usando arrays se emplean dos arrays: el primero tiene la numeración del nodo padre y el segundo tiene la etiqueta del nodo. Similar al resto de ocasiones, el array es más lento si queremos insertar o eliminar nodos porque hay que alterar la estructura entera del array.
+	
+	Si se emplean estructuras autorreferenciadas entonces:
+	\begin{itemize}
+		\item Un puntero apunta al nodo raíz
+		\item Cada nodo tiene (1) un puntero hacia el nodo padre, (2) uno o varios punteros a los nodos hijos y (3) un puntero a la variable almacenada.
+	\end{itemize}
+	
+	
+	\section{Temas 13 y 14: Algoritmos}
+	Esta sección se va a desarrollar de manera muy sucinta.
+	
+	El desarrollo de algoritmos es todo un arte, y hay varias cosas a considerar. Existen varios paradigmas de diseño, aunque los más importantes son 5:
+	\begin{itemize}
+		\item Fuerza bruta
+		\item Divide y vencerás: consiste en dividir un problema en problemas más simples, y una vez estén resueltos, reconstruir la solución al problema inicial.
+		\item Programación dinámica: similar al divide y vencerás en que se divide el problema en problemas más simples, solo que se implementa la memoización, es decir, guardar soluciones ya calculadas que se necesitan más tarde. En resumen, la programación dinámica suele simplificarse a problemas recursivos con memoización.
+		\item Programación lineal: consiste en optimizar una función lineal de modo que sus variables estén sujetas a restricciones dadas por inecuaciones.
+		\item Búsqueda y enumeración: en este paradigma los problemas suelen modelarse como grafos, de modo que se emplean rutinas de grafos para solucionar el problema.
+	\end{itemize}
+
+	Para describir los algoritmos suelen usarse o bien diagramas de flujo o pseudocódigo, donde los detalles de un código suelen omitirse, y se reflejan las ideas clave.
+	
+	Otro concepto clave de la algoritmia es la complejidad. Para evaluar la carga computacional de un algoritmo, se parte de una magnitud que representa el tamaño natural del problema a resolver. Si N es la magnitud que representa el problema (longitud de una lista, por ejemplo) entonces la complejidad de un algoritmo se estima con una función que se acerca asintóticamente, prescindiendo de constantes de proporcionalidad. La complejidad se establece con la notación O. Una función $g(N)$ se dice que es $O(f(N))$ si existen $c$ y $N_0$ tal que, para todo $N > N_0$ el tiempo de ejecución es menor a $c\cdot f(N)$.
+	
+	La notación O sirve para hacer comparación de algoritmos. Sabemos que un algoritmo con $O(n^2)$ va a ser peor que $O(\log(n))$ a partir de un $N$. También hay que considerar que para todo algoritmo debería tenerse el valor O para el mejor caso (ordenar una lista ordenada, por ejemplo), el peor caso, y el caso medio; ya que muchos algoritmos flaquean en unas cosas u otras.
+	 
+	
+	En C++ existe la librería \verb|algoritm|, que integra los algoritmos más comunes aplicables a un vector. Por simplificación, las \verb|p| representan iteradores del vector.
+	\begin{itemize}
+		\item \verb|count(p1, p2, val)|. Devuelve el número de elementos de una secuencia entre \verb|p1| y \verb|p2| con valor \verb|val|.
+		\item \verb|count_if(p1,p2,f)|. Devuelve el número de elementos que cumplen la función \verb|f|.
+		\item \verb|remove_copy(pBegin, pEnd, pResultBegin, val)|. Devuelve en otro vector, con el iterador \verb|pResultBegin|, la secuencia del vector original sin repeticiones de \verb|val|.
+		\item \verb|replace_copy(pBegin, pEnd, pResultBegin, val, valNuevo)|. Copia la secuencia origen en la secuencia destino sustituyendo el valor \verb|val|.
+		\item \verb|reverse(pBegin, pEnd)|. Invierte el orden de la secuencia entre los iteradores.
+		\item \verb|transform(pBegin, pEnd, pResBegin, f)|. Aplica la transformación asociada a la función y almacena el resultado en la nueva secuencia empezando por \verb|pResBegin|. Devuelve el iterador \verb|pResEnd|. La función de transformación tiene que aceptar el argumento con el tipo que le corresponde, y hacer el return correspondiente.
+		
+	\end{itemize}
+	
+	 
+	 
+	 \noindent\rule{\linewidth}{0.4pt}
+	 \doclicenseThis
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	  	
+ 	
+ 	
+ 	
+ 	
+ 	
+\end{document}
