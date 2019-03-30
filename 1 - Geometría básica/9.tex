@@ -1,0 +1,37 @@
+\defi{9.0} Para describir la geometría hiperbólica se fija una recta $l_{\infty}$ y uno de los semiplanos de la recta $l_\infty$ como $\H$. La distancia hiperbólica sigue la lógica de para que dos pares de puntos $A, A'$ y $B,B'$ sobre $r\perp l_\infty$ y $d(A,A') = d(B,B')$, pero $A,A'$ están más cerca de $l_\infty$ que $B, B'$, entonces $d_\H(A,A') > d_\H(B,B')$.
+
+Si $R = r\cap l_\infty$, definimos la \textbf{distancia hiperbólica} como
+$$d_\H(P,Q) = \left| \log \frac{RP}{RQ} \right| = |\log(P,Q:R,\infty)| $$
+
+\tma{9.1} Sean $P,Q,S$ en $\H$ sobre $r \perp l_\infty$ tal que $Q\in[P,S]$. Entonces:
+\begin{itemizex}
+	\item $d_H (P,Q) + d_H(Q,S) = d_H(P,S)$.
+	\item Sea $\C$ con centro $R = r \perp l_\infty$, entonces
+	$$d_H(\iota_\C(P), \iota_\C(Q)) = d_H(P,Q)$$
+\end{itemizex}
+
+\tma{9.2} Sean $P,Q \in \H$ de modo que $r_{PQ} \not\perp l_\infty$. Existe una única circunferencia $\C_{PQ}$ con centro $l_\infty$ y que pasa por $P$ y $Q$.
+
+\defi{9.0-cont} Queremos que la distancia anterior sea invariante a inversiones respecto a circunferencias. 
+Si tenemos  $P,Q \in \H$ de modo que $r_{PQ} \not\perp l_\infty$ y $X,Y = \C_{PQ}\cap l_\infty$, podemos crear $\C_X$. Entonces, se tiene que la recta $r_{\iota_{\C_X}(P)\iota_{\C_X}(Q)} \perp l_\infty$, y definimos 
+$$d_H(P,Q) = d_H(\iota_\C(P), \iota_\C(Q)) = |\log(\iota_\C(P), \iota_\C(Q):R,\infty)|$$
+Sin embargo, por el \tma{8.21} la razón doble conserva las inversiones, luego
+$$|\log(\iota_\C(P), \iota_\C(Q):R,\infty)| =$$$$ |\log(\iota_\C\iota_\C(P), \iota_\C\iota_\C(Q):\iota_\C(R),\infty)| =$$
+$$|\log(P, Q:\iota_\C(R),\iota_\C(\infty))|$$
+Si tomamos como convención $\iota_\C(\infty) = X$, y por el \tma{8.18}, $\iota_\C(R) = Y$ entonces
+$$d_H(P,Q) = |\log(P,Q:Y,X)|$$
+
+\tma{9.3} Sea $\C$ con centro $l_\infty$, entonces $\iota_\C$ preserva las distancias hiperbólicas para todo $P,Q$:
+$$d_H(P,Q) = d_H(\iota_\C(P), \iota_\C(Q))$$
+
+\tma{9.4} Si $\C$ tiene centro en $l_\infty$, entonces $\C \cap H$ es una recta hiperbólica.
+
+\defi{9.5} Dos rectas hiperbólicas son paralelas si son disjuntas o coinciden.
+
+\tma{9.6} Sea $r_H$ hiperbólica y $P$ un punto de $\H$ que no está en $r_H$. Existen infinitas rectas hiperbólicas paralelas a $r_H$ que pasan por $P$.
+
+
+
+
+ 
+
