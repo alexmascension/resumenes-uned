@@ -1,0 +1,34 @@
+\defi{10.1} Un polígono $\PP$ es un conjunto finito
+$\{\cdots, [V,W],\cdots \}$ de $r$ segmentos llamados lados del polígono. Los extremos de los lados, vérticees, forman el conjunto $\{V_1,\cdots,V_r \}$. $\PP$ cumple
+\begin{itemizex}
+	\item Dos lados de $\PP$ o bien no se cortan o tienen únicamente un extremo común (son lados adycentes).
+	\item Los lados de $\PP$ pueden escribirse como una sucesión finita de vértices $[V_1,V_2],[V_2,V_3],\cdots,[V_r,V_1]$.
+\end{itemizex}
+
+\defi{10.4} Une \textbf{diagonal} es un segmento cuyos extremos son dos vértices que no pertenecen al mismo lado.
+
+\defi{10.6} Sea $V$ un vértice de $\PP$ y sean $[V,W_1]$ y $[V,W_2]$ dos lados. El ángulo con vértice $V$ y semirrectas que contienen a ambos lados forman el ángulo $\angle V$ de $\PP$.
+
+\defi{10.8} Un polígono es \textbf{convexo} si toda recta que no contiene a ninguno de los lados del polígono corta a lo sumo en dos lados de éste.
+
+ \tma{10.10} Un polígono $\PP$ es convexo sii para todo lado $[V,W]$ de $\PP$ los vértices de $\PP$ distintos de $V$ y $W$ están todos en el mismo de los dos semiplanos determinados por $r_{VW}$.
+ 
+ \defi{10.11} Un punto $P$ está en el \textbf{interior} de un polígono convexo $\PP$ si cualquier recta que pase por $P$ corta a los lados del polígono en dos puntos. Si $P$ no está ni en el interior ni en los lados del polígono, entonces está en el exterior. 
+ 
+ \obs{10.12} Un punto $P$ está en el interior de un polígono $\PP$ si existe una recta $r$ que pasa por $P$ de modo que si $\overline{s}$ es una de las semirrectas, $\overline{s}$ corta a $\PP$ en un número $n$ impar de puntos que no son vértices.
+ 
+ \defi{10.13} Un polígono convexo es \textbf{regular} si todos sus lados y ángulos son congruentes.
+ 
+ \lema{10.14} Sean $r$ y $s$ rectas que al cortarse forman un ángulo $\pi/n$. Sean $\sigma_r$ y $\sigma_s$. Si $V$ es un punto en $r$, definimos los puntos $V_{i+1} = (\sigma_s \circ \sigma_r)^i(V), \quad i=1,\cdots, n-1$, es decir, las imágenes de $V$ por rotaciones. Entonces, si $V_1 = V$, el polígono
+ $$\PP= \{[V_1,V_2],\cdots,[V_{n-1},V_n],[V_n,V_1]  \}$$
+ es regular.
+ 
+ \tma{10.15} Sea $n$ entero mayor que 2. Sea $[V,W]$ un segmento del plano, y $H$ uno de los semiplanos determinados por $r_{VW}$. Existe un polígono regular de $n$ lados contenido en $H \cup r_{VW}$ y uno de los lados es $[V,W]$.
+ 
+ \tma{10.16} Sea $\PP$ regular con $n$ vértices. $\PP$ admite $n$ reflexiones distintas, que son simetrías de $\PP$. También existe una rotación con ángulo $2\pi/n$ que es simetría de $\PP$.
+ 
+
+
+
+ 
+
