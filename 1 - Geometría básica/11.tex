@@ -1,0 +1,52 @@
+\defi{11.0} $\E$ es el conjunto de puntos en un espacio tridimensional. La distancia $d$ es la aplicación $\E \times \E \rightarrow \R_+$.
+
+\axioma{E1} $(\E,d)$ es un espacio métrico.
+
+\defi{11.1} Una recta $r$ y su segmento $[A,B] = \{X \in \E \;|\; d(A,X) + d(X,B) = d(A,B) \}$ son similares que en $\P$. Una recta cumple:
+\begin{itemizex}
+	\item contiene al menos dos puntos distintos.
+	\item Para toda terna $A,B,C$ en $r$, $A,B,C$ están alineados.
+	\item Si $A,B \in r$ distintos, y $X \in \E$, si $X\in r$, $A,B,X$ están alineados.
+\end{itemizex} 
+
+\defi{11.2} Un \textbf{plano} $\pi \in \E$ es un subconjunto que, con la distancia $d$ restringida a $\pi$, cumple los axiomas de la geometría euclidiana plana.
+
+\axioma{E2 [de los planos]}   
+\begin{itemizex}
+	\item Al menos existe un plano en $\E$.
+	\item Para todo plano $\alpha$ existe un punto $P \in \E-\alpha$.
+	\item Para $X,Y,Z \in \E$ distintos existe un plano $\alpha \in \E$ que los contiene. Si no están alineados, $\alpha$ es único, y se denota por $\alpha_{XYZ}$.
+	\item Si $\alpha, \beta \in \E$ son planos distintos, cortan en una recta.
+\end{itemizex}
+
+\tma{11.4} Si $\alpha$ es un plano y $A,B \in \alpha$, entonces $r_{AB} \in \alpha$.
+
+\obs{11.5} Por dos rectas que cortan, o por una recta y un punto que no pasa por ella, pasa exactamente un plano.
+
+\defi{11.6}/\obs{11.7} Dos rectas $r,s$ son \textbf{paralelas} si coinciden o están contenidas en un plano y son paralelas en él. Dos rectas disjuntas pueden no ser paralelas, si no están en el mismo plano.
+
+\defi{11.8} Una recta $l$ es \textbf{ortogonal} a un plano $\alpha$ en un punto $P$ ($l\perp_P\alpha$) si $l$ es ortogonal a toda recta de $\alpha$ que pase por $P$.
+ 
+ \tma{11.10} Sea $r$  y $P \in r$, entonces existe un plano único $\pi$ que pasa por $P$ y es perpendicular a $r$.
+ 
+ \tma{11.12} Sea $\alpha$ un plano y $P \in \alpha$. Existe una única recta ortogonal a $\alpha$ que pase por $P$.
+ 
+ \tma{11.13} Sean $r,s$, y $r$ es ortogonal a $\alpha$. Si $s$ es paralela a $r$, entonces es ortogonal a $\alpha$.
+ 
+\tma{11.15} Sea $\alpha$ y $P \in \E$. Existe una única recta $r$ tal que $P \in r$ y $r\perp \alpha$.  
+ 
+ \defi{11.16}  Dos planos $\alpha, \beta$ son ortogonales, $\alpha \perp \beta$ si existe al menos una recta $a \in \alpha$ verificando $a \perp \beta$.
+ 
+ \tma{11.17} Para los planos $\alpha, \beta \in \E$ se tiene
+ \begin{itemizex}
+ 	\item $\alpha \perp \beta \iff \beta \perp \alpha$
+ 	\item $\alpha \perp \beta$ sii para todo $P  \in \alpha$ la única recta $a \perp \beta$ pasando por $P$ es´ta en $\alpha$.
+ \end{itemizex}
+
+\tma{11.18} Sea $\lambda$ un plano y $c$ una recta en $\E$. Existe un plano $\gamma \perp \lambda$ pasando por $c$. Si $c$ no es ortogonal a $\lambda$, $\gamma$ es único.
+
+\defi{11.19} Dados dos planos $\pi_1, \pi_2$ en $\E$, $\pi_1$ y $\pi_2$ son \textbf{paralelos}
+ si $\pi_1 = \pi_2$ o $\pi_1 \cap \pi_2 =  \emptyset$.
+ 
+ \tma{11.20} Si $\pi_1 \parallel \pi_2$ toda recta ortogonal a $\pi_1$ lo es a $\pi_2$.'
+ 
