@@ -1,7 +1,7 @@
 \defi{10.1} Un polígono $\PP$ es un conjunto finito
-$\{\cdots, [V,W],\cdots \}$ de $r$ segmentos llamados lados del polígono. Los extremos de los lados, vérticees, forman el conjunto $\{V_1,\cdots,V_r \}$. $\PP$ cumple
+$\{\cdots, [V,W],\cdots \}$ de $r$ segmentos llamados lados del polígono. Los extremos de los lados, vértices, forman el conjunto $\{V_1,\cdots,V_r \}$. $\PP$ cumple
 \begin{itemizex}
-	\item Dos lados de $\PP$ o bien no se cortan o tienen únicamente un extremo común (son lados adycentes).
+	\item Dos lados de $\PP$ o bien no se cortan o tienen únicamente un extremo común (son lados adyacentes).
 	\item Los lados de $\PP$ pueden escribirse como una sucesión finita de vértices $[V_1,V_2],[V_2,V_3],\cdots,[V_r,V_1]$.
 \end{itemizex}
 
@@ -23,10 +23,20 @@ $\{\cdots, [V,W],\cdots \}$ de $r$ segmentos llamados lados del polígono. Los e
  $$\PP= \{[V_1,V_2],\cdots,[V_{n-1},V_n],[V_n,V_1]  \}$$
  es regular.
  
- \tma{10.15} Sea $n$ entero mayor que 2. Sea $[V,W]$ un segmento del plano, y $H$ uno de los semiplanos determinados por $r_{VW}$. Existe un polígono regular de $n$ lados contenido en $H \cup r_{VW}$ y uno de los lados es $[V,W]$.
+ \tma{10.15} Sea $n$ entero mayor que 2. Sea $[V,W]$ un segmento del plano, y $H$ uno de los semiplanos determinados por $r_{VW}$. Existe un polígono regular de $n$ lados contenido en $H \cup r_{VW}$ y uno de los lados es $[V,W]$. \cor{10.17} En estas condiciones $\PP$ es único.
  
- \tma{10.16} Sea $\PP$ regular con $n$ vértices. $\PP$ admite $n$ reflexiones distintas, que son simetrías de $\PP$. También existe una rotación con ángulo $2\pi/n$ que es simetría de $\PP$.
+ \tma{10.16/10.19} Sea $\PP$ regular con $n$ vértices. $\PP$ admite $n$ reflexiones distintas, que son simetrías de $\PP$. También existe una rotación con ángulo $2\pi/n$ que es simetría de $\PP$. Análogamente, si $\PP$ es convexo con $n$ vértices y tiene como simetría una rotación $2\pi/n$, entonces es regular.
  
+\cor{10.18} Todo $\PP$ regular permite una circunferencia $\C$ que pase por todos sus vértices. Entonces $\PP$ está \textbf{inscrito} en $\C$.
+\vspace{-2em}
+\subsection*{Construcciones con regla y compás}
+\tma{10.24}/\defi{10.26} Dados dos puntos $A$ y $B$ se puede construir un punto $C \in [A,B]$ con regla y compás de modo que $AB\cdot BC = AC^2$. $C$ divide en razón áurea, $\frac{AB}{AC} = \frac{1+\sqrt{5}}{2}$.
+
+\tma{10.27, 10.28} Sea $\triangle ABC$ un triángulo isósceles tal que $AB = AC$ y $\measuredangle B = \measuredangle C = 2\measuredangle A$. Entonces $\frac{AB}{BC}$ es la razón áurea. Además, este triángulo puede construirse con regla y compás.
+
+\obs{10.29}/\cor{10.30} El ángulo $\measuredangle A$ del triángulo áureo es $\pi/5$. Por tanto, se puede construir un pentágono regular con lados congruentes a $[A,B]$.
+
+\tma{10.31} Un polígono regular de $n$ lados se puede construir con regla y compás sii la factorización de $n$ en números primos tiene la forma $n = 2^kp_1p_2\cdots p_m$, con $p_i$ de la forma $2^{2^s}+1$, y son primos distintos. Así, los lados polígonos construibles son $3,4,5,6,8,10,12,15,16,17, \cdots$.
 
 
 
