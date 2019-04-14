@@ -1,0 +1,73 @@
+\defi{12.0} La igual que en $\P$, una \textbf{isometría} es una aplicación $g:\E \rightarrow\E$ biyectiva que conserva las distancias.
+
+\tma{12.1} Sea $g$ una isometría y $A, B \in \E$. Entonces $g([A,B]) = [g(A), g(B)]$ y $g(r_{AB}) = r_{g(A)g(B)}$.
+
+\tma{12.2} Sea $g$  y $\pi \in \E$, entonces $g(\pi) \in \E$.
+
+\tma{12.3} Si $A,B,C \in \E$ no son alineados, entonces $g(\pi_{ABC}) = \pi_{g(A)g(B)g(C)}$
+
+\tma{12.4} Sea $l$ una recta y $\alpha, \beta$ planos en $\E$.
+\begin{itemizex}
+	\item $l\perp \alpha \iff g(l) \perp g(\alpha)$
+	\item $\beta \perp \alpha \iff g(\beta) \perp g(\alpha)$
+\end{itemizex}
+
+\defi{12.5 [Reflexión sobre plano]} Sea $\alpha \in \E$. Dado $P \in \E$ sea $t_P$ ortogonal a $\alpha$ que pasa por $P$, y $\pi_{\alpha}(P) = t_P \cap \alpha$. La \textbf{reflexión con base $\alpha$} de $P$, o $\sigma_\alpha(P)$, es el punto tal que $\pi_\alpha(P) = \m[P, \sigma_\alpha(P)]$   
+
+\obs{12.6}/\tma{12.7} $\sigma_\alpha$ es una biyección, y $\sigma_\alpha \circ \sigma_\alpha (P) = P$. Además, $\sigma_\alpha(P) = P \iff P \in \alpha$. $\sigma_\alpha$ es una isometría.
+
+\tma{12.8} Sea $\pi$ un plano y $\sigma_r$ una reflexión en $\pi$ respecto a $r$. Existe una reflexión $\sigma_\alpha \in \E$ de modo que $\sigma_\alpha$ restringida a $\pi$ coincide con $\sigma_r$.
+
+\cor{12.9} Sea $g$ una isometría de un plano $\pi$. Entonces existe una isometría $\tilde{g}(X) = g(X)$ para todo $X\in\pi$.
+
+\cor{12.10} Sean $\pi_1$ y $\pi_2$ dos planos del espacio. Existe una isometría $g$ tal que $g(\pi_1) = \pi_2$, y se puede tomar $g$ como reflexión.
+
+\lema{12.11} Sea $g\in \iso{(\E)}$. Si $A\neq B$ son fijos en $g$, entonces $r_{AB}$ es fija en $g$.
+
+\tma{12.12} Sea $g$, y sea $\alpha$ el plano pasando por $A,B,C$. Si $A,B,C$ son fijos en $g$, entonces $g = \sigma_\alpha$ o $g = \text{id}_{\E}$.
+
+\cor{12.13} Sean $A^1,A^2, A^3, A^4 \in \E$, no situados en el mismo plano; y sean $g,h\in \iso{(\E)}.$ Si $g(A^i) = h(A^i)$ para todo $i$, entonces $g = h$.
+
+\tma{12.15} 
+\begin{itemizex}
+	\item Sea $\rho \in \iso{(\E)}$ una rotación de eje $r$. Para todo plano $\alpha$ conteniendo a $r$, existen planos $\beta, \beta'$ conteniendo a $r$, únicos, tales que $\rho(\alpha) = \sigma_\beta\sigma_\alpha = \sigma_\alpha\sigma_{\beta'}$.
+	\item Sea $\tau$ una traslación paralela a una recta $c$. Para todo plano $\alpha \perp c$ existen planos $\beta, \beta'$, únicos, tales que $\tau =\sigma_\beta\sigma_\alpha = \sigma_\alpha\sigma_{\beta'}$.
+\end{itemizex}
+
+\ej{12.1} Si $g,h\in\iso{(\E)}$ son rotaciones con ejes ortogonales al mismo plano $\lambda$, entonces $gh$ o bien es una rotación con eje ortogonal a $\lambda$, o una traslación paralela a rectas contenidas en $\lambda$ o la identidad.
+
+\ej{12.2} Las rotaciones forman una clase de congruencia, con el \textbf{ángulo de rotación $\rho$.} Si $\angle V$ es el ángulo formado por la semirrectas de $\alpha \cup \lambda$ y $\beta \cup\lambda$ (siendo $\alpha, \beta$ los planos de reflexión, y $\lambda$ ortogonal a $\alpha, \beta$), entonces $2\angle V$ es el ángulo de rotación. Si el ángulo de rotación es llano, entonces $\rho$ es una \textbf{media vuelta}.
+
+\ejem{12.18} Tomando un plano $\pi$ y componiendo la reflexión $\sigma_\pi$ con una rotación $\rho$ de eje $a \perp \pi$, se obtiene la isometría $\phi = \sigma_\pi \rho = \rho\sigma_\pi$
+
+
+\ejem{12.20} Una \textbf{reflexión central} es una isometría entre un plano $\alpha$ y una recta $r\perp \alpha$, en un punto $P = r \cap \alpha$:  $\sigma_P= \sigma_\alpha \rho_r$. 
+La reflexión central cumple 
+\begin{itemizex}
+	\item Para todo $X \in\E$, $\m[X, \sigma_P(X)] = P$.
+	\item $\sigma_P \circ \sigma_P= \text{id}_\E$.
+	\item Para cualquier $\beta, s$ tal que $\beta\perp_P s$, $\sigma_\beta\rho_s = \rho_s\sigma_\beta$.
+\end{itemizex}
+
+\ej{12.4} \begin{itemizex}
+	\item El producto de dos reflexiones centrales $\sigma_P, \sigma_Q \; (P\neq Q)$ es una traslación paralela a la recta $r_{PQ}$.
+	\item Sea $\tau$ una traslación. Para todo $S \in \E$ existen puntos $B, B' \in \E$ únicamente determinados tales que $\tau = \sigma_A\sigma_{B'} = \sigma_B\sigma_A$.
+\end{itemizex}
+
+
+\ejem{12.21} Un \textbf{movimiento helicoidal} es una composición de una rotación con eje $r$ y una traslación paralela a dicho eje: $h = \tau \circ \rho = \rho \circ \tau$.
+ 
+\ejem{12.22} Una \textbf{reflexión con deslizamiento} es una composición de una reflexión $\sigma_\alpha$ y una traslación $\tau$ paralela a la recta $r \subset \alpha$: $d = \tau\sigma_\alpha = \sigma_\alpha\tau$.
+
+
+\tma{12.19} Las únicas isometrías en $\iso{(\E)}- \text{id}_\E$ con puntos fijos son las refleiones, rotaciones, o reflexiones-rotaciones.
+
+\tma{12.23} Las isometrías de $\E$ sin puntos fijos son las traslaciones, movimientos helicoidales y reflexiones con deslizamiento.
+
+\ej{12.5} Resumen de isometrías:
+
+\begin{tabular}{ccccc}
+	Puntos fijos & $\emptyset$ & $A$ & $a$ & $\alpha$\\ \midrule
+	par  & $\tau$ /  $h$ & & $\rho$ & \\
+	impar & $d$ & $\phi$ & & $\sigma$ \\
+\end{tabular}
