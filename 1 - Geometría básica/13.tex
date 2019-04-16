@@ -18,3 +18,32 @@
 
 \tma{13.5} Sea $\PP$ un poliedro convexo y $\C$ un ciclo de $\PP$, entones hay exactamente dos componentes convexas en $\PP-\C$.
 
+\tma{13.9 [Descartes-Euler]} Sea $\P$ un poliedro convexo, con $c$ caras, $l$ lados y $v$ vértices, entonces:
+$c-l+v = 2$
+
+\defi{13.11} Un \textbf{poliedro regular} es un poliedro convexo contodas las caras congruentes a un mismo polígono regular y cada vértice está en un mismo número de caras. Decimos que un poliedro regular tiene tipo $\{n, m\}$ si sus caras son polígonos regulares con $n$ lados y cada vértice es vértice exactamente de $m$ caras.
+
+\begin{tabular}{ccccc}
+	Nombre & Tipo & $c$ & $l$ & $v$ \\\midrule
+	Tetraedro & $\{3,3\} $& 4 & 6 & 4 \\
+	Octaedro & $\{3,4\}$ & 8 & 12 & 6 \\
+	Cubo & $\{4,3\}$ & 6 & 12 & 8 \\
+	Dodecaedro & $\{3,5\}$ & 20 & 30 & 12 \\
+	Icosaedro & $\{5,3\}$ & 12 & 30 & 20 \\
+\end{tabular}
+
+\tma{13.14} Dado un real $l>0$ existe un poliedro regular de tipo $\{3,3\},\{3,4\},\{4,3\},\{3,5\},\{5,3\}$, cuya arista mide $l$. Además, si $\PP_1$ y $\PP_2$ son dos poliedros del mismo tipo y con la misma longitud de arista entonces existe una isometría $\eta$ tal que $\eta(\PP_1) = \PP_2$.
+
+\tma{13.16} Sea $V, W$ dos vértices de un poliedro regular $\PP, a, b$ dos aristas, de modo que $a$ tiene por uno de sus extremos $V$ y $b$ tiene por extremo $W$, por último sea $C_1$ una cara que tiene a $a$ como uno de sus lados y $C_2$ una cara que tiene a $b$ como lado. Existe una simetría $\theta$ de $\PP$ tal que
+\[\theta(V) = W \;\; \theta(a)=b \;\; \theta(C_1) = C_2  \]
+
+\defi Dado un polígono $\PP$ regular, el polígono \textbf{dual} de $\PP$, o $\PP*$, es aquel formado por la unión de los centros de las caras que forman los triedos (tres polígonos que comparten el mismo vértice $V$).
+
+\defi Si consideramos el plano $\pi$ ortogonal a $r_{VW}$, siendo $V,W$ los dos vértices de un lado en común entre dos caras$P_1, P_2$ de $\PP$. $\pi$ pasa, por ejemplo, por $\m[V,W]$. Llamamos \textbf{ángulo diédrico} al ángulo de $\pi$ con vértice en $\m[V,W]$ y cuyos lados contienen a los segmentos que son las intersecciones de $P_1$ y $P_2$ con $\pi$.
+
+Rotaciones de un poliedro regular:
+\begin{itemizex}
+	\item Rotaciones con eje ortogonal a una cara $C$ de $\PP$ y pasa por el el centro de $C$; con ángulos de rotación $2\pi r/n\;,r = 1, \cdots, n-1$.
+	\item Rotaciones cuyo eje pasa por un vértice $V$ de $\PP$ y es ortogonal al polígono formado por los centros de las caras de $\PP$ que tienen a $V$ como uno de sus vértices; con ángulos de rotación $2\pi r/m\;,r = 1, \cdots, m-1$.
+	\item Medias vueltas con eje $e$ que pasa por el punto medio $M$ de una arista $a$ de $\PP$. Además $e$ es ortogonal a $a$, así deja invariante la arista $a$ aunque intercambia sus extremos. $e$ es la bisectriz del ángulo formado por las dos caras $C_1, C_2$ que comparten $a$ y que pasa por $M$; permutando así $C_1$ y $C_2$.
+\end{itemizex}
