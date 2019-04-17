@@ -31,6 +31,7 @@
 \usepackage[dvipsnames]{xcolor}
 
 \usepackage{wrapfig}
+\usepackage{cancel}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -108,7 +109,7 @@ version={3.0},
 
 \newcommand{\importante}{\textcolor{amarillochillon}{\textbf{\danger} \,}}
 \newcommand{\obligatorio}{\textcolor{rojo}{$\blacksmiley$} \,}
-
+\newcommand{\prodvec}[1]{\langle #1 \rangle}
 
 \begin{document}
 		\maketitle
@@ -186,6 +187,12 @@ version={3.0},
 	\begin{multicols*}{2}
 	[\section{Poliedros}]
 	\input{13.tex}\end{multicols*}\pagebreak	
+
+	\begin{multicols*}{2}
+	[\section{Geometría analítica}]
+	\input{14.tex}\end{multicols*}\pagebreak	
+
+
 	 \noindent\rule{\linewidth}{0.4pt}
 	 \doclicenseThis
 	 
