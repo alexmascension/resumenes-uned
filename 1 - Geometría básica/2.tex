@@ -14,6 +14,9 @@
 
 \obs{2.8} Si $A, B \in r$ son distintos, entonces existe un punto $M\in r: d(A,M) = d(M,B)$ que denotamos por $\m[A,B]$ y se llama \textbf{punto medio}. Asimismo sólo existe un punto $B \in r$ tal que $B = \m[A, M]$.
 
+\obligatorio \dem{Tomamos una biyección $\gamma: r \rightarrow \R$ y suponemos $\gamma(A) = a, \gamma(B) = b$. Para $X \in r$ tomamos $\gamma(X) = t$. Si suponemos $A \neq B$ entonces $d(A,X) = d(X,B) \iff \abs{(t-a)} = \abs{(t-b)} \iff t = \frac{a+b}{2}$. Por tanto, $M$ sólo puede ser $\gamma^{-1}(t)$. Si definimos, por tanto $M = \gamma^{-1}(\frac{a+b}{2})$ se tiene que 
+$$d(A,M) = \abs{\gamma(M)-\gamma(A)} = \abs{\frac{a+b}{2}-a} = \frac{1}{2}\abs{b-a} = \frac{1}{2}d(A,B)$$}
+
 \obs{2.9} Si $r$ es una recta y $P \in r$, entonces $r$ se puede dividir en dos \textbf{semirrectas}, que son los conjuntos $\{X \in r \; | \; \gamma(X) > \gamma(P)\}$ y $\{X \in r \; | \; \gamma(X) < \gamma(P)\}$.
 
 \axioma{P4} Para toda recta $r \subset \P$ hay dos subconjuntos $H^1$ y $H^2$, denominados \textbf{semiplanos} de $r$, que verifican:
