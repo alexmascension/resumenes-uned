@@ -10,6 +10,18 @@
 
 \tma{7.4}/\cor{7.5} Sean $A, B$ y $\eta_{C,k}$, entonces $\eta_{C,k}(A)\eta_{C,k}(B) = kAB$. Además, $\eta_{C,k}[A,B] = [\eta_{C,k}(A), \eta_{C,k}(B)]$.
 
+\obligatorio\dem{7.4 Suponemos $A,B,C$ no alineados. Por definición, $C,A, \eta_{C,k}(A)$ están alineados, y lo mismo con $C,B,\eta_{C,k}(B)$. Los triángulos $\triangle ABC$ y $\triangle \eta_{C,k}(A)\eta_{C,k}(B)C$ comparten $\angle C$.
+Por el \tma{del coseno} aplicado a $\angle C$:
+$$AB^2 = AC^2+BC^2-2BC\cdot AC\cos(\angle C)$$
+Por otra parte:
+$$\eta_{C,k}(A)\eta_{C,k}(B)^2 = \eta_{C,k}(A)C^2+\eta_{C,k}(B)C^2$$$$-2\eta_{C,k}(A)C\cdot\eta_{C,k}(B)C\cos(\angle C)$$
+Por definición $\eta_{C,k}(A)C=kAC$ y $\eta_{C,k}(B)C=kBC$, luego
+$$\eta_{C,k}(A)\eta_{C,k}(B)^2 = k^2AC^2+k^2AC^2-2k^2AC^2BC^2\cos(\angle C) = $$
+$$k^2( AC^2+BC^2-2BC\cdot AC\cos(\angle C)) = k^2AB^2$$
+Luego $\eta_{C,k}(A)\eta_{C,k}(B) = kAB$}
+
+\obligatorio\dem{7.5 Si $X\in[A,B]$ entonces $AX+XB = AB$. Por tanto:
+$$kAX+kXB = kAB \iff $$$$ \eta_{C,k}(A)\eta_{C,k}(X)+\eta_{C,k}(X)\eta_{C,k}(B)=\eta_{C,k}(A)\eta_{C,k}(B)\iff$$$$\eta_{C,k}(X)\in [\eta_{C,k}(A),\eta_{C,k}(B)]$$}
 \tma{7.7} Toda homotecia envía un ángulo a un ángulo congruente, y toda recta a una paralela.
 
 \defi{7.8} Una \textbf{semejanza} es una combinación de homotecias e isometrías.
@@ -18,6 +30,7 @@
 
 \tma{7.12} / \cor{7.13} Toda semejanza $\delta$ cumple que $\delta(A)\delta(B) = kAB$, donde $k$ es la razón de semejanza. Dados $A,B,C,D$, entonces se cumple que 
 $$\frac{AB}{CD} = \frac{\delta(A)\delta(B)}{\delta(C)\delta(D)}$$
+\obligatorio \dem{$$\frac{\delta(A)\delta(B)}{\delta(C)\delta(D)} = \frac{kAB}{kCD} = \frac{AB}{CD}$$}
 
 \tma{7.15} Si $\angle A = \angle B$, entonces existe $\delta$ tal que $\delta(\angle A) = \angle B$.
 
