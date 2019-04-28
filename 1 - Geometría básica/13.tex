@@ -41,9 +41,31 @@ $c-l+v = 2$
 
 \defi{} Si consideramos el plano $\pi$ ortogonal a $r_{VW}$, siendo $V,W$ los dos vértices de un lado en común entre dos caras$P_1, P_2$ de $\PP$. $\pi$ pasa, por ejemplo, por $\m[V,W]$. Llamamos \textbf{ángulo diédrico} al ángulo de $\pi$ con vértice en $\m[V,W]$ y cuyos lados contienen a los segmentos que son las intersecciones de $P_1$ y $P_2$ con $\pi$.
 
-Rotaciones de un poliedro regular:
+\subsection{Simetrías de poliedros}
+Existen tres tipos de simetrías
+
+\textbf{Rotaciones}
 \begin{itemizex}
 	\item Rotaciones con eje ortogonal a una cara $C$ de $\PP$ y pasa por el el centro de $C$; con ángulos de rotación $2\pi r/n\;,r = 1, \cdots, n-1$.
 	\item Rotaciones cuyo eje pasa por un vértice $V$ de $\PP$ y es ortogonal al polígono formado por los centros de las caras de $\PP$ que tienen a $V$ como uno de sus vértices; con ángulos de rotación $2\pi r/m\;,r = 1, \cdots, m-1$.
 	\item Medias vueltas con eje $e$ que pasa por el punto medio $M$ de una arista $a$ de $\PP$. Además $e$ es ortogonal a $a$, así deja invariante la arista $a$ aunque intercambia sus extremos. $e$ es la bisectriz del ángulo formado por las dos caras $C_1, C_2$ que comparten $a$ y que pasa por $M$; permutando así $C_1$ y $C_2$.
+\end{itemizex}
+
+\textbf{Reflexiones}
+\begin{itemizex}
+	\item Sea $C$ una cara de $\PP$, que está contenida en un plano $\pi$.
+	Cada reflexión $\sigma$ en $\pi$ se extiende a una reflexión $\eta$ en el espacio. El plano de reflexión para $\eta$ es el plano ortogonal a $\pi$ que lo corta en el eje de reflexión. Cada poliedro tiene, por cara, $n$ reflexiones si la cara es pentágono o triángulo y 2 si es cuadrado.
+	\item Para el \textit{octaedro} existe una reflexión sobre el cuadrado interno que forman las dos pirámides.
+\end{itemizex}
+
+\textbf{Reflexiones-rotaciones}
+\begin{itemizex}
+	\item Tipo A: tanto la reflexión como la rotación son simetrías. 
+		\subitem Cubo y octaedro: rotación con ángulo $\pi/2$ o $\pi$ y con ejes que pasa por el centro de las caras opuestas (cubo) o por los puntos opuestos de las pirámides, o del cuadrado interno (octaedro).
+		\subitem Dodecaedro e icosaedro: rotación con ángulos $\pi/3, \pi/5, 3\pi/5$ y con eje que pasa por los puntos medios de dos caras opuestas o dos vértices opuestos.
+	\item Tipo B: ni la reflexión ni la rotación son simetrías, pero la combinación de ambas sí.
+		\subitem Tetraedro: rotación con ángulo $\pi/2$ y con eje que pasa por los puntos medios de las aristas.
+		\subitem Cubo: rotación con ángulo $\pi/3$ y con eje que pasa por los puntos opuestos del poliedro.
+		\subitem Octaedro: rotación con ángulo $\pi/3$ y con eje que pasa por los puntos medios de dos caras opuestas.
+		\subitem Dodecaedro e icosaedro: rotación con ángulo $\pi$ y con eje que pasa por los puntos medios de dos caras opuestas o dos vértices opuestos.
 \end{itemizex}
