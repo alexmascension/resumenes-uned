@@ -7,9 +7,15 @@ a la CPU.
 **** Las instrucciones de la máquina de Von Neumann soportan sólo los dos siguientes tipos de operaciones: operaciones aritméticas y operaciones de movimiento de datos.
 *F* Además de estas, también existen las operaciones de control de flujo [goto condicional e incondicional].
 
+**** En la máquina de von Neumann, cuando la palabra binaria se representa como instrucción, representa una instrucción codificada mediante 40 bits.
+*V* La instrucción se divide en dos instrucciones de 20 bits cada una.
+
 **** Pascal permite que el valor asignado al declarar una constante sea el resultado de evaluar una expresión.
 *F* Pascal solo permite asignar valores simples. Las constantes pueden ser el resultado de una expresión simple (ligaduras estáticas) en Modula2/Fortran90 
-y resultado de una expresión que depende del tiempo de la ejecución (ligaduras estáticas) en C++/Java/Ada.
+y resultado de una expresión que depende del tiempo de la ejecución (ligaduras dinámicas) en C++/Java/Ada.
+
+**** C++ y Java permiten establecer ligaduras dinámicas sobre el valor de las constantes.
+*V* Ambos lo permiten, además de Ada. Modula2 y Fortran90 permiten ligaduras estáticas.
 
 **** La sentencia *for* de Ada no precisa declarar su variable en el bucle.
 *F* Ada requiere declarar la variable. Un ejemplo de for en ada es 
@@ -54,7 +60,7 @@ ordenada al revés se harían N(N-1)/2 ~ O(N^2) intercambios.
 **** Si la variable ptr es declarada mediante la sentencia //int *ptr = new int[100];// entonces //delete ptr[];// libera el espacio de memoria ocupado por dicha variable.
 *F* El programa da fallo así, hay que borrarlo escribiendo //delete [] ptr//. 
 
-**** Las variables en memoria dinámica dejan de existir cuando la ejecución del programa abandona el bloque en el que han sido declaradas.
+**** Las variables en memoria dinámicadejan de existir cuando la ejecución del programa abandona el bloque en el que han sido declaradas.
 *F* Si no se ha borrado la variable, ésta sigue existiendo en memoria, solo que deja de ser accesible, creando una fuga de memoria por ocupar memoria hasta que el programa termine.
 
 **** En Pascal los bloques de código se delimitan por las palabras reservadas begin y end.
@@ -84,8 +90,50 @@ int f (int n) {
 va codificada como argumento de una función secundaria.
 
 **** El ámbito de una variable puede ser más amplio que la parte del programa en que dicha variable es visible.
+*F* Por definición, el ámbito de una variable es la parte del código donde ésta es visible. Por tanto, si una variable
+es visible en más partes que su ámbito, esas partes son el ámbito de la variable también.
 
-**** 
+**** En una cola el último elemento que se ha añadido a dicha cola es el primero en ser extraído.
+*F* Las colas siguen la disciplina FIFO, luego el primer elemento en entrar en ella es el primero en salir.
+
+**** El último elemento que se ha añadido a una cola es el primer elemento en ser extraído de ella.
+*F* Esa condición, FIFO, se cumple para las pilas.
+
+**** Las funciones no pueden formar parte de expresiones.
+*F* Si la función devuelve un valor (entero o booleano) entonces puede formar parte de la expresión.
+Los procedimientos por el contrario no pueden, pues no devuelven valores.
+
+**** El array es un tipo de dato primitivo.
+*F* El array es un tipo de dato estructurado, como las listas y estructuras. El tipo de dato primitivo está conformado por enteros, floats, etc.
+
+**** El rango de valores que puede tomar cada tipo de dato básico del lenguaje C++ depende de la implementación.
+*?????* Yo diría que no depende de la implementación, sino que siempre tienen un rango definido.
+
+**** El error de "puntero a variable eliminada" se puede producir en punteros que contienen la dirección de una variable local.
+*V* El error puede surgir en variables locales cuando el flujo del programa sale del ámbito de la variable local.
+
+**** En Pascal los bloques de código se delimitan únicamente por llaves
+*F* Los bloques de código se delimitan por begin y end, no por llaves.
+
+**** El lenguaje C fue el primer lenguaje en el se introdujo el tipo de dato Booleano.
+*F* C No admite booleanos, sino que el tipo es un entero. En C false es 0 y true es > 0.
+
+**** La expresión en notación infija c*(a+b) se expresa en notación prefija como *c+ab
+*V* E1*E2 se escribe como *E1E2, y aquí E1 = c y E2 = +ab = (a+b)
+
+**** Si la variable v es declarada como //std::vector<double> v(4, 0);// entonces la sentencia //v.clear();// es equivalente a //v.erase(v.begin(), v.end());//
+*V* Ambas sentencias eliminan el vector, dejándolo a un tamaño de 0.
+
+**** La función sobre el flujo de entrada //std::cin.clear()// devuelve el último carácter del flujo de entrada.
+*F* //std::cin.clear()// restablece el flujo de entrada a true para que pueda seguir recibiendo más carácteres.
+
+**** El ámbito de una variable estática en C++ está limitado al bloque de código en que se ha declarado.
+*F* Una variable estática es declarada para toda la ejecución del programa, incluyendo por tanto varios ámbitos si los hay.
+
+
+
+
+
 
 
 
