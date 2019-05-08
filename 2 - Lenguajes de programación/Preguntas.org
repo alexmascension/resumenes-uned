@@ -1,0 +1,93 @@
+#+TITLE: Preguntas exámenes LP
+
+**** La CPU de la máquina de Von Neuman se compone únicamente de la unidad de control y de la unidad de entrada/salida. 
+*F* La CPU de la máquina de Von Neuman tiene la unidad de control y la aritmética. La unidad de salida es una unidad independiente
+a la CPU.
+
+**** Las instrucciones de la máquina de Von Neumann soportan sólo los dos siguientes tipos de operaciones: operaciones aritméticas y operaciones de movimiento de datos.
+*F* Además de estas, también existen las operaciones de control de flujo [goto condicional e incondicional].
+
+**** Pascal permite que el valor asignado al declarar una constante sea el resultado de evaluar una expresión.
+*F* Pascal solo permite asignar valores simples. Las constantes pueden ser el resultado de una expresión simple (ligaduras estáticas) en Modula2/Fortran90 
+y resultado de una expresión que depende del tiempo de la ejecución (ligaduras estáticas) en C++/Java/Ada.
+
+**** La sentencia *for* de Ada no precisa declarar su variable en el bucle.
+*F* Ada requiere declarar la variable. Un ejemplo de for en ada es 
+for I in 1..3 loop EXPRESION; end loop;
+
+**** La invocación de un procedimiento puede formar parte de una expresión.
+*F* Un procedimiento NUNCA devuelve un valor, luego no puede formar parte de una expresión. 
+
+**** La operación de acceso a los elementos de una lista especificando su posición es más rápida en las listas implementadas usando una estructura autorreferenciada que usando un array.
+*F* Las listas que emplean una estructura autorreferenciada acceden los elementos secuencialmente, siguiendo el orden de los punteros al siguiente elemento 
+para cada uno de los elementos; mientras que las listas que usan un array ya tienen las posiciones prefijdas en memoria de manera secuencial, y el acceso al término n es directa.
+
+**** En C y C++ no existen conversiones automáticas de tipos.
+*F* En C++ y C existen coerciones, pero en Java no.
+
+**** Fortran IV fue el primer lenguaje imperativo que permitió procedimientos recursivos. 
+*F* Fue Algol60.
+
+**** Pascal facilita la programación estructurada.
+*V* Algol60 ya lo permitía, y Pascal lo adoptó también.
+
+**** Las sentencias switch de C++ han de tener una etiqueta default.
+*F* No es necesario que la etiqueta default exista. Si no existe y el resultado de la expresión no coincide con ningún case, entonces
+se sale de la sentencia switch y se continúa con el código.
+
+**** Java soporta sólo un tipo de dato entero, que tiene 128 bits.
+*F* Java soporta 4 tipos de enteros: long (64 bits), int (32 bits), short (16 bits), byte (8 bits).
+
+**** El tipo de acceso a los elementos del tipo de dato std::list es aleatorio y hacia delante.
+*F* El tipo de acceso es aleatorio, tanto hacia delante como hacia atrás.
+
+**** En el método de la burbuja el número de intercambios es independiente de la secuencia de entrada.
+*F* Si la lista estuviera ordenada no se haría ningún tipo de intercambio, mientras que si la lista estuviera
+ordenada al revés se harían N(N-1)/2 ~ O(N^2) intercambios.
+
+**** En C++ y Java existe un chequeo de rango de índices en los accesos a un vector.
+*F* En Java se hace, pero en C++ no, lo cual hace que el acceso a índices de un vector sea más rápido.
+
+**** El operador unario dirección-de aplicado a una variable devuelve el valor que almacena dicha variable.
+*F* El operador devuelve la dirección de memoria donde se encuentra la variable.
+
+**** Si la variable ptr es declarada mediante la sentencia //int *ptr = new int[100];// entonces //delete ptr[];// libera el espacio de memoria ocupado por dicha variable.
+*F* El programa da fallo así, hay que borrarlo escribiendo //delete [] ptr//. 
+
+**** Las variables en memoria dinámica dejan de existir cuando la ejecución del programa abandona el bloque en el que han sido declaradas.
+*F* Si no se ha borrado la variable, ésta sigue existiendo en memoria, solo que deja de ser accesible, creando una fuga de memoria por ocupar memoria hasta que el programa termine.
+
+**** En Pascal los bloques de código se delimitan por las palabras reservadas begin y end.
+*V* El bloque de código va entre begin y end, mientras que el bloque del programa va entre program y end.
+
+**** En Java y Fortran90 el programador puede especificar completamente el rango de índices del array.
+*V* Los arrays tienen un tamaño definido por el usuario. Sin embargo, sí que es cierto que el límite de la dimensión del array viene dada por 3, así que el usuario
+no podría definir un array de 4 dimensiones.
+
+**** La variable //paco// declarada en la sentencia //std::list<int>::iterator paco;// es una lista doblemente enlazada.
+*F* Si bien paco apunta a una variable del tipo std::list, que es una lista doblemente enlazada, la variable //paco//
+es un iterador de una lista, que apunta a uno de los elementos de dicha lista.
+
+**** El algoritmo //transform// aplica una función especificada a cada uno de los elementos de la secuencia origen, almacenando el resultado en la misma secuencia origen.
+*F* La entrada del algoritmo transform incluye el puntero de la secuencia de destino, que ha de ser diferente de la de origen. 
+El algoritmo devuelve el puntero al último elemento de la transformación en la secuencia de destino.
+
+**** La función f, definida a continuación, tiene recursividad de cola.
+int f (int n) {
+    if (n > 1) {
+        return n*f(n-1);}
+    else {
+        return 1;}
+}
+
+*F* La recursividad es lineal. Para que sea una recursividad de cola la función requiere no guardar en memoria los estados anteriores, sino que esta información
+va codificada como argumento de una función secundaria.
+
+**** El ámbito de una variable puede ser más amplio que la parte del programa en que dicha variable es visible.
+
+**** 
+
+
+
+
+
