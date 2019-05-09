@@ -10,6 +10,17 @@ a la CPU.
 **** En la máquina de von Neumann, cuando la palabra binaria se representa como instrucción, representa una instrucción codificada mediante 40 bits.
 *V* La instrucción se divide en dos instrucciones de 20 bits cada una.
 
+**** En la máquina de von Neumann, cuando la palabra binaria se representa como dato, ésta representa un número entero sin signo codificado en base 2.
+*F* El número es un entero con signo codificado en base 2. 
+**** La máquina de von Neumann tiene dos memorias separadas: una dedicada a los datos y otra a las instrucciones.
+*F* La memoria de la máquina de von Neumann almacena tanto datos como instrucciones independientemente de si es un dato o una instrucción.
+
+**** En la máquina de Von Neumman la unidad aritmética recibe las señales de control de la unidad de entrada/salida.
+*F* Las señales de control de la unidad de entrada/salida son recibidas por la unidad de control, que envía las señales pertinentes a la unidad aritmética.
+
+**** La máquina de von Neumann soporta tanto el direccionamiento absoluto como el relativo
+*F* La máquina de von Neumann originalmente soporta el direccionamiento absoluto.
+
 **** Pascal permite que el valor asignado al declarar una constante sea el resultado de evaluar una expresión.
 *F* Pascal solo permite asignar valores simples. Las constantes pueden ser el resultado de una expresión simple (ligaduras estáticas) en Modula2/Fortran90 
 y resultado de una expresión que depende del tiempo de la ejecución (ligaduras dinámicas) en C++/Java/Ada.
@@ -111,7 +122,8 @@ Los procedimientos por el contrario no pueden, pues no devuelven valores.
 
 **** El error de "puntero a variable eliminada" se puede producir en punteros que contienen la dirección de una variable local.
 *V* El error puede surgir en variables locales cuando el flujo del programa sale del ámbito de la variable local.
-
+**** Las variables locales existen hasta que el programa termina o hasta que son eliminadas.
+*F* Además, las variables locales también desaparecen cuando se termina un ámbito, como una función o un bloque de código.
 **** En Pascal los bloques de código se delimitan únicamente por llaves
 *F* Los bloques de código se delimitan por begin y end, no por llaves.
 
@@ -121,6 +133,9 @@ Los procedimientos por el contrario no pueden, pues no devuelven valores.
 **** La expresión en notación infija c*(a+b) se expresa en notación prefija como *c+ab
 *V* E1*E2 se escribe como *E1E2, y aquí E1 = c y E2 = +ab = (a+b)
 
+**** En notación prefija, el producto de +ab con c se escribe +*bca.
+*F* Se escribe *c+ba.
+
 **** Si la variable v es declarada como //std::vector<double> v(4, 0);// entonces la sentencia //v.clear();// es equivalente a //v.erase(v.begin(), v.end());//
 *V* Ambas sentencias eliminan el vector, dejándolo a un tamaño de 0.
 
@@ -128,14 +143,172 @@ Los procedimientos por el contrario no pueden, pues no devuelven valores.
 *F* //std::cin.clear()// restablece el flujo de entrada a true para que pueda seguir recibiendo más carácteres.
 
 **** El ámbito de una variable estática en C++ está limitado al bloque de código en que se ha declarado.
-*F* Una variable estática es declarada para toda la ejecución del programa, incluyendo por tanto varios ámbitos si los hay.
+*V* Si por estática entendemos local, sí, el ámbito de una variable local está limitado al bloque de código donde se ejecuta.
 
+**** En C++ las variables estáticas declaradas en el cuerpo de una función tienen el mismo ámbito que las variables globales.
+*F* El ámbito de una variable global en este caso es mayor que el del cuerpo de la función, mientras que para las variables estáticas 
+el ámbito se limita y fuera de éste la variable no existe.
 
+**** La principal desventaja de la interpretación pura es el tiempo de ejecución del código fuente.
+*V* Los lenguajes interpretados, al no compilar el código, no optimizan la ejecución de este, y los tiempos suelen ser más grandes 
+(hasta 100 veces más según el lenguaje) en comparación con lenguajes puramente compilados. Esta desventaja se suele compensar con 
+códigos más sencillos (sin requerir tipados, por ejemplo), y un seguimiento de errores más completo que con lenguajes compilados.
 
+**** La variable del bucle de Pascal es visible dentro del cuerpo del bucle y se permite modificar su valor mediante asignaciones dentro del cuerpo del bucle.
+*F* La variable del bucle puede subir o bajar de uno en uno (según el uso de las palabras to o downto) y nunca puede modificarse dentro de éste.
 
+**** Algunos lenguajes de programación no permiten que la variable del bucle sea modificada dentro del bucle.
+*V* Eso pasa con Pascal, por ejemplo.
 
+**** La sentencia //x = ++i;// representa //x = i; i = i + 1;//.
+*F* La sentencia //x = ++i// representa //i = i + 1; x = i;//.
 
+**** El algoritmo de la STL //count (p1, p2, val)// devuelve el número de elementos de la secuencia delimitada por los iteradores p1 y p2 cuyo valor es menor o igual que val.
+*F* El algoritmo devuelve el número de elementos cuyo valor es IGUAL a val.
 
+**** C++ y Java permiten que la declaración de variables aparezca en cualquier sitio en que pueda aparecer una sentencia.
+*V* Ambos lenguajes lo permiten, pero C no. En C hay que declararlas al inicio.
 
+**** Siempre que se produce una excepción en un programa escrito en Java se aborta dicho programa.
+*F* Java, al igual que C++, también incluye palabras para control de excepciones, como try o catch.
 
+**** Las funciones en C++ pueden ser apuntadas por punteros.
+*V* Para apuntar un puntero a una variable, se requiere el tipo de retorno y el tipo de los argumentos:
+//tipo_retorno (*nombre_puntero)(tipos_args); nombre_puntero = nombre_función;//
+
+**** El algoritmo de la ordenación por mezcla sigue el algoritmo de la fuerza bruta
+*F* El algortimo sigue el paradigma de divide y vencerás, donde se van ordenando sublistas recursivamente,
+y se construye la lista ordenada después.
+
+**** Pascal no permite inicializa una variable al declararla
+*V* Pascal sólo permite, como Modula2, la declaración. C++/Java permiten inicializarlas.
+
+**** Para poder acceder a todos los elementos de un array los compiladores han de almacenar la dirección de memoria de cada uno de sus elementos.
+*F* Sólo es necesario declarar el tamaño y la dirección de memoria inicial, ya que el resto de elementos 
+es secuencial y se encuentra en direcciones de memoria contiguas.
+
+**** La recursividad de cola es un tipo de recursividad lineal.
+*F* Aunque mabos tipos de recursividad estan relacionados ya que no son ramificados, difieren en que la 
+recursividad lineal tiene que almacenar las llamadas previas a la función, mientras que la recursividad
+de cola crea una función secundaria donde el resultado de la función anterior se almacena como argumento.
+
+**** En C y C++ la expresión de control del bucle for es opcional.
+*V* Tanto en C, C++ y Java, el control de expresión se toma como true si no se especifica, y se sale del
+bucle con una sentencia break.
+
+**** En FORTRAN I no se declara el tipo de la variable.
+*F* El tipo de la variable viene implícito como la primera letra de la variable: I,J,K,L,M indicaban un tipo entero,
+y el resto un real.
+
+**** El lenguaje Java no presenta el problema de las variables dinámicas perdidas.
+*V* Java no permite la asignación directa de punteros, (operadores * y &), y gestiona automáticamente el borrado de 
+variables, luego ninguna variable dinámica puede ser desreferenciada.
+
+**** Se define la altura de un nodo en un árbol como la longitud del camino más corto desde el nodo hasta una hoja.
+*F* Es la altura más larga desde un nodo hasta una hoja.
+
+**** Cualquier nodo de un árbol posee un único nodo padre.
+*F* El nodo padre no posee ningún nodo padre. El resto de nodos, sin embargo, si que sólo puede poseer un único nodo padre.
+
+**** Al implementar la lista empleando un array, resulta eficiente almacenar los elementos en los primeros componentes del array.
+*F? No entiendo bien* Si la lista ya tiene elementos, no es eficiente almacenarlos al principio porque han de desplazarse el resto
+de elementos en el array, lo cual es muy costoso. 
+
+**** La función //lst.end()// devuelve un iterador a la posición del último elemento de la lista.
+*F* Devuelve un iterador al elemento siguiente al último elemento de la lista.
+
+**** Un tipo estructura es una colección de variables del mismo tipo referenciadas bajo el mismo nombre.
+*F* Una estructura permite el almacenamiento de variables de distinto tipo.
+
+**** El lenguaje C fue el primer lenguaje que introdujo la sentencia de selección con dos alternativas.
+*F* Fue Algol60.
+
+**** Java fue el primer lenguaje en introducir los conceptos de puntero y de gestión dinámica de la memoria.
+*F* El concepto de puntero ha sido introducido por lenguajes más antiguos, como C. El lenguaje más antiguo que 
+introdujo el concepto de puntero, de hecho, fue SIMULA67.
+
+**** Las variables dinámicas en memoria dejan de existir cuando la ejecución del programa abandona el bloque en que han sido declaradas.
+*F* Las variables en memoria dinámica existen hasta que son eliminadas con la función delete o hasta que termina el programa.
+
+**** En el lenguaje C las cadenas de caracteres se almacenan en arrays unidimensionales de caracteres.
+*V* En C las cadenas de caracteres se almacenan en arrays unidimensionales. El último elemento de dicho array es el caracter nulo '\0'.
+
+**** En C y C++ los parámetros de tipo array se pasan por valor a las funciones
+*F* Los arrays se pasan por referencia. La referencia, el puntero del array, apunta a la dirección del primer elemento de éste.
+
+**** Las sentencias de control del flujo del programa en Ada finalizan con una palabra reservada, que depende del tipo de sentencia.
+*V* La palabra reservada es end X, con X según el tipo de sentencia. Por ejemplo, para un if es end if , y para un for es end loop.
+
+**** En un bucle lógico postcondición se ejecuta siempre el cuerpo del bucle al menos una vez.
+*V* Las sentencias pre-condición evaluan la expresión lógica y luego corren el bucle si se cumple, mientras 
+que las post-condición lo hacen antes.
+
+**** La inserción de nuevos elementos en una cola se hace en el principio de la misma.
+*F* La inserción de nuevos elementos se hacen al final de esta, para así extraer el primero elemento de la cola, 
+que es el primero en haber sido insertado.
+
+**** Una cola es un tipo especial de lista en la que los elementos se insertan y eliminan por el mismo extremo.
+*F* Los elementos de la cola se insertan al final, mientras que se extraen desde el principio.
+
+**** El cuerpo del bucle for en Java se ejecuta al menos una vez.
+*F* Java acepta la sentencia break, de modo que si se ejecuta en medio del bucle, se sale de éste independientemente
+del número de veces que se haya ejecutado.
+
+**** En Algol58 los identificadores han de tener una longitud máxima de 6 caracteres.
+*F* Pueden tener cualquier longitud. Ese límite está asociado a FORTRAN I.
+
+**** La forma más común de implementar una lista es el uso de arrays.
+*F* Lo más común es desarrollarlas mediante punteros, ya que así no hay un límite de tamaño de la lista,
+a diferencia de las desarrolladas mediante arrays. Además, las operaciones de inserción y eliminación,
+preferidas frente a las de localización de elementos, son más rápidas en la implementación de punteros.
+
+**** Para concatenar literales string en C++ puede emplearse el operador +. Por ejemplo, la siguiente sentencia es correcta: //std::string ab = "a" + "b";//
+*F* En la sentencia anterior "a" y "b" son arrays de caracteres. Por tanto, para emplear el operador + hay que declararlos como variables std::string y luego
+aplicar el operador.
+
+**** Fortran 90 tiene un bucle lógico postcondición repeat-until
+*F* repeat-until es de Pascal. Fortran 90 no tiene bucles lógicos.
+**** En Fortran los arrays de dimensión mayor que uno se almacenan en memoria por columnas.
+*V*
+**** En C++ los datos Booleanos son escritos en el flujo de salida por defecto como true o false.
+*F* Por defecto se escriben como 0 o 1. Para escribirlos como true o false hay que emplear la cláusula
+std::boolalpha de la libreria iomanip.
+**** Una variable local no puede ocultar a una variable global del programa.
+*F* Una variable local puede ocultar a una global si la variable global ha sido declarada en un ámbito determinado.
+
+**** En C++, los operadores aritméticos tienen mayor precedencia que os relacionales.
+*V* Así, por ejemplo, 4 < 8 + 9 se interpreta como 4 < (8 + 9)
+
+**** En C y C++ todos los parametros de las funciones se pasan por referencia.
+*F* Los tipos primitivos, por ejemplo, pueden pasarse por valor o por referencia.
+
+**** El lenguaje Java soporta un solo único tipo de entero llamado int.
+*F* Java soporta los enteros byte, short, int y long.
+
+**** En C++ el resultado de la división entera 10/20 es 0.5.
+*F* Por ser una división entera entre dos enteros, el resultado es un entero, en este caso 0.
+
+**** En un mapa el tipo dominio y el tipo rango pueden ser diferentes.
+*V* Si, el tipo rango puede ser menor o igual que el tipo dominio.
+
+**** Los operandos de las expresiones relacionales sólo pueden ser de tipo Booleano.
+*F* Por compatibilidad con C, pueden ser int.
+
+**** En un bucle while de C++ la sentencia continue hace que el control pase al comienzo del bucle.
+*V* 
+
+**** Una variable de tipo Estrella declarado por //union Estrella { int i; char c; }; // contiene en cada instante simultaneamente un valor de tipo int y otro de tipo char.
+*F* Las variables de tipo estrella solo pueden tener un valor de tipo int o un valor de tipo char.
+
+**** En el cuerpo de una función en C++ pueden escribirse una o varias sentencias return.
+*V* Si hay varias sentencias return, se hará el return de la primera sentencia que se ejecute.
+
+**** El primer lenguaje donde aparecieron los sistemas de ventana por primera vez fue FORTRAN IV.
+*??????????*
+
+**** En FORTRAN I los vectores pueden tener cualquier número de dimensiones.
+*F* Los vectores pueden tener a lo sumo 3 dimensiones.
+
+**** La variable del bucle de Pascal no es visible dentro del cuerpo del bucle y tampoco se permite modificar mediante asignaciones dentro del bucle.
+*F* Si bien es cierto que en Ada y Pascal la variable no se puede modificar, ésta es visible dentro del bucle.
 
