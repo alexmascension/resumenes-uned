@@ -1,0 +1,134 @@
+% Created 2019-09-04 Wed 23:48
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, 11pt]{extarticle}
+             \usepackage[utf8]{inputenc}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+% Paquetes de matemáticas
+\usepackage{amsmath, amsfonts, amssymb, commath}
+\usepackage{tikz}
+\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
+% Ajustes de idioma, gráficos, etc
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish, english]{babel}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+%Fuentes.
+% Alegreya tiene este toque antiguo con serifa, y la tipografía de las ecuaciones es también interesante.
+% Gillius no tiene serifa, y también es equilibrada.
+\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+\usepackage{newpxtext, newpxmath}
+% Paquete para añadir Creative Commons al final del documento
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+% Propiedades de párrafo
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.1em}
+\renewcommand{\baselinestretch}{1.05}
+\setlength\itemsep{0em}
+% Definición de comandos. Muchos de ellos han surgido para Geometría, aunque se
+% irá actualizando la lista. POSIBLEMENTE LO INTRODUZCA COMO COMANDOS DE ORG
+\newcommand{\m}{\text{medio}}
+\newcommand{\iso}{\text{Isom}}
+% Para incluir mathcal en las ecuaciones. El /mathcal para Alegreya es el viejo
+% y floritural estilo que odio.
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+% Definición de colores agradables a la vista
+\definecolor{azul}{HTML}{107896}
+\definecolor{naranja}{HTML}{C2571A}
+\definecolor{rojo}{HTML}{9A2617}
+\definecolor{amarillo}{HTML}{BCA136}
+\definecolor{verde}{HTML}{829356}
+\definecolor{gris}{HTML}{909090}
+\definecolor{rosa}{HTML}{F9A7B0}
+\definecolor{amarillochillon}{HTML}{FBB117}
+% Definición de comandos para teoremas, etc. El comando también incluye
+% como argumento un texto, del estilo Teorema 3.5
+\newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+\newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+\newcommand{\propo}[1]{\textcolor{rojo}{\textbf{Proposición #1}}}
+\newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+\newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+\newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+\newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+\newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+\newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+% La demostración es igual pero va con una letra más pequeña y en gris.
+\newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. {#1}}}}
+% Esto pone un triangulito de peligro para cuando algo es importante.
+\newcommand{\importante}{\tikzcircle[amarillo, fill=amarillo]{4pt}\,}
+% Para usar columnas emplea este trozo de código
+% \begin{multicols*}{2}
+% [\section{Axiomas para la geometría euclidiana plana}]
+% \input{2.tex}\end{multicols*}\pagebreak
+% multicols* obliga a terminar una columna antes de empezar la siguiente.
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+\date{}
+\title{\Huge\vspace{-1em}Estructuras algebráicas}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={\Huge\vspace{-1em}Estructuras algebráicas},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.2.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\vspace{-8em}
+
+\section{Grupos}
+\label{sec:org1041499}
+\defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
+operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
+(\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
+y (3) \textbf{existencia de elemento inverso} \(a,x \in G \;;\; ax = u = xa\). Tanto \(u\) como \(a\) 
+son únicos. Para la suma \(u = 0, a=-x\) y para el producto \(u = 1, a = x^{-1}\).
+
+Otras propiedades inmediatas de los grupos son (1) \textbf{simplificación}: \(ab=ac \iff b=c\); \(ba = ca \iff b=c\); (2) \textbf{asociatividad generalizada}: \((a_1 \cdots a_k)(a_{k+1} \cdots a_n ) =
+(a_1 \cdots a_l)(a_{l+1} \cdots a_n)\) 
+, (3) \textbf{inverso de un producto}: \((a_1 \cdots a_n)^{-1}  = a_n^{-1} \cdots
+a_1^{-1}\).
+
+\defi{1.2} Un \textbf{grupo simétrico} \(S_n\) es el conjunto de biyecciones de un
+conjunto \(X\) con \(n\) elementos. Se cumple que \(\text{card}(S_n) = n!\). Otros ejemplos de 
+grupos son \(GL_n(\mathbb{R})\), el grupo de matrices no
+singulares para la operación producto; o \(D_n\) es el conjunto de biyecciones
+que conserva la distancia en un polígono de \(n\) lados. 
+
+\defi{1.3} Un grupo es \textbf{abeliano} si \(ab = ba\;\; \forall a,b \in G\).
+Todo grupo con dos elementos es abeliano, pues \(aa = aa; uu=uu; ua=a=au\);
+pero para \(n \ge 3\), \(S_n\) no puede ser abeliano. \(GL_n; n \ge 2\),
+ni \(D_n; n \ge 3\) son abelianos.
+
+\propo{1.4} (1) Si \(x^2 = 1 \; \forall x \in G\), entonces \(G\) es
+abeliano; (2) si \((ab)^2=a^2b^2\) entonces \(G\) es abeliano.
+
+\dem\{(1) Para cada \(x,\; x \cdot x = 1 \iff x = x^{-1}\), luego si \(a,b \in G\) 
+entonces \(a = a^{-1}; b=b^{-1}\) y si \(c = ab\) entonces 
+\(ab = c =c^{-1} = (ab)^{-1} = b^{-1}a^{-1} = ba\). (2) Dados \(a,b \in G\), 
+se tiene que \(a(ba)b = (ab)^2 = a^2b^2 = a(ab)b\) y, por simplificación,
+ \(ab = ba\).\} 
+
+\defi{1.5} Si \(G,G'\) son dos grupos con operaciones
+\(G \times G \rightarrow G: (a,b) \mapsto ab \qquad G' \times G' \rightarrow G': (a', b') \mapsto a'b'\)
+ el \textbf{producto cartesiano} \(G'' = G \times G''\) es un grupo con operación 
+\(G'' \times G'' \rightarrow G'': ((a, a'), (b, b')) = (ab, a'b')\). La asociatividad se mantiene, y se ve que \(1_{G''} = (1_G, 1_{G'})\).
+Además, si \(G, G'\) son abelianos, \(G''\) también lo es.
+\end{document}
