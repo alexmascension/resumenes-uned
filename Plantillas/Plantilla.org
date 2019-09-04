@@ -1,0 +1,99 @@
+#+LaTeX_CLASS: extarticle
+#+LaTeX_HEADER: \usepackage[utf8]{inputenc}
+#+LaTeX_HEADER: \usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+
+#+LaTeX_HEADER: % Paquetes de matemáticas
+#+LaTeX_HEADER: \usepackage{amsmath, amsfonts, amssymb, commath}
+
+#+LaTeX: % Importamos Tikz para hacer unos círculos sólidos
+#+LaTeX_HEADER: \usepackage{tikz}
+#+LaTeX_HEADER: \newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
+
+#+LaTeX_HEADER: % Ajustes de idioma, gráficos, etc
+#+LaTeX_HEADER: \usepackage{adjustbox}
+#+LaTeX_HEADER: \usepackage{float}
+#+LaTeX_HEADER: \usepackage{hyperref}
+#+LaTeX_HEADER: \usepackage{graphicx}
+#+LaTeX_HEADER: \usepackage{gensymb}
+#+LaTeX_HEADER: \usepackage[spanish]{babel}
+
+#+LaTeX_HEADER: \usepackage{multicol}
+#+LaTeX_HEADER: \usepackage{listings}
+#+LaTeX_HEADER: \usepackage{enumitem}
+#+LaTeX_HEADER: \usepackage{booktabs}
+
+#+LaTeX_HEADER: \usepackage{xcolor}
+#+LaTeX_HEADER: \usepackage{wrapfig}
+
+#+LaTeX_HEADER_EXTRA: \usepackage{fancyhdr}
+#+LaTeX_HEADER_EXTRA: \pagestyle{fancy}
+#+LaTeX_HEADER_EXTRA: \lhead{Alex Martínez Ascensión}
+#+LaTeX_HEADER_EXTRA: \chead{}
+#+LaTeX_HEADER_EXTRA: \rhead{\today}
+
+
+#+LaTeX_HEADER: %Fuentes. 
+#+LaTeX_HEADER: % Alegreya tiene este toque antiguo con serifa, y la tipografía de las ecuaciones es también interesante. 
+#+LaTeX_HEADER: % Gillius no tiene serifa, y también es equilibrada.
+#+LaTeX_HEADER: \usepackage[T1]{fontenc}
+#+LaTeX_HEADER: %\usepackage[default]{gillius}
+#+LaTeX_HEADER: \usepackage{newpxtext, newpxmath}
+
+
+#+LaTeX_HEADER: % Paquete para añadir Creative Commons al final del documento
+#+LaTeX_HEADER: \usepackage[
+#+LaTeX_HEADER: type={CC},
+#+LaTeX_HEADER: modifier={by-nc-nd},
+#+LaTeX_HEADER: version={3.0},
+#+LaTeX_HEADER: ]{doclicense}
+
+#+LaTeX_HEADER: % Propiedades de párrafo
+#+LaTeX_HEADER: \setlength{\parindent}{0em}
+#+LaTeX_HEADER: \setlength{\parskip}{1.1em}
+#+LaTeX_HEADER: \renewcommand{\baselinestretch}{1.05}
+#+LaTeX_HEADER: \setlength\itemsep{0em}
+
+
+#+LaTeX_HEADER: % Definición de comandos. Muchos de ellos han surgido para Geometría, aunque se 
+#+LaTeX_HEADER: % irá actualizando la lista. POSIBLEMENTE LO INTRODUZCA COMO COMANDOS DE ORG
+#+LaTeX_HEADER: \newcommand{\m}{\text{medio}}
+#+LaTeX_HEADER: \newcommand{\iso}{\text{Isom}}
+
+#+LaTeX_HEADER: % Para incluir mathcal en las ecuaciones. El /mathcal para Alegreya es el viejo 
+#+LaTeX_HEADER: % y floritural estilo que odio.
+#+LaTeX_HEADER: \usepackage{calrsfs}
+#+LaTeX_HEADER: \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+
+#+LaTeX_HEADER: % Definición de colores agradables a la vista
+#+LaTeX_HEADER: \definecolor{azul}{HTML}{107896}
+#+LaTeX_HEADER: \definecolor{naranja}{HTML}{C2571A}
+#+LaTeX_HEADER: \definecolor{rojo}{HTML}{9A2617}
+#+LaTeX_HEADER: \definecolor{amarillo}{HTML}{BCA136}
+#+LaTeX_HEADER: \definecolor{verde}{HTML}{829356}
+#+LaTeX_HEADER: \definecolor{gris}{HTML}{909090}
+#+LaTeX_HEADER: \definecolor{rosa}{HTML}{F9A7B0}
+#+LaTeX_HEADER: \definecolor{amarillochillon}{HTML}{FBB117}
+
+#+LaTeX_HEADER: % Definición de comandos para teoremas, etc. El comando también incluye
+#+LaTeX_HEADER: % como argumento un texto, del estilo Teorema 3.5
+#+LaTeX_HEADER: \newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+#+LaTeX_HEADER: \newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+#+LaTeX_HEADER: \newcommand{\propo}[1]{\textcolor{rojo}{\textbf{Proposición #1}}}
+#+LaTeX_HEADER: \newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+#+LaTeX_HEADER: \newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+#+LaTeX_HEADER: \newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+#+LaTeX_HEADER: \newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+#+LaTeX_HEADER: \newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+#+LaTeX_HEADER: \newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+
+#+LaTeX_HEADER: % La demostración es igual pero va con una letra más pequeña y en gris.
+#+LaTeX_HEADER: \newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. {#1}}}}
+
+#+LaTeX_HEADER: % Esto pone un triangulito de peligro para cuando algo es importante.
+#+LaTeX_HEADER: \newcommand{\importante}{\tikzcircle[amarillo, fill=amarillo]{4pt}\,}
+
+#+LaTeX_HEADER: % Para usar columnas emplea este trozo de código
+#+LaTeX_HEADER: % \begin{multicols*}{2}
+#+LaTeX_HEADER: % [\section{Axiomas para la geometría euclidiana plana}]
+#+LaTeX_HEADER: % \input{2.tex}\end{multicols*}\pagebreak
+#+LaTeX_HEADER: % multicols* obliga a terminar una columna antes de empezar la siguiente.
