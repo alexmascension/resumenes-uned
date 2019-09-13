@@ -129,6 +129,27 @@ que
 - \( o(ab) = o(ba) \)
 
 ** Índice de un subgrupo
+\defi{1.2}/\obs{1.12.6/7} Sea \( G \) un grupo y \( H \subset G
+\).  Sean \( R^H, R_H \) las relaciones de equivalencia en \( G \):
+\[ xR_H y \iff xy^{-1} \in H \]
+\[ xR^H y \iff x^{-1}y \in H \]
+Además, se definen \( Hx = \{ hx \;|\; h \in H \}; xH = \{ xh \;|\; h \in H \} \).
+Se cumple que si \( x,y \in G \), y \( yR_H x \) entonces \( yx^{-1} = h \in H \) y,
+por tanto, \( y = hx \in Hx \).
 
+Además, las aplicaciones \( H \rightarrow Hx: h \mapsto hx \) y su equivalente en \( xH \) son
+biyectivas. Es importante que pese a existir una biyeccíón entre \( Hx \) y \(
+xH \), *no siempre \( Hx \) y \( xH \) son iguales*.
 
+\propo{1.12.3} La aplicación entre conjuntos cocientes \( G/R_H \rightarrow G/R^H: Hx \rightarrow x^{-1}H
+\) es biyectiva.
+
+\defi{1.12.4} \( H \subset G\) es un subgrupo de *índice infinito* si \( G/R_H \) es
+un conjunto infinito. Por otra parte, el índice de \(  H \) en \(  G \), \(
+[G:H] \) es el número de elementos de \( G/R_H \).
+
+\propo{1.12.8 (Tma de Lagrange)} Sea \( H \subset G
+\) un subgrupo. Se cumple que si \( G \) es finito, entonces \( o(H) \) es
+finito, \( H \) tiene índice finito en \( G \) y \( o(G) = o(H) \cdot [G:H] \).
+ 
 
