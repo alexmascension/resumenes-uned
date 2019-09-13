@@ -1,10 +1,10 @@
 %							PLANTILLA GENÉRICA DE RESUMEN
 
 
-\documentclass[a4paper, ]{article}
+\documentclass[a4paper, 12pt]{extarticle}
 \usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
 
-
+\usepackage{anyfontsize}
 % Usepackages
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -51,8 +51,8 @@
 % Gillius no tiene serifa, y también es equilibrada.
 \usepackage[T1]{fontenc}
 %\usepackage[default]{gillius}
-\usepackage{Alegreya}
-
+\usepackage[]{Alegreya}
+\fontsize{12}{15}
 
 % Paquete para añadir Creative Commons al final del documento
 \usepackage[
@@ -127,16 +127,15 @@ version={3.0},
 % multicols* obliga a terminar una columna antes de empezar la siguiente.
 
 \begin{document}
-		\maketitle
+	\maketitle
 
-	\fontsize{12pt}{12pt}\selectfont
 	\vspace*{-4em}
 		
-	
+	\lipsum
 
 	
-	 \noindent\rule{\linewidth}{0.4pt}
-	 \doclicenseThis
+	\noindent\rule{\linewidth}{0.4pt}
+	\doclicenseThis
 	 
 	 
 	 

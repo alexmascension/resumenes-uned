@@ -87,7 +87,7 @@
 #+LaTeX_HEADER: \newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
 
 #+LaTeX_HEADER: % La demostración es igual pero va con una letra más pequeña y en gris.
-#+LaTeX_HEADER: \newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. {#1}}}}
+#+LaTeX_HEADER: \newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. #1}}}
 
 #+LaTeX_HEADER: % Esto pone un triangulito de peligro para cuando algo es importante.
 #+LaTeX_HEADER: \newcommand{\importante}{\tikzcircle[amarillo, fill=amarillo]{4pt}\,}
