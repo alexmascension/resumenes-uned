@@ -138,18 +138,66 @@ Se cumple que si \( x,y \in G \), y \( yR_H x \) entonces \( yx^{-1} = h \in H \
 por tanto, \( y = hx \in Hx \).
 
 Además, las aplicaciones \( H \rightarrow Hx: h \mapsto hx \) y su equivalente en \( xH \) son
-biyectivas. Es importante que pese a existir una biyeccíón entre \( Hx \) y \(
+biyectivas. Es importante que pese a existir una biyeccíón entre
+ \( Hx \) y \(
 xH \), *no siempre \( Hx \) y \( xH \) son iguales*.
 
-\propo{1.12.3} La aplicación entre conjuntos cocientes \( G/R_H \rightarrow G/R^H: Hx \rightarrow x^{-1}H
+\propo{1.12.3} La aplicación entre conjuntos cocientes
+ \( G/R_H \rightarrow G/R^H: Hx \rightarrow x^{-1}H
 \) es biyectiva.
 
 \defi{1.12.4} \( H \subset G\) es un subgrupo de *índice infinito* si \( G/R_H \) es
 un conjunto infinito. Por otra parte, el índice de \(  H \) en \(  G \), \(
-[G:H] \) es el número de elementos de \( G/R_H \).
+[G:H] \) es
+ el número de elementos de \( G/R_H \).
 
-\propo{1.12.8 (Tma de Lagrange)} Sea \( H \subset G
-\) un subgrupo. Se cumple que si \( G \) es finito, entonces \( o(H) \) es
+\propo{1.12.8 (T de Lagrange)} Sea \( H \subset G
+\) un subgrupo. Se cumple que 
+si \( G \) es finito, entonces \( o(H) \) es
 finito, \( H \) tiene índice finito en \( G \) y \( o(G) = o(H) \cdot [G:H] \).
+
+\cor{1.12.9} Si \( H,K \) son subgrupos finitos de \( G \), \( o(H) = m \), \(
+o(K) = n \), 
+entonces \( o(H \cap K) = 1 \iff H \cap K = \{ 1_G \}
+\)
+
+\propo{1.12.10 (F de transitividad del índice)} Sean \( H,K \) 
+subgrupos de \(
+G \). Si \( H \) es subgrupo de \( K \), y los indices entre subgrupos, y con G,
+son finitos, entonces se cumple \( [G:H] = [G:H][H:K] \)
  
+\propo{1.12.11} Sean \( H,K \) subgrupos de \( G \), finito. Entonces
+\[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
+
+
+\defi{1.15} / \obs{1.15.4} Un grupo \( G \) se llama *cíclico* si existe
+ \( a \in G \) tal que \( G
+= \langle a \rangle\). Si \( o(a) = p \), primo, el grupo es cíclico.
+
+\propo{1.16 / 1.17} Sea \( G \) cíclico y \( n = o(G) \), para cada divisor \( m \) de
+\( n \)
+existe un único subgrupo de \( G \) de orden \( m \), y ese subgrupo es cíclico.
+Además, todo subgrupo de un grupo cíclico [finito o no] es cíclico.
+
+\defi{1.18} Sea \( G \) finitamente generado. Un sistema generador \( S \) se
+llama *minimal* si cualquier subconjunto de \( G \) con menos elemenos que \( S \)
+no es generador de \( G \).
+
+\propo{1.19} Sea \( G \) finito de orden \( n \) y \( S = \{ x_1, \cdots, x_p \} \)
+un
+sistema generador minimal de \( G \). Entonces \( 2^p \le n \).
+
+#+BEGIN_EXPORT latex
+\dem{ Llamamos \( S_i = \{ x_1, \cdots, x_i \}, \; 1 \le i \le p \); y \( H_i = \langle S_i \rangle \). 
+Evidentemente, \( H_i \subset H_{i+1}
+\). Por ele teorema de Lagrange y la fórmula de la transitividad del índice,
+\[ [G:H_1] = [H_P:H_1] = [H_P:H_{P-1}][H_{P-1}:H_{P-2}]\cdots[H_2:H_1] \]
+Además, 
+\[ [H_{i+1}:H_i] = \frac{o(H_{i+1})}{o(H_i)} > 1 \iff
+[H_{i+1}:H_i] \ge 2 \]
+pues los índices son enteros.
+Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
+\( o(G) = o(H_1)[G:H_1] \ge 2^p \)
+}
+#+END_EXPORT
 
