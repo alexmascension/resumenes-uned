@@ -1,0 +1,97 @@
+#+TITLE: \Huge\vspace{-1em}Topología
+#+DATE:
+#+SETUPFILE: ../Plantillas/Plantilla.org
+#+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
+#+LATEX: \vspace{-8em}
+
+* Espacios topológicos
+Se dice que \( p \) es el límite de una sucesión de reales \( a_1, \cdots, a_n
+\) cuando, para todo abierto \( p - \epsilon, p + \epsilon \), existe un \( m \)
+tal que para todo \( n \ge m \) se cumple que \( a_n \in (p- \epsilon, p +
+\epsilon) \). 
+
+Esta noción de intervalo se unifica en el concepto *bola*, y se define la familia
+de intervalos de un punto \( p \), \( B(p) \). Sea \( X \) no vacío, para cada
+\( p \in X \) existe una familia \( B(p) \). Se dice que \( B(p) \) es una *base
+de entornos abiertos* de \( p \) si todas las familias \( B(p) \) verifican:
+- B1: si \( U \subset B(p)
+  \), entonces \( p \in U \).
+- B2: si \( U \in B(p) \) y \( V \in B(p) \), existe \( W \in B(p) \) tal que \(
+  W \subset U \cap V
+  \).
+- B3: si \( U \in B(p) \), para todo \( q \in U \) existe \(  V \in B(q) \) tal
+  que \( V \subset U
+  \).
+
+Esta generalización de conjuntos \( (p - \epsilon, p+\epsilon \) nos simplifica
+y permite expandir la definición de topología, independientemente de una métrica
+o distancia.
+
+Se llama un *espacio métrico* \( (X,d) \) a un conjunto \( X \) con una distancia
+\( d  \) definida en él. En un espacio métrico se llama *bola abierta* de centro
+\( p \) y radio \( r \) al conjunto \( E(p,r) = \{ t \in X \;|\; d(p,t) < r \}
+\).
+Las familias \( B(p) \) de todas las bolas con radios reales cumplen los puntos
+B1, B2 y B3, por lo que constituyen base de entornos abiertos en \( (X,d) \).
+
+Si \( X \) es un conjunto en el que se ha definido un sistema de bases de
+entornos abiertos \( B(p) \), un subconjunto \( A \subset X
+\) es un *conjunto abierto* cuando es \( \emptyset \) o cuando para cada \( t \in A
+\) existe un subconjunto \( U \in B(t) \) tal que \( U \subset A \).
+
+Se llama *topología \( T \) del conjunto \( X \)* a la familia de conjuntos
+abietos de \( X \) definidos por bases de entornos abiertos \( B(p) \).
+
+Por ejemplo, en \( \mathbb{R} \) la topología usual (\( T_u \)) viene dada por \( B(p) =
+(p - \epsilon, p + \epsilon) \). En esta topología, \( (\mathbb{R}, T_u) \),
+cada intervalo abierto \( (a,b) \) viene dado como \( B(t), t = \frac{a+b}{2}
+\). El intervalo \( [a,b) \) no es abierto, pues para \( a \) no existe ningún
+conjunto \( U \in B(a) \) tal que \( U \subset [a,b)
+\).
+
+Dos sistemas de bases de entornos abiertos, \( B(p), B'(p) \) son *equivalentes*
+cuando determinan la misma topología \( T \) en \( X \); es decir, que para cada
+\( U \in B(p) \) existe un \( U' \in B'(p) \) tal que \( U \subset U'
+\) y que para cada \( V' \in B'(p) \) exista un \( V \in B(p) \) tal que \( V'
+\subset V
+\).
+
+** Propiedades de una topología
+Sea un conjunto \( X \) en un sistema \( B(p) \). La topología \( T \)
+determinada por \( B(p) \) en \( X \) cumple:
+- P1: \( \emptyset \in T \) y \( X \in T \).
+- P2: Dada una familia de abiertos \( U_\lambda, \lambda \in L \) de \( T \), la
+  unión de los elementos, \( \bigcup_{\lambda} U_\lambda \) es un elemento de \( T \).
+- P3: Dada una familia *finita* \( U_i, i=1, \cdots, n \) de elementos de \( T \), la
+  intersección de los elementos, \( \bigcap_{i=1}^{n}U_i \) es un elemento de \(
+  T \).
+
+Un *espacio topológico* \( (X, T) \) es un conjunto no vacío con una topología
+definida en él. Una familia de subconjuntos de \( X \), \( H(p) \) para cada \(
+p \in X \) [SEAN DISCRETOS O CONTINUOS], si
+cumple P1, P2, P3 entonces, las familias \( H \) forman una topología \( T \) en
+\( X \). Si para esa topología existe una métrica \( d  \), entonces decimos que
+es una *topología metrizable*.
+
+Si \( T, T' \) son dos topologías de \( X \), y \( T \subset T'
+\), entonces se dice que \( T \) es menos *fina* que \( T' \). La topología más
+fina de todas es la *topología trivial*, dada por \( \{ \emptyset, X \} \), y la
+menos fina, o *discreta*, está dada por \( \mathcal{P}(X) \), es decir, el
+conjunto partición de \( X \). 
+
+En \( (X, T) \) se llama *conjunto cerrado* a un conjunto \( M \subset X
+\) tal que \( X-M \) es abierto. Una familia de conjuntos cerrados es \( (X,T)
+\) verifica:
+- C1: \( \emptyset \in T \) y \( X \in T \) son cerrados.
+- C2: Dada una familia *finita* de cerrados \( M_\lambda, \lambda \in L \) de \( T \), la
+  unión de los elementos, \( \bigcup_{\lambda} M_\lambda \) es un cerrado.
+- C3: Dada una familia \(  M_\lambda, \lambda \in L \) de elementos de \( T \), la
+  intersección de los elementos, \( \bigcap_{L}U_\lambda \) es un elemento de \(
+  T \).
+
+Si \( (X,T) \) es un estacio topológico y \( M \subset X
+\), la topología \( T_M = \{ M \cap U \} \) de las intersecciones de \(  M \) con
+abiertos \(  U \) de \( (X,T) \) se llama *topología inducida o subordinada* de \(
+T \). Así, el espacio \( M, T_M \) es un subespacio de \( (X,T) \).
+
+
