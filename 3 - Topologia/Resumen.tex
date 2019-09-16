@@ -1,4 +1,4 @@
-% Created 2019-09-15 Sun 21:48
+% Created 2019-09-16 Mon 21:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -96,7 +96,7 @@ version={3.0},
 \vspace{-8em}
 
 \section{Espacios topológicos}
-\label{sec:orgf2a4b07}
+\label{sec:orge9ffd63}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -139,7 +139,7 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:org78ad095}
+\label{sec:org9b6d60a}
 Sea un conjunto \(X\) en un sistema \(B(p)\). La topología \(T\)
 determinada por \(B(p)\) en \(X\) cumple:
 \begin{itemize}
@@ -172,4 +172,34 @@ intersección de los elementos, \(\bigcap_{L}U_\lambda\) es un elemento de \(T\)
 
 Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = \{ M \cap U \}\) de las intersecciones de \(M\) con
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
+
+\section{Base de una topología}
+\label{sec:orged84d1b}
+Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
+familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión de elementos de \(B\). \(\forall U \subset
+T\;,\; U = \cup_{i} B_i\)
+
+Sea \(X\) un conjunto y \(F = \{ A_\lambda \}_{\lambda \in L}\) una familia
+de subconjuntos de \(X\). Una condución necesaria y suficiente para que \(F\) sea base de \(X\) es:
+\begin{itemize}
+\item I: \(\bigcup_{\lambda}^{}\{ A_\lambda \} = X\)
+\item II: Si \(A_\lambda, A_\mu\) son dos elementos de \(F\), y \(A_\lambda
+  \cap A_\mu \neq \emptyset\), para cualquier punto \(t \in  A_\lambda
+  \cap A_\mu\) existe \(A_\nu \in F\) tal que \(t \in A_\nu\)
+\end{itemize}
+
+
+\subsection{1er y 2º axioma de numerabilidad}
+\label{sec:org77abf5c}
+Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
+\in X\) existe una base de entornos de \(x\) que sea numerable. Un espacio 
+\((X,T)\) verifica el 2º axioma de numerabilidad cuando su topología
+tiene una base numerable.
+
+\subsection{Topología engendrada for una familia de subconjuntos}
+\label{sec:orgc05b552}
+
+Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
+una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las intersecciones (y uniones) finitas de \(H\) es base para alguna
+topología de \(X\) y se llama \textbf{topología engendrada}. 
 \end{document}

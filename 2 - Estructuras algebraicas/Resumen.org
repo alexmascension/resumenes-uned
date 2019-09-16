@@ -200,4 +200,3 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 \( o(G) = o(H_1)[G:H_1] \ge 2^p \)
 }
 #+END_EXPORT
-

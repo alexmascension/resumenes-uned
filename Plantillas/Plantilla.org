@@ -97,3 +97,7 @@
 #+LaTeX_HEADER: % [\section{Axiomas para la geometría euclidiana plana}]
 #+LaTeX_HEADER: % \input{2.tex}\end{multicols*}\pagebreak
 #+LaTeX_HEADER: % multicols* obliga a terminar una columna antes de empezar la siguiente.
+
+#+LaTeX_HEADER: \DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+#+LaTeX_HEADER: \let\mathcal\pazocal
+
