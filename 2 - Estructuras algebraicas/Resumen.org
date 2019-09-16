@@ -51,7 +51,8 @@ $G \times G \rightarrow G: (a,b) \mapsto ab \quad;\quad G' \times G' \rightarrow
  el *producto cartesiano* $G'' = G \times G''$ es un grupo con operación 
 $G'' \times G'' \rightarrow G'': ((a, a'), (b, b')) = (ab, a'b')$. La asociatividad se mantiene, 
 y se ve que $1_{G''} = (1_G, 1_{G'})$.
-Además, si $G, G'$ son abelianos, $G''$ también lo es.
+Además, si $G, G'$ son abelianos, $G''$ también lo es. Se dice que \( G_1 \times \cdots \times G_r
+\) es el *producto directo*.
 
 ** Subgrupos
 \defi{1.6} Un subconjunto no vacío \( H \subset G
@@ -85,7 +86,7 @@ que \( \langle S \rangle = \bigcap_{H \in \mathcal{F}_S}^{} H\).
 Un caso particular es cuando \( S = \{ a \} \). En tal caso es el *subgrupo
 generado por a*, \( \langle a \rangle = \{ a^k \;|\; k \in \mathbb{Z}\} \). Un subconjunto \( S \subset G
 \) se llama *generador de \( G \)* si \( G = \langle S \rangle \). Es cierto que
-\( \langle G \rangle = G \).
+\( \langle G \rangle = G \). Si \( S \) es finito, entonces se dice que \( G \) es *finitamente generado*.
 
 \defi{1.8.4} Si \( H \) es subgrupo de \( G \), se llama *centralizador de \( H
 \) en \( G \)* a \( C_G(H) = \{ x \in G \;|\; ax=xa \; \forall a \in H \} \).
