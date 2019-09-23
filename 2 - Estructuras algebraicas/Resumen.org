@@ -56,7 +56,8 @@ Además, si $G, G'$ son abelianos, $G''$ también lo es. Se dice que \( G_1 \tim
 
 ** Subgrupos
 \defi{1.6} Un subconjunto no vacío \( H \subset G
-\) es un *subgrupo* de \( G \) si es un grupo con la misma operación que \( G \). 
+\) es un *subgrupo* de \( G \) si es un grupo con la misma operación que \( G \).
+*EN ALGUNOS SITIOS \( H \subset G\) INDICA QUE \( H \) ES SUBGRUPO DE \( G \).*
 Se puede ver que el elemento neutro de \( H \) es \( 1_G \), y que si \( x \in H;
 x^{-1} \in H\). Para que (1) \( H \) sea subgrupo de \( G \) se tiene que cumplir que
 (2) si \(x,y \in H  \), entonces \( x y^{-1} \in H \).
@@ -201,3 +202,69 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 \( o(G) = o(H_1)[G:H_1] \ge 2^p \)
 }
 #+END_EXPORT
+
+#+LaTeX:	\pagebreak
+#+LaTeX:	\textcolor{gris}{\textit{Page intentionally left in blank}}
+#+LaTeX:	\newpage
+#+LaTeX:	\pagebreak
+
+
+* Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos
+  \propo{2.1} Sea \( G \) un grupo y \( H \) un subgrupo. \( H \) es un subgrupo
+ *normal* (*LO DEFINO AQUÍ COMO* \( \subset_N\)) si se cumplen las condiciones equivalentes:
+1. Para todo \( a  \in G \), \( aH = Ha \)
+2. Para todo \( a \in G \), \( H = H^a \)
+3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego \( H \) es
+   abeliano.
+
+\obs{2.2.1} Si \( H \) es normal, entonces \( R^H = R_H \), y \( G/R_H \) se
+escribe \( G/H \).
+
+\obs{2.2.4/2.2.} Si \( H \) es un subgrupo de \( G \), y \( [G:H] = 2 \), \( H
+\) es subgrupo normal de \( G \). Asimismo, los subgrupos \( \{ 1_G \}, G \) son 
+normales.
+
+\defi{2.2.14} Un grupo \( G \) es *simple* si los únicos subgrupos son  \( \{ 1_G
+\}, G \). Si \( o(G) \) es primo \( p \), por el teorema de Lagrange, los únicos
+subgrupos son \( \{ 1_G \}, G \), luego \( G \) es simple.
+
+\propo{2.2.8} Todo subgrupo \( H \subset Z(G) = \{ a \in G \;|\; ag = ga\;
+\forall g \in
+H\}\) es subgrupo normal de \( G \).
+ 
+\propo{2.2.10} Sea \( H \) subgrupo de \( G \).
+1. \( H \) es subgrupo de \( N_G(H) = \{ a \in G \;|\; H = H^a \} \).
+2. \( H \subset_N
+   N_G(H) \).
+3. Si \( H \subset K \subset G \) y \( H \subset_N
+   K \),
+   entonces \( K \subset N_G(H)
+   \).
+
+\defi{2.2.11} Si \( H,K \) son subgrupos de \( G \), \( K \) es un *subgrupo
+conjugado* de \( H \) si existe \( a \in G \) tal que \( K = H^a \). Como la
+relación es recíproca, se dice que \( K \) y \( H \) son conjugados.
+
+\propo{2.2.11} 
+- Si \( \Sigma \) es la familia de conjugados de \(  H \) y \( N = N_G(H) \), la aplicación \( \phi: G/R_N \rightarrow \Sigma: Na \rightarrow H^a\) es biyectiva.
+- Si \( N \) tiene índice finito en \( G \), el número de conjugados con \(  H
+  \) es \( [G:N] \).
+
+\propo{2.2.13} Si \( N \subset_N G
+\), \( H \subset K \subset G
+\), y \( H \subset_N K \), entonces \( NH \subset_N NK \).
+
+\importante La normalidad no es transitiva, es decir, si \( H \subset_N
+K \subset_N G \), no siempre es cierto que \( H \subset_N G\).
+
+\defi{2.2.16}/\obs{2.2.16.1} Si \( H \subset G \), se llama corazón de \( H \) a \[
+\heartsuit(H) =  K(H) = \bigcap_{a \in G}^{} H^a \]
+
+Si \( N \subset_N H
+\) entonces \( N \subset K(H)\), pues para cada \( a \in G \): \( N = N^a
+\subset H^a
+\), luego \( N = N^a \subset \cap_{a \in G} H^a = K(H)
+\)
+
+\propo{2.2.17 [Teorema de Poincaré]} Si \( G \) posee un subgrupo de índice
+finito, también posee un subgrupo normal de índice finito.

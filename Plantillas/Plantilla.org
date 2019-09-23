@@ -20,6 +20,7 @@
 #+LaTeX_HEADER: \usepackage{multicol}
 #+LaTeX_HEADER: \usepackage{listings}
 #+LaTeX_HEADER: \usepackage{enumitem}
+#+LaTeX_HEADER: \setlist{nolistsep}
 #+LaTeX_HEADER: \usepackage{booktabs}
 
 #+LaTeX_HEADER: \usepackage{xcolor}

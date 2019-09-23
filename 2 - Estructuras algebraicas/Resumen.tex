@@ -1,4 +1,4 @@
-% Created 2019-09-16 Mon 23:53
+% Created 2019-09-24 Tue 00:02
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -17,6 +17,7 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{enumitem}
+\setlist{nolistsep}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{wrapfig}
@@ -96,9 +97,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:org4b2034e}
+\label{sec:org920af1c}
 \subsection{Grupos}
-\label{sec:org2b621ba}
+\label{sec:org3458fa2}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -140,8 +141,9 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:org9ada103}
-\defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\). 
+\label{sec:orga238727}
+\defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
+\textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
 x^{-1} \in H\). Para que (1) \(H\) sea subgrupo de \(G\) se tiene que cumplir que
 (2) si \(x,y \in H\), entonces \(x y^{-1} \in H\).
@@ -188,7 +190,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:org954fc6a}
+\label{sec:orgf403a24}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -208,7 +210,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:org9d76f56}
+\label{sec:orgcb91b16}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -270,4 +272,69 @@ pues los índices son enteros.
 Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 \( o(G) = o(H_1)[G:H_1] \ge 2^p \)
 }
+
+\pagebreak
+\textcolor{gris}{\textit{Page intentionally left in blank}}
+\newpage
+\pagebreak
+
+
+\section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
+\label{sec:org5314533}
+ \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
+\textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
+\begin{enumerate}
+\item Para todo \(a  \in G\), \(aH = Ha\)
+\item Para todo \(a \in G\), \(H = H^a\)
+\item Para todo \(a,b \in G\), \(ab \in H \iff ba \in H\), luego \(H\) es
+abeliano.
+\end{enumerate}
+
+\obs{2.2.1} Si \(H\) es normal, entonces \(R^H = R_H\), y \(G/R_H\) se
+escribe \(G/H\).
+
+\obs{2.2.4/2.2.} Si \(H\) es un subgrupo de \(G\), y \([G:H] = 2\), \(H\) es subgrupo normal de \(G\). Asimismo, los subgrupos \(\{ 1_G \}, G\) son 
+normales.
+
+\defi{2.2.14} Un grupo \(G\) es \textbf{simple} si los únicos subgrupos son  \(\{ 1_G
+\}, G\). Si \(o(G)\) es primo \(p\), por el teorema de Lagrange, los únicos
+subgrupos son \(\{ 1_G \}, G\), luego \(G\) es simple.
+
+\propo{2.2.8} Todo subgrupo \(H \subset Z(G) = \{ a \in G \;|\; ag = ga\;
+\forall g \in
+H\}\) es subgrupo normal de \(G\).
+
+\propo{2.2.10} Sea \(H\) subgrupo de \(G\).
+\begin{enumerate}
+\item \(H\) es subgrupo de \(N_G(H) = \{ a \in G \;|\; H = H^a \}\).
+\item \(H \subset_N
+   N_G(H)\).
+\item Si \(H \subset K \subset G\) y \(H \subset_N
+   K\),
+entonces \(K \subset N_G(H)\).
+\end{enumerate}
+
+\defi{2.2.11} Si \(H,K\) son subgrupos de \(G\), \(K\) es un \textbf{subgrupo
+conjugado} de \(H\) si existe \(a \in G\) tal que \(K = H^a\). Como la
+relación es recíproca, se dice que \(K\) y \(H\) son conjugados.
+
+\propo{2.2.11} 
+\begin{itemize}
+\item Si \(\Sigma\) es la familia de conjugados de \(H\) y \(N = N_G(H)\), la aplicación \(\phi: G/R_N \rightarrow \Sigma: Na \rightarrow H^a\) es biyectiva.
+\item Si \(N\) tiene índice finito en \(G\), el número de conjugados con \(H\) es \([G:N]\).
+\end{itemize}
+
+\propo{2.2.13} Si \(N \subset_N G\), \(H \subset K \subset G\), y \(H \subset_N K\), entonces \(NH \subset_N NK\).
+
+\importante La normalidad no es transitiva, es decir, si \(H \subset_N
+K \subset_N G\), no siempre es cierto que \(H \subset_N G\).
+
+\defi{2.2.16}/\obs{2.2.16.1} Si \(H \subset G\), se llama corazón de \(H\) a \[
+\heartsuit(H) =  K(H) = \bigcap_{a \in G}^{} H^a \]
+
+Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(N = N^a
+\subset H^a\), luego \(N = N^a \subset \cap_{a \in G} H^a = K(H)\)
+
+\propo{2.2.17 [Teorema de Poincaré]} Si \(G\) posee un subgrupo de índice
+finito, también posee un subgrupo normal de índice finito.
 \end{document}
