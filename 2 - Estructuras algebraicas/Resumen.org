@@ -220,7 +220,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 \obs{2.2.1} Si \( H \) es normal, entonces \( R^H = R_H \), y \( G/R_H \) se
 escribe \( G/H \).
 
-\obs{2.2.4/2.2.} Si \( H \) es un subgrupo de \( G \), y \( [G:H] = 2 \), \( H
+\obs{2.2.4/2.2.5} Si \( H \) es un subgrupo de \( G \), y \( [G:H] = 2 \), \( H
 \) es subgrupo normal de \( G \). Asimismo, los subgrupos \( \{ 1_G \}, G \) son 
 normales.
 
@@ -250,9 +250,9 @@ relación es recíproca, se dice que \( K \) y \( H \) son conjugados.
 - Si \( N \) tiene índice finito en \( G \), el número de conjugados con \(  H
   \) es \( [G:N] \).
 
-\propo{2.2.13} Si \( N \subset_N G
+\propo{2.2.13} Si \( A \subset_N G
 \), \( H \subset K \subset G
-\), y \( H \subset_N K \), entonces \( NH \subset_N NK \).
+\), y \( H \subset_N K \), entonces \( AH \subset_N AK \).
 
 \importante La normalidad no es transitiva, es decir, si \( H \subset_N
 K \subset_N G \), no siempre es cierto que \( H \subset_N G\).
@@ -266,5 +266,80 @@ Si \( N \subset_N H
 \), luego \( N = N^a \subset \cap_{a \in G} H^a = K(H)
 \)
 
-\propo{2.2.17 [Teorema de Poincaré]} Si \( G \) posee un subgrupo de índice
+\propo{2.2.17 (T de Poincaré)} Si \( G \) posee un subgrupo de índice
 finito, también posee un subgrupo normal de índice finito.
+
+** Grupos cocientes
+   \propo{2.3} El grupo cociente \( G/H \) de \( H \subset_N G
+   \) tiene estructura de grupo con la operación:
+\begin{align*}
+ &\; G/H \times G/H  
+ \longrightarrow G/H 
+ \\
+$       &\; (aH, bH) \longmapsto     abH 
+\end{align*}
+
+El elemento neutro del grupo cociente es \( H \), y el inverso de \( aH \) es \(
+(aH)^{-1} = a^{-1}H \).
+
+\obs{2.3.1} Si \( H \subset_N K \subset G \) (entonces \( H \subset_N G\)), el
+grupo cociente \( K/H \subset G/H
+\),  ya que si \( aH,bH \in K/H, a,b \in K \), entonces \( (aH)(bH)^{-1} =
+(aH)(b^{-1}H) = ab^{-1}H \in K/H \), ya que como \( K \subset G
+, ab^{-1} \in K \)
+
+\obs{2.3.1.1} \( K \subset_N G \iff K/H \subset_N G/H \)
+
+\ejem{2.3.3 (Función \( \phi \) de Euler)} Si denotamos \( \mathbb{Z}^*_m = \{
+a+m \mathbb{Z} \in \mathbb{Z} / m \mathbb{Z}
+\;|\; mcd(a,m) = 1 \}
+\) y consideramos la operación binaria
+\[ \mathbb{Z}^*_m \times \mathbb{Z}^*_m \rightarrow \mathbb{Z}^*_m: (a+m \mathbb{Z},
+b+ m \mathbb{Z}) \mapsto ab + m \mathbb{Z}
+\]
+vemos que \( \mathbb{Z}^*_m \) forma un grupo abeliano con elemento neutro \( 1 +
+m \mathbb{Z}
+\) y elemento inverso \( u + m \mathbb{Z}
+\), con \( au = 1 \).
+
+Entonces, la función \( \phi: \mathbb{N}\{ 0 \} \rightarrow  \mathbb{N}\{ 0 \}
+\) que a cada \( m \) positivo le corresponde el orden de \( \mathbb{Z}^*_m \) es
+la función de Euler. Para \( p \) primo, \( \phi(p) = p-1 \), y \( \phi(p^k) = p^{k-1}(p-1) \). Si
+tenemos \( m,n \) tal que \( mcd(m,n)=1 \), entonces \( \phi(mn) =
+\phi(m)\phi(n) \). Con todo esto, si tenemos un numero \( a = p_1^{k_1} \cdots
+p_i^{k_i} \), entonces \( \phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1) \)
+
+** Homomorfismos
+   \defi{2.4} Una aplicación \( f:G \rightarrow G'
+\) es un *homomorfismo de grupos* si \( f(ab) = f(a)f(b) \forall a,b \in G \).
+Para todo homomorfismo se tiene que \( f(1_G) = 1_{G'} \) y \( f(a^{-1}) =
+(f(a))^{-1} \).
+
+\defi{2.4.3}/\propo{2.4.4} El *núcleo* de un homomorfismo es \( ker(f) = \{ a \in G \;|\; f(a) =
+1_{G'} \} \). \( f \) es inyectiva sii \( ker(f) = \{ 1_G \} \).
+
+\defi{2.4.5} Se llama *imagen* de \( f \) a \( im(f) = \{ f(x) \;|\; x \in G \}
+\).
+
+\propo{2.4.6} Si \( f: G \rightarrow G'
+\) es homomorfismo y \( H' \subset G'
+\), entonces \( f^{-1}(H') = \{ x \in G \;|\; f(x) \in H' \} \) es un subgrupo
+de \( G \). Además, si \( H' \subset_N G'
+\) entonces \( f^{-1}(H') \subset_N G
+\).
+
+\obs{2.4.7/2.4.8} Si \( H \subset G
+\), la inclusión \( j: H \rightarrow  G: x \mapsto x
+\) es un homomorfismo inyectivo; y si \( H \subset_N G
+\), la proyección \( \pi: G \rightarrow  G/H : x \mapsto xH
+\) es un homomorfismo sobreyectivo.
+
+\propo{2.4.9} Si \( f: G \rightarrow G'
+\) y \( g: G' \rightarrow G''
+\) son homomorfismos, \( g \circ f: G \rightarrow G''
+\) también lo es, pues \( (g \circ f)(xy) = g(f(xy)) = g(f(x)f(y)) =
+g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y) \)
+
+\propo{2.4.10} Si \( f \) es un homomorfismo y \( x \in G  \) tiene orden \( m
+\), se cumple que (i) \( o(f(x)) \) divide a \( m \)  (ii) Si \( f \) es
+inyectiva, \( o(f(x)) = m \).

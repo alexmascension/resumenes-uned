@@ -1,4 +1,4 @@
-% Created 2019-09-24 Tue 00:02
+% Created 2019-09-24 Tue 22:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -97,9 +97,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:org920af1c}
+\label{sec:orgdb30b8c}
 \subsection{Grupos}
-\label{sec:org3458fa2}
+\label{sec:org393ce73}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -141,7 +141,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:orga238727}
+\label{sec:orgde7e620}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -190,7 +190,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:orgf403a24}
+\label{sec:orga8a7bf3}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -210,7 +210,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:orgcb91b16}
+\label{sec:org430ed5c}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -280,7 +280,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org5314533}
+\label{sec:orgc177a9a}
  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
 \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -293,7 +293,7 @@ abeliano.
 \obs{2.2.1} Si \(H\) es normal, entonces \(R^H = R_H\), y \(G/R_H\) se
 escribe \(G/H\).
 
-\obs{2.2.4/2.2.} Si \(H\) es un subgrupo de \(G\), y \([G:H] = 2\), \(H\) es subgrupo normal de \(G\). Asimismo, los subgrupos \(\{ 1_G \}, G\) son 
+\obs{2.2.4/2.2.5} Si \(H\) es un subgrupo de \(G\), y \([G:H] = 2\), \(H\) es subgrupo normal de \(G\). Asimismo, los subgrupos \(\{ 1_G \}, G\) son 
 normales.
 
 \defi{2.2.14} Un grupo \(G\) es \textbf{simple} si los únicos subgrupos son  \(\{ 1_G
@@ -324,7 +324,7 @@ relación es recíproca, se dice que \(K\) y \(H\) son conjugados.
 \item Si \(N\) tiene índice finito en \(G\), el número de conjugados con \(H\) es \([G:N]\).
 \end{itemize}
 
-\propo{2.2.13} Si \(N \subset_N G\), \(H \subset K \subset G\), y \(H \subset_N K\), entonces \(NH \subset_N NK\).
+\propo{2.2.13} Si \(A \subset_N G\), \(H \subset K \subset G\), y \(H \subset_N K\), entonces \(AH \subset_N AK\).
 
 \importante La normalidad no es transitiva, es decir, si \(H \subset_N
 K \subset_N G\), no siempre es cierto que \(H \subset_N G\).
@@ -335,6 +335,62 @@ K \subset_N G\), no siempre es cierto que \(H \subset_N G\).
 Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(N = N^a
 \subset H^a\), luego \(N = N^a \subset \cap_{a \in G} H^a = K(H)\)
 
-\propo{2.2.17 [Teorema de Poincaré]} Si \(G\) posee un subgrupo de índice
+\propo{2.2.17 (T de Poincaré)} Si \(G\) posee un subgrupo de índice
 finito, también posee un subgrupo normal de índice finito.
+
+\subsection{Grupos cocientes}
+\label{sec:orge81f568}
+\propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
+\begin{align*}
+ &\; G/H \times G/H  
+ \longrightarrow G/H 
+ \\
+$       &\; (aH, bH) \longmapsto     abH 
+\end{align*}
+
+El elemento neutro del grupo cociente es \(H\), y el inverso de \(aH\) es \((aH)^{-1} = a^{-1}H\).
+
+\obs{2.3.1} Si \(H \subset_N K \subset G\) (entonces \(H \subset_N G\)), el
+grupo cociente \(K/H \subset G/H\),  ya que si \(aH,bH \in K/H, a,b \in K\), entonces \((aH)(bH)^{-1} =
+(aH)(b^{-1}H) = ab^{-1}H \in K/H\), ya que como \(K \subset G
+, ab^{-1} \in K\)
+
+\obs{2.3.1.1} \(K \subset_N G \iff K/H \subset_N G/H\)
+
+\ejem{2.3.3 (Función \( \phi \) de Euler)} Si denotamos \(\mathbb{Z}^*_m = \{
+a+m \mathbb{Z} \in \mathbb{Z} / m \mathbb{Z}
+\;|\; mcd(a,m) = 1 \}\) y consideramos la operación binaria
+\[ \mathbb{Z}^*_m \times \mathbb{Z}^*_m \rightarrow \mathbb{Z}^*_m: (a+m \mathbb{Z},
+b+ m \mathbb{Z}) \mapsto ab + m \mathbb{Z}
+\]
+vemos que \(\mathbb{Z}^*_m\) forma un grupo abeliano con elemento neutro \(1 +
+m \mathbb{Z}\) y elemento inverso \(u + m \mathbb{Z}\), con \(au = 1\).
+
+Entonces, la función \(\phi: \mathbb{N}\{ 0 \} \rightarrow  \mathbb{N}\{ 0 \}\) que a cada \(m\) positivo le corresponde el orden de \(\mathbb{Z}^*_m\) es
+la función de Euler. Para \(p\) primo, \(\phi(p) = p-1\), y \(\phi(p^k) = p^{k-1}(p-1)\). Si
+tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
+\phi(m)\phi(n)\). Con todo esto, si tenemos un numero \(a = p_1^{k_1} \cdots
+p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
+
+\subsection{Homomorfismos}
+\label{sec:orgbb448cb}
+   \defi{2.4} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
+Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
+(f(a))^{-1}\).
+
+\defi{2.4.3}/\propo{2.4.4} El \textbf{núcleo} de un homomorfismo es \(ker(f) = \{ a \in G \;|\; f(a) =
+1_{G'} \}\). \(f\) es inyectiva sii \(ker(f) = \{ 1_G \}\).
+
+\defi{2.4.5} Se llama \textbf{imagen} de \(f\) a \(im(f) = \{ f(x) \;|\; x \in G \}\).
+
+\propo{2.4.6} Si \(f: G \rightarrow G'\) es homomorfismo y \(H' \subset G'\), entonces \(f^{-1}(H') = \{ x \in G \;|\; f(x) \in H' \}\) es un subgrupo
+de \(G\). Además, si \(H' \subset_N G'\) entonces \(f^{-1}(H') \subset_N G\).
+
+\obs{2.4.7/2.4.8} Si \(H \subset G\), la inclusión \(j: H \rightarrow  G: x \mapsto x\) es un homomorfismo inyectivo; y si \(H \subset_N G\), la proyección \(\pi: G \rightarrow  G/H : x \mapsto xH\) es un homomorfismo sobreyectivo.
+
+\propo{2.4.9} Si \(f: G \rightarrow G'\) y \(g: G' \rightarrow G''\) son homomorfismos, \(g \circ f: G \rightarrow G''\) también lo es, pues \((g \circ f)(xy) = g(f(xy)) = g(f(x)f(y)) =
+g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y)\)
+
+\propo{2.4.10} Si \(f\) es un homomorfismo y \(x \in G\) tiene orden \(m\), se cumple que (i) \(o(f(x))\) divide a \(m\)  (ii) Si \(f\) es
+inyectiva, \(o(f(x)) = m\).
 \end{document}
