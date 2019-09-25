@@ -343,3 +343,17 @@ g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y) \)
 \propo{2.4.10} Si \( f \) es un homomorfismo y \( x \in G  \) tiene orden \( m
 \), se cumple que (i) \( o(f(x)) \) divide a \( m \)  (ii) Si \( f \) es
 inyectiva, \( o(f(x)) = m \).
+
+
+\begin{tikzpicture}[]
+\node (a) at (0,2*1) {$G$};
+\node (b) at (0,0) {$G/ker(f)$};
+\node (c) at (4*1,0) {$im(f)$};
+\node (d) at (4*1,2*1) {$G'$};
+
+\draw[->,thick] (a) -- node[above] {$f$} (d);
+\draw[->,thick] (a) -- node[left] {$\pi$} (b);
+\draw[->,thick] (b) -- node[below] {$b$} (c);
+\draw[->,thick] (c) -- node[right] {$j$} (d);
+\end{tikzpicture}
+

@@ -16,6 +16,7 @@
 #+LaTeX_HEADER: \usepackage{graphicx}
 #+LaTeX_HEADER: \usepackage{gensymb}
 #+LaTeX_HEADER: \usepackage[spanish]{babel}
+#+LaTeX_HEADER: \usepackage{tikz}
 
 #+LaTeX_HEADER: \usepackage{multicol}
 #+LaTeX_HEADER: \usepackage{listings}

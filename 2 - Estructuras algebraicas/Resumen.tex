@@ -1,4 +1,4 @@
-% Created 2019-09-24 Tue 22:37
+% Created 2019-09-25 Wed 23:48
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -14,6 +14,7 @@
 \usepackage{graphicx}
 \usepackage{gensymb}
 \usepackage[spanish, english]{babel}
+\usepackage{tikz}
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{enumitem}
@@ -97,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:orgdb30b8c}
+\label{sec:org47c3d8b}
 \subsection{Grupos}
-\label{sec:org393ce73}
+\label{sec:org5f7d641}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -141,7 +142,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:orgde7e620}
+\label{sec:orgfc9b088}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -190,7 +191,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:orga8a7bf3}
+\label{sec:org83c28bd}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -210,7 +211,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:org430ed5c}
+\label{sec:org51d4765}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -280,7 +281,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:orgc177a9a}
+\label{sec:org5cf4b6f}
  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
 \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -339,7 +340,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection{Grupos cocientes}
-\label{sec:orge81f568}
+\label{sec:org95eb97f}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -373,7 +374,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection{Homomorfismos}
-\label{sec:orgbb448cb}
+\label{sec:orgb8c6fe9}
    \defi{2.4} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\).
@@ -393,4 +394,39 @@ g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y)\)
 
 \propo{2.4.10} Si \(f\) es un homomorfismo y \(x \in G\) tiene orden \(m\), se cumple que (i) \(o(f(x))\) divide a \(m\)  (ii) Si \(f\) es
 inyectiva, \(o(f(x)) = m\).
+
+
+
+
+
+
+
+\begin{tikzpicture}[]
+\node (a) at (0,2*1) {$G$};
+\node (b) at (0,0) {$G/ker(f)$};
+\node (c) at (4*1,0) {$im(f)$};
+\node (d) at (4*1,2*1) {$G'$};
+
+\draw[->,thick] (a) -- node[above] {$f$} (d);
+\draw[->,thick] (a) -- node[left] {$\pi$} (b);
+\draw[->,thick] (b) -- node[below] {$b$} (c);
+\draw[->,thick] (c) -- node[right] {$j$} (d);
+\end{tikzpicture}
+
+
+Hola aqui hay texto
+
+$\backslash$(
+\begin{tikzpicture}[]
+\node (topleft) at (0,1*4) {\(A\)};
+\node (botleft) at (0,0) {\(B\)};
+\node (botright) at (2*4,0) {\(C\)};
+\node (topright) at (2*4,1*4) {\(D\)};
+
+\draw[->,thick] (topleft) -- node[above] {\(f_{ad}\)} (topright);
+\draw[->,thick] (topleft) -- node[left] {\(f_{ab}\)} (botleft);
+\draw[->,thick] (botleft) -- node[below] {\(f_{bc}\)} (botright);
+\draw[->,thick] (botright) -- node[right] {\(f_{cd}\)} (topright);
+\end{tikzpicture}
+$\backslash$)
 \end{document}
