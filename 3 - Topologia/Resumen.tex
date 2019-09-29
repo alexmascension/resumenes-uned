@@ -1,4 +1,4 @@
-% Created 2019-09-16 Mon 21:48
+% Created 2019-09-30 Mon 00:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -14,9 +14,11 @@
 \usepackage{graphicx}
 \usepackage{gensymb}
 \usepackage[spanish, english]{babel}
+\usepackage{tikz}
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{enumitem}
+\setlist{nolistsep}
 \usepackage{booktabs}
 \usepackage{xcolor}
 \usepackage{wrapfig}
@@ -96,7 +98,7 @@ version={3.0},
 \vspace{-8em}
 
 \section{Espacios topológicos}
-\label{sec:orge9ffd63}
+\label{sec:orgaaee898}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -125,10 +127,7 @@ B1, B2 y B3, por lo que constituyen base de entornos abiertos en \((X,d)\).
 Si \(X\) es un conjunto en el que se ha definido un sistema de bases de
 entornos abiertos \(B(p)\), un subconjunto \(A \subset X\) es un \textbf{conjunto abierto} cuando es \(\emptyset\) o cuando para cada \(t \in A\) existe un subconjunto \(U \in B(t)\) tal que \(U \subset A\).
 
-Se llama \textbf{topología \(T\) del conjunto \(X\)} a la familia de conjuntos
-abietos de \(X\) definidos por bases de entornos abiertos \(B(p)\).
-
-Por ejemplo, en \(\mathbb{R}\) la topología usual (\(T_u\)) viene dada por \(B(p) =
+En \(\mathbb{R}\) la topología usual (\(T_u\)) viene dada por \(B(p) =
 (p - \epsilon, p + \epsilon)\). En esta topología, \((\mathbb{R}, T_u)\),
 cada intervalo abierto \((a,b)\) viene dado como \(B(t), t = \frac{a+b}{2}\). El intervalo \([a,b)\) no es abierto, pues para \(a\) no existe ningún
 conjunto \(U \in B(a)\) tal que \(U \subset [a,b)\).
@@ -139,9 +138,8 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:org9b6d60a}
-Sea un conjunto \(X\) en un sistema \(B(p)\). La topología \(T\)
-determinada por \(B(p)\) en \(X\) cumple:
+\label{sec:org665e1ad}
+Sea un conjunto \(X\). La topología \(T\) determinada en \(X\) cumple:
 \begin{itemize}
 \item P1: \(\emptyset \in T\) y \(X \in T\).
 \item P2: Dada una familia de abiertos \(U_\lambda, \lambda \in L\) de \(T\), la
@@ -161,7 +159,8 @@ fina de todas es la \textbf{topología trivial}, dada por \(\{ \emptyset, X \}\)
 menos fina, o \textbf{discreta}, está dada por \(\mathcal{P}(X)\), es decir, el
 conjunto partición de \(X\). 
 
-En \((X, T)\) se llama \textbf{conjunto cerrado} a un conjunto \(M \subset X\) tal que \(X-M\) es abierto. Una familia de conjuntos cerrados es \((X,T)\) verifica:
+En \((X, T)\) se llama \textbf{conjunto cerrado} a un conjunto \(M \subset X\) tal que \(X-M\) es 
+abierto. Una familia de conjuntos cerrados es \((X,T)\) verifica:
 \begin{itemize}
 \item C1: \(\emptyset \in T\) y \(X \in T\) son cerrados.
 \item C2: Dada una familia \textbf{finita} de cerrados \(M_\lambda, \lambda \in L\) de \(T\), la
@@ -174,32 +173,157 @@ Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = 
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
 
 \section{Base de una topología}
-\label{sec:orged84d1b}
+\label{sec:org8c11ff6}
 Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
-familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión de elementos de \(B\). \(\forall U \subset
+familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión
+ de elementos de \(B\). \(\forall U \subset
 T\;,\; U = \cup_{i} B_i\)
 
 Sea \(X\) un conjunto y \(F = \{ A_\lambda \}_{\lambda \in L}\) una familia
-de subconjuntos de \(X\). Una condución necesaria y suficiente para que \(F\) sea base de \(X\) es:
+de subconjuntos de \(X\). Una condución necesaria y suficiente para que \(F\) sea 
+base de \(X\) es:
 \begin{itemize}
 \item I: \(\bigcup_{\lambda}^{}\{ A_\lambda \} = X\)
 \item II: Si \(A_\lambda, A_\mu\) son dos elementos de \(F\), y \(A_\lambda
-  \cap A_\mu \neq \emptyset\), para cualquier punto \(t \in  A_\lambda
+  \cap A_\mu \neq \emptyset\), para cualquier
+punto \(t \in  A_\lambda
   \cap A_\mu\) existe \(A_\nu \in F\) tal que \(t \in A_\nu\)
 \end{itemize}
 
 
 \subsection{1er y 2º axioma de numerabilidad}
-\label{sec:org77abf5c}
+\label{sec:orgee77ee4}
 Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
-\in X\) existe una base de entornos de \(x\) que sea numerable. Un espacio 
+\in X\) 
+existe una base de entornos de \(x\) que sea numerable. Un espacio 
 \((X,T)\) verifica el 2º axioma de numerabilidad cuando su topología
 tiene una base numerable.
 
 \subsection{Topología engendrada for una familia de subconjuntos}
-\label{sec:orgc05b552}
+\label{sec:org5e282f2}
 
 Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
-una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las intersecciones (y uniones) finitas de \(H\) es base para alguna
+una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las
+ intersecciones (y uniones) finitas de \(H\) es base para alguna
 topología de \(X\) y se llama \textbf{topología engendrada}. 
+
+
+\section{Entornos en un espacio topológico}
+\label{sec:orgdfb716d}
+Sea \((X,T)\) un espacio topológico, y \(p \in X\). \(A \subset X\) es entorno de \(p\) si existe un abierto \(U\) de la topología \(T\) tal que \(p \in U \subset A\). No todo entorno ha de ser abierto. Por ejemplo, \([0, 1)\) es entorno de
+\(1/2\) (existe \(U = (1/2-1/4, 1/2+1/4) \subset [0, 1)\), pero no de \(0\) (ningún abierto en \(T\) cumple \(U \subset [0,1)\).
+
+Los sistemas de entornos \(E(p)\) para \(X\) cumplen:
+\begin{itemize}
+\item E1: Si \(A \in E(p)\), entonces \(p \in A\).
+\item E2: Si \(A \in E(p)\), todo subconjunto \(A' \subset X\) tal que \(A' \supset A\) pertenece a \(E(p)\) [porque \(p \in A'\)].
+\item E3: Si \(A, A' \in E(p)\), entonces \(A \cap A' \in E(p)\). Esto es
+aplicable a un número finito de intersecciones.
+\item E4: Si \(A \in E(p)\), \(A\), existe \(U \in E(p)\) tal que para todo \(q \in U, A \in E(q)\).
+\end{itemize}
+
+Sea \(p \in (X,T)\), y \(E(p)\) su sistema de entornos. Una subfamilia \(A(p)\) de \(E(p)\) es un sistema fundamental de entornos (abiertos o no) de \(p\) [base de
+entornos] si todo entorno de \(p\) contiene un elemento de \(A(p)\).
+
+Los sistemas de bases de entornos \(B(p)\) resultan ser sistemas fundamentales
+de entornos. P. ej. en \(( \mathbb{R}, T_u)\) cada punto \(x\) tiene una
+base de entornos numerable, los intervalos abiertos de radio racional: \(\{
+(x-r, x+r) \}_{0<r \in \mathbb{Q})\).
+
+Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues \(\{
+(x-r, x+r) \}_{0<r \in \mathbb{Q})\) es un sistema de entornos numerable.
+
+\section{Subconjuntos en un espacio topológico}
+\label{sec:org68ce7eb}
+Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
+consideramos el espacio \((X,T)\) y \(M \subset T\), entonces
+\begin{itemize}
+\item \(t \in X\) es un punto \textbf{interior} a \(M\) (\(t \in int(M)\))
+si existe algún entorno \(V \subset M\) [\(V \cap M \neq \emptyset\)].
+\item \(t \in X\) es un punto \textbf{exterior} a \(M\) (\(t \in ext(M)\)) si existe un 
+entorno \(V\) de \(t\) que no corta a \(M\) [\(V \cap M = \emptyset\)].
+\item \(t \in X\) es un punto \textbf{frontera} (\(t \in front(M)\)) si para todo
+entorno \(V\), \(V \cap M \neq \emptyset\) y \(V \cap (X-M) \neq \emptyset\).
+\end{itemize}
+
+El interior de \(M\), \(int(M)\) es el mayor abierto contenido en \(M\).
+\(ext(M)\) también es un conjunto abierto, y \(front(M)\) es siempre
+cerrado.
+
+De esta clasificación pueden crearse más definiciones.
+\begin{itemize}
+\item \(t \in X\) es \textbf{adherente} a \(M\) si para todo entorno \(V(t)\) es \(V
+  \cap M \neq \emptyset\). \(adh(M) = \overline{M} = int(M) \cup front(M)\).
+\begin{itemize}
+\item \(t \in X\) es un punto de \textbf{acumulación} de \(M\) si todo entorno \(V(t)\)
+corta a \(M\) en algún punto distinto de \(t\); es decir, \((V-\{ t
+    \})\cap M \neq \emptyset\). El conjunto de puntos de acumulación se
+denomina \textbf{derivado} de \(M\), o \(der(M)\).
+\item \(t \in X\) es \textbf{aislado} cuando existe algún entorno \(V(t)\) tal que
+\((V - \{ t \}) \cap M = \emptyset\).
+\end{itemize}
+\end{itemize}
+
+En \(((X,T)\), un conjunto \(M\) es cerrado sii contiene todos sus puntos de
+acumulación. 
+
+En un espacio \((X,T)\) un subconjunto \(M\) es denso en \(X\) si \(adh(M) = X\). Por ejemplo, \(\mathbb{Q}\) es denso en \(\mathbb{R}\),
+porque para todo entorno de \(\mathbb{R}\) siempre hay un racional. Un
+subconjunto es denso sii para todo abierto no vacío \(U \subset X\) se tiene que \(U \cap M \neq \emptyset\).
+
+Un espacio topológico es \textbf{separable} si tiene un subconjunto numerable y denso.
+
+\section{Sucesiones, límites de sucesiones}
+\label{sec:org6267992}
+Una \textbf{sucesión} en un conjunto \(X\) es una aplicación \(s: \mathbb{N}
+  \rightarrow X\;;\;s(i) \mapsto a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
+  = f(a_i) \in Y\). La sucesión \(s(i) = a_i\) se representa por \(\{ a_i \}\).
+
+Dada una sucesión \(\{ a_i \}\) en \(X\), se define \(A_m = \{ a_i \in s
+  \;|\; i \ge m \}\). Se tiene que \(A_m \neq \emptyset\) y \(A_k \subset
+  A_m \cap A_m' \iff k = max(m, m')\).
+
+Si \(X\) es un conjunto, una \textbf{base de filtro X} es una familia \(\mathcal{B}
+  = \{ A_\lambda \} \subset X\) que verifica que (1) \(A_\lambda \neq \emptyset\) y (2) dados \(A_\lambda, A_\mu\) existe \(A_\nu \in \mathcal{B}\) tal que \(A_\nu
+  \subset A_\lambda \cap A_\mu\). En un espacio \((X,T)\), una base de
+entornos \(E(p)\) es una base \(\mathcal{B}\).
+
+Dadas dos bases de filtro \(\mathcal{B}, \mathcal{B}'\), se dice que \(\mathcal{B}'\) es \textbf{más fina} que \(\mathcal{B}\) cuando para todo \(A \in
+\mathcal{B}\), existe \(A' \in \mathcal{B}'\) tal que \(A' \subset A\).
+
+Si \(\mathcal{B} = \{ A_\lambda \}\), las imágenes \(\{ f(A_\lambda) \}\)
+forman una base de filtro en \(Y\), y se representa por \(f(\mathcal{B})\).
+Si \(\mathcal{B}' = \{ A'_\lambda \}\) es una base de filtro en \(Y\) y \(\forall \lambda\; A'_\lambda \cap f(X) \neq \emptyset\), entonces \(\{ f ^{-1}
+(A'_\lambda)\}\) forman una base de filtro en \(X\) y se representa por \(f
+^{-1}(\mathcal{B}')\).
+
+Si consideramos la sucesión \(f: \mathbb{N} \rightarrow 
+\mathbb{N}\), los conjuntos \(\mathbb{N}_m = \{ i \in N \;|\; i \ge m \}\) forman una base de filtro \(\mathcal{F}\) en \(\mathbb{N}\), llamada \textbf{base de filtro de Fréchet}.
+
+\(p\) es el \textbf{punto límite} de \(\{ a_i \}\) si dado un entorno \(U\) de \(p\), existe \(m\) tal que \(A_m \subset U\). Asimismo, \(p\) es un punto límite de \(\mathcal{B}\) en un espacio
+topológico \((X,T)\) si dado un entorno
+\(U\) de \(p\), existe un \(A_\lambda  \in \mathcal{B}\) tal que \(A_\lambda \subset U\). 
+
+Un espacio topológico \((X,T)\) verifica el \textbf{axioma de separación \(T_2\)}
+cuando, dados \(p,q \in X\) existen dos entornos \(U(p), V(q)\) tales que \(U \cap V = \emptyset\). Este espacio se denomina también \textbf{espacio de Hausdorff}. 
+Por ejemplo, \((\mathbb{R}, T_u)\) es de Hausdorff, porque si se toman \(p,q
+\in \mathbb{R}\), y \(d = |p-q|\), entonces \(U = (p-\frac{d }{2}, p+\frac{d
+}{2})\) y \(V = (q-\frac{d }{2}, q+\frac{d
+}{2})\) son disjuntos.
+
+Sea \(\mathcal{B} = \{ A_{\lambda} \}\) una base en un espacio de Hausdorff.
+Si \(\mathcal{B}\) es convergente a \(p\), éste es el único punto límite de
+\(\mathcal{B}\). 
+
+Sea \(s = \{ a_i \}\). \(p \in X\) es un \textbf{punto de aglomeración} de \(s\) si
+se verifica que para todo entorno \(U\) de \(p\) y para todo \(A_m\) de la
+base de filtro de Fréchet de la sucesión, es \(A_m \cap U \neq \emptyset\).
+
+Si \(s = \{ a_i \}\) es una sucesión en \((X,T)\), el conjunto de puntos de
+aglomeración de \(s\) es \(\bigcap_{m \in \mathbb{N}}^{} \{ adh(A_m) \}\).
+
+Si \(\mathcal{B}\) es una base de filtro en \((X,T)\), \(p\) es de
+aglomeración cuando para todo entorno \(U\) de \(p\) y para todo \(A_\lambda \in \mathcal{B}\), \(U \cap A_\lambda \neq \emptyset\).
+ El conjunto \(\cap_\lambda \{ adh(A_m) \}\) es el conjunto de puntos de
+aglomeración de \(\mathcal{B}\).
 \end{document}
