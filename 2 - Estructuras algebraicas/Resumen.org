@@ -310,10 +310,11 @@ tenemos \( m,n \) tal que \( mcd(m,n)=1 \), entonces \( \phi(mn) =
 p_i^{k_i} \), entonces \( \phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1) \)
 
 ** Homomorfismos
-   \defi{2.4} Una aplicación \( f:G \rightarrow G'
+   \defi{2.4 / 2.6} Una aplicación \( f:G \rightarrow G'
 \) es un *homomorfismo de grupos* si \( f(ab) = f(a)f(b) \forall a,b \in G \).
 Para todo homomorfismo se tiene que \( f(1_G) = 1_{G'} \) y \( f(a^{-1}) =
-(f(a))^{-1} \).
+(f(a))^{-1} \). Si un homomorfismo es biyectivo se llama *isomorfismo*. 
+Se denota por \( G \simeq G' \) cuando dos grupos son isomorfos.
 
 \defi{2.4.3}/\propo{2.4.4} El *núcleo* de un homomorfismo es \( ker(f) = \{ a \in G \;|\; f(a) =
 1_{G'} \} \). \( f \) es inyectiva sii \( ker(f) = \{ 1_G \} \).
@@ -344,16 +345,107 @@ g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y) \)
 \), se cumple que (i) \( o(f(x)) \) divide a \( m \)  (ii) Si \( f \) es
 inyectiva, \( o(f(x)) = m \).
 
+\propo{2.5 (Factorización canónica de un homomorfismo)}
 
+Sea \( f: G \rightarrow G
+\) un homomorfismo. Entonces existe un homomorfismo biyectivo \( b: G/ker(f) \rightarrow im(f)
+\) que hace conmutativo el diagrama
+
+\vspace{-2em}
+\begin{center}
 \begin{tikzpicture}[]
-\node (a) at (0,2*1) {$G$};
+\node (a) at (0,2*0.8) {$G$};
 \node (b) at (0,0) {$G/ker(f)$};
-\node (c) at (4*1,0) {$im(f)$};
-\node (d) at (4*1,2*1) {$G'$};
+\node (c) at (4*0.8,0) {$im(f)$};
+\node (d) at (4*0.8,2*0.8) {$G'$};
 
 \draw[->,thick] (a) -- node[above] {$f$} (d);
 \draw[->,thick] (a) -- node[left] {$\pi$} (b);
 \draw[->,thick] (b) -- node[below] {$b$} (c);
 \draw[->,thick] (c) -- node[right] {$j$} (d);
 \end{tikzpicture}
+\end{center}
+\vspace{-2em}
 
+\propo{2.6.X (Propiedades de isomorfismos)} Si \( G \simeq G' \), y \( G \) es
+abeliano o cíclico, entonces \( G' \) también lo es. Si \( X,Y \) son conjuntos
+con el mismo número de elementos, entonces \( Biy(X) \simeq Biy(Y) \).
+
+\cor{2.7 (Primer teorema de la isomorfía)} Si \( f: G \rightarrow  G'
+\) es un homomorfismo, \( G/ker(f) \simeq im(f) \).
+
+\cor{2.8} Todo grupo cíclico es isomorfo a \( \mathbb{Z}
+\) o a \( \mathbb{Z}/m \mathbb{Z}.
+\)
+
+\ejem{2.9.6} Sea \( n \ge 2 \) y \( X = \{ 1, 2, \cdots, n \} \) y \( f_n \in
+S_n = Biy(X) \). Se llama *signatura de f*, \( s(f) \) al número de pares \( (i,j)
+\in X \times X
+\) tales que \( i < j\;\;\; f(i) > (j) \).
+La aplicación \( \epsilon: S_n \rightarrow U_2 = \{ -1,1 \}\;\; f \mapsto
+\epsilon (f) = (-1)^{s(f)}
+\)
+es homomorfismo. Esta fórmula puede ser calculada también así:
+\( \epsilon (f) = \prod_{i < j}^{} \frac{f(i) - f(j)}{i-j} \)
+Se denomina *grupo alternado*, \( A_n \) al núcleo de \( \epsilon \): \( A_n = \{
+f \in S_n \;|\; \epsilon (f) = 1\} \)
+
+\propo{2.10} Si \( G \) es un grupo con \( o(G) < 12 \), para cada dividor \( d
+\) de \( n \) existe un subgrupo \( G, o(G) = d  \). Sin embargo, si \( o(G) \ge
+12 \), no siempre se cumple esto (\( A_4 \) tiene \( o(A_4) = 12 \), pero no
+tiene subgrupos de orden \( 6 \). Esto verifica que el *recíproco del teorema de
+Lagrange no es cierto siempre*. 
+
+** Teoremas de isomorfía
+\propo{2.15 (Segundo teorema de isomorfía)} Sean \( N,H \subset_N G
+\), y \( N \subset H
+\). Entonces \( H/N \subset_N G/N
+\) y \( (G/N)/(H/N) \simeq G/H \)
+
+\propo{2.16 (Tercer teorema de isomorfía} Si \( H,N \subset G
+\), y \( N \subset_N G \), 
+1. \( H \cap N \subset_N H \)
+2. \( HN \subset G  \)
+3. \( N \subset_N HN \)
+4. \( HN/N \simeq H/(H \cap N) \)
+
+\lema{2.17} Sean \( A,B,C \subset G
+\), y \( B \subset A
+\). Entonces \( A \cap BC = B(A \cap C) \)
+
+\propo{2.18 (Cuarto teorema de isomorfía)}. Sea \( H_1, H_2 \subset G
+\), \( N_i \subset_N H_i
+\). Entonces
+- \( N_1(H_1 \cap H_2) \subset H_1
+  \) y \( N_2(H_1 \cap H_2) \subset H_2 \)
+- \(  N_1(H_1 \cap N_2) \subset_N   N_1(H_1 \cap H_2) \) y 
+  \( N_2(N_1 \cap H_2) \subset_N   N_2(H_1 \cap H_2) \)
+- \( (H_1 \cap N_2)(N_1 \cap H_2) \subset_N H_1 \cap H_2
+  \)
+- \( (N_1(H_1 \cap H_2))/(N_1(H_1 \cap N_2)) \simeq (H_1 \cap H_2)/(H_1 \cap
+  N_2)\;(N_1 \cap H_2) \simeq (N_2(H_1 \cap H_2))/(N_2(N_1 \cap H_2)  \)
+
+** Estructura de grupos abelianos finitos
+\lema{2.20} Sea \( G \) grupo abeliano finito y \( x \in G \) un elemento de
+orden máximo. Entonces, para cada \( y \in G \), el orden de \( y \) divide al
+de \( x \).
+
+\lema{2.20.2} Sea \( G \) abeliano finito y \( x \in G \) de orden máximo. Sean
+\( H = \langle x \rangle \) e \( y \in G \), entonces existe \( z \in Hy \) tal
+que \( o(z) = o(Hy) \)
+
+\lema{2.20.3} Sean \( H,K \subset_N G
+\) tales que \( H \cap K = \{ 1 \} \). Entonces \( HK imorf H \times K
+\).
+
+\importante \propo{2.2.1 (Teorema de estructura de grupos abelianos finitos)} Si \( G \) es
+abeliano finito, existen \( m_1, \cdots, m_r \), denominados *coeficientes de
+torsión de G*, tales que \[ G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots
+\times \mathbb{Z}/m_r \mathbb{Z}\] y cada \( m_i \) divide a \( m_{i-1} \).
+Además, los coeficientes son únicos.
+
+\obs{2.22.3} Si \( p_1 < \cdots < p_s \) son primos, todo grupo abeliano de
+orden \( n = p_1 \cdots p_s \) es cíclico.
+
+\propo{2.23} Si \( p \) es primo, \( \mathbb{Z}_p^*
+\) es cíclico.

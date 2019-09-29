@@ -1,4 +1,4 @@
-% Created 2019-09-25 Wed 23:48
+% Created 2019-09-29 Sun 13:49
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:org47c3d8b}
+\label{sec:org2ef7eb2}
 \subsection{Grupos}
-\label{sec:org5f7d641}
+\label{sec:org6a36c99}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -142,7 +142,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:orgfc9b088}
+\label{sec:orgc6d76e5}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -191,7 +191,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:org83c28bd}
+\label{sec:org181dd8f}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -211,7 +211,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:org51d4765}
+\label{sec:org2a1e17e}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -281,7 +281,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org5cf4b6f}
+\label{sec:org57b4ab6}
  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
 \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -340,7 +340,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection{Grupos cocientes}
-\label{sec:org95eb97f}
+\label{sec:org160e593}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -374,10 +374,11 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection{Homomorfismos}
-\label{sec:orgb8c6fe9}
-   \defi{2.4} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
+\label{sec:org813fdca}
+   \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
-(f(a))^{-1}\).
+(f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
+Se denota por \(G \simeq G'\) cuando dos grupos son isomorfos.
 
 \defi{2.4.3}/\propo{2.4.4} El \textbf{núcleo} de un homomorfismo es \(ker(f) = \{ a \in G \;|\; f(a) =
 1_{G'} \}\). \(f\) es inyectiva sii \(ker(f) = \{ 1_G \}\).
@@ -395,38 +396,93 @@ g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y)\)
 \propo{2.4.10} Si \(f\) es un homomorfismo y \(x \in G\) tiene orden \(m\), se cumple que (i) \(o(f(x))\) divide a \(m\)  (ii) Si \(f\) es
 inyectiva, \(o(f(x)) = m\).
 
+\propo{2.5 (Factorización canónica de un homomorfismo)}
 
+Sea \(f: G \rightarrow G\) un homomorfismo. Entonces existe un homomorfismo biyectivo \(b: G/ker(f) \rightarrow im(f)\) que hace conmutativo el diagrama
 
-
-
-
-
+\vspace{-2em}
+\begin{center}
 \begin{tikzpicture}[]
-\node (a) at (0,2*1) {$G$};
+\node (a) at (0,2*0.8) {$G$};
 \node (b) at (0,0) {$G/ker(f)$};
-\node (c) at (4*1,0) {$im(f)$};
-\node (d) at (4*1,2*1) {$G'$};
+\node (c) at (4*0.8,0) {$im(f)$};
+\node (d) at (4*0.8,2*0.8) {$G'$};
 
 \draw[->,thick] (a) -- node[above] {$f$} (d);
 \draw[->,thick] (a) -- node[left] {$\pi$} (b);
 \draw[->,thick] (b) -- node[below] {$b$} (c);
 \draw[->,thick] (c) -- node[right] {$j$} (d);
 \end{tikzpicture}
+\end{center}
+\vspace{-2em}
 
+\propo{2.6.X (Propiedades de isomorfismos)} Si \(G \simeq G'\), y \(G\) es
+abeliano o cíclico, entonces \(G'\) también lo es. Si \(X,Y\) son conjuntos
+con el mismo número de elementos, entonces \(Biy(X) \simeq Biy(Y)\).
 
-Hola aqui hay texto
+\cor{2.7 (Primer teorema de la isomorfía)} Si \(f: G \rightarrow  G'\) es un homomorfismo, \(G/ker(f) \simeq im(f)\).
 
-$\backslash$(
-\begin{tikzpicture}[]
-\node (topleft) at (0,1*4) {\(A\)};
-\node (botleft) at (0,0) {\(B\)};
-\node (botright) at (2*4,0) {\(C\)};
-\node (topright) at (2*4,1*4) {\(D\)};
+\cor{2.8} Todo grupo cíclico es isomorfo a \(\mathbb{Z}\) o a \(\mathbb{Z}/m \mathbb{Z}.\)
 
-\draw[->,thick] (topleft) -- node[above] {\(f_{ad}\)} (topright);
-\draw[->,thick] (topleft) -- node[left] {\(f_{ab}\)} (botleft);
-\draw[->,thick] (botleft) -- node[below] {\(f_{bc}\)} (botright);
-\draw[->,thick] (botright) -- node[right] {\(f_{cd}\)} (topright);
-\end{tikzpicture}
-$\backslash$)
+\ejem{2.9.6} Sea \(n \ge 2\) y \(X = \{ 1, 2, \cdots, n \}\) y \(f_n \in
+S_n = Biy(X)\). Se llama \textbf{signatura de f}, \(s(f)\) al número de pares \((i,j)
+\in X \times X\) tales que \(i < j\;\;\; f(i) > (j)\).
+La aplicación \(\epsilon: S_n \rightarrow U_2 = \{ -1,1 \}\;\; f \mapsto
+\epsilon (f) = (-1)^{s(f)}\)
+es homomorfismo. Esta fórmula puede ser calculada también así:
+\(\epsilon (f) = \prod_{i < j}^{} \frac{f(i) - f(j)}{i-j}\)
+Se denomina \textbf{grupo alternado}, \(A_n\) al núcleo de \(\epsilon\): \(A_n = \{
+f \in S_n \;|\; \epsilon (f) = 1\}\)
+
+\propo{2.10} Si \(G\) es un grupo con \(o(G) < 12\), para cada dividor \(d\) de \(n\) existe un subgrupo \(G, o(G) = d\). Sin embargo, si \(o(G) \ge
+12\), no siempre se cumple esto (\(A_4\) tiene \(o(A_4) = 12\), pero no
+tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teorema de
+Lagrange no es cierto siempre}. 
+
+\subsection{Teoremas de isomorfía}
+\label{sec:org5ba7ab2}
+\propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
+
+\propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
+\begin{enumerate}
+\item \(H \cap N \subset_N H\)
+\item \(HN \subset G\)
+\item \(N \subset_N HN\)
+\item \(HN/N \simeq H/(H \cap N)\)
+\end{enumerate}
+
+\lema{2.17} Sean \(A,B,C \subset G\), y \(B \subset A\). Entonces \(A \cap BC = B(A \cap C)\)
+
+\propo{2.18 (Cuarto teorema de isomorfía)}. Sea \(H_1, H_2 \subset G\), \(N_i \subset_N H_i\). Entonces
+\begin{itemize}
+\item \(N_1(H_1 \cap H_2) \subset H_1\) y \(N_2(H_1 \cap H_2) \subset H_2\)
+\item \(N_1(H_1 \cap N_2) \subset_N   N_1(H_1 \cap H_2)\) y 
+\(N_2(N_1 \cap H_2) \subset_N   N_2(H_1 \cap H_2)\)
+\item \((H_1 \cap N_2)(N_1 \cap H_2) \subset_N H_1 \cap H_2\)
+\item \((N_1(H_1 \cap H_2))/(N_1(H_1 \cap N_2)) \simeq (H_1 \cap H_2)/(H_1 \cap
+  N_2)\;(N_1 \cap H_2) \simeq (N_2(H_1 \cap H_2))/(N_2(N_1 \cap H_2)\)
+\end{itemize}
+
+\subsection{Estructura de grupos abelianos finitos}
+\label{sec:org8441fb6}
+\lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
+orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
+de \(x\).
+
+\lema{2.20.2} Sea \(G\) abeliano finito y \(x \in G\) de orden máximo. Sean
+\(H = \langle x \rangle\) e \(y \in G\), entonces existe \(z \in Hy\) tal
+que \(o(z) = o(Hy)\)
+
+\lema{2.20.3} Sean \(H,K \subset_N G\) tales que \(H \cap K = \{ 1 \}\). Entonces \(HK imorf H \times K\).
+
+\importante \propo{2.2.1 (Teorema de estructura de grupos abelianos finitos)} Si \(G\) es
+abeliano finito, existen \(m_1, \cdots, m_r\), denominados \textbf{coeficientes de
+torsión de G}, tales que \[ G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots
+\times \mathbb{Z}/m_r \mathbb{Z}\] y cada \(m_i\) divide a \(m_{i-1}\).
+Además, los coeficientes son únicos.
+
+\obs{2.22.3} Si \(p_1 < \cdots < p_s\) son primos, todo grupo abeliano de
+orden \(n = p_1 \cdots p_s\) es cíclico.
+
+\propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 \end{document}
