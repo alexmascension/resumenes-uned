@@ -1,4 +1,4 @@
-% Created 2019-09-29 Sun 13:49
+% Created 2019-10-16 Wed 20:26
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:org2ef7eb2}
+\label{sec:org08c8c74}
 \subsection{Grupos}
-\label{sec:org6a36c99}
+\label{sec:org97f1d9e}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -142,7 +142,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:orgc6d76e5}
+\label{sec:orgae8a4ab}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -191,7 +191,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:org181dd8f}
+\label{sec:org9f939fd}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -211,7 +211,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:org2a1e17e}
+\label{sec:orgecd3b88}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -230,7 +230,7 @@ biyectivas. Es importante que pese a existir una biyeccíón entre
 un conjunto infinito. Por otra parte, el índice de \(H\) en \(G\), \([G:H]\) es
  el número de elementos de \(G/R_H\).
 
-\propo{1.12.8 (T de Lagrange)} Sea \(H \subset G\) un subgrupo. Se cumple que 
+\importante \propo{1.12.8 (T de Lagrange)} Sea \(H \subset G\) un subgrupo. Se cumple que 
 si \(G\) es finito, entonces \(o(H)\) es
 finito, \(H\) tiene índice finito en \(G\) y \(o(G) = o(H) \cdot [G:H]\).
 
@@ -245,7 +245,7 @@ son finitos, entonces se cumple \([G:H] = [G:H][H:K]\)
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
 
 
-\defi{1.15} / \obs{1.15.4} Un grupo \(G\) se llama \textbf{cíclico} si existe
+\importante  \defi{1.15} / \obs{1.15.4} Un grupo \(G\) se llama \textbf{cíclico} si existe
  \(a \in G\) tal que \(G
 = \langle a \rangle\). Si \(o(a) = p\), primo, el grupo es cíclico.
 
@@ -281,15 +281,28 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org57b4ab6}
- \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
-\textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
+\label{sec:org7403c26}
+\importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
+ \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
 \item Para todo \(a  \in G\), \(aH = Ha\)
 \item Para todo \(a \in G\), \(H = H^a\)
 \item Para todo \(a,b \in G\), \(ab \in H \iff ba \in H\), luego \(H\) es
 abeliano.
 \end{enumerate}
+
+\dem{ 1 \(\implies\) 2. Si \(y \in H^a\) entonces \( aya ^{-1} = h \in H  \). Como
+\( ay = ha \in Ha = aH \) existe  \( h' \in H \) tal que \( ay = ah' \). 
+Así, \( y \in H^a = h' \in H \iff H^a \subset H \). Si aplicamos lo mismo con \( xa ^{-1}  \)
+ tenemos \( H^{a ^{-1}} \subset H
+\) y, con ello \( H \subset H^a
+\), luego \( H = H^a \).
+2 \(\implies\) 3. Como \( ab \in H \), \( ba = a^{-1}aba \in H^a \), y como \( ba \in H \), \( H = H^a \).
+3 \(\implies\) 1. Sea \( x \in Ha \), luego \( \exists h \in H, x = ha \), y \( xa ^{-1} = h \in H \). 
+Por hipótesis \( h' = a ^{-1}x \in H \) y \( x = ah' \in aH \), luego \( Ha \subset aH
+\). Si empezamos con \( x \in aH \) obtenemos que \( aH \subset Ha
+\), luego \( aH = Ha \). }
+
 
 \obs{2.2.1} Si \(H\) es normal, entonces \(R^H = R_H\), y \(G/R_H\) se
 escribe \(G/H\).
@@ -340,7 +353,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection{Grupos cocientes}
-\label{sec:org160e593}
+\label{sec:orgc1d02ca}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -374,7 +387,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection{Homomorfismos}
-\label{sec:org813fdca}
+\label{sec:org38e3378}
    \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -396,7 +409,7 @@ g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y)\)
 \propo{2.4.10} Si \(f\) es un homomorfismo y \(x \in G\) tiene orden \(m\), se cumple que (i) \(o(f(x))\) divide a \(m\)  (ii) Si \(f\) es
 inyectiva, \(o(f(x)) = m\).
 
-\propo{2.5 (Factorización canónica de un homomorfismo)}
+\importante \propo{2.5 (Factorización canónica de un homomorfismo)}
 
 Sea \(f: G \rightarrow G\) un homomorfismo. Entonces existe un homomorfismo biyectivo \(b: G/ker(f) \rightarrow im(f)\) que hace conmutativo el diagrama
 
@@ -420,9 +433,18 @@ Sea \(f: G \rightarrow G\) un homomorfismo. Entonces existe un homomorfismo biye
 abeliano o cíclico, entonces \(G'\) también lo es. Si \(X,Y\) son conjuntos
 con el mismo número de elementos, entonces \(Biy(X) \simeq Biy(Y)\).
 
-\cor{2.7 (Primer teorema de la isomorfía)} Si \(f: G \rightarrow  G'\) es un homomorfismo, \(G/ker(f) \simeq im(f)\).
+\importante \cor{2.7 (Primer teorema de la isomorfía)} Si \(f: G \rightarrow  G'\) es un homomorfismo, \(G/ker(f) \simeq im(f)\).
 
 \cor{2.8} Todo grupo cíclico es isomorfo a \(\mathbb{Z}\) o a \(\mathbb{Z}/m \mathbb{Z}.\)
+\dem{ Sea \( G = \langle a \rangle  \) cíclico. Consideramos \( f: \mathbb{Z} \rightarrow G: k \rightarrow f(k) = a^k
+\). Como \( f(x+y) = a^{x+y} = a^xa^y = f(x)f(y) \), \( f \) es homomorfismo. 
+Cada elemento \( b \in G \) es de la forma \( a^k \), luego \( f \) es sobreyectiva, 
+es decir, \( im(f) = G \). Por el primer tma de isomorfía tenemos que \( \mathbb{Z}/ker(f) \simeq im(f) \),
+luego \( \mathbb{Z}/ker(f) \simeq G \), y como \( ker(f) \) es subgrupo de \( \mathbb{Z}\), existe \( m \) 
+tal que \( ker(f) = m \mathbb{Z} \). Si \( m = 0 \), \( ker(f) = 0 \mathbb{Z} = \{ 0 \}
+\), y \( \mathbb{Z} \simeq G
+\). Si \( m > 0 \), \( \mathbb{Z}/m \mathbb{Z} \simeq G \).}
+
 
 \ejem{2.9.6} Sea \(n \ge 2\) y \(X = \{ 1, 2, \cdots, n \}\) y \(f_n \in
 S_n = Biy(X)\). Se llama \textbf{signatura de f}, \(s(f)\) al número de pares \((i,j)
@@ -440,7 +462,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection{Teoremas de isomorfía}
-\label{sec:org5ba7ab2}
+\label{sec:org9827530}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -464,7 +486,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection{Estructura de grupos abelianos finitos}
-\label{sec:org8441fb6}
+\label{sec:orgb6e27fd}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
