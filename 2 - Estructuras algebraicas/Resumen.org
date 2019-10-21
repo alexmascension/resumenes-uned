@@ -382,6 +382,19 @@ Sea \( f: G \rightarrow G
 \end{center}
 \vspace{-2em}
 
+#+BEGIN_EXPORT latex
+\dem{ \(f(x) = j((b \circ pi) (x)) = b(\pi(x)) = b(x\; ker(f))\). Comprobamos que se cumple el enunciado. 
+(1) \( b \) está bien definida porque si \( x\; ker(f) = y\; ker(f) \) entonces 
+\( x ^{-1}y \in ker(f)\;,\; f(x) ^{-1}f(y) = 1_{G'} \iff f(y) = f(x)
+\), luego \( b(x \; ker(f)) = b(y \; ker(f)) \). (2) \( b \) es homomorfismo, ya que 
+\( b((x \, ker(f))(y \, ker(f)) = b(xy \, ker(f) = f(xy) = f(x)f(y) =
+b(x \, ker(f))b(y \, ker(f)) \). (3) \( b \) es inyectivo, ya que si \( x \, ker(f) \in ker(b) \)
+entonces \( f(x) = b(x \, ker(f)) = 1_{im(f)} = 1_{G'} \), y \( x in ker(f) \).
+(4) \( b \) es sobreyectiva ya que para cada elemento de \( im(f) \) existe un 
+elemento de la forma \( b(x \, ker(f) \).  }
+#+END_EXPORT
+
+
 \propo{2.6.X (Propiedades de isomorfismos)} Si \( G \simeq G' \), y \( G \) es
 abeliano o cíclico, entonces \( G' \) también lo es. Si \( X,Y \) son conjuntos
 con el mismo número de elementos, entonces \( Biy(X) \simeq Biy(Y) \).
