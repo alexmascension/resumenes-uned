@@ -416,6 +416,9 @@ tal que \( ker(f) = m \mathbb{Z} \). Si \( m = 0 \), \( ker(f) = 0 \mathbb{Z} = 
 \). Si \( m > 0 \), \( \mathbb{Z}/m \mathbb{Z} \simeq G \).}
 #+END_EXPORT
 
+\ejem{2.9.4.4} Si \( n \) es múltiplo de \( m \), existen homomorfismos
+inyectivos y el número de homomorfismos es \( \phi(m) \). Si \( mcd(m,n) = n \),
+existen isomorfismos sobreyectivos y el número es \( \phi(n) \).
 
 \ejem{2.9.6} Sea \( n \ge 2 \) y \( X = \{ 1, 2, \cdots, n \} \) y \( f_n \in
 S_n = Biy(X) \). Se llama *signatura de f*, \( s(f) \) al número de pares \( (i,j)
