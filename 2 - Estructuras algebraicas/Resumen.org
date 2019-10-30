@@ -497,7 +497,6 @@ orden \( n = p_1 \cdots p_s \) es cíclico.
 \propo{2.23} Si \( p \) es primo, \( \mathbb{Z}_p^*
 \) es cíclico.
 
-
 * Grupos abelianos finitamente generados. Generadores relacionales
 ** Teorema de la Estructura
    \importante \defi{7.1} Si \( G \) es un grupo, denotamos \( T(G) = \{ x \in G \;|\; o(x)
@@ -560,3 +559,4 @@ T(G) \times G/T(G)  \). P. ej. en el grupo \( G = \prod_{n \in \mathbb{N}}^{}
 \), si \( T(G) = \{ a \in G \;|\; \text{sop}(a) \text{ es finito} \} \), \(
 \text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
 \}  \) falla en cumplir la isomorfía.
+
