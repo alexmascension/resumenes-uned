@@ -153,7 +153,7 @@ un conjunto infinito. Por otra parte, el índice de \(  H \) en \(  G \), \(
 [G:H] \) es
  el número de elementos de \( G/R_H \).
 
-\propo{1.12.8 (T de Lagrange)} Sea \( H \subset G
+\importante \propo{1.12.8 (T de Lagrange)} Sea \( H \subset G
 \) un subgrupo. Se cumple que 
 si \( G \) es finito, entonces \( o(H) \) es
 finito, \( H \) tiene índice finito en \( G \) y \( o(G) = o(H) \cdot [G:H] \).
@@ -172,7 +172,7 @@ son finitos, entonces se cumple \( [G:H] = [G:H][H:K] \)
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
 
 
-\defi{1.15} / \obs{1.15.4} Un grupo \( G \) se llama *cíclico* si existe
+\importante  \defi{1.15} / \obs{1.15.4} Un grupo \( G \) se llama *cíclico* si existe
  \( a \in G \) tal que \( G
 = \langle a \rangle\). Si \( o(a) = p \), primo, el grupo es cíclico.
 
@@ -210,12 +210,27 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 * Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos
-  \propo{2.1} Sea \( G \) un grupo y \( H \) un subgrupo. \( H \) es un subgrupo
+\importante  \propo{2.1} Sea \( G \) un grupo y \( H \) un subgrupo. \( H \) es un subgrupo
  *normal* (*LO DEFINO AQUÍ COMO* \( \subset_N\)) si se cumplen las condiciones equivalentes:
 1. Para todo \( a  \in G \), \( aH = Ha \)
 2. Para todo \( a \in G \), \( H = H^a \)
 3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego \( H \) es
    abeliano.
+
+#+BEGIN_EXPORT latex
+\dem{ 1 \(\implies\) 2. Si \(y \in H^a\) entonces \( aya ^{-1} = h \in H  \). Como
+\( ay = ha \in Ha = aH \) existe  \( h' \in H \) tal que \( ay = ah' \). 
+Así, \( y \in H^a = h' \in H \iff H^a \subset H \). Si aplicamos lo mismo con \( xa ^{-1}  \)
+ tenemos \( H^{a ^{-1}} \subset H
+\) y, con ello \( H \subset H^a
+\), luego \( H = H^a \).
+2 \(\implies\) 3. Como \( ab \in H \), \( ba = a^{-1}aba \in H^a \), y como \( ba \in H \), \( H = H^a \).
+3 \(\implies\) 1. Sea \( x \in Ha \), luego \( \exists h \in H, x = ha \), y \( xa ^{-1} = h \in H \). 
+Por hipótesis \( h' = a ^{-1}x \in H \) y \( x = ah' \in aH \), luego \( Ha \subset aH
+\). Si empezamos con \( x \in aH \) obtenemos que \( aH \subset Ha
+\), luego \( aH = Ha \). }
+#+END_EXPORT
+
 
 \obs{2.2.1} Si \( H \) es normal, entonces \( R^H = R_H \), y \( G/R_H \) se
 escribe \( G/H \).
@@ -345,7 +360,7 @@ g(f(x))g(f(y)) = (g \circ f)(x) (g \circ f)(y) \)
 \), se cumple que (i) \( o(f(x)) \) divide a \( m \)  (ii) Si \( f \) es
 inyectiva, \( o(f(x)) = m \).
 
-\propo{2.5 (Factorización canónica de un homomorfismo)}
+\importante \propo{2.5 (Factorización canónica de un homomorfismo)}
 
 Sea \( f: G \rightarrow G
 \) un homomorfismo. Entonces existe un homomorfismo biyectivo \( b: G/ker(f) \rightarrow im(f)
@@ -367,16 +382,43 @@ Sea \( f: G \rightarrow G
 \end{center}
 \vspace{-2em}
 
+#+BEGIN_EXPORT latex
+\dem{ \(f(x) = j((b \circ pi) (x)) = b(\pi(x)) = b(x\; ker(f))\). Comprobamos que se cumple el enunciado. 
+(1) \( b \) está bien definida porque si \( x\; ker(f) = y\; ker(f) \) entonces 
+\( x ^{-1}y \in ker(f)\;,\; f(x) ^{-1}f(y) = 1_{G'} \iff f(y) = f(x)
+\), luego \( b(x \; ker(f)) = b(y \; ker(f)) \). (2) \( b \) es homomorfismo, ya que 
+\( b((x \, ker(f))(y \, ker(f)) = b(xy \, ker(f) = f(xy) = f(x)f(y) =
+b(x \, ker(f))b(y \, ker(f)) \). (3) \( b \) es inyectivo, ya que si \( x \, ker(f) \in ker(b) \)
+entonces \( f(x) = b(x \, ker(f)) = 1_{im(f)} = 1_{G'} \), y \( x in ker(f) \).
+(4) \( b \) es sobreyectiva ya que para cada elemento de \( im(f) \) existe un 
+elemento de la forma \( b(x \, ker(f) \).  }
+#+END_EXPORT
+
+
 \propo{2.6.X (Propiedades de isomorfismos)} Si \( G \simeq G' \), y \( G \) es
 abeliano o cíclico, entonces \( G' \) también lo es. Si \( X,Y \) son conjuntos
 con el mismo número de elementos, entonces \( Biy(X) \simeq Biy(Y) \).
 
-\cor{2.7 (Primer teorema de la isomorfía)} Si \( f: G \rightarrow  G'
+\importante \cor{2.7 (Primer teorema de la isomorfía)} Si \( f: G \rightarrow  G'
 \) es un homomorfismo, \( G/ker(f) \simeq im(f) \).
 
 \cor{2.8} Todo grupo cíclico es isomorfo a \( \mathbb{Z}
 \) o a \( \mathbb{Z}/m \mathbb{Z}.
 \)
+#+BEGIN_EXPORT latex
+\dem{ Sea \( G = \langle a \rangle  \) cíclico. Consideramos \( f: \mathbb{Z} \rightarrow G: k \rightarrow f(k) = a^k
+\). Como \( f(x+y) = a^{x+y} = a^xa^y = f(x)f(y) \), \( f \) es homomorfismo. 
+Cada elemento \( b \in G \) es de la forma \( a^k \), luego \( f \) es sobreyectiva, 
+es decir, \( im(f) = G \). Por el primer tma de isomorfía tenemos que \( \mathbb{Z}/ker(f) \simeq im(f) \),
+luego \( \mathbb{Z}/ker(f) \simeq G \), y como \( ker(f) \) es subgrupo de \( \mathbb{Z}\), existe \( m \) 
+tal que \( ker(f) = m \mathbb{Z} \). Si \( m = 0 \), \( ker(f) = 0 \mathbb{Z} = \{ 0 \}
+\), y \( \mathbb{Z} \simeq G
+\). Si \( m > 0 \), \( \mathbb{Z}/m \mathbb{Z} \simeq G \).}
+#+END_EXPORT
+
+\ejem{2.9.4.4} Si \( n \) es múltiplo de \( m \), existen homomorfismos
+inyectivos y el número de homomorfismos es \( \phi(m) \). Si \( mcd(m,n) = n \),
+existen isomorfismos sobreyectivos y el número es \( \phi(n) \).
 
 \ejem{2.9.6} Sea \( n \ge 2 \) y \( X = \{ 1, 2, \cdots, n \} \) y \( f_n \in
 S_n = Biy(X) \). Se llama *signatura de f*, \( s(f) \) al número de pares \( (i,j)
@@ -435,7 +477,7 @@ de \( x \).
 que \( o(z) = o(Hy) \)
 
 \lema{2.20.3} Sean \( H,K \subset_N G
-\) tales que \( H \cap K = \{ 1 \} \). Entonces \( HK imorf H \times K
+\) tales que \( H \cap K = \{ 1 \} \). Entonces \( HK \simeq H \times K
 \).
 
 \importante \propo{2.2.1 (Teorema de estructura de grupos abelianos finitos)} Si \( G \) es
@@ -444,8 +486,77 @@ torsión de G*, tales que \[ G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots
 \times \mathbb{Z}/m_r \mathbb{Z}\] y cada \( m_i \) divide a \( m_{i-1} \).
 Además, los coeficientes son únicos.
 
+\propo{2.22} Sean \( G_1, G_2 \) grupos cíclicos de órdenes \( m \) y \( n \), y 
+\( G = G_1 \times G_2
+\), entonces las afirmaciones (1) \( G \) es cíclico, (2) \( mcd(m,n) = 1 \) son
+equivalentes.
+
 \obs{2.22.3} Si \( p_1 < \cdots < p_s \) son primos, todo grupo abeliano de
 orden \( n = p_1 \cdots p_s \) es cíclico.
 
 \propo{2.23} Si \( p \) es primo, \( \mathbb{Z}_p^*
 \) es cíclico.
+
+
+* Grupos abelianos finitamente generados. Generadores relacionales
+** Teorema de la Estructura
+   \importante \defi{7.1} Si \( G \) es un grupo, denotamos \( T(G) = \{ x \in G \;|\; o(x)
+   \text{ es finito} \} \). \( G \) tiene *torsión* si \( T(G) \neq \{ 1 \} \).
+1. Si \( G \) es abeliano, \( T(G) \subset G
+   \) ya que \( o(1) = 1 \), y si \( x,y \in T(G) \), \( o(xy ^{-1}) |
+   mcm(o(x),o(y)) \), luego \( o(xy) = o(xy ^{-1}) \) es finito y \( xy ^{-1} \in
+   T(G)\).
+2. El cociente \( G/T(G) \) no tiene torsión.
+3. Si \( G \) no es abeliano, \( T(G) \) no tiene por qué ser subgrupo de \( G
+   \).
+4. El grupo \( G = \mathbb{Z} \times \cdots \times \mathbb{Z}
+   \) no tiene torsión
+5. Si \( G \) es finito, \( G = T(G) \) ya que \( \forall x \in G, x^{O(G)} = 1
+   \).
+6. Si \( G \) es infinito, puede ser que \( G = T(G) \).
+7. Si \( G \) es abeliano y \( K \subset G
+   \), \( T(K) = K \cap T(G) \). Si \( K \) no tiene torsión, \( K \cap T(G) = \{
+   1 \} \), y si \( G \) no tiene torsión, \( K \) tampoco la tiene.
+8. Si \( K = T(G) \), \( T(T(G)) = T(K) =  K \cap T(G) = T(G) \)
+
+\ejem{7.2 / 7.3} Si \( G = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
+\mathbb{Z}/m_r \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}
+\), entonces \( T(G) = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
+\mathbb{Z}/m_r \mathbb{Z} \times \{0\} \times \cdots \times \{0\}
+\) y \( T(G) =\mathbb{Z} \times \cdots \times \mathbb{Z}  \)
+
+\obs{7.4} Si \( \phi: G_1 \rightarrow G_2
+\) es un isomorfismo entre grupos abelianos, las aplicaciones \( \phi|_{T(G_1)}:
+T(G_1) \rightarrow T(G_2): x \mapsto \phi(x)
+\) y \( \psi: G_1/T(G_1) \rightarrow G_2/T(G_2): x + T(G_1) \mapsto \phi(x) + T(G_2)
+\) también son isomorfismos
+
+\lema{7.5} Sea \( \{ x_1, \cdots, x_k \} \) un sistema generador minimal de \( G
+\). Si existen enteros no nulos \( m_1, \cdots, m_k \), tales que \( \prod
+x_i^{m_i} = 1 \), entonces \( G \) tiene torsión.
+
+\lema{7.6} Sea \( G \) abeliano, sin torsión y finitamente generado. Si \( n \)
+es el mínimo número de generadores de \( G \), existen subgrupos de \( G \) cíclicos \(
+H_1, \cdots, H_n \simeq \mathbb{Z}
+\) tales que \( G = H_1 \cdots H_n \simeq H_1 \times \cdots \times H_n
+\) 
+
+\importante\propo{7.7 (Teorema de estructura de grupos abelianos finitamente generados)}
+Sea \( G \) abeliano finitamente generado. Existen enteros no negativos \( n,r
+\), y si \( n \neq 0 \), enteros positivos \( m_1, \cdots, m_n \), todos únicos,
+ tales que 
+1. \( G \simeq  \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
+    \mathbb{Z}/m_n \mathbb{Z} \times \mathbb{Z} \times \cdots_r \times \mathbb{Z}
+   \)
+2. \( m_i \) divide a \( m_{i-1} \) para cada \( 2 \le i \le n \).
+3. \( T(G) \simeq  \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
+   \mathbb{Z}/m_n \) y \( r = \beta(G) = \) número de Betti de \( G \).
+4. \( G \simeq T(G) \times G/T(G)
+   \).
+
+\ejem{7.8} Si \( G \) no es finítamente generado, puede ser que \( G \not\simeq
+T(G) \times G/T(G)  \). P. ej. en el grupo \( G = \prod_{n \in \mathbb{N}}^{}
+\mathbb{Z}/p_n \mathbb{Z}
+\), si \( T(G) = \{ a \in G \;|\; \text{sop}(a) \text{ es finito} \} \), \(
+\text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
+\}  \) falla en cumplir la isomorfía.
