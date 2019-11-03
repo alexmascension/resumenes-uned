@@ -522,19 +522,11 @@ orden \( n = p_1 \cdots p_s \) es cíclico.
 \mathbb{Z}/m_r \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}
 \), entonces \( T(G) = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
 \mathbb{Z}/m_r \mathbb{Z} \times \{0\} \times \cdots \times \{0\}
-\) y \( T(G) =\mathbb{Z} \times \cdots \times \mathbb{Z}  \)
+\) y \( G/T(G) =\mathbb{Z} \times \cdots \times \mathbb{Z}  \)
 
-\obs{7.4} Si \( \phi: G_1 \rightarrow G_2
-\) es un isomorfismo entre grupos abelianos, las aplicaciones \( \phi|_{T(G_1)}:
-T(G_1) \rightarrow T(G_2): x \mapsto \phi(x)
-\) y \( \psi: G_1/T(G_1) \rightarrow G_2/T(G_2): x + T(G_1) \mapsto \phi(x) + T(G_2)
-\) también son isomorfismos
-
-\lema{7.5} Sea \( \{ x_1, \cdots, x_k \} \) un sistema generador minimal de \( G
+\lema{7.5/7.6} Sea \( \{ x_1, \cdots, x_k \} \) un sistema generador minimal de \( G
 \). Si existen enteros no nulos \( m_1, \cdots, m_k \), tales que \( \prod
-x_i^{m_i} = 1 \), entonces \( G \) tiene torsión.
-
-\lema{7.6} Sea \( G \) abeliano, sin torsión y finitamente generado. Si \( n \)
+x_i^{m_i} = 1 \), entonces \( G \) tiene torsión. Sea \( G \) abeliano, sin torsión y finitamente generado. Si \( n \)
 es el mínimo número de generadores de \( G \), existen subgrupos de \( G \) cíclicos \(
 H_1, \cdots, H_n \simeq \mathbb{Z}
 \) tales que \( G = H_1 \cdots H_n \simeq H_1 \times \cdots \times H_n
@@ -547,7 +539,7 @@ Sea \( G \) abeliano finitamente generado. Existen enteros no negativos \( n,r
 1. \( G \simeq  \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
     \mathbb{Z}/m_n \mathbb{Z} \times \mathbb{Z} \times \cdots_r \times \mathbb{Z}
    \)
-2. \( m_i \) divide a \( m_{i-1} \) para cada \( 2 \le i \le n \).
+2. \( m_i \) divide a \( m_{i-1} \) para cada \( 2 \le i \le n \). 
 3. \( T(G) \simeq  \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
    \mathbb{Z}/m_n \) y \( r = \beta(G) = \) número de Betti de \( G \).
 4. \( G \simeq T(G) \times G/T(G)
@@ -560,3 +552,104 @@ T(G) \times G/T(G)  \). P. ej. en el grupo \( G = \prod_{n \in \mathbb{N}}^{}
 \text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
 \}  \) falla en cumplir la isomorfía.
 
+** Generadores y relaciones
+   \propo{7.10} Sea \( G \) abeliano y finitamente generado, con \( S = \{ x_1,
+   \cdots, x_n \} \) un sistema de generadores. Sea \( f_S \) el homomorfismo 
+\( f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
+   m_nx_n
+\) y sea \( R(S) \) = \( ker(f_s) \).
+Vemos que \( ker(f_S) \) es el conjunto que hace que \( m_1x_1 + \cdots + m_nx_n = 0
+   \).
+\( R(S) \) se denomina el *subgrupo de relaciones de \( G \)*. Definimos \( R = \{
+   r_1, \cdots, r_l \} \) como el sistema generador de \( R(S) \). El par \( (R,S) \)
+   se denomina *presentación de \( G \) mediante generadores y relaciones*.
+
+Se demuestra que \( R(S) \simeq \mathbb{Z}^k, k \le n
+\), y \( \beta(G) = n - k \).
+
+\propo{7.13} Sea \( G \) un grupo abeliano finitamente generado por \( S = \{
+x_1, \cdots, x_n \} \). Entonces se cumple que  \( S = \{ x_1, \cdots,
+-x_i, \cdots, x_n\} \) también es sistema generador, y si \( \lambda _2, \cdots, \lambda _n \) son
+enteros, y \( y_1 = x_1 + \lambda_2 x_2 + \cdots + \lambda _n x_n \), entonces \( S = \{
+y_1, x_2, \cdots, x_n \} \) también es un sistema generador.
+
+\propo{7.14} Sea \( (S,R) \) una presentación de \( G \), entonces se pueden
+obtener los coeficientes de torsión y el coeficiente de Betti mediante el
+siguiente algoritmo.
+
+*PASO 1* Dados \( S=\{ x_1, \cdots, x_n \} \) y \( R = \{ r_1, \cdots, r_k \}\), escribimos la
+matriz M(S,R)
+\[   M(S,R) =  \begin{bmatrix}
+a_{11} &  \cdots  &  a_{1n} \\ 
+\vdots
+&   &  \vdots \\
+a_{k1} & \cdots &  a_{kn} \\ 
+\end{bmatrix}    \]
+Permutamos filas y columnas para que \( a_{11} \) sea el elemento con menor
+valor absoluto (\( a_{11} \neq 0 \). Ahora dividimos \( a_{1j} = \lambda_{1}
+a_{11} + b_{1j} \), con \( 0 \le b_{ij} < a_{11} \).
+
+Entonces, \( a_{11}x_1 + \cdots + a_{1n}x_n = a_{11}x_1 + (\lambda_2a_{11} + b_{12})
+x_2 + \cdots + (\lambda _n a_{11} + b_{1n}) x_n = a_{11}[x_1 + \lambda _2x_2 + \cdots + \lambda _nx_n] +
+b_{12}x_2 + \cdots + b_{1n}x_n =   a_{11}[y_1] +
+b_{12}x_2 + \cdots + b_{1n}x_n = 0 \), y \( S = [y_1, x_2, \cdots, x_n] \) es un sistema
+generador, con \( r_1^* = (a_{11}, b_{12}, \cdots, b_{1n} \). Repetir con todas las
+filas (\( r_i \)), aplicando los \( \lambda \) obtenidos en la fila 1;
+ y ordenar la primera fila  posicionando \( b_{1l} \), el
+elemento más pequeño de la fila, en primer lugar.
+
+Si b_{1l} no divide a todos los \( a_{11}, b_{12}, \cdots, b_{1n} \), repetimos el
+paso hasta que pase. Entonces, renombramos la matriz
+\[   \begin{bmatrix}
+b_{1l} &  b_{12} &  \cdots  &  a_{11} &  \cdots  &  b_{1n} \\ 
+\vdots &  \vdots &   &  \vdots&   &  \vdots \\ 
+b_{kl} &  b_{k2} &  \cdots  &  a_{k1} &  \cdots  &  b_{kn} \\ 
+\end{bmatrix}   \rightarrow \begin{bmatrix}
+a_{11} &  \cdots  &  a_{1n} \\ 
+\vdots
+&   &  \vdots \\
+a_{k1} & \cdots &  a_{kn} \\ 
+\end{bmatrix}
+\]
+*PASO 2* Dividimos \( a_{i1} = a_{11}q_{i} + c_{i1} \). Si \( c_{i1} = 0 \) para
+todas las filas, ya hemos terminado. En caso contrario, el sistema \( R^* =
+\{r_1, r_2 - q_2r_1, \cdots, r_k - q_kr_1\} \) es generador de \( R(S) \). Se repite
+el paso, poniendo a \( c_{l1} \) como primer elemento de la matriz, hasta
+converger (lo mismo que el PASO 1, pero en filas). Así, obtenemos la matriz
+\[ M =  \begin{bmatrix}
+a_{11} &  0 &   &  0 \\ 
+0 &  b_{22} &  \cdots  &  b_{2n} \\ 
+\cdots &  \cdots  &   &  \cdots  \\ 
+0 &  b_{k2} &  \cdots  &  b_{kn} \\ 
+\end{bmatrix}  \]
+*PASO 3* Si \( a_{11} \) no divide a algún \( b_{ij} \), hacemos \( r_1 = r_1 + r_i \)
+ y repetimos el paso 1 hasta que todos los elementos \( b \) sean divisibles por
+\( a_{11} \).
+
+*PASO 4/5* Sometemos a la submatriz de elementos \( b \) el mismo procedimiento que
+ a la inicial, y llegamos a una presentación. Repitiendo, obtenemos la matrix de
+ la derecha
+\[ M(S_1, R_1) =  \begin{bmatrix}
+a_{22} &  0 &   &  0 \\ 
+0 &  c_{33} &  \cdots  &  c_{3n} \\ 
+\cdots &  \cdots  &   &  \cdots  \\ 
+0 &  c_{k3} &  \cdots  &  c_{kn} \\ 
+\end{bmatrix} \rightarrow 
+M(S,R) =
+ \begin{bmatrix}
+a_{11} &  0 &   &  0 \\ 
+0 &  b_{22} &  \cdots  & 0} \\ 
+\cdots &  \cdots  &   &    \\ 
+0 &  0} &  & C \\ 
+\end{bmatrix} \rightarrow  
+M(\hat{S}, \hat{R}) =  \begin{bmatrix}
+a_{11} &  \cdots  &  0 &  0 &  \cdots  &  0 \\ 
+0 &  \ddots  &  0 &  0 &  \cdots  &  0 \\ 
+\vdots  &   &  \vdots 
+&  \vdots 
+&   &  \vdots \\ 
+0 &  \cdots  &  a_kk &  0 &  \cdots  &  0 \\ 
+\end{bmatrix} \]
+Si tomamos \( m_1 = a_{kk}, \cdots , m_{k-1} = a_{22}, m_k = a_{11} \), los
+ coeficientes de torsión de \( G \), entonces
+tenemos que \( G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \mathbb{Z}/m_k \mathbb{Z} \times \mathbb{Z}^{n-k}\), y \( \beta(G) = n-k \).

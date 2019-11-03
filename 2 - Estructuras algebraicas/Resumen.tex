@@ -1,4 +1,4 @@
-% Created 2019-10-30 Wed 23:21
+% Created 2019-11-03 Sun 22:59
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:org3810a6d}
+\label{sec:org76a36cd}
 \subsection{Grupos}
-\label{sec:org3de27fb}
+\label{sec:org6b9fbb5}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -142,7 +142,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:org6234c02}
+\label{sec:org11c4410}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -191,7 +191,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:org5db3802}
+\label{sec:org1055127}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -211,7 +211,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:org78a1bc6}
+\label{sec:orga21e892}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -281,7 +281,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:orgec08511}
+\label{sec:org4aeb5a6}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -353,7 +353,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection{Grupos cocientes}
-\label{sec:org902f806}
+\label{sec:org9685730}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -387,7 +387,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection{Homomorfismos}
-\label{sec:org567c9b1}
+\label{sec:org6314351}
    \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -476,7 +476,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection{Teoremas de isomorfía}
-\label{sec:org12e2340}
+\label{sec:org328dc2d}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -500,7 +500,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection{Estructura de grupos abelianos finitos}
-\label{sec:orgbda58c1}
+\label{sec:orgc850b38}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -527,9 +527,9 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
 \section{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org35ad89d}
+\label{sec:org7385999}
 \subsection{Teorema de la Estructura}
-\label{sec:org16c520f}
+\label{sec:org52eeb42}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -548,15 +548,10 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 
 \ejem{7.2 / 7.3} Si \(G = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
 \mathbb{Z}/m_r \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}\), entonces \(T(G) = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
-\mathbb{Z}/m_r \mathbb{Z} \times \{0\} \times \cdots \times \{0\}\) y \(T(G) =\mathbb{Z} \times \cdots \times \mathbb{Z}\)
+\mathbb{Z}/m_r \mathbb{Z} \times \{0\} \times \cdots \times \{0\}\) y \(G/T(G) =\mathbb{Z} \times \cdots \times \mathbb{Z}\)
 
-\obs{7.4} Si \(\phi: G_1 \rightarrow G_2\) es un isomorfismo entre grupos abelianos, las aplicaciones \(\phi|_{T(G_1)}:
-T(G_1) \rightarrow T(G_2): x \mapsto \phi(x)\) y \(\psi: G_1/T(G_1) \rightarrow G_2/T(G_2): x + T(G_1) \mapsto \phi(x) + T(G_2)\) también son isomorfismos
-
-\lema{7.5} Sea \(\{ x_1, \cdots, x_k \}\) un sistema generador minimal de \(G\). Si existen enteros no nulos \(m_1, \cdots, m_k\), tales que \(\prod
-x_i^{m_i} = 1\), entonces \(G\) tiene torsión.
-
-\lema{7.6} Sea \(G\) abeliano, sin torsión y finitamente generado. Si \(n\)
+\lema{7.5/7.6} Sea \(\{ x_1, \cdots, x_k \}\) un sistema generador minimal de \(G\). Si existen enteros no nulos \(m_1, \cdots, m_k\), tales que \(\prod
+x_i^{m_i} = 1\), entonces \(G\) tiene torsión. Sea \(G\) abeliano, sin torsión y finitamente generado. Si \(n\)
 es el mínimo número de generadores de \(G\), existen subgrupos de \(G\) cíclicos \(H_1, \cdots, H_n \simeq \mathbb{Z}\) tales que \(G = H_1 \cdots H_n \simeq H_1 \times \cdots \times H_n\) 
 
 \importante\propo{7.7 (Teorema de estructura de grupos abelianos finitamente generados)}
@@ -575,4 +570,104 @@ Sea \(G\) abeliano finitamente generado. Existen enteros no negativos \(n,r\), y
 T(G) \times G/T(G)\). P. ej. en el grupo \(G = \prod_{n \in \mathbb{N}}^{}
 \mathbb{Z}/p_n \mathbb{Z}\), si \(T(G) = \{ a \in G \;|\; \text{sop}(a) \text{ es finito} \}\), \(\text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
 \}\) falla en cumplir la isomorfía.
+
+\subsection{Generadores y relaciones}
+\label{sec:orgf68a61d}
+   \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
+   \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
+\(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
+   m_nx_n\) y sea \(R(S)\) = \(ker(f_s)\).
+Vemos que \(ker(f_S)\) es el conjunto que hace que \(m_1x_1 + \cdots + m_nx_n = 0\).
+\(R(S)\) se denomina el \textbf{subgrupo de relaciones de \(G\)}. Definimos \(R = \{
+   r_1, \cdots, r_l \}\) como el sistema generador de \(R(S)\). El par \((R,S)\)
+   se denomina \textbf{presentación de \(G\) mediante generadores y relaciones}.
+
+Se demuestra que \(R(S) \simeq \mathbb{Z}^k, k \le n\), y \(\beta(G) = n - k\).
+
+\propo{7.13} Sea \(G\) un grupo abeliano finitamente generado por \(S = \{
+x_1, \cdots, x_n \}\). Entonces se cumple que  \(S = \{ x_1, \cdots,
+-x_i, \cdots, x_n\}\) también es sistema generador, y si \(\lambda _2, \cdots, \lambda _n\) son
+enteros, y \(y_1 = x_1 + \lambda_2 x_2 + \cdots + \lambda _n x_n\), entonces \(S = \{
+y_1, x_2, \cdots, x_n \}\) también es un sistema generador.
+
+\propo{7.14} Sea \((S,R)\) una presentación de \(G\), entonces se pueden
+obtener los coeficientes de torsión y el coeficiente de Betti mediante el
+siguiente algoritmo.
+
+\textbf{PASO 1} Dados \(S=\{ x_1, \cdots, x_n \}\) y \(R = \{ r_1, \cdots, r_k \}\), escribimos la
+matriz M(S,R)
+\[   M(S,R) =  \begin{bmatrix}
+a_{11} &  \cdots  &  a_{1n} \\ 
+\vdots
+&   &  \vdots \\
+a_{k1} & \cdots &  a_{kn} \\ 
+\end{bmatrix}    \]
+Permutamos filas y columnas para que \(a_{11}\) sea el elemento con menor
+valor absoluto (\(a_{11} \neq 0\). Ahora dividimos \(a_{1j} = \lambda_{1}
+a_{11} + b_{1j}\), con \(0 \le b_{ij} < a_{11}\).
+
+Entonces, \(a_{11}x_1 + \cdots + a_{1n}x_n = a_{11}x_1 + (\lambda_2a_{11} + b_{12})
+x_2 + \cdots + (\lambda _n a_{11} + b_{1n}) x_n = a_{11}[x_1 + \lambda _2x_2 + \cdots + \lambda _nx_n] +
+b_{12}x_2 + \cdots + b_{1n}x_n =   a_{11}[y_1] +
+b_{12}x_2 + \cdots + b_{1n}x_n = 0\), y \(S = [y_1, x_2, \cdots, x_n]\) es un sistema
+generador, con \(r_1^* = (a_{11}, b_{12}, \cdots, b_{1n}\). Repetir con todas las
+filas (\(r_i\)), aplicando los \(\lambda\) obtenidos en la fila 1;
+ y ordenar la primera fila  posicionando \(b_{1l}\), el
+elemento más pequeño de la fila, en primer lugar.
+
+Si b\textsubscript{1l} no divide a todos los \(a_{11}, b_{12}, \cdots, b_{1n}\), repetimos el
+paso hasta que pase. Entonces, renombramos la matriz
+\[   \begin{bmatrix}
+b_{1l} &  b_{12} &  \cdots  &  a_{11} &  \cdots  &  b_{1n} \\ 
+\vdots &  \vdots &   &  \vdots&   &  \vdots \\ 
+b_{kl} &  b_{k2} &  \cdots  &  a_{k1} &  \cdots  &  b_{kn} \\ 
+\end{bmatrix}   \rightarrow \begin{bmatrix}
+a_{11} &  \cdots  &  a_{1n} \\ 
+\vdots
+&   &  \vdots \\
+a_{k1} & \cdots &  a_{kn} \\ 
+\end{bmatrix}
+\]
+\textbf{PASO 2} Dividimos \(a_{i1} = a_{11}q_{i} + c_{i1}\). Si \(c_{i1} = 0\) para
+todas las filas, ya hemos terminado. En caso contrario, el sistema \(R^* =
+\{r_1, r_2 - q_2r_1, \cdots, r_k - q_kr_1\}\) es generador de \(R(S)\). Se repite
+el paso, poniendo a \(c_{l1}\) como primer elemento de la matriz, hasta
+converger (lo mismo que el PASO 1, pero en filas). Así, obtenemos la matriz
+\[ M =  \begin{bmatrix}
+a_{11} &  0 &   &  0 \\ 
+0 &  b_{22} &  \cdots  &  b_{2n} \\ 
+\cdots &  \cdots  &   &  \cdots  \\ 
+0 &  b_{k2} &  \cdots  &  b_{kn} \\ 
+\end{bmatrix}  \]
+\textbf{PASO 3} Si \(a_{11}\) no divide a algún \(b_{ij}\), hacemos \(r_1 = r_1 + r_i\)
+ y repetimos el paso 1 hasta que todos los elementos \(b\) sean divisibles por
+\(a_{11}\).
+
+\textbf{PASO 4/5} Sometemos a la submatriz de elementos \(b\) el mismo procedimiento que
+ a la inicial, y llegamos a una presentación. Repitiendo, obtenemos la matrix de
+ la derecha
+\[ M(S_1, R_1) =  \begin{bmatrix}
+a_{22} &  0 &   &  0 \\ 
+0 &  c_{33} &  \cdots  &  c_{3n} \\ 
+\cdots &  \cdots  &   &  \cdots  \\ 
+0 &  c_{k3} &  \cdots  &  c_{kn} \\ 
+\end{bmatrix} \rightarrow 
+M(S,R) =
+ \begin{bmatrix}
+a_{11} &  0 &   &  0 \\ 
+0 &  b_{22} &  \cdots  & 0} \\ 
+\cdots &  \cdots  &   &    \\ 
+0 &  0} &  & C \\ 
+\end{bmatrix} \rightarrow  
+M(\hat{S}, \hat{R}) =  \begin{bmatrix}
+a_{11} &  \cdots  &  0 &  0 &  \cdots  &  0 \\ 
+0 &  \ddots  &  0 &  0 &  \cdots  &  0 \\ 
+\vdots  &   &  \vdots 
+&  \vdots 
+&   &  \vdots \\ 
+0 &  \cdots  &  a_kk &  0 &  \cdots  &  0 \\ 
+\end{bmatrix} \]
+Si tomamos \(m_1 = a_{kk}, \cdots , m_{k-1} = a_{22}, m_k = a_{11}\), los
+ coeficientes de torsión de \(G\), entonces
+tenemos que \(G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \mathbb{Z}/m_k \mathbb{Z} \times \mathbb{Z}^{n-k}\), y \(\beta(G) = n-k\).
 \end{document}
