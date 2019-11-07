@@ -552,6 +552,11 @@ T(G) \times G/T(G)  \). P. ej. en el grupo \( G = \prod_{n \in \mathbb{N}}^{}
 \text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
 \}  \) falla en cumplir la isomorfía.
 
+\ejer{123} Un grupo abeliano \( G \) es *libre* si existe algún conjunto \( I \) no vacío 
+tal que \( G \simeq \mathbb{Z}^{(I)} \). [Wikipedia: si todo elemento de \( G \) puede
+escribirse de forma única como producto de finitos elementos de \( I  \) y sus inversos.
+ 
+
 ** Generadores y relaciones
    \propo{7.10} Sea \( G \) abeliano y finitamente generado, con \( S = \{ x_1,
    \cdots, x_n \} \) un sistema de generadores. Sea \( f_S \) el homomorfismo 
@@ -564,9 +569,6 @@ Vemos que \( ker(f_S) \) es el conjunto que hace que \( m_1x_1 + \cdots + m_nx_n
    r_1, \cdots, r_l \} \) como el sistema generador de \( R(S) \). El par \( (R,S) \)
    se denomina *presentación de \( G \) mediante generadores y relaciones*.
 
-Se demuestra que \( R(S) \simeq \mathbb{Z}^k, k \le n
-\), y \( \beta(G) = n - k \).
-
 \propo{7.13} Sea \( G \) un grupo abeliano finitamente generado por \( S = \{
 x_1, \cdots, x_n \} \). Entonces se cumple que  \( S = \{ x_1, \cdots,
 -x_i, \cdots, x_n\} \) también es sistema generador, y si \( \lambda _2, \cdots, \lambda _n \) son
@@ -574,82 +576,117 @@ enteros, y \( y_1 = x_1 + \lambda_2 x_2 + \cdots + \lambda _n x_n \), entonces \
 y_1, x_2, \cdots, x_n \} \) también es un sistema generador.
 
 \propo{7.14} Sea \( (S,R) \) una presentación de \( G \), entonces se pueden
-obtener los coeficientes de torsión y el coeficiente de Betti mediante el
-siguiente algoritmo.
+obtener los coeficientes de torsión y el coeficiente de Betti mediante un ejemplo (aborrezco el 
+algoritmo en forma de matriz).
 
-*PASO 1* Dados \( S=\{ x_1, \cdots, x_n \} \) y \( R = \{ r_1, \cdots, r_k \}\), escribimos la
-matriz M(S,R)
-\[   M(S,R) =  \begin{bmatrix}
-a_{11} &  \cdots  &  a_{1n} \\ 
-\vdots
-&   &  \vdots \\
-a_{k1} & \cdots &  a_{kn} \\ 
-\end{bmatrix}    \]
-Permutamos filas y columnas para que \( a_{11} \) sea el elemento con menor
-valor absoluto (\( a_{11} \neq 0 \). Ahora dividimos \( a_{1j} = \lambda_{1}
-a_{11} + b_{1j} \), con \( 0 \le b_{ij} < a_{11} \).
+Tomamos el sistema de la izquierda. El término más pequeño es \( 3x \). 
+Procuramos obtener que todos los términos de 
+\( x \) sean divisibles entre sí. En este caso lo hemos conseguido en un paso,
+pero si no se consigue, se repite tantas veces como sea necesario.
+#+BEGIN_EXPORT latex
+$$\begin{cases}
+7x+11y+13z+5u =  0 \\ 
+3x+11y+7z+14u = 0 \\ 
+5x+7y+11z+7u = 0 \\ 
+\end{cases} \xrightarrow[r_1:r_1-2r_2]{r_3:r_3-r_1}  
+\begin{cases}
+x+y-z-u =  0 \\
+3x+11y+7z+14u = 0 \\
+2x+2y+4z+3u = 0 \\
+\end{cases}$$
+#+END_EXPORT
+Ahora creamos la variable \( a = x + y - z - u \), y reescribimos el resto de
+ecuaciones en función de \( a \).
+#+BEGIN_EXPORT latex
+$$\begin{cases}
+x+y-z-u =  0 \\ 
+3(x+y-z-u)+8y+10z +17u= 0 \\ 
+2(x+y-z-u) + 6z +5u = 0 \\ 
+\end{cases} \rightarrow 
+\begin{cases}
+\textcolor{blue}{a =  0} \\ 
+3a+8y+10z+17u = 0 \\ 
+2a + 6z +5u = 0 \\ 
+\end{cases} \rightarrow
+\begin{cases} 
+10z + 17u + 8y= 0 \\ 
+6z +5u = 0 \\ 
+\end{cases}$$
+#+END_EXPORT
+Ahora tenemos un sistema ya reducido a dos relaciones y tres elementos. Aunque \( 5u \)
+es el menor elemento, vamos a seguir con \( 6z \), ya que el resultado será el
+mismo (demostración). El primer paso será obtener factores múltiplos entre sí para la columna
+de \( z \).
+#+BEGIN_EXPORT latex
+$$\begin{cases}
+10z+17u+8y=0\\
+6z+5u=0\\
+\end{cases} \xrightarrow{r_1:r_1-r_2}
+\begin{cases}
+4z+12u+8y=0\\
+6z+5u=0\\
+\end{cases} \xrightarrow{r_2:r_2-r_1} 
+\begin{cases}
+4z+12u+8y=0\\
+2z-7u=0\\
+\end{cases}$$
+#+END_EXPORT
+Ahora \( r_2 \) ya puede eliminarse. Sin embargo, los términos \( 2z \) y \( 7u\)
+ no son múltiplos, así que habrá que reducir la expresión.
+#+BEGIN_EXPORT latex
+$$\begin{cases}
+4(z-4u)+28u+8y=0\\
+2(z-4u)+u=0\\
+\end{cases}
+\rightarrow 
+\begin{cases}
+28u+4b+8y=0\\
+u+2b=0\\
+\end{cases}
+ \rightarrow 
+\begin{cases}
+28(u+2b)-52b+8y=0\\
+u+2b=0\\
+\end{cases}
+\rightarrow 
+\begin{cases}
+28c-52b+8y=0\\
+\textcolor{blue}{c=0}\\
+\end{cases}$$
+#+END_EXPORT
+Ahora sólo nos queda \( 8y-52b=0 \), que se simplifica a \( 8(y-7b) + 4b=0
+\rightarrow 4b+8d = 0 \rightarrow 4(b+2e)=0 \). En este último caso, por ser la
+última ecuación, que viene dada por dos variables, tenemos que \( \beta(G) = 1
+\), y obtenemos \( 4f=0 \), luego \( G \simeq \mathbb{Z}/ 4 \mathbb{Z} \times
+\mathbb{Z} \).
 
-Entonces, \( a_{11}x_1 + \cdots + a_{1n}x_n = a_{11}x_1 + (\lambda_2a_{11} + b_{12})
-x_2 + \cdots + (\lambda _n a_{11} + b_{1n}) x_n = a_{11}[x_1 + \lambda _2x_2 + \cdots + \lambda _nx_n] +
-b_{12}x_2 + \cdots + b_{1n}x_n =   a_{11}[y_1] +
-b_{12}x_2 + \cdots + b_{1n}x_n = 0 \), y \( S = [y_1, x_2, \cdots, x_n] \) es un sistema
-generador, con \( r_1^* = (a_{11}, b_{12}, \cdots, b_{1n} \). Repetir con todas las
-filas (\( r_i \)), aplicando los \( \lambda \) obtenidos en la fila 1;
- y ordenar la primera fila  posicionando \( b_{1l} \), el
-elemento más pequeño de la fila, en primer lugar.
-
-Si b_{1l} no divide a todos los \( a_{11}, b_{12}, \cdots, b_{1n} \), repetimos el
-paso hasta que pase. Entonces, renombramos la matriz
-\[   \begin{bmatrix}
-b_{1l} &  b_{12} &  \cdots  &  a_{11} &  \cdots  &  b_{1n} \\ 
-\vdots &  \vdots &   &  \vdots&   &  \vdots \\ 
-b_{kl} &  b_{k2} &  \cdots  &  a_{k1} &  \cdots  &  b_{kn} \\ 
-\end{bmatrix}   \rightarrow \begin{bmatrix}
-a_{11} &  \cdots  &  a_{1n} \\ 
-\vdots
-&   &  \vdots \\
-a_{k1} & \cdots &  a_{kn} \\ 
-\end{bmatrix}
-\]
-*PASO 2* Dividimos \( a_{i1} = a_{11}q_{i} + c_{i1} \). Si \( c_{i1} = 0 \) para
-todas las filas, ya hemos terminado. En caso contrario, el sistema \( R^* =
-\{r_1, r_2 - q_2r_1, \cdots, r_k - q_kr_1\} \) es generador de \( R(S) \). Se repite
-el paso, poniendo a \( c_{l1} \) como primer elemento de la matriz, hasta
-converger (lo mismo que el PASO 1, pero en filas). Así, obtenemos la matriz
-\[ M =  \begin{bmatrix}
-a_{11} &  0 &   &  0 \\ 
-0 &  b_{22} &  \cdots  &  b_{2n} \\ 
-\cdots &  \cdots  &   &  \cdots  \\ 
-0 &  b_{k2} &  \cdots  &  b_{kn} \\ 
-\end{bmatrix}  \]
-*PASO 3* Si \( a_{11} \) no divide a algún \( b_{ij} \), hacemos \( r_1 = r_1 + r_i \)
- y repetimos el paso 1 hasta que todos los elementos \( b \) sean divisibles por
-\( a_{11} \).
-
-*PASO 4/5* Sometemos a la submatriz de elementos \( b \) el mismo procedimiento que
- a la inicial, y llegamos a una presentación. Repitiendo, obtenemos la matrix de
- la derecha
-\[ M(S_1, R_1) =  \begin{bmatrix}
-a_{22} &  0 &   &  0 \\ 
-0 &  c_{33} &  \cdots  &  c_{3n} \\ 
-\cdots &  \cdots  &   &  \cdots  \\ 
-0 &  c_{k3} &  \cdots  &  c_{kn} \\ 
-\end{bmatrix} \rightarrow 
-M(S,R) =
- \begin{bmatrix}
-a_{11} &  0 &   &  0 \\ 
-0 &  b_{22} &  \cdots  & 0} \\ 
-\cdots &  \cdots  &   &    \\ 
-0 &  0} &  & C \\ 
-\end{bmatrix} \rightarrow  
-M(\hat{S}, \hat{R}) =  \begin{bmatrix}
-a_{11} &  \cdots  &  0 &  0 &  \cdots  &  0 \\ 
-0 &  \ddots  &  0 &  0 &  \cdots  &  0 \\ 
-\vdots  &   &  \vdots 
-&  \vdots 
-&   &  \vdots \\ 
-0 &  \cdots  &  a_kk &  0 &  \cdots  &  0 \\ 
-\end{bmatrix} \]
-Si tomamos \( m_1 = a_{kk}, \cdots , m_{k-1} = a_{22}, m_k = a_{11} \), los
- coeficientes de torsión de \( G \), entonces
-tenemos que \( G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \mathbb{Z}/m_k \mathbb{Z} \times \mathbb{Z}^{n-k}\), y \( \beta(G) = n-k \).
+#+BEGIN_EXPORT latex
+\dem{$$
+\begin{cases} 
+10z + 17u + 8y= 0 \\ 
+6z +5u = 0 \\ 
+\end{cases} \rightarrow 
+\begin{cases} 
+5u + 6z = 0 \\
+17u+10z+8y=0\\ 
+\end{cases} \xrightarrow{r_2:r_2-3r_1}   
+\begin{cases} 
+5u + 6z = 0 \\
+2u-8z+8y=0\\ 
+\end{cases}
+ \xrightarrow{r_1:r_1-2r_2}   
+\begin{cases} 
+u + 22z-16y=0 \\
+2u-8z+8y=0\\ 
+\end{cases}
+$$
+Ya tenemos el sistema preparado para reducir la variable.
+$$\begin{cases} 
+u + 22z-16y=0 \\
+2(u+22z-16y)-52z+40y=0\\ 
+\end{cases} \rightarrow 40y - 52x = 0 \rightarrow 40(y-x) - 12x = 0 \rightarrow 12(-x + 3e) + 4e = 0 \rightarrow  4(e + 3f) = 0
+$$
+Vemos que igualmente tenemos \( G \simeq \mathbb{Z}/ 4 \mathbb{Z} \times
+\mathbb{Z} \)
+}
+#+END_EXPORT

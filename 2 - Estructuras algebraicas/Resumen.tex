@@ -1,4 +1,4 @@
-% Created 2019-11-03 Sun 22:59
+% Created 2019-11-07 Thu 23:51
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:org76a36cd}
+\label{sec:orgfc038fc}
 \subsection{Grupos}
-\label{sec:org6b9fbb5}
+\label{sec:orgd489e24}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -142,7 +142,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:org11c4410}
+\label{sec:orgaf3f9c9}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -191,7 +191,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:org1055127}
+\label{sec:org7c922b8}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -211,7 +211,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:orga21e892}
+\label{sec:org9752c33}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -281,7 +281,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org4aeb5a6}
+\label{sec:org0cc8130}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -353,7 +353,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection{Grupos cocientes}
-\label{sec:org9685730}
+\label{sec:org73d855a}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -387,7 +387,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection{Homomorfismos}
-\label{sec:org6314351}
+\label{sec:org2c96595}
    \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -476,7 +476,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection{Teoremas de isomorfía}
-\label{sec:org328dc2d}
+\label{sec:org5e5db44}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -500,7 +500,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection{Estructura de grupos abelianos finitos}
-\label{sec:orgc850b38}
+\label{sec:orgf6ab8f4}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -527,9 +527,9 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
 \section{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org7385999}
+\label{sec:org4082842}
 \subsection{Teorema de la Estructura}
-\label{sec:org52eeb42}
+\label{sec:orgfb4dd38}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -571,8 +571,13 @@ T(G) \times G/T(G)\). P. ej. en el grupo \(G = \prod_{n \in \mathbb{N}}^{}
 \mathbb{Z}/p_n \mathbb{Z}\), si \(T(G) = \{ a \in G \;|\; \text{sop}(a) \text{ es finito} \}\), \(\text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
 \}\) falla en cumplir la isomorfía.
 
+\ejer{123} Un grupo abeliano \(G\) es \textbf{libre} si existe algún conjunto \(I\) no vacío 
+tal que \(G \simeq \mathbb{Z}^{(I)}\). [Wikipedia: si todo elemento de \(G\) puede
+escribirse de forma única como producto de finitos elementos de \(I\) y sus inversos.
+
+
 \subsection{Generadores y relaciones}
-\label{sec:orgf68a61d}
+\label{sec:org3dd3d57}
    \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
    \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
 \(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
@@ -582,8 +587,6 @@ Vemos que \(ker(f_S)\) es el conjunto que hace que \(m_1x_1 + \cdots + m_nx_n = 
    r_1, \cdots, r_l \}\) como el sistema generador de \(R(S)\). El par \((R,S)\)
    se denomina \textbf{presentación de \(G\) mediante generadores y relaciones}.
 
-Se demuestra que \(R(S) \simeq \mathbb{Z}^k, k \le n\), y \(\beta(G) = n - k\).
-
 \propo{7.13} Sea \(G\) un grupo abeliano finitamente generado por \(S = \{
 x_1, \cdots, x_n \}\). Entonces se cumple que  \(S = \{ x_1, \cdots,
 -x_i, \cdots, x_n\}\) también es sistema generador, y si \(\lambda _2, \cdots, \lambda _n\) son
@@ -591,83 +594,107 @@ enteros, y \(y_1 = x_1 + \lambda_2 x_2 + \cdots + \lambda _n x_n\), entonces \(S
 y_1, x_2, \cdots, x_n \}\) también es un sistema generador.
 
 \propo{7.14} Sea \((S,R)\) una presentación de \(G\), entonces se pueden
-obtener los coeficientes de torsión y el coeficiente de Betti mediante el
-siguiente algoritmo.
+obtener los coeficientes de torsión y el coeficiente de Betti mediante un ejemplo (aborrezco el 
+algoritmo en forma de matriz).
 
-\textbf{PASO 1} Dados \(S=\{ x_1, \cdots, x_n \}\) y \(R = \{ r_1, \cdots, r_k \}\), escribimos la
-matriz M(S,R)
-\[   M(S,R) =  \begin{bmatrix}
-a_{11} &  \cdots  &  a_{1n} \\ 
-\vdots
-&   &  \vdots \\
-a_{k1} & \cdots &  a_{kn} \\ 
-\end{bmatrix}    \]
-Permutamos filas y columnas para que \(a_{11}\) sea el elemento con menor
-valor absoluto (\(a_{11} \neq 0\). Ahora dividimos \(a_{1j} = \lambda_{1}
-a_{11} + b_{1j}\), con \(0 \le b_{ij} < a_{11}\).
+Tomamos el sistema de la izquierda. El término más pequeño es \(3x\). 
+Procuramos obtener que todos los términos de 
+\(x\) sean divisibles entre sí. En este caso lo hemos conseguido en un paso,
+pero si no se consigue, se repite tantas veces como sea necesario.
+$$\begin{cases}
+7x+11y+13z+5u =  0 \\ 
+3x+11y+7z+14u = 0 \\ 
+5x+7y+11z+7u = 0 \\ 
+\end{cases} \xrightarrow[r_1:r_1-2r_2]{r_3:r_3-r_1}  
+\begin{cases}
+x+y-z-u =  0 \\
+3x+11y+7z+14u = 0 \\
+2x+2y+4z+3u = 0 \\
+\end{cases}$$
+Ahora creamos la variable \(a = x + y - z - u\), y reescribimos el resto de
+ecuaciones en función de \(a\).
+$$\begin{cases}
+x+y-z-u =  0 \\ 
+3(x+y-z-u)+8y+10z +17u= 0 \\ 
+2(x+y-z-u) + 6z +5u = 0 \\ 
+\end{cases} \rightarrow 
+\begin{cases}
+\textcolor{blue}{a =  0} \\ 
+3a+8y+10z+17u = 0 \\ 
+2a + 6z +5u = 0 \\ 
+\end{cases} \rightarrow
+\begin{cases} 
+10z + 17u + 8y= 0 \\ 
+6z +5u = 0 \\ 
+\end{cases}$$
+Ahora tenemos un sistema ya reducido a dos relaciones y tres elementos. Aunque \(5u\)
+es el menor elemento, vamos a seguir con \(6z\), ya que el resultado será el
+mismo (demostración). El primer paso será obtener factores múltiplos entre sí para la columna
+de \(z\).
+$$\begin{cases}
+10z+17u+8y=0\\
+6z+5u=0\\
+\end{cases} \xrightarrow{r_1:r_1-r_2}
+\begin{cases}
+4z+12u+8y=0\\
+6z+5u=0\\
+\end{cases} \xrightarrow{r_2:r_2-r_1} 
+\begin{cases}
+4z+12u+8y=0\\
+2z-7u=0\\
+\end{cases}$$
+Ahora \(r_2\) ya puede eliminarse. Sin embargo, los términos \(2z\) y \(7u\)
+ no son múltiplos, así que habrá que reducir la expresión.
+$$\begin{cases}
+4(z-4u)+28u+8y=0\\
+2(z-4u)+u=0\\
+\end{cases}
+\rightarrow 
+\begin{cases}
+28u+4b+8y=0\\
+u+2b=0\\
+\end{cases}
+ \rightarrow 
+\begin{cases}
+28(u+2b)-52b+8y=0\\
+u+2b=0\\
+\end{cases}
+\rightarrow 
+\begin{cases}
+28c-52b+8y=0\\
+\textcolor{blue}{c=0}\\
+\end{cases}$$
+Ahora sólo nos queda \(8y-52b=0\), que se simplifica a \(8(y-7b) + 4b=0
+\rightarrow 4b+8d = 0 \rightarrow 4(b+2e)=0\). En este último caso, por ser la
+última ecuación, que viene dada por dos variables, tenemos que \(\beta(G) = 1\), y obtenemos \(4f=0\), luego \(G \simeq \mathbb{Z}/ 4 \mathbb{Z} \times
+\mathbb{Z}\).
 
-Entonces, \(a_{11}x_1 + \cdots + a_{1n}x_n = a_{11}x_1 + (\lambda_2a_{11} + b_{12})
-x_2 + \cdots + (\lambda _n a_{11} + b_{1n}) x_n = a_{11}[x_1 + \lambda _2x_2 + \cdots + \lambda _nx_n] +
-b_{12}x_2 + \cdots + b_{1n}x_n =   a_{11}[y_1] +
-b_{12}x_2 + \cdots + b_{1n}x_n = 0\), y \(S = [y_1, x_2, \cdots, x_n]\) es un sistema
-generador, con \(r_1^* = (a_{11}, b_{12}, \cdots, b_{1n}\). Repetir con todas las
-filas (\(r_i\)), aplicando los \(\lambda\) obtenidos en la fila 1;
- y ordenar la primera fila  posicionando \(b_{1l}\), el
-elemento más pequeño de la fila, en primer lugar.
-
-Si b\textsubscript{1l} no divide a todos los \(a_{11}, b_{12}, \cdots, b_{1n}\), repetimos el
-paso hasta que pase. Entonces, renombramos la matriz
-\[   \begin{bmatrix}
-b_{1l} &  b_{12} &  \cdots  &  a_{11} &  \cdots  &  b_{1n} \\ 
-\vdots &  \vdots &   &  \vdots&   &  \vdots \\ 
-b_{kl} &  b_{k2} &  \cdots  &  a_{k1} &  \cdots  &  b_{kn} \\ 
-\end{bmatrix}   \rightarrow \begin{bmatrix}
-a_{11} &  \cdots  &  a_{1n} \\ 
-\vdots
-&   &  \vdots \\
-a_{k1} & \cdots &  a_{kn} \\ 
-\end{bmatrix}
-\]
-\textbf{PASO 2} Dividimos \(a_{i1} = a_{11}q_{i} + c_{i1}\). Si \(c_{i1} = 0\) para
-todas las filas, ya hemos terminado. En caso contrario, el sistema \(R^* =
-\{r_1, r_2 - q_2r_1, \cdots, r_k - q_kr_1\}\) es generador de \(R(S)\). Se repite
-el paso, poniendo a \(c_{l1}\) como primer elemento de la matriz, hasta
-converger (lo mismo que el PASO 1, pero en filas). Así, obtenemos la matriz
-\[ M =  \begin{bmatrix}
-a_{11} &  0 &   &  0 \\ 
-0 &  b_{22} &  \cdots  &  b_{2n} \\ 
-\cdots &  \cdots  &   &  \cdots  \\ 
-0 &  b_{k2} &  \cdots  &  b_{kn} \\ 
-\end{bmatrix}  \]
-\textbf{PASO 3} Si \(a_{11}\) no divide a algún \(b_{ij}\), hacemos \(r_1 = r_1 + r_i\)
- y repetimos el paso 1 hasta que todos los elementos \(b\) sean divisibles por
-\(a_{11}\).
-
-\textbf{PASO 4/5} Sometemos a la submatriz de elementos \(b\) el mismo procedimiento que
- a la inicial, y llegamos a una presentación. Repitiendo, obtenemos la matrix de
- la derecha
-\[ M(S_1, R_1) =  \begin{bmatrix}
-a_{22} &  0 &   &  0 \\ 
-0 &  c_{33} &  \cdots  &  c_{3n} \\ 
-\cdots &  \cdots  &   &  \cdots  \\ 
-0 &  c_{k3} &  \cdots  &  c_{kn} \\ 
-\end{bmatrix} \rightarrow 
-M(S,R) =
- \begin{bmatrix}
-a_{11} &  0 &   &  0 \\ 
-0 &  b_{22} &  \cdots  & 0} \\ 
-\cdots &  \cdots  &   &    \\ 
-0 &  0} &  & C \\ 
-\end{bmatrix} \rightarrow  
-M(\hat{S}, \hat{R}) =  \begin{bmatrix}
-a_{11} &  \cdots  &  0 &  0 &  \cdots  &  0 \\ 
-0 &  \ddots  &  0 &  0 &  \cdots  &  0 \\ 
-\vdots  &   &  \vdots 
-&  \vdots 
-&   &  \vdots \\ 
-0 &  \cdots  &  a_kk &  0 &  \cdots  &  0 \\ 
-\end{bmatrix} \]
-Si tomamos \(m_1 = a_{kk}, \cdots , m_{k-1} = a_{22}, m_k = a_{11}\), los
- coeficientes de torsión de \(G\), entonces
-tenemos que \(G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \mathbb{Z}/m_k \mathbb{Z} \times \mathbb{Z}^{n-k}\), y \(\beta(G) = n-k\).
+\dem{$$
+\begin{cases} 
+10z + 17u + 8y= 0 \\ 
+6z +5u = 0 \\ 
+\end{cases} \rightarrow 
+\begin{cases} 
+5u + 6z = 0 \\
+17u+10z+8y=0\\ 
+\end{cases} \xrightarrow{r_2:r_2-3r_1}   
+\begin{cases} 
+5u + 6z = 0 \\
+2u-8z+8y=0\\ 
+\end{cases}
+ \xrightarrow{r_1:r_1-2r_2}   
+\begin{cases} 
+u + 22z-16y=0 \\
+2u-8z+8y=0\\ 
+\end{cases}
+$$
+Ya tenemos el sistema preparado para reducir la variable.
+$$\begin{cases} 
+u + 22z-16y=0 \\
+2(u+22z-16y)-52z+40y=0\\ 
+\end{cases} \rightarrow 40y - 52x = 0 \rightarrow 40(y-x) - 12x = 0 \rightarrow 12(-x + 3e) + 4e = 0 \rightarrow  4(e + 3f) = 0
+$$
+Vemos que igualmente tenemos \( G \simeq \mathbb{Z}/ 4 \mathbb{Z} \times
+\mathbb{Z} \)
+}
 \end{document}
