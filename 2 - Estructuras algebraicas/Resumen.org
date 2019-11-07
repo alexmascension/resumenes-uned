@@ -491,6 +491,13 @@ Además, los coeficientes son únicos.
 \), entonces las afirmaciones (1) \( G \) es cíclico, (2) \( mcd(m,n) = 1 \) son
 equivalentes.
 
+#+BEGIN_EXPORT latex
+\dem{ (1) $\rightarrow$ (2). Sea \( M \) el \( mcm(m,n) \). Escribimos \( M=ma, M=nb \).
+ Cada \( u=(x,y) \in G \) cumple \( u^M = (x^M, y^M) = ((x^m)^a, (y^n)^b) = (1_{G_1}^a, 1_{G_2}^b) = 1_G \)
+ Como \( G \) es cíclico y \( o(G) = m \), alguno de sus elementos tiene orden \( mn \). Luego \( mn=N \) y \( mcd(m,n) = 1\)   }
+#+END_EXPORT
+
+
 \obs{2.22.3} Si \( p_1 < \cdots < p_s \) son primos, todo grupo abeliano de
 orden \( n = p_1 \cdots p_s \) es cíclico.
 

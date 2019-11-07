@@ -1,4 +1,4 @@
-% Created 2019-11-07 Thu 23:51
+% Created 2019-11-07 Thu 23:58
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section{Generalidades y teorema de Lagrange}
-\label{sec:orgfc038fc}
+\label{sec:orgeb3db31}
 \subsection{Grupos}
-\label{sec:orgd489e24}
+\label{sec:orga72b87b}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -142,7 +142,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection{Subgrupos}
-\label{sec:orgaf3f9c9}
+\label{sec:orgc999e0f}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -191,7 +191,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection{Orden de un grupo}
-\label{sec:org7c922b8}
+\label{sec:orgb7109f0}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -211,7 +211,7 @@ que
 \end{itemize}
 
 \subsection{Índice de un subgrupo}
-\label{sec:org9752c33}
+\label{sec:org84751e0}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -281,7 +281,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 
 
 \section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org0cc8130}
+\label{sec:org503c7c1}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -353,7 +353,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection{Grupos cocientes}
-\label{sec:org73d855a}
+\label{sec:org4218d3d}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -387,7 +387,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection{Homomorfismos}
-\label{sec:org2c96595}
+\label{sec:org979e5fb}
    \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -476,7 +476,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection{Teoremas de isomorfía}
-\label{sec:org5e5db44}
+\label{sec:org0a8df1d}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -500,7 +500,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection{Estructura de grupos abelianos finitos}
-\label{sec:orgf6ab8f4}
+\label{sec:org1d3c42b}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -521,15 +521,20 @@ Además, los coeficientes son únicos.
 \(G = G_1 \times G_2\), entonces las afirmaciones (1) \(G\) es cíclico, (2) \(mcd(m,n) = 1\) son
 equivalentes.
 
+\dem{ (1) $\rightarrow$ (2). Sea \( M \) el \( mcm(m,n) \). Escribimos \( M=ma, M=nb \).
+ Cada \( u=(x,y) \in G \) cumple \( u^M = (x^M, y^M) = ((x^m)^a, (y^n)^b) = (1_{G_1}^a, 1_{G_2}^b) = 1_G \)
+ Como \( G \) es cíclico y \( o(G) = m \), alguno de sus elementos tiene orden \( mn \). Luego \( mn=N \) y \( mcd(m,n) = 1\)   }
+
+
 \obs{2.22.3} Si \(p_1 < \cdots < p_s\) son primos, todo grupo abeliano de
 orden \(n = p_1 \cdots p_s\) es cíclico.
 
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
 \section{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org4082842}
+\label{sec:org9790b23}
 \subsection{Teorema de la Estructura}
-\label{sec:orgfb4dd38}
+\label{sec:org5ced05a}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -577,7 +582,7 @@ escribirse de forma única como producto de finitos elementos de \(I\) y sus inv
 
 
 \subsection{Generadores y relaciones}
-\label{sec:org3dd3d57}
+\label{sec:org4a11d39}
    \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
    \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
 \(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
