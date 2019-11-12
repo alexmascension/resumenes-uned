@@ -2,6 +2,7 @@
 #+DATE:
 #+SETUPFILE: ../Plantillas/Plantilla.org
 #+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
+#+OPTIONS: num:nil
 #+LATEX: \vspace{-8em}
 
 * Generalidades y teorema de Lagrange
@@ -503,6 +504,68 @@ orden \( n = p_1 \cdots p_s \) es cíclico.
 
 \propo{2.23} Si \( p \) es primo, \( \mathbb{Z}_p^*
 \) es cíclico.
+
+* Grupos de automorfismos. Acción de un grupo sobre un conjunto
+** Acciones de grupos sobre conjuntos
+   \defi{3.8} Una *acción sobre un conjunto* \( X \) es la aplicación \( G \times
+   X \rightarrow X: (g,x) \mapsto g(x) \forall g \in G, \forall x \in X \). Se
+   cumple (1) \( (gh)(x) = g(h(x)) \), (2) \( 1_G(x) = x \).
+
+   \obs{3.8.3} El homomorfismo \( \theta: \; G \longrightarrow Biy(Y) \;;\; g
+   \mapsto \theta(g): X \rightarrow X: x \mapsto g(x)  \) es la que define \( g \) como acción sobre \( X
+   \). Definimos \( ker(\theta) = \{ g \in G | g(x) = x \forall x \in X \}\). Se dice que una
+   acción es *fiel* cuando \( ker (\theta) = \{ 1_G \} \).
+
+\propo{3.9 (Teorema de Cayley)} Todo grupo \( G \) es isomorfo a un subgrupo \(
+Biy(G) \).
+
+\propo{3.10} Sea \( G \times X \rightarrow X \) una acción. Se llaman
+- *Estabilizador* de \( x \): \( G_x = \{ g \in G| g(x) = x \} \)
+- *Órbita* de \( x \): \( O_x = \{ g(x) | g \in G \} \subset X  \). \( \cup O_x = X \) y \( \cap
+  O_x = \emptyset \).
+- \( x \) es un *punto fijo* de \( g \) si \( G_x = G \).
+
+\obs{3.10.3} La aplicación \( G/R^{G_x} \rightarrow O_x: gG_x \mapsto g(x) \) es biyectiva, y \(
+card(O_x) = [G:G_x] \). 
+
+\obs{3.10.4} \( ker(\theta) = \bigcap_{x \in X}^{G_x} \)
+
+\defi{3.11.2.1} Se llama *clase de conjugación del elemento \( x \)* a \( Cl(x) =
+\{ axa^{-1} | a \in G \} \), y el conjunto de elementos de órbitas (un elemento
+por órbita), \( Y \) se llama *sistema de representantes por conjugación de \( G
+\)*.
+
+\defi{} \( Z(G) = \{ a \in G | ax = xa \; \forall x \in G \} \), \( C_G(x) = \{ a \in
+G | ax = xa \}\).
+
+\propo{3.11.3} Sea \( G \) finito e \( Y \) un sistema de representantes por
+conjugación. Entonces \( o(G) = o(Z(G)) + \sum _{x \in Y\;;\;x \not\in Z(G)}^{} [G:C_G(x)]
+\)
+
+\cor{3.11.4} Sea \( p \) primo, \( m \ge 1 \in \mathbb{N} \) y \( G \) de orden \( p^m \).
+Entonces \( Z(G) \neq \{1_G\} \) y \( o(Z(G)) \neq p^{m-1} \).
+
+\cor{3.11.5} Sea \( p \) primo y \( G \) de orden \( p^2 \). Entonces \( G \) es 
+abeliano e isomorfo a \( \mathbb{Z}/p^2 \mathbb{Z} \) o a \( \mathbb{Z}/p \mathbb{Z} \times  \mathbb{Z}/p \mathbb{Z} \).
+
+\cor{3.11.6} Sea \( G \) de orden \( p^m, m > 1 \). Entonces \( G \) no es
+simple.
+#+BEGIN_EXPORT latex
+\dem{ Si \( G \) es abeliano, \( Z(G) \subset_N G \) ya que \( \{ 1 \} \neq_{3.11.5} Z(G) \) y \( Z(G) \neq G \) 
+porque si no es abeliano.  
+Si \( G \) es abeliano tomamos \( a \in G/\{1\} \); y si \( o(a) \neq p^m \), \( H = \langle a \rangle \)
+es grupo normal y \( \{1\} \neq H \neq G \).
+Si \( o(a) = p^m \), tomamos \( b = a^p \in G \). Entonces \( o(b) = \frac{p^m}{mcd(p^m,p)} = p^{m-1} \) y 
+\( H = \langle b \rangle \) es subgrupo normal}
+#+END_EXPORT
+
+\lema{3.11.8} Sea \( G \) finito, y \( a,b \in G\) elementos de orden 2, tal que
+\( a \not\in Cl(b) \); entonces existe \( c \) de orden 2 de \( G \) tal que \( a,b \in
+G \).
+
+\propo{3.11.9 (Teorema de Brauer)} Sea \( G \) finito de orden par con \( a,b \in
+G \) y \( a \not\in Cl(b) \). Sea \( m \) el máximo de los órdenes de \( C_G(x) \);
+entonces \( o(G) < m^3 \). 
 
 * Grupos abelianos finitamente generados. Generadores relacionales
 ** Teorema de la Estructura

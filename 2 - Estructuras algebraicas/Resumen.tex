@@ -1,4 +1,4 @@
-% Created 2019-11-07 Thu 23:58
+% Created 2019-11-12 Tue 21:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -97,10 +97,10 @@ version={3.0},
 \maketitle
 \vspace{-8em}
 
-\section{Generalidades y teorema de Lagrange}
-\label{sec:orgeb3db31}
-\subsection{Grupos}
-\label{sec:orga72b87b}
+\section*{Generalidades y teorema de Lagrange}
+\label{sec:org3016a2e}
+\subsection*{Grupos}
+\label{sec:orgf5fa14a}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -141,8 +141,8 @@ entonces $a = a^{-1}; b=b^{-1}$x y si $c = ab$ entonces
 y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
-\subsection{Subgrupos}
-\label{sec:orgc999e0f}
+\subsection*{Subgrupos}
+\label{sec:org9c94902}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -190,8 +190,8 @@ S^{bb^{-1}} = S\)
 Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
-\subsection{Orden de un grupo}
-\label{sec:orgb7109f0}
+\subsection*{Orden de un grupo}
+\label{sec:orgedc0297}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -210,8 +210,8 @@ que
 \item \(o(ab) = o(ba)\)
 \end{itemize}
 
-\subsection{Índice de un subgrupo}
-\label{sec:org84751e0}
+\subsection*{Índice de un subgrupo}
+\label{sec:org9f37d91}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -280,8 +280,8 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 \pagebreak
 
 
-\section{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org503c7c1}
+\section*{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
+\label{sec:orgbdc334c}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -352,8 +352,8 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 \propo{2.2.17 (T de Poincaré)} Si \(G\) posee un subgrupo de índice
 finito, también posee un subgrupo normal de índice finito.
 
-\subsection{Grupos cocientes}
-\label{sec:org4218d3d}
+\subsection*{Grupos cocientes}
+\label{sec:org9ada632}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -386,8 +386,8 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 \phi(m)\phi(n)\). Con todo esto, si tenemos un numero \(a = p_1^{k_1} \cdots
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
-\subsection{Homomorfismos}
-\label{sec:org979e5fb}
+\subsection*{Homomorfismos}
+\label{sec:org0f3d5d1}
    \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -475,8 +475,8 @@ f \in S_n \;|\; \epsilon (f) = 1\}\)
 tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teorema de
 Lagrange no es cierto siempre}. 
 
-\subsection{Teoremas de isomorfía}
-\label{sec:org0a8df1d}
+\subsection*{Teoremas de isomorfía}
+\label{sec:orgc412bfa}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -499,8 +499,8 @@ Lagrange no es cierto siempre}.
   N_2)\;(N_1 \cap H_2) \simeq (N_2(H_1 \cap H_2))/(N_2(N_1 \cap H_2)\)
 \end{itemize}
 
-\subsection{Estructura de grupos abelianos finitos}
-\label{sec:org1d3c42b}
+\subsection*{Estructura de grupos abelianos finitos}
+\label{sec:org02c4632}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -531,10 +531,69 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
-\section{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org9790b23}
-\subsection{Teorema de la Estructura}
-\label{sec:org5ced05a}
+\section*{Grupos de automorfismos. Acción de un grupo sobre un conjunto}
+\label{sec:org1225575}
+\subsection*{Acciones de grupos sobre conjuntos}
+\label{sec:org85db9f4}
+\defi{3.8} Una \textbf{acción sobre un conjunto} \(X\) es la aplicación \(G \times
+   X \rightarrow X: (g,x) \mapsto g(x) \forall g \in G, \forall x \in X\). Se
+cumple (1) \((gh)(x) = g(h(x))\), (2) \(1_G(x) = x\).
+
+\obs{3.8.3} El homomorfismo \(\theta: \; G \longrightarrow Biy(Y) \;;\; g
+   \mapsto \theta(g): X \rightarrow X: x \mapsto g(x)\) es la que define \(g\) como acción sobre \(X\). Definimos \(ker(\theta) = \{ g \in G | g(x) = x \forall x \in X \}\). Se dice que una
+acción es \textbf{fiel} cuando \(ker (\theta) = \{ 1_G \}\).
+
+\propo{3.9 (Teorema de Cayley)} Todo grupo \(G\) es isomorfo a un subgrupo \(Biy(G)\).
+
+\propo{3.10} Sea \(G \times X \rightarrow X\) una acción. Se llaman
+\begin{itemize}
+\item \textbf{Estabilizador} de \(x\): \(G_x = \{ g \in G| g(x) = x \}\)
+\item \textbf{Órbita} de \(x\): \(O_x = \{ g(x) | g \in G \} \subset X\). \(\cup O_x = X\) y \(\cap
+  O_x = \emptyset\).
+\item \(x\) es un \textbf{punto fijo} de \(g\) si \(G_x = G\).
+\end{itemize}
+
+\obs{3.10.3} La aplicación \(G/R^{G_x} \rightarrow O_x: gG_x \mapsto g(x)\) es biyectiva, y \(card(O_x) = [G:G_x]\). 
+
+\obs{3.10.4} \(ker(\theta) = \bigcap_{x \in X}^{G_x}\)
+
+\defi{3.11.2.1} Se llama \textbf{clase de conjugación del elemento \(x\)} a \(Cl(x) =
+\{ axa^{-1} | a \in G \}\), y el conjunto de elementos de órbitas (un elemento
+por órbita), \(Y\) se llama \textbf{sistema de representantes por conjugación de \(G\)}.
+
+\defi{} \(Z(G) = \{ a \in G | ax = xa \; \forall x \in G \}\), \(C_G(x) = \{ a \in
+G | ax = xa \}\).
+
+\propo{3.11.3} Sea \(G\) finito e \(Y\) un sistema de representantes por
+conjugación. Entonces \(o(G) = o(Z(G)) + \sum _{x \in Y\;;\;x \not\in Z(G)}^{} [G:C_G(x)]\)
+
+\cor{3.11.4} Sea \(p\) primo, \(m \ge 1 \in \mathbb{N}\) y \(G\) de orden \(p^m\).
+Entonces \(Z(G) \neq \{1_G\}\) y \(o(Z(G)) \neq p^{m-1}\).
+
+\cor{3.11.5} Sea \(p\) primo y \(G\) de orden \(p^2\). Entonces \(G\) es 
+abeliano e isomorfo a \(\mathbb{Z}/p^2 \mathbb{Z}\) o a \(\mathbb{Z}/p \mathbb{Z} \times  \mathbb{Z}/p \mathbb{Z}\).
+
+\cor{3.11.6} Sea \(G\) de orden \(p^m, m > 1\). Entonces \(G\) no es
+simple.
+\dem{ Si \( G \) es abeliano, \( Z(G) \subset_N G \) ya que \( \{ 1 \} \neq_{3.11.5} Z(G) \) y \( Z(G) \neq G \) 
+porque si no es abeliano.  
+Si \( G \) es abeliano tomamos \( a \in G/\{1\} \); y si \( o(a) \neq p^m \), \( H = \langle a \rangle \)
+es grupo normal y \( \{1\} \neq H \neq G \).
+Si \( o(a) = p^m \), tomamos \( b = a^p \in G \). Entonces \( o(b) = \frac{p^m}{mcd(p^m,p)} = p^{m-1} \) y 
+\( H = \langle b \rangle \) es subgrupo normal}
+
+\lema{3.11.8} Sea \(G\) finito, y \(a,b \in G\) elementos de orden 2, tal que
+\(a \not\in Cl(b)\); entonces existe \(c\) de orden 2 de \(G\) tal que \(a,b \in
+G\).
+
+\propo{3.11.9 (Teorema de Brauer)} Sea \(G\) finito de orden par con \(a,b \in
+G\) y \(a \not\in Cl(b)\). Sea \(m\) el máximo de los órdenes de \(C_G(x)\);
+entonces \(o(G) < m^3\). 
+
+\section*{Grupos abelianos finitamente generados. Generadores relacionales}
+\label{sec:org05363ea}
+\subsection*{Teorema de la Estructura}
+\label{sec:org2368fd8}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -581,8 +640,8 @@ tal que \(G \simeq \mathbb{Z}^{(I)}\). [Wikipedia: si todo elemento de \(G\) pue
 escribirse de forma única como producto de finitos elementos de \(I\) y sus inversos.
 
 
-\subsection{Generadores y relaciones}
-\label{sec:org4a11d39}
+\subsection*{Generadores y relaciones}
+\label{sec:org9ca90df}
    \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
    \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
 \(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
