@@ -1,4 +1,4 @@
-% Created 2019-11-12 Tue 21:56
+% Created 2019-11-19 Tue 19:16
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,9 +98,9 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Generalidades y teorema de Lagrange}
-\label{sec:org3016a2e}
+\label{sec:orgd10473b}
 \subsection*{Grupos}
-\label{sec:orgf5fa14a}
+\label{sec:orgd1f0eaa}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -125,7 +125,7 @@ Todo grupo con dos elementos es abeliano, pues \(aa = aa; uu=uu; ua=a=au\);
 pero para \(n \ge 3\), \(S_n\) no puede ser abeliano. \(GL_n; n \ge 2\),
 ni \(D_n; n \ge 3\) son abelianos.
 
-\propo{1.4} (1) Si \(x^2 = 1 \; \forall x \in G\), entonces \(G\) es
+\importante \propo{1.4} (1) Si \(x^2 = 1 \; \forall x \in G\), entonces \(G\) es
 abeliano; (2) si \((ab)^2=a^2b^2\) entonces \(G\) es abeliano.
 
 \dem{ (1) Para cada $x,\; x \cdot x = 1 \iff x = x^{-1}$, luego si $a,b \in G$ 
@@ -142,9 +142,9 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection*{Subgrupos}
-\label{sec:org9c94902}
+\label{sec:orga4e59d0}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
-\textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICA QUE \(H\) ES SUBGRUPO DE \(G\).}
+\textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICO QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
 x^{-1} \in H\). Para que (1) \(H\) sea subgrupo de \(G\) se tiene que cumplir que
 (2) si \(x,y \in H\), entonces \(x y^{-1} \in H\).
@@ -191,11 +191,11 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection*{Orden de un grupo}
-\label{sec:orgedc0297}
+\label{sec:org2c7ab09}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
-\propo{1.10} Sea \(G\) un grupo y \(a \in G\) de torsión. Entonces se cumple
+\importante\propo{1.10} Sea \(G\) un grupo y \(a \in G\) de torsión. Entonces se cumple
 que 
 \begin{itemize}
 \item Existe \(k \ge 1\) tal que \(a^k=1\)
@@ -211,7 +211,7 @@ que
 \end{itemize}
 
 \subsection*{Índice de un subgrupo}
-\label{sec:org9f37d91}
+\label{sec:orgbf6a6c6}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -241,7 +241,7 @@ entonces \(o(H \cap K) = 1 \iff H \cap K = \{ 1_G \}\)
 subgrupos de \(G\). Si \(H\) es subgrupo de \(K\), y los indices entre subgrupos, y con G,
 son finitos, entonces se cumple \([G:H] = [G:H][H:K]\)
 
-\propo{1.12.11} Sean \(H,K\) subgrupos de \(G\), finito. Entonces
+\importante\propo{1.12.11} Sean \(H,K\) subgrupos de \(G\), finito. Entonces
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
 
 
@@ -249,7 +249,7 @@ son finitos, entonces se cumple \([G:H] = [G:H][H:K]\)
  \(a \in G\) tal que \(G
 = \langle a \rangle\). Si \(o(a) = p\), primo, el grupo es cíclico.
 
-\propo{1.16 / 1.17} Sea \(G\) cíclico y \(n = o(G)\), para cada divisor \(m\) de
+\importante\propo{1.16 / 1.17} Sea \(G\) cíclico y \(n = o(G)\), para cada divisor \(m\) de
 \(n\)
 existe un único subgrupo de \(G\) de orden \(m\), y ese subgrupo es cíclico.
 Además, todo subgrupo de un grupo cíclico [finito o no] es cíclico.
@@ -275,13 +275,24 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 }
 
 \pagebreak
-\textcolor{gris}{\textit{Page intentionally left in blank}}
-\newpage
+
+\defi{Grupo diédrico \(D_n\)} Definimos el grupo diédrico al grupo con las
+operaciones \(f, g\) tales que \(o(g) = 2\) y \(o(f) = n\). Entonces \(D_n = \{ 1, f, f^2, \cdots, f^{n-1}, g, gf, \cdots, gf^{n-1}  \}\). Este grupo
+posee unas propiedades demostrables:
+\begin{itemize}
+\item \(f^kgf^k = g\)
+\item \(gf^kg = f^{n-k}\)
+\end{itemize}
+
+\defi{Grupo cuaternión \( Q \)} El grupo cuaternión tiene los elementos \(Q =
+\{ 1, -1, i, j, k, -i, -j, -k \}\). Las relaciones que definen el grupo son \(i^2 = j^2 = k^2 = ijk = -1\).
+
+
 \pagebreak
 
 
 \section*{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:orgbdc334c}
+\label{sec:org2577b4e}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -307,10 +318,10 @@ Por hipótesis \( h' = a ^{-1}x \in H \) y \( x = ah' \in aH \), luego \( Ha \su
 \obs{2.2.1} Si \(H\) es normal, entonces \(R^H = R_H\), y \(G/R_H\) se
 escribe \(G/H\).
 
-\obs{2.2.4/2.2.5} Si \(H\) es un subgrupo de \(G\), y \([G:H] = 2\), \(H\) es subgrupo normal de \(G\). Asimismo, los subgrupos \(\{ 1_G \}, G\) son 
+\importante\obs{2.2.4/2.2.5} Si \(H\) es un subgrupo de \(G\), y \([G:H] = 2\), \(H\) es subgrupo normal de \(G\). Asimismo, los subgrupos \(\{ 1_G \}, G\) son 
 normales.
 
-\defi{2.2.14} Un grupo \(G\) es \textbf{simple} si los únicos subgrupos son  \(\{ 1_G
+\importante\defi{2.2.14} Un grupo \(G\) es \textbf{simple} si los únicos subgrupos son  \(\{ 1_G
 \}, G\). Si \(o(G)\) es primo \(p\), por el teorema de Lagrange, los únicos
 subgrupos son \(\{ 1_G \}, G\), luego \(G\) es simple.
 
@@ -353,7 +364,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection*{Grupos cocientes}
-\label{sec:org9ada632}
+\label{sec:orge1df832}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -387,8 +398,8 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection*{Homomorfismos}
-\label{sec:org0f3d5d1}
-   \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
+\label{sec:orged8740c}
+ \importante  \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
 Se denota por \(G \simeq G'\) cuando dos grupos son isomorfos.
@@ -476,7 +487,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection*{Teoremas de isomorfía}
-\label{sec:orgc412bfa}
+\label{sec:org6ea15f5}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -500,7 +511,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection*{Estructura de grupos abelianos finitos}
-\label{sec:org02c4632}
+\label{sec:orga35b404}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -509,7 +520,7 @@ de \(x\).
 \(H = \langle x \rangle\) e \(y \in G\), entonces existe \(z \in Hy\) tal
 que \(o(z) = o(Hy)\)
 
-\lema{2.20.3} Sean \(H,K \subset_N G\) tales que \(H \cap K = \{ 1 \}\). Entonces \(HK \simeq H \times K\).
+\importante\lema{2.20.3} Sean \(H,K \subset_N G\) tales que \(H \cap K = \{ 1 \}\). Entonces \(HK \simeq H \times K\).
 
 \importante \propo{2.2.1 (Teorema de estructura de grupos abelianos finitos)} Si \(G\) es
 abeliano finito, existen \(m_1, \cdots, m_r\), denominados \textbf{coeficientes de
@@ -517,7 +528,7 @@ torsión de G}, tales que \[ G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots
 \times \mathbb{Z}/m_r \mathbb{Z}\] y cada \(m_i\) divide a \(m_{i-1}\).
 Además, los coeficientes son únicos.
 
-\propo{2.22} Sean \(G_1, G_2\) grupos cíclicos de órdenes \(m\) y \(n\), y 
+\importante\propo{2.22} Sean \(G_1, G_2\) grupos cíclicos de órdenes \(m\) y \(n\), y 
 \(G = G_1 \times G_2\), entonces las afirmaciones (1) \(G\) es cíclico, (2) \(mcd(m,n) = 1\) son
 equivalentes.
 
@@ -532,9 +543,12 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
 \section*{Grupos de automorfismos. Acción de un grupo sobre un conjunto}
-\label{sec:org1225575}
+\label{sec:org5ec47aa}
+\cor{3.4.3.1} Sea \(G\) un grupo y \(H \subset G\), \(H \subset Z(G)\).
+Entonces (1) \(H \subset_N G\) y (2) Si \(G/H\) es cíclico, \(G\) es
+abeliano.  
 \subsection*{Acciones de grupos sobre conjuntos}
-\label{sec:org85db9f4}
+\label{sec:org6b93b7b}
 \defi{3.8} Una \textbf{acción sobre un conjunto} \(X\) es la aplicación \(G \times
    X \rightarrow X: (g,x) \mapsto g(x) \forall g \in G, \forall x \in X\). Se
 cumple (1) \((gh)(x) = g(h(x))\), (2) \(1_G(x) = x\).
@@ -543,7 +557,7 @@ cumple (1) \((gh)(x) = g(h(x))\), (2) \(1_G(x) = x\).
    \mapsto \theta(g): X \rightarrow X: x \mapsto g(x)\) es la que define \(g\) como acción sobre \(X\). Definimos \(ker(\theta) = \{ g \in G | g(x) = x \forall x \in X \}\). Se dice que una
 acción es \textbf{fiel} cuando \(ker (\theta) = \{ 1_G \}\).
 
-\propo{3.9 (Teorema de Cayley)} Todo grupo \(G\) es isomorfo a un subgrupo \(Biy(G)\).
+\importante\propo{3.9 (Teorema de Cayley)} Todo grupo \(G\) es isomorfo a un subgrupo \(Biy(G)\).
 
 \propo{3.10} Sea \(G \times X \rightarrow X\) una acción. Se llaman
 \begin{itemize}
@@ -553,9 +567,12 @@ acción es \textbf{fiel} cuando \(ker (\theta) = \{ 1_G \}\).
 \item \(x\) es un \textbf{punto fijo} de \(g\) si \(G_x = G\).
 \end{itemize}
 
+\defi{} Una acción es \textbf{libre} si \(G_x = \{ 1_G \}\). Una acción es \textbf{efectiva} si 
+\(\cap_{x \in X} G_x = \{ 1_G \}\).
+
 \obs{3.10.3} La aplicación \(G/R^{G_x} \rightarrow O_x: gG_x \mapsto g(x)\) es biyectiva, y \(card(O_x) = [G:G_x]\). 
 
-\obs{3.10.4} \(ker(\theta) = \bigcap_{x \in X}^{G_x}\)
+\obs{3.10.4} \(ker(\theta) = \bigcap_{x \in X} {G_x}\)
 
 \defi{3.11.2.1} Se llama \textbf{clase de conjugación del elemento \(x\)} a \(Cl(x) =
 \{ axa^{-1} | a \in G \}\), y el conjunto de elementos de órbitas (un elemento
@@ -564,7 +581,7 @@ por órbita), \(Y\) se llama \textbf{sistema de representantes por conjugación 
 \defi{} \(Z(G) = \{ a \in G | ax = xa \; \forall x \in G \}\), \(C_G(x) = \{ a \in
 G | ax = xa \}\).
 
-\propo{3.11.3} Sea \(G\) finito e \(Y\) un sistema de representantes por
+\importante\propo{3.11.3} Sea \(G\) finito e \(Y\) un sistema de representantes por
 conjugación. Entonces \(o(G) = o(Z(G)) + \sum _{x \in Y\;;\;x \not\in Z(G)}^{} [G:C_G(x)]\)
 
 \cor{3.11.4} Sea \(p\) primo, \(m \ge 1 \in \mathbb{N}\) y \(G\) de orden \(p^m\).
@@ -590,10 +607,60 @@ G\).
 G\) y \(a \not\in Cl(b)\). Sea \(m\) el máximo de los órdenes de \(C_G(x)\);
 entonces \(o(G) < m^3\). 
 
+\ejem{3.12} Sean \(H \subset G\) y \(X = G/R^H\). Definimos la acción \(G
+\times G/R^H \rightarrow G/R^H \;;\; g(xH) = gxH\). Entonces \(ker(\theta) = K(H)\).
+
+\propo{3.12.1} (generaliza 2.2.4). Sea \(G\) finito y \(p \neq o(G)\) el
+menor divisor de \(G\), y \(H \subset G, o(H) = p\). Entonces \(H \subset_N
+G\) y \(G\) no es simple. 
+
+\propo{3.12.2} Sea \(G\) finito de orden \(n\) y \(H \subset G\), \([G:H]
+= m \neq 1\). Si \(n  \nmid m!\)  entonces \(K(H) \neq \{ 1 \}\) y \(G\) no es
+simple. 
+
+\importante\propo{3.12.3} Sea \(G\) finito con \(o(G) > 2\). Si \(G\) posee un
+subgrupo \(H\), \([G:H] = n \neq 1\), y \(G \not \simeq A_n\), entonces \(G\) no es simple.
+
+\ejem{3.12.3.1} Si \(o(G) \ge 5\), y \(H \subset G\) tal que \(2 \le [G:H]
+\le 4\), entonces \(G\) no es simple.
+
+\propo{3.12.4} Sea \(G\) finítamente generado. Para cada \(n\), \(G\)
+tiene una cantidad finita (o nula) de subgrupos de índice \(n\).
+
+\importante \cor{3.12.5 (Generalización Teorema de Poincaré)}
+Si \(G\) es finitamente generado y \(H \subset G\) tiene índice finito,
+existe un subgrupo \(K \subset H\) tal que \([G:K]\) es finito.
+
+\importante \propo{3.13 (Teorema de Cauchy-Fröbenius)} Sea \(p\) primo y \(G\) finito
+con orden múltiplo de \(p\). Entonces el número de elementos \(y \in G\)
+tales que \(y^p=1\) es múltiplo de \(p\). Existe un elemento de orden \(p\) en \(G\).
+
+\cor{3.14} Sean \(m,p\), \(p\) primo tales que \(p >m>1\). Los grupos de
+orden \(mp\) no son simples.
+
+\cor{3.15} Sean \(p,q\) primos. Entonces, un grupo de orden \(pq\) no es
+simple. 
+
+\cor{3.16} Sea \(G\) con \(o(G) > 1\). Entonces \(G\) es simple sii \(G\) es finito y \(o(G)\) es primo.
+
+\propo{3.17} Sea \(G\) un grupo de orden \(p^m\), \(p\) primo y \(m \ge 1\). Si \(H \neq \{ 1 \} \subset_N G\), entonces \(H \cap Z(G) \neq \{ 1 \}\).
+
+\cor{3.18}  Sea \(p\) primo, \(m \ge 1\) uy \(o(G) = p^m\), y \(H\)
+subgrupo normal de orden \(p\), entonces \(H \subset Z(G)\).
+
+\ejem{3.19} El grupo cuaternión \(Q\) y el diedral \(D_4\) son, salvo
+isomorfismo, los únicos grupos no abelianos de orden 8.
+
+
+
+
+
+\pagebreak
+
 \section*{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org05363ea}
+\label{sec:org9d56f21}
 \subsection*{Teorema de la Estructura}
-\label{sec:org2368fd8}
+\label{sec:org8dc7c7a}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -610,7 +677,7 @@ entonces \(o(G) < m^3\).
 \item Si \(K = T(G)\), \(T(T(G)) = T(K) =  K \cap T(G) = T(G)\)
 \end{enumerate}
 
-\ejem{7.2 / 7.3} Si \(G = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
+\importante\ejem{7.2 / 7.3} Si \(G = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
 \mathbb{Z}/m_r \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}\), entonces \(T(G) = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
 \mathbb{Z}/m_r \mathbb{Z} \times \{0\} \times \cdots \times \{0\}\) y \(G/T(G) =\mathbb{Z} \times \cdots \times \mathbb{Z}\)
 
@@ -630,7 +697,7 @@ Sea \(G\) abeliano finitamente generado. Existen enteros no negativos \(n,r\), y
 \item \(G \simeq T(G) \times G/T(G)\).
 \end{enumerate}
 
-\ejem{7.8} Si \(G\) no es finítamente generado, puede ser que \(G \not\simeq
+\importante\ejem{7.8} Si \(G\) no es finítamente generado, puede ser que \(G \not\simeq
 T(G) \times G/T(G)\). P. ej. en el grupo \(G = \prod_{n \in \mathbb{N}}^{}
 \mathbb{Z}/p_n \mathbb{Z}\), si \(T(G) = \{ a \in G \;|\; \text{sop}(a) \text{ es finito} \}\), \(\text{sop}(a) = \{ n \in \mathbb{N} \;|\; a_n + p_n \mathbb{Z} \neq 0 + p_n \mathbb{Z}
 \}\) falla en cumplir la isomorfía.
@@ -641,7 +708,7 @@ escribirse de forma única como producto de finitos elementos de \(I\) y sus inv
 
 
 \subsection*{Generadores y relaciones}
-\label{sec:org9ca90df}
+\label{sec:org79bacc7}
    \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
    \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
 \(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
@@ -651,13 +718,13 @@ Vemos que \(ker(f_S)\) es el conjunto que hace que \(m_1x_1 + \cdots + m_nx_n = 
    r_1, \cdots, r_l \}\) como el sistema generador de \(R(S)\). El par \((R,S)\)
    se denomina \textbf{presentación de \(G\) mediante generadores y relaciones}.
 
-\propo{7.13} Sea \(G\) un grupo abeliano finitamente generado por \(S = \{
+\importante\propo{7.13} Sea \(G\) un grupo abeliano finitamente generado por \(S = \{
 x_1, \cdots, x_n \}\). Entonces se cumple que  \(S = \{ x_1, \cdots,
 -x_i, \cdots, x_n\}\) también es sistema generador, y si \(\lambda _2, \cdots, \lambda _n\) son
 enteros, y \(y_1 = x_1 + \lambda_2 x_2 + \cdots + \lambda _n x_n\), entonces \(S = \{
 y_1, x_2, \cdots, x_n \}\) también es un sistema generador.
 
-\propo{7.14} Sea \((S,R)\) una presentación de \(G\), entonces se pueden
+\importante\propo{7.14} Sea \((S,R)\) una presentación de \(G\), entonces se pueden
 obtener los coeficientes de torsión y el coeficiente de Betti mediante un ejemplo (aborrezco el 
 algoritmo en forma de matriz).
 
