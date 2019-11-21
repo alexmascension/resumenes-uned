@@ -3,4 +3,5 @@
 *.gz
 *.log
 */ltximg
-**/OneNote_DeletedPages.one
+*.one
+*.onetoc2
