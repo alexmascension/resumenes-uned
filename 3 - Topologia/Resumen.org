@@ -263,3 +263,32 @@ aglomeración cuando para todo entorno \( U \) de \( p \) y para todo \(
 A_\lambda \in \mathcal{B} \), \( U \cap A_\lambda \neq \emptyset \).
  El conjunto \( \cap_\lambda \{ adh(A_m) \} \) es el conjunto de puntos de
  aglomeración de \( \mathcal{B} \).
+
+* Aplicaciones continuas. Homeomorfismos
+Sea \( f:(X,T) \rightarrow (Y, S) \), y \( p \in X \). Entonces \( f \) es
+continua en \( p \) cuando para todo entorno \( V \in (Y,S) \) existe un entorno
+\( U \in (X,T) \) tal que \( f(U) \subset V \). Si consideramos una base de \(
+\mathcal{B} \), entonces \( f \) es continua en \( p \) si para toda base de
+filtro \( \mathcal{B} \) convergente a \( p \), \( f(\mathcal{B}) \) converge a
+\( f(p) \).
+
+Una aplicación \( f \) es continua en \( (X,T) \) si lo es para todo \( p \in X
+\). Una condición necesaria y suficiente para que \( f \) sea continua es que
+para todo abierto \( V \) de \( (Y,S) \) [o de la base del espacio], 
+\( f^{-1}(V) \) sea abierto en \( (X,
+T) \). Análogamente, \( f \) es continua si para todo cerrado \( V \), \( f
+^{-1}(V) \) es cerrado en \( (X,T) \).
+
+Sea \( f: (X,T) \rightarrow (Y,S)  \) y \( g:(Y,S) \rightarrow (Z,T') \), si \(
+f \) y \( g \) son continuas, \( g \circ f \) también lo es.
+
+Una aplicación \( f: (X,T) \rightarrow  (Y,S) \) es un homeomorfismo si \( f \)
+es biyectiva, y tanto \( f \) como \( f ^{-1} \) son continuas. Dos espacios
+topológicos son homeomorfos si existe un homeomorfismo entre ellos.
+
+Se llama propiedad topológica o invariante topológico a aquella que si la tiene
+un espacio topológico, la tienen todos los que son homeomorfos a este. Ejemplos
+de invariantes son los axiomas de numerabilidad, poseer un denso numerable
+(separabilidad) o ser espacio \( T_2 \). Por ejemplo, espacios con topologías \(
+T_u \) y \( D \) no son homeomorfos.
+
