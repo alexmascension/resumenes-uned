@@ -154,7 +154,7 @@ base de entornos numerable, los intervalos abiertos de radio racional: \( \{
 (x-r, x+r) \}_{0<r \in \mathbb{Q}} \).
 
 Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues \( \{
-(x-r, x+r) \}_{0<r \in \mathbb{Q}}x  \) es un sistema de entornos numerable.
+(x-r, x+r) \}_{0<r \in \mathbb{Q}}  \) es un sistema de entornos numerable.
 
 * Subconjuntos en un espacio topológico
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
@@ -317,7 +317,7 @@ aplicaciones \( f_1, \cdots, f_n \) es aquella que tenga por base la familia de
 subconjuntos de \( X \) de la forma \( f_1 ^{-1}(U_1) \cap \cdots f_n ^{-1}(U_n)
 \), donde \( U_1 \in S_1, \cdots, U_n \in S_n \).
 
-*Propiedad universal de la topología inducida (varias aplicaciones)*. 
+*Propiedad universal de la topología inducida (una o varias aplicaciones)*. 
 Sea \( (X,T) \) un espacio
 topológico con la topología \( T \) inducida por las aplicación \( f_i :
 (X, T)
