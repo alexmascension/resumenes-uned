@@ -292,7 +292,7 @@ de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 (separabilidad) o ser espacio \( T_2 \). Por ejemplo, espacios con topologías \(
 T_u \) y \( D \) no son homeomorfos.
 
-* Topología inducida por una o varias Aplicaciones
+* Topología inducida por una o varias aplicaciones
 Dada una aplicación \( f: X \rightarrow  (Y, T') \) de un conjunto \( X \) en un
 espacio topológico \( (Y, T') \), se llama *topología inducida* o *topología
 inicial* por \( f \) en \(
@@ -325,3 +325,44 @@ topológico con la topología \( T \) inducida por las aplicación \( f_i :
 cualquier aplicación \( g: (M,S) \rightarrow (X,T) \), \( g \) es continua sii
 \( f_i \circ g : (M,S) \rightarrow  (Y_i,T_i) \) lo es para todo \( i \).
 
+* Topología relativa. Subespacio topológico
+
+Sea \( (X, T) \) un espacio topológico, \( M \) un subconjunto de \( (X,T) \) y
+\( j: \; M \longrightarrow (X,T) \;;\; x \mapsto j(x) = x \). La topología \(
+T_M \) inducida en \( X \) for \( j \) se llama *topología relativa*, o *topología
+subordinada* por \( (X, T) \) en \( M \). El espacio \( (M, T_M) \) es un
+subespacio topológico de \( (X,T) \).
+
+Sea \( M \) un subconjunto del espacio \( (X, T) \). Una parte \( A \) de \( M
+\) es un abierto en \( (M, T_M) \) sii existe un abierto \( U \in T \) tal que
+\( A = U \cap M \). Así, \( T_M = \{ M \cap U  \} \).
+
+La topología inducida tiene las siguientes propiedades:
+- En el subespacio \( (M, T_M) \) de \( (X,T) \) un subconjunto \( W \) es
+  cerrado sii existe un cerrado \( W' \) de \( (X,T) \) tal que \( W = M \cap W'
+  \).
+- Un conjunto \( A \subset M \) es entorno de \( p \in M \) para el espacio (M, T_M) sii existe un
+  entorno \( A' \subset X \) tal que \( A = A' \cap M = j ^{-1} (A') \).
+- Propiedad universal: Para un subespacio \( (M, T_M) \) de un espacio \( (X,T)
+  \), la aplicación \( g: (X^*, S) \rightarrow  (M, T_M) \) es continua sii la
+  aplicación \( j \circ g: (X^*, S) \rightarrow  (X, T) \) es continua.
+- Transitividad: Si \( (M, T_M) \) es un subespacio de \( (X,T) \) y \( M' \) es
+  un subconjunto de \( M \), se verifica que la topología subordinada en \( M'
+  \) por \( (M, T_M) \) coincide con la subordinada por \( (X,T) \).
+
+Sea \( M, T_M \) subespacio de \( (X,T) \). Para que todo abierto / cerrado \( A \) de
+\( (M, T_M) \) sea abierto / cerrado en \( (X,T) \), es condición necesaria y
+suficiente que \( M \) sea abierto / cerrado en \( (X,T) \).
+
+Si \( f: (X,T) \rightarrow  (Y,S) \) es una aplicación continua, la restricción
+\( f|_M \) de \((M, T_M)\) a \((X, T)\) es continua. Sin embargo, que \( f|_M \)
+sea continua no implica que \( f \) sea continua.
+
+Se llama *propiedad hereditaria* una propiedad topológica que si un espacio la
+tiene, la tienen todos sus subespacios. Propiedades hereditarias son la
+separación \( T_2 \), o los axiomas de numerabilidad.
+
+También es hereditario el ser un espacio metrizable. Si \( (X,d) \) es un
+espacio métrico, con \( T \) la topología de \( X \) correspondiente a la
+distancia \( d  \), la topología inducida por \( T \) en \( M \) coincide con la
+topología definida en \( M \) por \( d_M \).

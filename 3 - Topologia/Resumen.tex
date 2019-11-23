@@ -1,4 +1,4 @@
-% Created 2019-11-23 Sat 11:14
+% Created 2019-11-24 Sun 00:42
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,7 +98,7 @@ version={3.0},
 \vspace{-8em}
 
 \section{Espacios topológicos}
-\label{sec:org02e988c}
+\label{sec:orgd462049}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -138,7 +138,7 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:orga2f26e8}
+\label{sec:orgceafa2d}
 Sea un conjunto \(X\). La topología \(T\) determinada en \(X\) cumple:
 \begin{itemize}
 \item P1: \(\emptyset \in T\) y \(X \in T\).
@@ -173,7 +173,7 @@ Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = 
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
 
 \section{Base de una topología}
-\label{sec:org5f76147}
+\label{sec:org724d7b4}
 Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
 familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión
  de elementos de \(B\). \(\forall U \subset
@@ -192,7 +192,7 @@ punto \(t \in  A_\lambda
 
 
 \subsection{1er y 2º axioma de numerabilidad}
-\label{sec:orgfc88834}
+\label{sec:orgb1e0bbd}
 Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
 \in X\) 
 existe una base de entornos de \(x\) que sea numerable. Un espacio 
@@ -200,7 +200,7 @@ existe una base de entornos de \(x\) que sea numerable. Un espacio
 tiene una base numerable.
 
 \subsection{Topología engendrada for una familia de subconjuntos}
-\label{sec:orga201652}
+\label{sec:org56f2fd3}
 
 Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
 una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las
@@ -209,7 +209,7 @@ topología de \(X\) y se llama \textbf{topología engendrada}.
 
 
 \section{Entornos en un espacio topológico}
-\label{sec:org46ebe3f}
+\label{sec:org42e8b1a}
 Sea \((X,T)\) un espacio topológico, y \(p \in X\). \(A \subset X\) es entorno de \(p\) si existe un abierto \(U\) de la topología \(T\) tal que \(p \in U \subset A\). No todo entorno ha de ser abierto. Por ejemplo, \([0, 1)\) es entorno de
 \(1/2\) (existe \(U = (1/2-1/4, 1/2+1/4) \subset [0, 1)\), pero no de \(0\) (ningún abierto en \(T\) cumple \(U \subset [0,1)\).
 
@@ -234,7 +234,7 @@ Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues
 (x-r, x+r) \}_{0<r \in \mathbb{Q}}\) es un sistema de entornos numerable.
 
 \section{Subconjuntos en un espacio topológico}
-\label{sec:orgcef1b90}
+\label{sec:orgff582e8}
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
 consideramos el espacio \((X,T)\) y \(M \subset T\), entonces
 \begin{itemize}
@@ -274,7 +274,7 @@ subconjunto es denso sii para todo abierto no vacío \(U \subset X\) se tiene qu
 Un espacio topológico es \textbf{separable} si tiene un subconjunto numerable y denso.
 
 \section{Sucesiones, límites de sucesiones}
-\label{sec:org1aa1232}
+\label{sec:orgf438f68}
 Una \textbf{sucesión} en un conjunto \(X\) es una aplicación \(s: \mathbb{N}
   \rightarrow X\;;\;s(i) \mapsto a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
   = f(a_i) \in Y\). La sucesión \(s(i) = a_i\) se representa por \(\{ a_i \}\).
@@ -328,7 +328,7 @@ aglomeración cuando para todo entorno \(U\) de \(p\) y para todo \(A_\lambda \i
  aglomeración de \(\mathcal{B}\).
 
 \section{Aplicaciones continuas. Homeomorfismos}
-\label{sec:orge7ddd32}
+\label{sec:orgf1f8f1d}
 Sea \(f:(X,T) \rightarrow (Y, S)\), y \(p \in X\). Entonces \(f\) es
 \textbf{continua} en \(p\) cuando para todo entorno \(V \in (Y,S)\) existe un entorno
 \(U \in (X,T)\) tal que \(f(U) \subset V\). Si consideramos una base de \(\mathcal{B}\), entonces \(f\) es continua en \(p\) si para toda base de
@@ -352,8 +352,8 @@ un espacio topológico, la tienen todos los que son homeomorfos a este. Ejemplos
 de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 (separabilidad) o ser espacio \(T_2\). Por ejemplo, espacios con topologías \(T_u\) y \(D\) no son homeomorfos.
 
-\section{Topología inducida por una o varias Aplicaciones}
-\label{sec:org6246d96}
+\section{Topología inducida por una o varias aplicaciones}
+\label{sec:org2a3de60}
 Dada una aplicación \(f: X \rightarrow  (Y, T')\) de un conjunto \(X\) en un
 espacio topológico \((Y, T')\), se llama \textbf{topología inducida} o \textbf{topología
 inicial} por \(f\) en \(X\) a la topología \(T = \{ f ^{-1}(V) \;|\; V \in T' \}\), que es la
@@ -381,4 +381,44 @@ topológico con la topología \(T\) inducida por las aplicación \(f_i :
 \rightarrow (Y_i,T_i)\). Se verifica que para todo espacio \((M,S)\) y
 cualquier aplicación \(g: (M,S) \rightarrow (X,T)\), \(g\) es continua sii
 \(f_i \circ g : (M,S) \rightarrow  (Y_i,T_i)\) lo es para todo \(i\).
+
+\section{Topología relativa. Subespacio topológico}
+\label{sec:org019022e}
+
+Sea \((X, T)\) un espacio topológico, \(M\) un subconjunto de \((X,T)\) y
+\(j: \; M \longrightarrow (X,T) \;;\; x \mapsto j(x) = x\). La topología \(T_M\) inducida en \(X\) for \(j\) se llama \textbf{topología relativa}, o \textbf{topología
+subordinada} por \((X, T)\) en \(M\). El espacio \((M, T_M)\) es un
+subespacio topológico de \((X,T)\).
+
+Sea \(M\) un subconjunto del espacio \((X, T)\). Una parte \(A\) de \(M\) es un abierto en \((M, T_M)\) sii existe un abierto \(U \in T\) tal que
+\(A = U \cap M\). Así, \(T_M = \{ M \cap U  \}\).
+
+La topología inducida tiene las siguientes propiedades:
+\begin{itemize}
+\item En el subespacio \((M, T_M)\) de \((X,T)\) un subconjunto \(W\) es
+cerrado sii existe un cerrado \(W'\) de \((X,T)\) tal que \(W = M \cap W'\).
+\item Un conjunto \(A \subset M\) es entorno de \(p \in M\) para el espacio (M, T\textsubscript{M}) sii existe un
+entorno \(A' \subset X\) tal que \(A = A' \cap M = j ^{-1} (A')\).
+\item Propiedad universal: Para un subespacio \((M, T_M)\) de un espacio \((X,T)\), la aplicación \(g: (X^*, S) \rightarrow  (M, T_M)\) es continua sii la
+aplicación \(j \circ g: (X^*, S) \rightarrow  (X, T)\) es continua.
+\item Transitividad: Si \((M, T_M)\) es un subespacio de \((X,T)\) y \(M'\) es
+un subconjunto de \(M\), se verifica que la topología subordinada en \(M'\) por \((M, T_M)\) coincide con la subordinada por \((X,T)\).
+\end{itemize}
+
+Sea \(M, T_M\) subespacio de \((X,T)\). Para que todo abierto / cerrado \(A\) de
+\((M, T_M)\) sea abierto / cerrado en \((X,T)\), es condición necesaria y
+suficiente que \(M\) sea abierto / cerrado en \((X,T)\).
+
+Si \(f: (X,T) \rightarrow  (Y,S)\) es una aplicación continua, la restricción
+\(f|_M\) de \((M, T_M)\) a \((X, T)\) es continua. Sin embargo, que \(f|_M\)
+sea continua no implica que \(f\) sea continua.
+
+Se llama \textbf{propiedad hereditaria} una propiedad topológica que si un espacio la
+tiene, la tienen todos sus subespacios. Propiedades hereditarias son la
+separación \(T_2\), o los axiomas de numerabilidad.
+
+También es hereditario el ser un espacio metrizable. Si \((X,d)\) es un
+espacio métrico, con \(T\) la topología de \(X\) correspondiente a la
+distancia \(d\), la topología inducida por \(T\) en \(M\) coincide con la
+topología definida en \(M\) por \(d_M\).
 \end{document}
