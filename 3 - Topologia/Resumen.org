@@ -151,10 +151,10 @@ entornos] si todo entorno de \( p \) contiene un elemento de \( A(p) \).
 Los sistemas de bases de entornos \( B(p) \) resultan ser sistemas fundamentales
 de entornos. P. ej. en \( ( \mathbb{R}, T_u) \) cada punto \( x \) tiene una
 base de entornos numerable, los intervalos abiertos de radio racional: \( \{
-(x-r, x+r) \}_{0<r \in \mathbb{Q}) \).
+(x-r, x+r) \}_{0<r \in \mathbb{Q}} \).
 
 Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues \( \{
-(x-r, x+r) \}_{0<r \in \mathbb{Q})  \) es un sistema de entornos numerable.
+(x-r, x+r) \}_{0<r \in \mathbb{Q}}x  \) es un sistema de entornos numerable.
 
 * Subconjuntos en un espacio topológico
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
@@ -266,7 +266,7 @@ A_\lambda \in \mathcal{B} \), \( U \cap A_\lambda \neq \emptyset \).
 
 * Aplicaciones continuas. Homeomorfismos
 Sea \( f:(X,T) \rightarrow (Y, S) \), y \( p \in X \). Entonces \( f \) es
-continua en \( p \) cuando para todo entorno \( V \in (Y,S) \) existe un entorno
+*continua* en \( p \) cuando para todo entorno \( V \in (Y,S) \) existe un entorno
 \( U \in (X,T) \) tal que \( f(U) \subset V \). Si consideramos una base de \(
 \mathcal{B} \), entonces \( f \) es continua en \( p \) si para toda base de
 filtro \( \mathcal{B} \) convergente a \( p \), \( f(\mathcal{B}) \) converge a
@@ -282,13 +282,46 @@ T) \). Análogamente, \( f \) es continua si para todo cerrado \( V \), \( f
 Sea \( f: (X,T) \rightarrow (Y,S)  \) y \( g:(Y,S) \rightarrow (Z,T') \), si \(
 f \) y \( g \) son continuas, \( g \circ f \) también lo es.
 
-Una aplicación \( f: (X,T) \rightarrow  (Y,S) \) es un homeomorfismo si \( f \)
+Una aplicación \( f: (X,T) \rightarrow  (Y,S) \) es un *homeomorfismo* si \( f \)
 es biyectiva, y tanto \( f \) como \( f ^{-1} \) son continuas. Dos espacios
 topológicos son homeomorfos si existe un homeomorfismo entre ellos.
 
-Se llama propiedad topológica o invariante topológico a aquella que si la tiene
+Se llama propiedad topológica o *invariante* topológico a aquella que si la tiene
 un espacio topológico, la tienen todos los que son homeomorfos a este. Ejemplos
 de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 (separabilidad) o ser espacio \( T_2 \). Por ejemplo, espacios con topologías \(
 T_u \) y \( D \) no son homeomorfos.
+
+* Topología inducida por una o varias Aplicaciones
+Dada una aplicación \( f: X \rightarrow  (Y, T') \) de un conjunto \( X \) en un
+espacio topológico \( (Y, T') \), se llama *topología inducida* o *topología
+inicial* por \( f \) en \(
+X \) a la topología \( T = \{ f ^{-1}(V) \;|\; V \in T' \} \), que es la
+topología menos fina de \( X \) que hace continua a \( f \).
+
+En la topología inducida en \( X \) por \( f: X \rightarrow (Y, T') \), un
+conjunto \( A \subset X \) es cerrado sii \( A = f ^{-1}(U) \), siendo \( U \) 
+un cerrado de \( (Y, T') \). Lo mismo se aplica si \( A \) es abierto o es un
+entorno. 
+
+*Topología inducida por la composición.* Sean \( X, X^* \) conjuntos, \( (X', T') \)
+un espacio topológico y las aplicaciones \( h: X^* \rightarrow  X \) y \( f: X
+\rightarrow (X', T') \). Si \( T \) es la topología inducida por \( f \) en \( X
+\), y \( T^* \) es la topología inducida por \( h \) en \( X* \), entonces \( T^*
+\) es la topología inducida por \( f \circ h \) en \( X^* \).
+
+*Topología inducida por varias aplicaciones.*  Sea \( X \) un conjunto, y 
+\( (Y_1, S_1), (Y_2, S_2), \cdots, (Y_n, S_n) \) diferentes espacios
+topológicos. Entonces, la topología de \( X \) más fina que haga continuas las
+aplicaciones \( f_1, \cdots, f_n \) es aquella que tenga por base la familia de
+subconjuntos de \( X \) de la forma \( f_1 ^{-1}(U_1) \cap \cdots f_n ^{-1}(U_n)
+\), donde \( U_1 \in S_1, \cdots, U_n \in S_n \).
+
+*Propiedad universal de la topología inducida (varias aplicaciones)*. 
+Sea \( (X,T) \) un espacio
+topológico con la topología \( T \) inducida por las aplicación \( f_i :
+(X, T)
+\rightarrow (Y_i,T_i) \). Se verifica que para todo espacio \( (M,S) \) y
+cualquier aplicación \( g: (M,S) \rightarrow (X,T) \), \( g \) es continua sii
+\( f_i \circ g : (M,S) \rightarrow  (Y_i,T_i) \) lo es para todo \( i \).
 
