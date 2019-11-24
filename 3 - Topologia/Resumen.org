@@ -423,3 +423,38 @@ d_2(x_2,y_2) \}, d^*(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2) \) cumplen que \( d' \le
 d \le d^* \le 2d' \), luego todas las métricas resultan equivalentes, y con ello
 sus bases de entornos. Por tanto, las 3 métricas determinan la misma topología
 métrica en \( X_1 \times X_2 \).
+
+* Topología final para una o varias aplicaciones
+Sea una aplicación \( f:(X,T) \rightarrow  Y \). La familia de conjuntos de \( Y
+\) tales que sus imágenes inversas son abietos de \( T \) constituyen una
+topología de \( Y \). Esta topología, la *topología final*,
+ \( S = \{ A \subset Y \;|\; f ^{-1}(A) \in
+T\} \) es la topología más fina de \( Y \) para la que \( f \) es continua.
+Si \( S \) contiene algún conjunto \( U \) tal que \( f ^{-1}(U) \not \in T \),
+entonces f no es continua. x
+
+En la topología final de \( f: (X,T) \rightarrow  (Y,S) \) un conjunto \( M \) es cerrado
+sii \( f ^{-1}(M)  \) es cerrado en \( (X,T) \). Si \( f \) no es sobreyectiva,
+\( f(X) \) es abierto y cerrado en la topología final de \( f \), pues \( f
+^{-1}(f(X)) = X \), que es cerrado y abierto en \( (X,T) \) por definición.
+Si \( q \in f(X) \) es un punto de \( Y \), tal que \( f(p) = q \), \( V(q) \in S \)
+es un entorno de \( q \) en \( (Y,S) \) sii \( f ^{-1}(V) \) es entorno de \( p
+\) en \( (X,T) \).
+
+La Topología final cumple la composición. Sea \( (X,T) \) y los conjuntos \( Y,
+Y^* \); y las aplicaciones \( f: (X,T) \rightarrow  Y \), \( g: Y \rightarrow  Y^* \). Si \( S \) es
+la topología final para \( f \), \( S^* \) es la topología para \( g \) sii \(
+S^* \) es la topología final para \( g \circ f \).
+
+Dada una familia de aplicaciones \( f_ \lambda : (X_ \lambda, T_ \lambda) \rightarrow Y \) con espacios
+topológicos iguales o distintos, la topología final de \( Y \) es la topología
+más fina que hace continua toda \( f_ \lambda \). Un conjunto \( A \subset Y \) es abierto
+en esta topología sii para todo \( \lambda \), \( f_ \lambda ^{-1}(A) \in T_ \lambda \). Hay que
+considerar que la topología menos fina de \( Y \) es siempre la trivial: \( \{
+\emptyset, Y \} \).
+
+La topología final también cumple la propiedad universal. Para las aplicaciones
+\( f_ \lambda : (X_ \lambda, T_ \lambda) \rightarrow Y \) continuas, para el espacio topológico \( (Y^*, T^*) \) y la
+aplicación \( g: (Y,S) \rightarrow (Y^*, T^*) \) se cumple que \( g \) es continua sii
+cada una de las aplicaciones \(
+g \circ f_ \lambda \) lo es.

@@ -1,4 +1,4 @@
-% Created 2019-11-24 Sun 14:25
+% Created 2019-11-24 Sun 16:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,7 +98,7 @@ version={3.0},
 \vspace{-8em}
 
 \section{Espacios topológicos}
-\label{sec:org33a8e9b}
+\label{sec:org3adad9b}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -138,7 +138,7 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:org767fbff}
+\label{sec:org5d423c8}
 Sea un conjunto \(X\). La topología \(T\) determinada en \(X\) cumple:
 \begin{itemize}
 \item P1: \(\emptyset \in T\) y \(X \in T\).
@@ -173,7 +173,7 @@ Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = 
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
 
 \section{Base de una topología}
-\label{sec:orgdf9e428}
+\label{sec:orgc0625be}
 Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
 familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión
  de elementos de \(B\). \(\forall U \subset
@@ -192,7 +192,7 @@ punto \(t \in  A_\lambda
 
 
 \subsection{1er y 2º axioma de numerabilidad}
-\label{sec:org26a0997}
+\label{sec:orgb0a4f1d}
 Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
 \in X\) 
 existe una base de entornos de \(x\) que sea numerable. Un espacio 
@@ -200,7 +200,7 @@ existe una base de entornos de \(x\) que sea numerable. Un espacio
 tiene una base numerable.
 
 \subsection{Topología engendrada for una familia de subconjuntos}
-\label{sec:orgb780db1}
+\label{sec:orgcecc255}
 
 Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
 una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las
@@ -209,7 +209,7 @@ topología de \(X\) y se llama \textbf{topología engendrada}.
 
 
 \section{Entornos en un espacio topológico}
-\label{sec:org420bee2}
+\label{sec:org05f9859}
 Sea \((X,T)\) un espacio topológico, y \(p \in X\). \(A \subset X\) es entorno de \(p\) si existe un abierto \(U\) de la topología \(T\) tal que \(p \in U \subset A\). No todo entorno ha de ser abierto. Por ejemplo, \([0, 1)\) es entorno de
 \(1/2\) (existe \(U = (1/2-1/4, 1/2+1/4) \subset [0, 1)\), pero no de \(0\) (ningún abierto en \(T\) cumple \(U \subset [0,1)\).
 
@@ -234,7 +234,7 @@ Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues
 (x-r, x+r) \}_{0<r \in \mathbb{Q}}\) es un sistema de entornos numerable.
 
 \section{Subconjuntos en un espacio topológico}
-\label{sec:org89f7b87}
+\label{sec:org4c96e29}
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
 consideramos el espacio \((X,T)\) y \(M \subset T\), entonces
 \begin{itemize}
@@ -274,7 +274,7 @@ subconjunto es denso sii para todo abierto no vacío \(U \subset X\) se tiene qu
 Un espacio topológico es \textbf{separable} si tiene un subconjunto numerable y denso.
 
 \section{Sucesiones, límites de sucesiones}
-\label{sec:org3490aa3}
+\label{sec:org1584a10}
 Una \textbf{sucesión} en un conjunto \(X\) es una aplicación \(s: \mathbb{N}
   \rightarrow X\;;\;s(i) \mapsto a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
   = f(a_i) \in Y\). La sucesión \(s(i) = a_i\) se representa por \(\{ a_i \}\).
@@ -328,7 +328,7 @@ aglomeración cuando para todo entorno \(U\) de \(p\) y para todo \(A_\lambda \i
  aglomeración de \(\mathcal{B}\).
 
 \section{Aplicaciones continuas. Homeomorfismos}
-\label{sec:org62d2659}
+\label{sec:orgd469a06}
 Sea \(f:(X,T) \rightarrow (Y, S)\), y \(p \in X\). Entonces \(f\) es
 \textbf{continua} en \(p\) cuando para todo entorno \(V \in (Y,S)\) existe un entorno
 \(U \in (X,T)\) tal que \(f(U) \subset V\). Si consideramos una base de \(\mathcal{B}\), entonces \(f\) es continua en \(p\) si para toda base de
@@ -353,7 +353,7 @@ de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 (separabilidad) o ser espacio \(T_2\). Por ejemplo, espacios con topologías \(T_u\) y \(D\) no son homeomorfos.
 
 \section{Topología inducida por una o varias aplicaciones}
-\label{sec:orgf05ef49}
+\label{sec:orgde58e44}
 Dada una aplicación \(f: X \rightarrow  (Y, T')\), se llama \textbf{topología inducida} o \textbf{topología
 inicial} por \(f\) en \(X\) a la topología \(T = \{ f ^{-1}(V) \;|\; V \in T' \}\), que es la
 topología menos fina de \(X\) que hace continua a \(f\).
@@ -382,7 +382,7 @@ cualquier aplicación \(g: (M,S) \rightarrow (X,T)\), \(g\) es continua sii
 \(f_i \circ g : (M,S) \rightarrow  (Y_i,T_i)\) lo es para todo \(i\).
 
 \section{Topología relativa. Subespacio topológico}
-\label{sec:org7070dfb}
+\label{sec:org40e7263}
 
 Sea \((X, T)\) un espacio topológico, \(M\) un subconjunto de \((X,T)\) y
 \(j: \; M \longrightarrow (X,T) \;;\; x \mapsto j(x) = x\). La topología \(T_M\) inducida en \(X\) for \(j\) se llama \textbf{topología relativa}, o \textbf{topología
@@ -424,7 +424,7 @@ topología definida en \(M\) por \(d_M\).
 Un espacio es \(T_1\) separable cuando cada conjunto unitario \(\{ x \}\) es cerrado.
 
 \section{Topología producto}
-\label{sec:org0b6cb59}
+\label{sec:orgbe83333}
 Dados dos espacios \((X_1, T_1)\) y \((X_2, T_2)\), una base para la 
 topología producto \(T_1 \times T_2\) es la familia de abiertos \(B = \{ U_1 \times U_2
   \;|\; U_1 \in T_1, U_2 \in T_2 \}\). Estos abiertos \(U_1 \times U_2\) se
@@ -476,4 +476,36 @@ d_2(x_2,y_2) \}, d^*(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)\) cumplen que \(d' \le
 d \le d^* \le 2d'\), luego todas las métricas resultan equivalentes, y con ello
 sus bases de entornos. Por tanto, las 3 métricas determinan la misma topología
 métrica en \(X_1 \times X_2\).
+
+\section{Topología final para una o varias aplicaciones}
+\label{sec:org2cfdc32}
+Sea una aplicación \(f:(X,T) \rightarrow  Y\). La familia de conjuntos de \(Y\) tales que sus imágenes inversas son abietos de \(T\) constituyen una
+topología de \(Y\). Esta topología, la \textbf{topología final},
+ \(S = \{ A \subset Y \;|\; f ^{-1}(A) \in
+T\}\) es la topología más fina de \(Y\) para la que \(f\) es continua.
+Si \(S\) contiene algún conjunto \(U\) tal que \(f ^{-1}(U) \not \in T\),
+entonces f no es continua. x
+
+En la topología final de \(f: (X,T) \rightarrow  (Y,S)\) un conjunto \(M\) es cerrado
+sii \(f ^{-1}(M)\) es cerrado en \((X,T)\). Si \(f\) no es sobreyectiva,
+\(f(X)\) es abierto y cerrado en la topología final de \(f\), pues \(f
+^{-1}(f(X)) = X\), que es cerrado y abierto en \((X,T)\) por definición.
+Si \(q \in f(X)\) es un punto de \(Y\), tal que \(f(p) = q\), \(V(q) \in S\)
+es un entorno de \(q\) en \((Y,S)\) sii \(f ^{-1}(V)\) es entorno de \(p\) en \((X,T)\).
+
+La Topología final cumple la composición. Sea \((X,T)\) y los conjuntos \(Y,
+Y^*\); y las aplicaciones \(f: (X,T) \rightarrow  Y\), \(g: Y \rightarrow  Y^*\). Si \(S\) es
+la topología final para \(f\), \(S^*\) es la topología para \(g\) sii \(S^*\) es la topología final para \(g \circ f\).
+
+Dada una familia de aplicaciones \(f_ \lambda : (X_ \lambda, T_ \lambda) \rightarrow Y\) con espacios
+topológicos iguales o distintos, la topología final de \(Y\) es la topología
+más fina que hace continua toda \(f_ \lambda\). Un conjunto \(A \subset Y\) es abierto
+en esta topología sii para todo \(\lambda\), \(f_ \lambda ^{-1}(A) \in T_ \lambda\). Hay que
+considerar que la topología menos fina de \(Y\) es siempre la trivial: \(\{
+\emptyset, Y \}\).
+
+La topología final también cumple la propiedad universal. Para las aplicaciones
+\(f_ \lambda : (X_ \lambda, T_ \lambda) \rightarrow Y\) continuas, para el espacio topológico \((Y^*, T^*)\) y la
+aplicación \(g: (Y,S) \rightarrow (Y^*, T^*)\) se cumple que \(g\) es continua sii
+cada una de las aplicaciones \(g \circ f_ \lambda\) lo es.
 \end{document}
