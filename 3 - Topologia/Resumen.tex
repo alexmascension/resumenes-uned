@@ -1,4 +1,4 @@
-% Created 2019-11-24 Sun 12:17
+% Created 2019-11-24 Sun 14:25
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,7 +98,7 @@ version={3.0},
 \vspace{-8em}
 
 \section{Espacios topológicos}
-\label{sec:orgbc5d8ca}
+\label{sec:org33a8e9b}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -138,7 +138,7 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:orge36991c}
+\label{sec:org767fbff}
 Sea un conjunto \(X\). La topología \(T\) determinada en \(X\) cumple:
 \begin{itemize}
 \item P1: \(\emptyset \in T\) y \(X \in T\).
@@ -173,7 +173,7 @@ Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = 
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
 
 \section{Base de una topología}
-\label{sec:orgccd355c}
+\label{sec:orgdf9e428}
 Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
 familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión
  de elementos de \(B\). \(\forall U \subset
@@ -192,7 +192,7 @@ punto \(t \in  A_\lambda
 
 
 \subsection{1er y 2º axioma de numerabilidad}
-\label{sec:org55f5e62}
+\label{sec:org26a0997}
 Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
 \in X\) 
 existe una base de entornos de \(x\) que sea numerable. Un espacio 
@@ -200,7 +200,7 @@ existe una base de entornos de \(x\) que sea numerable. Un espacio
 tiene una base numerable.
 
 \subsection{Topología engendrada for una familia de subconjuntos}
-\label{sec:org3f586b4}
+\label{sec:orgb780db1}
 
 Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
 una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las
@@ -209,7 +209,7 @@ topología de \(X\) y se llama \textbf{topología engendrada}.
 
 
 \section{Entornos en un espacio topológico}
-\label{sec:org82d450a}
+\label{sec:org420bee2}
 Sea \((X,T)\) un espacio topológico, y \(p \in X\). \(A \subset X\) es entorno de \(p\) si existe un abierto \(U\) de la topología \(T\) tal que \(p \in U \subset A\). No todo entorno ha de ser abierto. Por ejemplo, \([0, 1)\) es entorno de
 \(1/2\) (existe \(U = (1/2-1/4, 1/2+1/4) \subset [0, 1)\), pero no de \(0\) (ningún abierto en \(T\) cumple \(U \subset [0,1)\).
 
@@ -234,7 +234,7 @@ Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues
 (x-r, x+r) \}_{0<r \in \mathbb{Q}}\) es un sistema de entornos numerable.
 
 \section{Subconjuntos en un espacio topológico}
-\label{sec:orgcb017a4}
+\label{sec:org89f7b87}
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
 consideramos el espacio \((X,T)\) y \(M \subset T\), entonces
 \begin{itemize}
@@ -274,7 +274,7 @@ subconjunto es denso sii para todo abierto no vacío \(U \subset X\) se tiene qu
 Un espacio topológico es \textbf{separable} si tiene un subconjunto numerable y denso.
 
 \section{Sucesiones, límites de sucesiones}
-\label{sec:org9ef07b4}
+\label{sec:org3490aa3}
 Una \textbf{sucesión} en un conjunto \(X\) es una aplicación \(s: \mathbb{N}
   \rightarrow X\;;\;s(i) \mapsto a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
   = f(a_i) \in Y\). La sucesión \(s(i) = a_i\) se representa por \(\{ a_i \}\).
@@ -328,7 +328,7 @@ aglomeración cuando para todo entorno \(U\) de \(p\) y para todo \(A_\lambda \i
  aglomeración de \(\mathcal{B}\).
 
 \section{Aplicaciones continuas. Homeomorfismos}
-\label{sec:orgf9b0a6d}
+\label{sec:org62d2659}
 Sea \(f:(X,T) \rightarrow (Y, S)\), y \(p \in X\). Entonces \(f\) es
 \textbf{continua} en \(p\) cuando para todo entorno \(V \in (Y,S)\) existe un entorno
 \(U \in (X,T)\) tal que \(f(U) \subset V\). Si consideramos una base de \(\mathcal{B}\), entonces \(f\) es continua en \(p\) si para toda base de
@@ -353,7 +353,7 @@ de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 (separabilidad) o ser espacio \(T_2\). Por ejemplo, espacios con topologías \(T_u\) y \(D\) no son homeomorfos.
 
 \section{Topología inducida por una o varias aplicaciones}
-\label{sec:orgdd3a0d3}
+\label{sec:orgf05ef49}
 Dada una aplicación \(f: X \rightarrow  (Y, T')\), se llama \textbf{topología inducida} o \textbf{topología
 inicial} por \(f\) en \(X\) a la topología \(T = \{ f ^{-1}(V) \;|\; V \in T' \}\), que es la
 topología menos fina de \(X\) que hace continua a \(f\).
@@ -382,7 +382,7 @@ cualquier aplicación \(g: (M,S) \rightarrow (X,T)\), \(g\) es continua sii
 \(f_i \circ g : (M,S) \rightarrow  (Y_i,T_i)\) lo es para todo \(i\).
 
 \section{Topología relativa. Subespacio topológico}
-\label{sec:org527162e}
+\label{sec:org7070dfb}
 
 Sea \((X, T)\) un espacio topológico, \(M\) un subconjunto de \((X,T)\) y
 \(j: \; M \longrightarrow (X,T) \;;\; x \mapsto j(x) = x\). La topología \(T_M\) inducida en \(X\) for \(j\) se llama \textbf{topología relativa}, o \textbf{topología
@@ -422,4 +422,58 @@ distancia \(d\), la topología inducida por \(T\) en \(M\) coincide con la
 topología definida en \(M\) por \(d_M\).
 
 Un espacio es \(T_1\) separable cuando cada conjunto unitario \(\{ x \}\) es cerrado.
+
+\section{Topología producto}
+\label{sec:org0b6cb59}
+Dados dos espacios \((X_1, T_1)\) y \((X_2, T_2)\), una base para la 
+topología producto \(T_1 \times T_2\) es la familia de abiertos \(B = \{ U_1 \times U_2
+  \;|\; U_1 \in T_1, U_2 \in T_2 \}\). Estos abiertos \(U_1 \times U_2\) se
+llaman \textbf{abiertos elementales}  de la Topología producto.
+Así, un abierto \(A \in T_1 \times T_2\) es abierto sii es unión de abiertos
+de \(B\): \(A = \cup_{\lambda \in L} \{ U_1^\lambda \times  U_2^\lambda \}\).
+
+Las propiedades de la Topología producto son las siguientes:
+\begin{itemize}
+\item Las propiedades \(p_1: X_1 \times X_2 \rightarrow X_1\) y \(p_2:X_1 \times
+  X_2 \rightarrow X_2\) son aplicaciones continuas, y \(X_1 \times X_2\) es
+la Topología menos fina de \(X_1 \times X_2\) para las que son continuas.
+\item Propiedad universal: una aplicación \(f: (Y,S) \rightarrow (X_1 \times X_2,
+  T_1 \times T_2)\) es continua sii \(p_1 \circ f\) y \(p_2 \circ f\) son
+continuas.
+\end{itemize}
+Las aplicaciones \(f_1 = p_1 \circ f\) y \(f_2 = p_2 \circ f\) se llaman
+\textbf{componentes de \(f\)}. Un punto \(y \in (Y,S)\) se representa como \((x_1,x_2) = f(y)\) o como \(x_1 = f_1(y), x_2 = f_2(y)\).
+
+Una aplicación \(f: (X,T) \rightarrow  (Y,S)\) es abierta si para cada abierto
+\(U \in T\), \(f(U)\) es abierto de \(S\). Entonces, en el espacio
+producto, \(p_1, p_2\) son aplicaciones abiertas.
+
+Para cada punto \(a \in X_1\), el subespacio \(p_1 ^{-1}(a) = \{ a \} \times
+X_2\) es homeomorfo a \((X_2, T_2)\) y viceversa.
+
+Si una aplicación \(f:(X_1 \times X_2, T_1 \times T_2) \rightarrow (Y,S)\) es
+continua, sus restricciones a subespacios \(f_a: \{ a \} \times  X_2
+\rightarrow (Y, S)\) y \(f_b: X_1 \times \{ b \} \rightarrow (Y,S)\) también
+son continuas. También son continuas las aplicaciones por composición \(g_a:
+(X_2, T_2) \rightarrow (Y,S)\), \(g_b: (X_1 \rightarrow T_1) \rightarrow (Y,S)\). Sin embargo, aunque las aplicaciones por cada una de las variables (\(f_a,
+f_b)\)  garanticen
+la continuidad, no se deduce que sea continua la aplicación en \(y = f(x_1,x_2)\). 
+
+Sea \(p(x_1, x_2)\) un punto del espacio producto \((X_1 \times X_2, T_1
+\times T_2\). Si \(\{ V_j \}\) es una base de entornos de \(x_1\) en \((X_1, T_1)\) y \(\{ W_k \}\) es una base de entornos de \(x_2\) en \((X_2,
+T_2)\), entonces \(\{ V_j \times W_k \}\) constituyen una base de entornos en
+\((X_1 \times X_2, T_1 \times T_2)\).
+
+Una propiedad topológica es \textbf{finito-multiplicativa} sii verifica que la poseen los
+espacios \((X_1, T_1)\), \((X_2, T_2)\), \((X_n, T_n)\) entonces la posee
+su producto. Si la cantidad de espacios es infinito, entoces es multiplicativa.
+Los axiomas de numerabilidad, la separación \(T_2\) y la metricabilidad son
+proiedades finito-multiplicativas.
+
+Para dos puntos \(x = (x_1,x_2), y = (y_1, y_2)\), las distancias \(d(x,y) =
+\sqrt{d_1^2(x_1,y_1) + d_2^2(x_2,y_2)}, d'(x,y) = max \{ d_1(x_1,y_1),
+d_2(x_2,y_2) \}, d^*(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)\) cumplen que \(d' \le
+d \le d^* \le 2d'\), luego todas las métricas resultan equivalentes, y con ello
+sus bases de entornos. Por tanto, las 3 métricas determinan la misma topología
+métrica en \(X_1 \times X_2\).
 \end{document}

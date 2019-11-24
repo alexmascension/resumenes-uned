@@ -367,3 +367,59 @@ distancia \( d  \), la topología inducida por \( T \) en \( M \) coincide con l
 topología definida en \( M \) por \( d_M \).
 
 Un espacio es \( T_1 \) separable cuando cada conjunto unitario \( \{ x \} \) es cerrado.
+
+* Topología producto
+  Dados dos espacios \( (X_1, T_1) \) y \( (X_2, T_2) \), una base para la 
+  topología producto \( T_1 \times T_2 \) es la familia de abiertos \( B = \{ U_1 \times U_2
+  \;|\; U_1 \in T_1, U_2 \in T_2 \} \). Estos abiertos \( U_1 \times U_2 \) se
+  llaman *abiertos elementales*  de la Topología producto.
+  Así, un abierto \( A \in T_1 \times T_2 \) es abierto sii es unión de abiertos
+  de \( B \): \( A = \cup_{\lambda \in L} \{ U_1^\lambda \times  U_2^\lambda \}
+  \).
+
+Las propiedades de la Topología producto son las siguientes:
+- Las propiedades \( p_1: X_1 \times X_2 \rightarrow X_1 \) y \( p_2:X_1 \times
+  X_2 \rightarrow X_2 \) son aplicaciones continuas, y \( X_1 \times X_2 \) es
+  la Topología menos fina de \( X_1 \times X_2 \) para las que son continuas.
+- Propiedad universal: una aplicación \( f: (Y,S) \rightarrow (X_1 \times X_2,
+  T_1 \times T_2) \) es continua sii \( p_1 \circ f \) y \( p_2 \circ f \) son
+  continuas.
+Las aplicaciones \( f_1 = p_1 \circ f \) y \( f_2 = p_2 \circ f \) se llaman
+*componentes de \( f \)*. Un punto \( y \in (Y,S) \) se representa como \(
+(x_1,x_2) = f(y) \) o como \( x_1 = f_1(y), x_2 = f_2(y) \).
+
+Una aplicación \( f: (X,T) \rightarrow  (Y,S) \) es abierta si para cada abierto
+\( U \in T \), \( f(U) \) es abierto de \( S \). Entonces, en el espacio
+producto, \( p_1, p_2 \) son aplicaciones abiertas.
+
+Para cada punto \( a \in X_1 \), el subespacio \( p_1 ^{-1}(a) = \{ a \} \times
+X_2 \) es homeomorfo a \( (X_2, T_2) \) y viceversa.
+
+Si una aplicación \( f:(X_1 \times X_2, T_1 \times T_2) \rightarrow (Y,S) \) es
+continua, sus restricciones a subespacios \( f_a: \{ a \} \times  X_2
+\rightarrow (Y, S) \) y \( f_b: X_1 \times \{ b \} \rightarrow (Y,S) \) también
+son continuas. También son continuas las aplicaciones por composición \( g_a:
+(X_2, T_2) \rightarrow (Y,S) \), \( g_b: (X_1 \rightarrow T_1) \rightarrow (Y,S)
+\). Sin embargo, aunque las aplicaciones por cada una de las variables (\( f_a,
+f_b) \)  garanticen
+la continuidad, no se deduce que sea continua la aplicación en \( y = f(x_1,x_2)
+\). 
+
+Sea \( p(x_1, x_2) \) un punto del espacio producto \( (X_1 \times X_2, T_1
+\times T_2  \). Si \( \{ V_j \} \) es una base de entornos de \( x_1  \) en \(
+(X_1, T_1) \) y \( \{ W_k \} \) es una base de entornos de \( x_2 \) en \( (X_2,
+T_2)\), entonces \( \{ V_j \times W_k \} \) constituyen una base de entornos en
+\( (X_1 \times X_2, T_1 \times T_2) \).
+
+Una propiedad topológica es *finito-multiplicativa* sii verifica que la poseen los
+espacios \( (X_1, T_1) \), \( (X_2, T_2) \), \( (X_n, T_n)  \) entonces la posee
+su producto. Si la cantidad de espacios es infinito, entoces es multiplicativa.
+Los axiomas de numerabilidad, la separación \( T_2 \) y la metricabilidad son
+proiedades finito-multiplicativas.
+
+Para dos puntos \( x = (x_1,x_2), y = (y_1, y_2) \), las distancias \( d(x,y) =
+\sqrt{d_1^2(x_1,y_1) + d_2^2(x_2,y_2)}, d'(x,y) = max \{ d_1(x_1,y_1),
+d_2(x_2,y_2) \}, d^*(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2) \) cumplen que \( d' \le
+d \le d^* \le 2d' \), luego todas las métricas resultan equivalentes, y con ello
+sus bases de entornos. Por tanto, las 3 métricas determinan la misma topología
+métrica en \( X_1 \times X_2 \).
