@@ -293,8 +293,7 @@ de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 T_u \) y \( D \) no son homeomorfos.
 
 * Topología inducida por una o varias aplicaciones
-Dada una aplicación \( f: X \rightarrow  (Y, T') \) de un conjunto \( X \) en un
-espacio topológico \( (Y, T') \), se llama *topología inducida* o *topología
+Dada una aplicación \( f: X \rightarrow  (Y, T') \), se llama *topología inducida* o *topología
 inicial* por \( f \) en \(
 X \) a la topología \( T = \{ f ^{-1}(V) \;|\; V \in T' \} \), que es la
 topología menos fina de \( X \) que hace continua a \( f \).
@@ -341,7 +340,7 @@ La topología inducida tiene las siguientes propiedades:
 - En el subespacio \( (M, T_M) \) de \( (X,T) \) un subconjunto \( W \) es
   cerrado sii existe un cerrado \( W' \) de \( (X,T) \) tal que \( W = M \cap W'
   \).
-- Un conjunto \( A \subset M \) es entorno de \( p \in M \) para el espacio (M, T_M) sii existe un
+- Un conjunto \( A \subset M \) es entorno de \( p \in M \) para el espacio \((M, T_M)\) sii existe un
   entorno \( A' \subset X \) tal que \( A = A' \cap M = j ^{-1} (A') \).
 - Propiedad universal: Para un subespacio \( (M, T_M) \) de un espacio \( (X,T)
   \), la aplicación \( g: (X^*, S) \rightarrow  (M, T_M) \) es continua sii la
@@ -366,3 +365,5 @@ También es hereditario el ser un espacio metrizable. Si \( (X,d) \) es un
 espacio métrico, con \( T \) la topología de \( X \) correspondiente a la
 distancia \( d  \), la topología inducida por \( T \) en \( M \) coincide con la
 topología definida en \( M \) por \( d_M \).
+
+Un espacio es \( T_1 \) separable cuando cada conjunto unitario \( \{ x \} \) es cerrado.
