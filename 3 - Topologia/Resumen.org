@@ -458,3 +458,59 @@ La topología final también cumple la propiedad universal. Para las aplicacione
 aplicación \( g: (Y,S) \rightarrow (Y^*, T^*) \) se cumple que \( g \) es continua sii
 cada una de las aplicaciones \(
 g \circ f_ \lambda \) lo es.
+
+* Topología cociente
+Conceptos a recordar:
+- Si \( X \) es un conjunto y \( E \) es una relación de equivalencia, \( \overline{x} \), también 
+  llamado \( E(x) \) es la clase de \( x \) por \( E \). 
+- \( A \subset X \) es un *conjunto saturado* si \( \forall x \in A \), \( E(x)
+  \subset A \iff A = \cup_{x \in A} \{ E(x) \}\). 
+- El saturado de \( A \) es el mínimo conjunto saturado que contiene a \( A \):
+  \( E(A) =  \cup_{x \in A} \{ E(x) \}  \). Si \( p: X \rightarrow  X/E \) es la
+  aplicación canónica, \( A \) es saturado sii \( E(A) = p ^{-1}(p(A)) = A \).
+- Una aplicación \( f: X \rightarrow  Y \) es *compatible* con la relación \( E \)
+  de \( X \) cuando \( xEy \rightarrow  f(x) = f(y) \) o cuando \( p(x) = p(y)
+  \rightarrow  f(x) = f(y) \).
+- Si \( E, E' \) son dos relaciones de equivalencia, \( E \) es más fina que \(
+  E' \) cuando si \( xEy \), entonces \( xE'y \). De otro modo, si \( E \) es
+  más fina, si la aplicación canónica \( p': X \rightarrow  X/E \) es compatible
+  con \( E \), \( xEy \rightarrow  p'(x) = p'(y) \).
+
+Si \( E \) es la relación de equivalencia en \( (X,T) \) y \( X/E \) es el
+conjunto cociente se dota a este conjunto la *topología cociente* \( T_E \) basado en la
+proyección canónica \( p: (X,T) \rightarrow (X/E, T_E) \). \( T_E \) es la
+topología final de esta aplicación.
+\( A \) es abierto en \( (X, T_E) \) si \( p ^{-1}(A) \) es abierto en \( (X,T)
+\).
+
+Si \( f:(X,T) \rightarrow  Y \) es una aplicación sobreyectiva, \( f \)
+determina la relación de equivalencia \( E(f) \) en \( X \) tal que \( xE(f)y
+\iff f(x) = f(y) \). Entonces, la aplicación \(
+f^*: (X/E(f), T_f) \rightarrow  (Y,S) \), con \( T_f \) la topologia cociente
+para \( E(f) \) y \( S  \) la topología final para \( f \), es un homeomorfismo.
+
+La topología cociente presenta las siguientes propiedades:
+- Un conjunto \( M \) de \( X/E \) es cerrado en \( T_E \) sii \( p
+  ^{-1}(M) \) es cerrado en \( (X,T) \).
+- Propiedad universal: Para todo espacio \( (Y,S) \) y para cualquier aplicación
+  \( g: (X/E, T_E) \rightarrow (Y,S) \) \( g \) es continua sii \( g \circ p:
+  (X,T) \rightarrow  (Y,S) \) lo es.
+- La aplicación canónica \( p \) es abierta sii el saturado de un abierto es
+  abierto.
+- La aplicación canónica \( p \) es cerrada sii el saturado de un cerrado es
+  cerrado. 
+
+Cuando se tiene la composición \( f:(X,T) \rightarrow (Y,S) \), existe una
+*descomposición canónica* de la aplicación así,
+\[ (X,T) \xrightarrow{p} (X/E(f), T_E) \xrightarrow{f^*} f(X) \xrightarrow{j}
+(Y,S) \]
+
+Donde \( p \) es sobreyectiva, \( f^* \) es biyectiva y \( j \) es inyectiva; y
+\( f = j \circ f^* \circ p \). En estas condiciones, \( f^* \) es homeomorfismo
+si la imagen por \( f \) de todo abierto o cerrado en \( X \) que sea saturado
+por \( E(f) \) es abierto o cerrado en \( f(X) \).
+
+*Transitividad de espacios cocientes*: Si en un espacio topológico \( X \) existen
+dos relaciones \( E, E' \), \( E \) más fina que \( E' \), la relación de
+equivalencia \( E'/E \) determina un espacio cociente en \( X/E \) homeomorfo a
+\( X/E' \) con el homeomorfismo \( \phi: (X/E)/(E'/E) \rightarrow  X/E' \).
