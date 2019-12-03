@@ -514,3 +514,48 @@ por \( E(f) \) es abierto o cerrado en \( f(X) \).
 dos relaciones \( E, E' \), \( E \) más fina que \( E' \), la relación de
 equivalencia \( E'/E \) determina un espacio cociente en \( X/E \) homeomorfo a
 \( X/E' \) con el homeomorfismo \( \phi: (X/E)/(E'/E) \rightarrow  X/E' \).
+
+* Espacios compactos
+  Dado un conjunto \( X \), una familia \( \{ A_\lambda \}_\lambda \in L \) de 
+subconjuntos es un *recubrimiento* de \( X \) cuando \( \cup_{\lambda \in L} \{
+A_{\lambda} \} = X \). Si el número de \( \{ A_\lambda \} \) es finito, entonces
+es un reubrimiento finito. Un *subrecubrimiento* de \( A \) es toda subfamilia \( A^* \) de \( A \) que
+  sea, a su vez, recubrimiento de \( X \). 
+
+Si \( (X,T) \) es un espacio
+  topológico, \( A = \{ A_\lambda \} \) es un recubrimiento de \( X \), y cada
+  \( A_\lambda \) es un abierto en \( T \), el recubrimiento es un
+  *recubrimiento abierto* en \( (X,T) \). Si además tomamos la topología inducida
+  \( M, T_M \), y \( M \subset \cup \{ A_\lambda \} \), entonces las
+  intersecciones \( \{ M \cap A_\lambda \} \) son abiertos en \( (M, T_M) \).
+
+Un espacio topológico \( (X,T) \) es *compacto* cuando _todo_ recubrimiento abierto
+tiene un subrecubrimiento finito. Equivalentemente, un espacio \( (X,T) \) es 
+compacto sii toda familia de cerrados \( \{ F_\lambda
+\}_{\lambda \in L} \) de \( (X,T) \) de intersección vacia tiene una subfamilia
+finita de intersección vacía. 
+
+Un espacio \( (X,T) \) es compacto sii se verifica que toda base de filtro \( \{
+B_\lambda \}_{\lambda \in L} \) tiene algún punto de aglomeracion. Es decir, \(
+\cap_{\lambda \in L} \{ B_\lambda \} \neq \emptyset \). Por tanto, toda sucesión
+en un compacto tiene un punto de aglomeración. Además, en un compacto, si una
+sucesión tiene un solo punto de aglomeración, la solución converge a ese punto.
+
+Dada la topología \( (\mathbb{R}, T_u) \) todo subespacio que no sea cerrado no
+será compacto en la topología subordinada.
+
+Si \( (X,T) \) es compacto, todo subconjunto infinito de \( X \) tiene al menos
+un punto de acumulación en \( X \). De aquí se obtiene que todo espacio discreto
+ha de ser finito.
+
+Si \( (X,T) \) es compacto y \( f:  (X,T) \rightarrow  (Y, S) \) es una
+aplicación continua, entonces \( f(X) \) con la topología relativa es compacto.
+En particular, si \( f \) es sobreyectiva, \( (Y,S) \) es compacto.
+
+Si \( \{ (X_\lambda, T_\lambda) \} \) es una familia arbitraria de compactos, el
+espacio producto \( (\prod_{\lambda \in L}^{X_\lambda}, T) \) es compacto. 
+
+La compacidad no es hereditaria: si tomamos el espacio \((\{ 1, 1/2, \cdots, 1/n,
+\cdots, 0 \},T_u \), éste es compacto porque 0 es un punto de aglomeración. Sin
+embargo, el subespacio \( \{ 1, 1/2, \cdots, 1/n, \cdots \} \) no es compacto,
+pues es discreto e infinito.
