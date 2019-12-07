@@ -558,4 +558,38 @@ espacio producto \( (\prod_{\lambda \in L}^{X_\lambda}, T) \) es compacto.
 La compacidad no es hereditaria: si tomamos el espacio \((\{ 1, 1/2, \cdots, 1/n,
 \cdots, 0 \},T_u \), éste es compacto porque 0 es un punto de aglomeración. Sin
 embargo, el subespacio \( \{ 1, 1/2, \cdots, 1/n, \cdots \} \) no es compacto,
-pues es discreto e infinito.
+pues es discreto e infinito. Sin emabrgo, la compacidad es un *invariante topológico*.
+
+* Subconjuntos compactos de un espacio topológico
+si \( (X,T) \) es un espacio topológico y \( M \) un subconjunto de \( X \), \(
+M \) es un subconjunto compacto de \( (X,T) \) cuando \( (M, T_M) \) es un
+subespacio de \( (X,T) \). (¡Se define el conjunto a partir del espacio, y no al
+revés!)
+
+Si \( (X,T) \) es un espacio topológico compacto, y \( M \) un subconjunto
+cerrado de \( (X,T) \), \( (M, T_M) \) es compacto. 
+
+Sean \( (X,T) \) compacto, \( (Y,S) \) de Hausdorff y \( f: (X,T) \rightarrow
+(Y,S) \) continua. Si \( f \) es inyectiva, \( f \) es homeomorfismo de \( (X,T)
+\) en \( f(X) \).
+
+Un espacio topológico es *regular* cuando para cada cerrado \( M \) y cada \( p
+\not \in M \), existen abiertos \( U,V \in (X,T) \) tales que \( M \subset U, 
+\in V, U \cap V = \emptyset \). Todo espacio de Hausdorff y compacto es regular.
+
+En un espacio de Hausdorff, si \( M_1, M_2 \) son disjuntos, existen abiertos \(
+U_1, U_2 \) tales que \( M_1 \subset U_1, M_2 \subset U_2, U_1 \cap U_2 =
+\emptyset \). 
+
+Un espacio topológico es *normal* cuando dos conjuntos cerrados disjuntos tienen
+abiertos que los separan. Todo espacio topológico de Hausdorff y compacto es
+normal.
+
+En un espacio topológico, la unión de una familia finita de compactos es
+compacto. En un espacio de Hausdorff la intersección de una familia arbitraria
+de compactos es un compacto.
+
+En \( ( \mathbb{R}, T_u)  \) todo intervalo cerrado y acotado es compacto (sii).
+Esto es extrapolable  bolas en \( (\mathbb{R}^n, T_u) \). Además, si \( f:(X,T)
+\rightarrow (\mathbb{R}, T_u) \) es continua y \( (X,T) \) es compacto, \( f \)
+alcanza al menos un máximo y un mínimo absolutos.

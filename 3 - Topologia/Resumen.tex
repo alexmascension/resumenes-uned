@@ -1,4 +1,4 @@
-% Created 2019-12-03 Tue 19:04
+% Created 2019-12-07 Sat 01:19
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -98,7 +98,7 @@ version={3.0},
 \vspace{-8em}
 
 \section{Espacios topológicos}
-\label{sec:org0432ea7}
+\label{sec:org1412390}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -138,7 +138,7 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:org3a67b68}
+\label{sec:orgb7d0d4e}
 Sea un conjunto \(X\). La topología \(T\) determinada en \(X\) cumple:
 \begin{itemize}
 \item P1: \(\emptyset \in T\) y \(X \in T\).
@@ -173,7 +173,7 @@ Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = 
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
 
 \section{Base de una topología}
-\label{sec:orgf1b0830}
+\label{sec:org64c35c0}
 Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
 familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión
  de elementos de \(B\). \(\forall U \subset
@@ -192,7 +192,7 @@ punto \(t \in  A_\lambda
 
 
 \subsection{1er y 2º axioma de numerabilidad}
-\label{sec:org18d0fda}
+\label{sec:orgdf32e2c}
 Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
 \in X\) 
 existe una base de entornos de \(x\) que sea numerable. Un espacio 
@@ -200,7 +200,7 @@ existe una base de entornos de \(x\) que sea numerable. Un espacio
 tiene una base numerable.
 
 \subsection{Topología engendrada for una familia de subconjuntos}
-\label{sec:orgee728b5}
+\label{sec:org8acde8c}
 
 Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
 una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las
@@ -209,7 +209,7 @@ topología de \(X\) y se llama \textbf{topología engendrada}.
 
 
 \section{Entornos en un espacio topológico}
-\label{sec:org06bb6f4}
+\label{sec:orge4ce068}
 Sea \((X,T)\) un espacio topológico, y \(p \in X\). \(A \subset X\) es entorno de \(p\) si existe un abierto \(U\) de la topología \(T\) tal que \(p \in U \subset A\). No todo entorno ha de ser abierto. Por ejemplo, \([0, 1)\) es entorno de
 \(1/2\) (existe \(U = (1/2-1/4, 1/2+1/4) \subset [0, 1)\), pero no de \(0\) (ningún abierto en \(T\) cumple \(U \subset [0,1)\).
 
@@ -234,7 +234,7 @@ Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues
 (x-r, x+r) \}_{0<r \in \mathbb{Q}}\) es un sistema de entornos numerable.
 
 \section{Subconjuntos en un espacio topológico}
-\label{sec:orgd6ae123}
+\label{sec:org0df541f}
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
 consideramos el espacio \((X,T)\) y \(M \subset T\), entonces
 \begin{itemize}
@@ -274,7 +274,7 @@ subconjunto es denso sii para todo abierto no vacío \(U \subset X\) se tiene qu
 Un espacio topológico es \textbf{separable} si tiene un subconjunto numerable y denso.
 
 \section{Sucesiones, límites de sucesiones}
-\label{sec:org0d81919}
+\label{sec:org5c84594}
 Una \textbf{sucesión} en un conjunto \(X\) es una aplicación \(s: \mathbb{N}
   \rightarrow X\;;\;s(i) \mapsto a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
   = f(a_i) \in Y\). La sucesión \(s(i) = a_i\) se representa por \(\{ a_i \}\).
@@ -328,7 +328,7 @@ aglomeración cuando para todo entorno \(U\) de \(p\) y para todo \(A_\lambda \i
  aglomeración de \(\mathcal{B}\).
 
 \section{Aplicaciones continuas. Homeomorfismos}
-\label{sec:org77fd84d}
+\label{sec:org55f9269}
 Sea \(f:(X,T) \rightarrow (Y, S)\), y \(p \in X\). Entonces \(f\) es
 \textbf{continua} en \(p\) cuando para todo entorno \(V \in (Y,S)\) existe un entorno
 \(U \in (X,T)\) tal que \(f(U) \subset V\). Si consideramos una base de \(\mathcal{B}\), entonces \(f\) es continua en \(p\) si para toda base de
@@ -353,7 +353,7 @@ de invariantes son los axiomas de numerabilidad, poseer un denso numerable
 (separabilidad) o ser espacio \(T_2\). Por ejemplo, espacios con topologías \(T_u\) y \(D\) no son homeomorfos.
 
 \section{Topología inducida por una o varias aplicaciones}
-\label{sec:org649f1d6}
+\label{sec:orgb7993e9}
 Dada una aplicación \(f: X \rightarrow  (Y, T')\), se llama \textbf{topología inducida} o \textbf{topología
 inicial} por \(f\) en \(X\) a la topología \(T = \{ f ^{-1}(V) \;|\; V \in T' \}\), que es la
 topología menos fina de \(X\) que hace continua a \(f\).
@@ -382,7 +382,7 @@ cualquier aplicación \(g: (M,S) \rightarrow (X,T)\), \(g\) es continua sii
 \(f_i \circ g : (M,S) \rightarrow  (Y_i,T_i)\) lo es para todo \(i\).
 
 \section{Topología relativa. Subespacio topológico}
-\label{sec:org10b367b}
+\label{sec:org51c3211}
 
 Sea \((X, T)\) un espacio topológico, \(M\) un subconjunto de \((X,T)\) y
 \(j: \; M \longrightarrow (X,T) \;;\; x \mapsto j(x) = x\). La topología \(T_M\) inducida en \(X\) for \(j\) se llama \textbf{topología relativa}, o \textbf{topología
@@ -424,7 +424,7 @@ topología definida en \(M\) por \(d_M\).
 Un espacio es \(T_1\) separable cuando cada conjunto unitario \(\{ x \}\) es cerrado.
 
 \section{Topología producto}
-\label{sec:org774c5e0}
+\label{sec:org610c5ad}
 Dados dos espacios \((X_1, T_1)\) y \((X_2, T_2)\), una base para la 
 topología producto \(T_1 \times T_2\) es la familia de abiertos \(B = \{ U_1 \times U_2
   \;|\; U_1 \in T_1, U_2 \in T_2 \}\). Estos abiertos \(U_1 \times U_2\) se
@@ -478,7 +478,7 @@ sus bases de entornos. Por tanto, las 3 métricas determinan la misma topología
 métrica en \(X_1 \times X_2\).
 
 \section{Topología final para una o varias aplicaciones}
-\label{sec:orgea363c3}
+\label{sec:org86363f6}
 Sea una aplicación \(f:(X,T) \rightarrow  Y\). La familia de conjuntos de \(Y\) tales que sus imágenes inversas son abietos de \(T\) constituyen una
 topología de \(Y\). Esta topología, la \textbf{topología final},
  \(S = \{ A \subset Y \;|\; f ^{-1}(A) \in
@@ -510,7 +510,7 @@ aplicación \(g: (Y,S) \rightarrow (Y^*, T^*)\) se cumple que \(g\) es continua 
 cada una de las aplicaciones \(g \circ f_ \lambda\) lo es.
 
 \section{Topología cociente}
-\label{sec:orgf763ab2}
+\label{sec:orgcf93d41}
 Conceptos a recordar:
 \begin{itemize}
 \item Si \(X\) es un conjunto y \(E\) es una relación de equivalencia, \(\overline{x}\), también 
@@ -568,7 +568,7 @@ equivalencia \(E'/E\) determina un espacio cociente en \(X/E\) homeomorfo a
 \(X/E'\) con el homeomorfismo \(\phi: (X/E)/(E'/E) \rightarrow  X/E'\).
 
 \section{Espacios compactos}
-\label{sec:org034afea}
+\label{sec:org1fd4992}
   Dado un conjunto \(X\), una familia \(\{ A_\lambda \}_\lambda \in L\) de 
 subconjuntos es un \textbf{recubrimiento} de \(X\) cuando \(\cup_{\lambda \in L} \{
 A_{\lambda} \} = X\). Si el número de \(\{ A_\lambda \}\) es finito, entonces
@@ -610,5 +610,37 @@ espacio producto \((\prod_{\lambda \in L}^{X_\lambda}, T)\) es compacto.
 La compacidad no es hereditaria: si tomamos el espacio \((\{ 1, 1/2, \cdots, 1/n,
 \cdots, 0 \},T_u\), éste es compacto porque 0 es un punto de aglomeración. Sin
 embargo, el subespacio \(\{ 1, 1/2, \cdots, 1/n, \cdots \}\) no es compacto,
-pues es discreto e infinito.
+pues es discreto e infinito. Sin emabrgo, la compacidad es un \textbf{invariante topológico}.
+
+\section{Subconjuntos compactos de un espacio topológico}
+\label{sec:org7c71a5e}
+si \((X,T)\) es un espacio topológico y \(M\) un subconjunto de \(X\), \(M\) es un subconjunto compacto de \((X,T)\) cuando \((M, T_M)\) es un
+subespacio de \((X,T)\). (¡Se define el conjunto a partir del espacio, y no al
+revés!)
+
+Si \((X,T)\) es un espacio topológico compacto, y \(M\) un subconjunto
+cerrado de \((X,T)\), \((M, T_M)\) es compacto. 
+
+Sean \((X,T)\) compacto, \((Y,S)\) de Hausdorff y \(f: (X,T) \rightarrow
+(Y,S)\) continua. Si \(f\) es inyectiva, \(f\) es homeomorfismo de \((X,T)\) en \(f(X)\).
+
+Un espacio topológico es \textbf{regular} cuando para cada cerrado \(M\) y cada \(p
+\not \in M\), existen abiertos \(U,V \in (X,T)\) tales que \(M \subset U, 
+\in V, U \cap V = \emptyset\). Todo espacio de Hausdorff y compacto es regular.
+
+En un espacio de Hausdorff, si \(M_1, M_2\) son disjuntos, existen abiertos \(U_1, U_2\) tales que \(M_1 \subset U_1, M_2 \subset U_2, U_1 \cap U_2 =
+\emptyset\). 
+
+Un espacio topológico es \textbf{normal} cuando dos conjuntos cerrados disjuntos tienen
+abiertos que los separan. Todo espacio topológico de Hausdorff y compacto es
+normal.
+
+En un espacio topológico, la unión de una familia finita de compactos es
+compacto. En un espacio de Hausdorff la intersección de una familia arbitraria
+de compactos es un compacto.
+
+En \(( \mathbb{R}, T_u)\) todo intervalo cerrado y acotado es compacto (sii).
+Esto es extrapolable  bolas en \((\mathbb{R}^n, T_u)\). Además, si \(f:(X,T)
+\rightarrow (\mathbb{R}, T_u)\) es continua y \((X,T)\) es compacto, \(f\)
+alcanza al menos un máximo y un mínimo absolutos.
 \end{document}
