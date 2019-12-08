@@ -558,10 +558,10 @@ espacio producto \( (\prod_{\lambda \in L}^{X_\lambda}, T) \) es compacto.
 La compacidad no es hereditaria: si tomamos el espacio \((\{ 1, 1/2, \cdots, 1/n,
 \cdots, 0 \},T_u \), éste es compacto porque 0 es un punto de aglomeración. Sin
 embargo, el subespacio \( \{ 1, 1/2, \cdots, 1/n, \cdots \} \) no es compacto,
-pues es discreto e infinito. Sin emabrgo, la compacidad es un *invariante topológico*.
+pues es discreto e infinito. Sin embargo, la compacidad es un *invariante topológico*.
 
 * Subconjuntos compactos de un espacio topológico
-si \( (X,T) \) es un espacio topológico y \( M \) un subconjunto de \( X \), \(
+Si \( (X,T) \) es un espacio topológico y \( M \) un subconjunto de \( X \), \(
 M \) es un subconjunto compacto de \( (X,T) \) cuando \( (M, T_M) \) es un
 subespacio de \( (X,T) \). (¡Se define el conjunto a partir del espacio, y no al
 revés!)
@@ -635,3 +635,40 @@ Si \( (X,d) \) y \( (Y, d') \) son espacios métricos, una apicación \( f: X
 \epsilon \) existe otro \( \delta \) tal que si \( x_1, x_2 \) son dos puntos
 cualesquiera del espacio \( X \) cuya distancia es \( d(x_1,x_2) < \delta \)
 entonces la distancia entre sus imágenes es \( d'(f(x_1), f(x_2)) < \epsilon \).
+
+* Espacios conexos
+Un espacioi topológico \( (X,T) \) es *conexo* cuando no existen en él dos abiertos
+disjuntos distintos del vacío cuya unión es \( X \). Asimismo, \( (X,T) \) es
+conexo si no existe ningún conjunto distinto de \( X \) que sea abierto y
+cerrado a la vez. \( (\mathbb{R}, T_u) \) es conexo y un espacio discreto con
+más de un punto no.
+
+Si \( f:(X,T) \rightarrow (Y,S) \) es continua y \( (X,T) \) es conexo, el
+subespacio \( f(X) \) de (Y,S) es conexo. Si \( f \) es homeomorfismo, \( (Y,S)
+\) es conexo, y la conexión es invariante.
+
+Igual que la compacidad, la conexión de un subconjunto está determinada por la
+topología relativa \( T_M \) del subconjunto.
+
+Sea \( (X,T) \) un espacio topológico y \( M \) un subconjunto de \( X \). Si \(
+M \) es conexo, también es conexo cualquier conjunto \( A \) tal que \( M
+\subset A \subset adh(M) \). En particular, \( adh(M) \) es conexo.
+
+Un conjunto \( M \) de \( (mathbb{R}, T_u) \) es conexo sii \( M \) se reduce a
+un punto o es un intervalo.
+
+Si un espacio \( (X,T) \) es conexo, lo es también cualquier espacio cociente \(
+(X/E, T_E) \) obtenido a partir de una relación de equivalencia en él.
+Si \( (X,T), (Y,S) \) son dos espacios topológicos el espacio producto \( X
+\times Y \) es conexo sii son conexos \( X \) e \( Y \). Así, \( (\mathbb{R}^n,
+T_u) \) es conexo.
+
+En un espacio \( (X,T)  \) se llama componente conexa de un punto \( p \) al
+mayor conjunto conexo del espacio que contiene a \( p \). Así, dos componentes
+conexas no tienen puntos comunes. Además, la componente conexa de un punto es
+siempre un cerrado.
+
+Un espacio \( (X,T) \) es *totalmente desconexo* cuando cada componente conexa se
+reduce a un solo punto. Un conjunto \( M \) es totalmente desconexo cuando su
+subespacio \( (M, T_M) \) lo es. Por ejemplo, para \( M \subset \mathbb{Q} \),
+\( (M, T_M) \) es totalmente desconexo, pues \( M \) no acepta ningún intervalo. 
