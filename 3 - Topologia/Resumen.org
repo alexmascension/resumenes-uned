@@ -593,3 +593,45 @@ En \( ( \mathbb{R}, T_u)  \) todo intervalo cerrado y acotado es compacto (sii).
 Esto es extrapolable  bolas en \( (\mathbb{R}^n, T_u) \). Además, si \( f:(X,T)
 \rightarrow (\mathbb{R}, T_u) \) es continua y \( (X,T) \) es compacto, \( f \)
 alcanza al menos un máximo y un mínimo absolutos.
+
+* Espacios métricos compactos
+  Sea \( X \) un espacio métrico y \( M \) un subespacio de \( X \). Si \( p \)
+  es un punto de acumulación de \( M \), existe en \( M \) una sucesión infinita
+  de puntos \( x_1, x_2, \cdots, x_n, \cdots  \) que converge a \( p \).
+
+  Sea \( X \) un espacio métrico. El *número \( \rho \) de Lebesgue* de un
+  recubrimiento abierto \( \{ A_\lambda \}_{\lambda \in L} \) de \( X \) es todo
+  real \( \rho > 0 \) tal que para cada \( x \) del espacio, la bola abierta \(
+  E(x,\rho) \) está contenida en algún abierto \( \{ A_\lambda \} \) del
+  recubrimiento. 
+
+Si \( X \) es un espacio métrico en el que toda sucesión infinita tiene un punto
+de acumulación, entonces existe un \( \rho \) de Lebesgue para todo
+recubrimiento abierto \( \{ A_\lambda \} \) de \( X \). 
+
+Propiedad P: a) Toda sucesión infinita de \( X \) tiene al menos un punto de
+acumulación. b) Todo subconjunto infinito de \( X \) tiene al menos un punto de
+acumulación. Todo espacio métrico con propiedad \( P \) con topología engendrada
+por la métrica cumple  que existe un \( \rho \) de Lebesgue. 
+
+Todo espacio métrico compacto cumple la propiedad del número \( \rho \) de
+Lebesgue. Además, si en un espacio métrico toda sucesión infinita tiene un punto
+de acumulación, \( X \) es compacto.
+
+Una sucesión \( x_1, x_2, \cdots, x_n, \cdots \) es una *sucesión de Cauchy* si
+para todo real positivo \( \epsilon \) existe un natural \( m \) tal que para
+dos índices \( (i,j) > m \) se verifica \( d(x_i, x_j) < \epsilon \). Toda
+sucesión convergente es de Cauchy, pero no toda sucesión de Cauchy es
+convergente (\( (1 + 1/n)^n \) en \( \mathbb{Q} \)).
+
+Un espacio métrico \( X \) se dice que es *completo* cuando en él toda sucesión de
+Cauchy es convergente. Un espacio métrico compacto es completo. Sin embargo, no
+todo espacio completo es compacto (\( \mathbb{R}, T_u \)).
+
+Todo espacio métrico es normal, regular, verifica ANII, y es separable.
+
+Si \( (X,d) \) y \( (Y, d') \) son espacios métricos, una apicación \( f: X
+\rightarrow Y \) es *uniformemente continua* cuando para cada real positivo \(
+\epsilon \) existe otro \( \delta \) tal que si \( x_1, x_2 \) son dos puntos
+cualesquiera del espacio \( X \) cuya distancia es \( d(x_1,x_2) < \delta \)
+entonces la distancia entre sus imágenes es \( d'(f(x_1), f(x_2)) < \epsilon \).
