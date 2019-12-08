@@ -4,6 +4,7 @@
 #+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
 #+LATEX: \vspace{-8em}
 
+
 * Espacios topológicos
 Se dice que \( p \) es el límite de una sucesión de reales \( a_1, \cdots, a_n
 \) cuando, para todo abierto \( p - \epsilon, p + \epsilon \), existe un \( m \)
@@ -194,7 +195,7 @@ Un espacio topológico es *separable* si tiene un subconjunto numerable y denso.
 
 * Sucesiones, límites de sucesiones
   Una *sucesión* en un conjunto \( X \) es una aplicación \( s: \mathbb{N}
-  \rightarrow X\;;\;s(i) \mapsto a_i
+  \rightarrow X\;;\; i \mapsto s(i) = a_i
   \). Cuando se tiene una aplicación \( f: X \rightarrow  Y
   \) y una sucesión \( s: \mathbb{N} \rightarrow X
   \), definimos la sucesión \( s': \mathbb{N} \rightarrow Y
@@ -388,7 +389,7 @@ Las aplicaciones \( f_1 = p_1 \circ f \) y \( f_2 = p_2 \circ f \) se llaman
 *componentes de \( f \)*. Un punto \( y \in (Y,S) \) se representa como \(
 (x_1,x_2) = f(y) \) o como \( x_1 = f_1(y), x_2 = f_2(y) \).
 
-Una aplicación \( f: (X,T) \rightarrow  (Y,S) \) es abierta si para cada abierto
+Una aplicación \( f: (X,T) \rightarrow  (Y,S) \) es continua si para cada abierto
 \( U \in T \), \( f(U) \) es abierto de \( S \). Entonces, en el espacio
 producto, \( p_1, p_2 \) son aplicaciones abiertas.
 
@@ -426,7 +427,7 @@ métrica en \( X_1 \times X_2 \).
 
 * Topología final para una o varias aplicaciones
 Sea una aplicación \( f:(X,T) \rightarrow  Y \). La familia de conjuntos de \( Y
-\) tales que sus imágenes inversas son abietos de \( T \) constituyen una
+\) tales que sus imágenes inversas son abiertos de \( T \) constituyen una
 topología de \( Y \). Esta topología, la *topología final*,
  \( S = \{ A \subset Y \;|\; f ^{-1}(A) \in
 T\} \) es la topología más fina de \( Y \) para la que \( f \) es continua.
@@ -637,7 +638,7 @@ cualesquiera del espacio \( X \) cuya distancia es \( d(x_1,x_2) < \delta \)
 entonces la distancia entre sus imágenes es \( d'(f(x_1), f(x_2)) < \epsilon \).
 
 * Espacios conexos
-Un espacioi topológico \( (X,T) \) es *conexo* cuando no existen en él dos abiertos
+Un espacio topológico \( (X,T) \) es *conexo* cuando no existen en él dos abiertos
 disjuntos distintos del vacío cuya unión es \( X \). Asimismo, \( (X,T) \) es
 conexo si no existe ningún conjunto distinto de \( X \) que sea abierto y
 cerrado a la vez. \( (\mathbb{R}, T_u) \) es conexo y un espacio discreto con
@@ -672,3 +673,29 @@ Un espacio \( (X,T) \) es *totalmente desconexo* cuando cada componente conexa s
 reduce a un solo punto. Un conjunto \( M \) es totalmente desconexo cuando su
 subespacio \( (M, T_M) \) lo es. Por ejemplo, para \( M \subset \mathbb{Q} \),
 \( (M, T_M) \) es totalmente desconexo, pues \( M \) no acepta ningún intervalo. 
+
+* Resumen
+Topología inducida: \( (X, \textcolor{red}{T}) \xrightarrow{f} (X',
+ T') \)
+
+Topología relativa / subordinada: \( (M, \textcolor{red}{T_M})  \xrightarrow{id}
+(X,T) \)
+
+Topología producto: \( (X_1, T_1) \times (X_2, T_2) \xrightarrow{f} (X_1 \times
+ X_2, \textcolor{red}{T_1 \times  T_2}) \)
+
+
+#+BEGIN_EXPORT latex
+\begin{tikzcd}
+(Y,S) \ar{r}{f}
+&
+(X_1 \times X_2, \textcolor{red}{T_1 \times T_2}) \ar{r}{p_1} \ar{dr}{p_2}
+&
+(X_1, T_1)
+\\
+& & (X_2, T_2)
+\end{tikzcd}
+
+#+END_EXPORT
+
+Topología final: \( (X, T) \xrightarrow{f} (Y, \textcolor{red}{S}) \)
