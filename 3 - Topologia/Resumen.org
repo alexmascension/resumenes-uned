@@ -654,7 +654,7 @@ Sea \( (X,T) \) un espacio topológico y \( M \) un subconjunto de \( X \). Si \
 M \) es conexo, también es conexo cualquier conjunto \( A \) tal que \( M
 \subset A \subset adh(M) \). En particular, \( adh(M) \) es conexo.
 
-Un conjunto \( M \) de \( (mathbb{R}, T_u) \) es conexo sii \( M \) se reduce a
+Un conjunto \( M \) de \( (\mathbb{R}, T_u) \) es conexo sii \( M \) se reduce a
 un punto o es un intervalo.
 
 Si un espacio \( (X,T) \) es conexo, lo es también cualquier espacio cociente \(
