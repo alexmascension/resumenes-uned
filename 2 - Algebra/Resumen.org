@@ -1,0 +1,57 @@
+#+TITLE: \Huge\vspace{-1em}Álgebra
+#+DATE:
+#+SETUPFILE: ../Plantillas/Plantilla.org
+#+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
+#+OPTIONS: num:nil
+#+LATEX: \vspace{-8em}
+
+* Anillos
+#+LATEX: \vspace{-1em}
+** Generalidades 
+\defi{1.1 (Anillo)} Un *anillo* es una estructura \( (A, +, \cdot) \) con las propiedades:
+- \( (A, +) \) es un grupo conmutativo
+- Asociatividad: \( (xy)z = x(yz) \)
+- Distributividad: \( (x + y)z = xz + yz \qquad x(y+z) = xy+xz \)
+Se denota al elemento unitario de \( (A, +) \) por \( 0_A \) y al unitario de 
+\( (A, +, \cdot) \), si existe, por \( 1_A \). \( A^* = A\\ \{ 0 \} \). \( 0_A =
+1_A \iff A = \{ 0 \}\).
+
+\defi{1.6} Si \( 1_A \in A \), entonces \( A \) es un *anillo unitario*. Una
+*unidad* de \( A \) es un elemento \( x \) que tiene su inverso \( y \): \( xy=1
+\). El conjunto de unidades es \( U(A) \). El inverso, si existe, se puede denotar por \( x
+^{-1} \) y \( x/y = xy ^{-1} \).
+
+\defi{1.8} Un *cuerpo* es un anillo \( K \) tal que \( K^* \) es un grupo. O, un
+anillo unitario con inverso.  
+
+\defi{1.10} Un *divisor de cero* es un elemento \( x \in A^* \) tal que, para
+algún \( y \in A^* \), \( xy = 0_A \). Un cuerpo nunca tiene divisores de cero:
+\( x = x(yy ^{-1}) = (xy) y ^{-1} = 0 y ^{-1} = 0 \)
+
+\defi{1.11} Se denomina *dominio de integridad* a un anillo unitario sin divisores
+de cero. El producto de dos anillos conmutativos \( C = A \times  B \) nunca es
+un dominio de integridad, pues \( (a, 0) \neq 1_A, (0, b) \neq 1_B \) y \(
+(a, 0) \times (0, b) = (0, 0) = 0_C \).
+
+A un dominio de integridad se le puede asociar un cuerpo mediante el *cuerpo de
+fracciones de un dominio*. 
+Dada la relación \( (x,y) R (x', y') \iff xy' = x'y
+\), para el producto de dominios \( A \times  A^* \) 
+entonces para la clase de equivalencia \( [x,y] \), las operaciones \( [x,y] +
+[x', y'] = [xy' + y'x, yy'], [x,y]\cdot [x',y'] = [xx', yy'] \) forman un
+cuerpo, \( K \), con \( 0_K = [0, 1] \), \( 1_K = [1,1] \), y \( [x,y] ^{-1} =
+\( [y, x] \).
+
+\defi{1.14 (Ideal)} Un *ideal* es un subconjunto \( I \subset A \) tal que
+- \(I  \) es subgrupo de \( A \)
+- \( \forall i \in I, a \in A, ia \in I  \).
+\( A, \{ 0 \} \) son los *ideales triviales*, y si \( I \neq A \), \( I  \) es un  
+*ideal propio*. Si \( 1_A \in I  \), \( I = A \): \( \forall a \in A \), \( a = a
+\cdot 1 \), y como \( 1 \in I, a \in I  \).
+
+\defi{1.16} Dado un ideal \( I  \) de \( A \), dada la relación \( xRy \iff x-y
+\in I \), se forma el *anillo cociente* \( A/I  \) con las clases de equivalencia
+\( [x] = x + I = \{ x + a \;|\; a \in I  \} \).
+Las operaciones suma y producto definidas por \( (x + I) + (y + I) = (x + y) +
+I, \; (x + I)(y + I) = xy + I  \), son inyectivas.
+

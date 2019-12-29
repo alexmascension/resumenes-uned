@@ -1,0 +1,153 @@
+% Created 2019-12-29 Sun 16:38
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, 11pt]{extarticle}
+             \usepackage[utf8]{inputenc}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+% Paquetes de matemáticas
+\usepackage{amsmath, amsfonts, amssymb, commath}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
+% Ajustes de idioma, gráficos, etc
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish, english]{babel}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+%Fuentes.
+% Alegreya tiene este toque antiguo con serifa, y la tipografía de las ecuaciones es también interesante.
+% Gillius no tiene serifa, y también es equilibrada.
+\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+\usepackage{newpxtext, newpxmath}
+% Paquete para añadir Creative Commons al final del documento
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+% Propiedades de párrafo
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.1em}
+\renewcommand{\baselinestretch}{1.05}
+\setlength\itemsep{0em}
+% Definición de comandos. Muchos de ellos han surgido para Geometría, aunque se
+% irá actualizando la lista. POSIBLEMENTE LO INTRODUZCA COMO COMANDOS DE ORG
+\newcommand{\m}{\text{medio}}
+\newcommand{\iso}{\text{Isom}}
+% Para incluir mathcal en las ecuaciones. El /mathcal para Alegreya es el viejo
+% y floritural estilo que odio.
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+% Definición de colores agradables a la vista
+\definecolor{azul}{HTML}{107896}
+\definecolor{naranja}{HTML}{C2571A}
+\definecolor{rojo}{HTML}{9A2617}
+\definecolor{amarillo}{HTML}{BCA136}
+\definecolor{verde}{HTML}{829356}
+\definecolor{gris}{HTML}{909090}
+\definecolor{rosa}{HTML}{F9A7B0}
+\definecolor{amarillochillon}{HTML}{FBB117}
+% Definición de comandos para teoremas, etc. El comando también incluye
+% como argumento un texto, del estilo Teorema 3.5
+\newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+\newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+\newcommand{\propo}[1]{\textcolor{rojo}{\textbf{Proposición #1}}}
+\newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+\newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+\newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+\newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+\newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+\newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+% La demostración es igual pero va con una letra más pequeña y en gris.
+\newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. #1}}}
+% Esto pone un triangulito de peligro para cuando algo es importante.
+\newcommand{\importante}{\tikzcircle[amarillo, fill=amarillo]{4pt}\,}
+% Para usar columnas emplea este trozo de código
+% \begin{multicols*}{2}
+% [\section{Axiomas para la geometría euclidiana plana}]
+% \input{2.tex}\end{multicols*}\pagebreak
+% multicols* obliga a terminar una columna antes de empezar la siguiente.
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\let\mathcal\pazocal
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+\date{}
+\title{\Huge\vspace{-1em}Álgebra}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={\Huge\vspace{-1em}Álgebra},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.2.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\vspace{-8em}
+
+\section*{Anillos}
+\label{sec:orga25bb9f}
+\vspace{-1em}
+\subsection*{Generalidades}
+\label{sec:org31b4ff5}
+\defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las propiedades:
+\begin{itemize}
+\item \((A, +)\) es un grupo conmutativo
+\item Asociatividad: \((xy)z = x(yz)\)
+\item Distributividad: \((x + y)z = xz + yz \qquad x(y+z) = xy+xz\)
+\end{itemize}
+Se denota al elemento unitario de \((A, +)\) por \(0_A\) y al unitario de 
+\((A, +, \cdot)\), si existe, por \(1_A\). \(A^* = A\\ \{ 0 \}\). \(0_A =
+1_A \iff A = \{ 0 \}\).
+
+\defi{1.6} Si \(1_A \in A\), entonces \(A\) es un \textbf{anillo unitario}. Una
+\textbf{unidad} de \(A\) es un elemento \(x\) que tiene su inverso \(y\): \(xy=1\). El conjunto de unidades es \(U(A)\). El inverso, si existe, se puede denotar por \(x
+^{-1}\) y \(x/y = xy ^{-1}\).
+
+\defi{1.8} Un \textbf{cuerpo} es un anillo \(K\) tal que \(K^*\) es un grupo. O, un
+anillo unitario con inverso.  
+
+\defi{1.10} Un \textbf{divisor de cero} es un elemento \(x \in A^*\) tal que, para
+algún \(y \in A^*\), \(xy = 0_A\). Un cuerpo nunca tiene divisores de cero:
+\(x = x(yy ^{-1}) = (xy) y ^{-1} = 0 y ^{-1} = 0\)
+
+\defi{1.11} Se denomina \textbf{dominio de integridad} a un anillo unitario sin divisores
+de cero. El producto de dos anillos conmutativos \(C = A \times  B\) nunca es
+un dominio de integridad, pues \((a, 0) \neq 1_A, (0, b) \neq 1_B\) y \((a, 0) \times (0, b) = (0, 0) = 0_C\).
+
+A un dominio de integridad se le puede asociar un cuerpo mediante el \textbf{cuerpo de
+fracciones de un dominio}. 
+Dada la relación \((x,y) R (x', y') \iff xy' = x'y\), para el producto de dominios \(A \times  A^*\) 
+entonces para la clase de equivalencia \([x,y]\), las operaciones \([x,y] +
+[x', y'] = [xy' + y'x, yy'], [x,y]\cdot [x',y'] = [xx', yy']\) forman un
+cuerpo, \(K\), con \(0_K = [0, 1]\), \(1_K = [1,1]\), y \([x,y] ^{-1} =
+\( [y, x]\).
+
+\defi{1.14 (Ideal)} Un \textbf{ideal} es un subconjunto \(I \subset A\) tal que
+\begin{itemize}
+\item \(I\) es subgrupo de \(A\)
+\item \(\forall i \in I, a \in A, ia \in I\).
+\end{itemize}
+\(A, \{ 0 \}\) son los \textbf{ideales triviales}, y si \(I \neq A\), \(I\) es un  
+\textbf{ideal propio}. Si \(1_A \in I\), \(I = A\): \(\forall a \in A\), \(a = a
+\cdot 1\), y como \(1 \in I, a \in I\).
+
+\defi{1.16} Dado un ideal \(I\) de \(A\), dada la relación \(xRy \iff x-y
+\in I\), se forma el \textbf{anillo cociente} \(A/I\) con las clases de equivalencia
+\([x] = x + I = \{ x + a \;|\; a \in I  \}\).
+Las operaciones suma y producto definidas por \((x + I) + (y + I) = (x + y) +
+I, \; (x + I)(y + I) = xy + I\), son inyectivas.
+\end{document}
