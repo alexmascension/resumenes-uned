@@ -1,4 +1,4 @@
-% Created 2019-12-29 Sun 16:38
+% Created 2019-12-29 Sun 19:10
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,11 +99,13 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:orga25bb9f}
+\label{sec:org0fe9dee}
 \vspace{-1em}
 \subsection*{Generalidades}
-\label{sec:org31b4ff5}
-\defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las propiedades:
+\label{sec:orgf2590d9}
+\vspace{-1em}
+\defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
+propiedades: \vspace{-1em}
 \begin{itemize}
 \item \((A, +)\) es un grupo conmutativo
 \item Asociatividad: \((xy)z = x(yz)\)
@@ -134,9 +136,9 @@ Dada la relación \((x,y) R (x', y') \iff xy' = x'y\), para el producto de domin
 entonces para la clase de equivalencia \([x,y]\), las operaciones \([x,y] +
 [x', y'] = [xy' + y'x, yy'], [x,y]\cdot [x',y'] = [xx', yy']\) forman un
 cuerpo, \(K\), con \(0_K = [0, 1]\), \(1_K = [1,1]\), y \([x,y] ^{-1} =
-\( [y, x]\).
+ [y, x]\).
 
-\defi{1.14 (Ideal)} Un \textbf{ideal} es un subconjunto \(I \subset A\) tal que
+\defi{1.14 (Ideal)} Un \textbf{ideal} es un subconjunto \(I \subset A\) tal que \vspace{-1em}
 \begin{itemize}
 \item \(I\) es subgrupo de \(A\)
 \item \(\forall i \in I, a \in A, ia \in I\).
@@ -150,4 +152,121 @@ cuerpo, \(K\), con \(0_K = [0, 1]\), \(1_K = [1,1]\), y \([x,y] ^{-1} =
 \([x] = x + I = \{ x + a \;|\; a \in I  \}\).
 Las operaciones suma y producto definidas por \((x + I) + (y + I) = (x + y) +
 I, \; (x + I)(y + I) = xy + I\), son inyectivas.
+
+\defi{1.17 - 1.19} Sea \(A\) un anillo conmutativo y \(L\) un subconjunto de \(A\). El conjunto \(I\) de sumas finitas \(a_1x_1 + ... + a_lx_l,\; a_i \in A,
+l_i \in L\) es un \textbf{ideal generado por \(L\)}. Además, \(I\) es el mínimo 
+ideal que contiene a \(L\). Si \(L\) es finito, \(I\) es \textbf{finitamente generado}; y si \(L\) tiene
+un solo elemento, es decir, \(I = Al\), el ideal es \textbf{principal}.
+
+En los ideales se definen la (1) suma: \(I + J\) está dado por \(a_1, \cdots,
+a_r, b_1, \cdots, b_s \in A, x_1, \cdots, x_r \in I, y_1, \cdots, y_s \in J,
+a_1x_1 + \cdots + a_rx_r + b_1y_1 + \cdots + b_sy_s = x + y\); (2) producto: IJ
+= \(x_1y_1 + \cdots + x_ry_r, x_1, \cdots, x_r \in I, y_1, \cdots, y_r \in J\), (3) intersección \(I \cap J\).
+
+\defi{1.21} Un ideal es \textbf{maximal} si (1) \(A/I\) es un cuerpo y (2) \(I\) es
+propio y ningún otro ideal propio lo contiene. \((1) \iff (2)\).
+\textcolor{gray}{\footnotesize Si \( A/I  \) es
+un cuerpo, luego contiene una unidad. Ninguna unidad \( i \) de \( A/I  \) puede estar
+en \( I^* = I + i \) porque entonces \( I^* = A \)}.
+
+\defi{1.22} Sean \(A\) unitario e \(I\) un ideal. Se dice que \(I\) es
+\textbf{primo} si (1) \(A/I\) es un dominio de integridad y (2) \(I\) es propio, y
+\(\forall x,y \in A\), si \(xy \in I\), \(x \in I\) o \(y \in I\). \((1) \iff (2)\).
+\dem{ Si \( xy \in I  \), \( 0 + I = xy + I = (x+I)(y+I) \). Como \( A/I  \) es dominio, 
+\( x+I = 0 + I \rightarrow x \in I \) o \( y+I = 0 + I \rightarrow y \in I  \).  }
+
+\defi{1.24} Un \textbf{homomorfismo} de los anillos \(A,B\) es una aplicación \(f: A
+\rightarrow B\) definida por: \vspace{-1em}
+\begin{itemize}
+\item \(f(x+y) = f(x) + f(y)\)
+\item \(f(xy) = f(x)f(y)\)
+\item \(f(1_A) = 1_B\)
+\end{itemize}
+\vspace{-1em}\textcolor{gray}{\footnotesize \( f(x) (f(1_A) - 1_B) = f(x)f(1_A) - f(x)1_B = f(x\cdot 1_A) - f(x) = 0 \). 
+Si \( f(1_A) \neq 1_B \), f(A) son divisores de 0.}
+La aplicación composición \(\phi: A \rightarrow A: g \mapsto g \circ f\) es
+homeomorfismo. 
+
+\defi{1.26 (Núcleo e imagen)} Se define el \textbf{núcleo} de \(f\) al ideal: \(\text{ker } f
+= \{ x \in A \;|\; f(x) = 0 \}\), y se define la \textbf{imagen} de \(f\) al anillo \(\text{im } f = \{ y \in B \;|\; \exists x \in A, f(x) = y \}\).
+
+\propo{1.27 / 1.30} \textbf{Teorema de isomorfía}. Dado un homomorfismo \(f\), el diagrama
+
+\vspace{-1em}
+\begin{center}
+\begin{tikzcd}
+A \ar{r}{f} \ar{d}{p}        & B                            \\
+A/\text{ker } f \ar{r}{\overline{f}} & \text{im } f \ar{u}{j}
+\end{tikzcd}
+\end{center}
+\vspace{-1em}
+Con \(p: x \mapsto x + \text{ker }f\) sobreyectiva / \textbf{epimorfismo}, \(\overhead{f}: x +
+\text{ker }f \mapsto f(x)\) biyectiva / \textbf{isomorfismo}, \(j: y \mapsto y\)
+inyectiva / \textbf{monomorfismo}; es
+conmutativo.  
+Si \(f\) es monomorfismo entonces \(\text{ker }f = \{ 0 \}\). Dos anillos
+conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo entre
+ellos.
+
+\subsection*{Divisibilidad}
+\label{sec:org8ad4866}
+\vspace{-1em}
+\defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
+\(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
+\(x|y \iff (y) \subset (x)\). \(x\) \textbf{está relacionado con} \(y\) si \((x) =
+(y) \iff x|y, y|x\). En ese caso, existe una unidad \(a \in U(A)\) tal que \(y = ax\).
+\vspace{-1em}\textcolor{gray}{\footnotesize Si \( (y) = (x), y \in(x), x \in(y); y = ax, x = by. y = aby \iff 1 = ab \).}
+
+Denotamos \(\text{div } (y)\) al conjunto de divisores de \(y\). Si \(y\)
+genera un ideal primo, entonces decimos que \(y\) \textbf{es primo}. \(y\) es
+\textbf{irreducible} si sus divisores son las unidades y productos de \(y\) por
+unidades. 
+\textbf{Todo primo es irreducible}, pero \textbf{NO TODO irreducible es primo} (hay irreducibles
+que no generan ideales primos).
+
+\defi{2.6} Se dice que \(A\) es un \textbf{dominio euclídeo \textcolor{red}{DE}} 
+si existe una aplicación \(\left\Vert \cdot \right\Vert : A \rightarrow
+\mathbb{N}\) tal que \vspace{-1em}
+\begin{itemize}
+\item \(\left\Vert x \right\Vert = 0 \iff x = 0\)
+\item \(\left\Vert xy \right\Vert  = \left\Vert x \right\Vert \cdot \left\Vert y \right\Vert\)
+\item Si \(x,y \in A^*\) existe \(r \in A\) tal que \(y |(x-r)\) y \(\left\Vert r \right\Vert < \left\Vert y \right\Vert\)
+\end{itemize}
+\vspace{-1em}\textcolor{gray}{\footnotesize \( \mathbb{Z} \) es DE porque el valor absoluto cumple la función. 
+En \( \mathbb{Z}[i] \) la función \( \left\Vert a+ bi \right\Vert = a^2 + b^2 \) cumple las propiedades y \( \mathbb{Z}[i] \) es DE.
+}
+
+\propo{2.8} Si \(A\) es DE, entonces \(U(A) = \{ x \in A \;|\; \left\Vert x
+\right\Vert = 1 \}\). 
+\textcolor{gray}{\footnotesize \( \rightarrow) \( \left\Vert 1_A \right\Vert  = 1 \) porque 
+\( \left\Vert 1_A \right\Vert = \left\Vert 1_A\cdot 1_A \right\Vert = \left\Vert 1_A \right\Vert \left\Vert 1_A \right\Vert \), y como \( \left\Vert 1_A \right\Vert \neq 0, \left\Vert 1_A \right\Vert  = 1 \).
+Si \( x \in A \), existe \( x ^{-1} \) y \( \left\Vert x \right\Vert \left\Vert x ^{-1} \right\Vert = \left\Vert xx ^{-1} \right\Vert = 1 \) 
+y como \( \left\Vert x \right\Vert \in \mathbb{N} , \left\Vert x \right\Vert = \left\Vert x ^{-1} \right\Vert = 1 \)}
+
+\propo{2.10}/\defi{2.11} En un \textbf{dominio de ideales principales \textcolor{red}{DPI}}
+todos los ideales son principales. Un DE es un DIP. 
+\textcolor{gray}{\footnotesize Elegimos \( x \) tal que \( \left\Vert x \right\Vert = \text{min}\{ \left\Vert y \right\Vert  \;|\; 0 \neq y \in I  \} \). 
+Entonces \( x > 0 \) y \( I  \) está generado por \( x \), ya que si \( y \neq 0, y \in I  \),
+existe \( r \in A \) tal que \( x|(y-r), \left\Vert r \right\Vert < \left\Vert x \right\Vert  \). Entonces \( y-r \in I  \) y como \( y \in I  \),
+\( r \in I \), pero como \( \left\Vert r \right\Vert < \left\Vert x \right\Vert  \), y \( \left\Vert x \right\Vert  \) es el mínimo en \( I  \), r = 0 y \( y \in (x) \).}
+
+\propo{2.12} Si \(A\) es un DIP, todo elemento irreducible \(a \in A^*\)
+genera un ideal maximal. 
+\textcolor{gray}{\footnotesize Sea \( I  \), \( (a) \subset I  \). Entonces \( I = (a) \) o 
+\( I = A \). Sea \( b \in A \) tal que \( I = (b) \). Entonces \( (a) \subset I = (b), b | a \). 
+Como \( a \) es irreducible, o bien \( b = ua, u \in U(A) \), y (a) = (b) = I \) o \( b \in U(A) \), y I = (b) = A.}
+
+
+
+
+
+
+\vspace{-1em}
+\begin{center}
+\begin{tikzcd}
+DE \ar{r} & DIP \ar{r}\ar{d} & DFU \ar{r} & F \\
+ & B \ar{r} & MC \ar{r} & P \\
+\end{tikzcd}
+\end{center}
+\vspace{-1em}
 \end{document}
