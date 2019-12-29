@@ -1,4 +1,4 @@
-% Created 2019-12-29 Sun 19:10
+% Created 2019-12-29 Sun 20:03
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,10 +99,10 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:org0fe9dee}
+\label{sec:orgbe6d9a8}
 \vspace{-1em}
 \subsection*{Generalidades}
-\label{sec:orgf2590d9}
+\label{sec:org15c74e1}
 \vspace{-1em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
@@ -209,7 +209,7 @@ conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo en
 ellos.
 
 \subsection*{Divisibilidad}
-\label{sec:org8ad4866}
+\label{sec:org3981180}
 \vspace{-1em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
@@ -256,15 +256,40 @@ genera un ideal maximal.
 \( I = A \). Sea \( b \in A \) tal que \( I = (b) \). Entonces \( (a) \subset I = (b), b | a \). 
 Como \( a \) es irreducible, o bien \( b = ua, u \in U(A) \), y (a) = (b) = I \) o \( b \in U(A) \), y I = (b) = A.}
 
+\defi{2.13 (Característica de un dominio de integridad)} Definimos \(\phi =
+\phi_A: \mathbb{Z} \rightarrow A: k \mapsto k\cdot 1_A = 1_A + \cdots + 1_A\; (k >
+0), 0\; (k = 0), -((-k) \cdot 1_A)\; (k < 0)\). \(\phi\) es un homomorfismo.
+Si \(\text{ker }\phi = \{ 0 \}\), \(\mathbb{Z} \subset A\), y tiene
+característica 0; y si \(\text{ker }\phi \neq \{ 0 \}\), \(A\) tiene
+característica positiva. En este caso, como \(A\) es dominio de integridad y
+\(Z/\text{ker }\phi \simeq \text{im } A \subset A\), \(Z/\text{ker } \phi\)
+también es dominio y \(\text{ker }\phi = (p)\) es un ideal primo.
 
+\defi{2.14} Sean \(x,y \in A^*, z \in A\). \(z\) es un \textbf{máximo común divisor}
+si \(z|x, \; z|y\), y \(z\) divide cualquier otro divisor de ambos. 
+\(z\) es un \textbf{mínimo común múltiplo} si \(x|z, \; y|z\) y \(z\) divide a
+cualquier otro múltiplo de ambos. Estos elementos son únicos.
 
+\propo{2.17 / 2.18 / 2.19}. Para un dominio de integridad \(A^*\): \vspace{-1em}
+\begin{itemize}
+\item \(\forall x,y \in A^*\) tiene mcd: \((x) + (y) \subset (mcd)\).
+\item \(\forall x,y \in A^*\) tiene mcm: \((x) \cap (y) = (mcm)\).
+\item xy = mcm\(\cdot\) mcd.
+\end{itemize}
+\textbf{Si se cumple cualquiera de los dos primeros puntos} \textbf{\textcolor{red}{MC}} , 
+\textbf{todo elemento irreducible es primo \textcolor{red}{P}} . 
 
+\propo{2.20} (\textbf{Identidad de Bezout \textcolor{red}{B}}). Si \(x,y \in A^*\) 
+generan un ideal principal, existe \(z = mcd(x,y)\) y existen \(a,b \in A\) 
+tales que \(z = ax + by\).
 
+\defi{2.21} Dos elementos \(x,y \in A^*\) son primos entre sí si no comparten
+más divisores que las unidades, es decir, \(mcd(x,y) = 1_A\).
 
 \vspace{-1em}
 \begin{center}
 \begin{tikzcd}
-DE \ar{r} & DIP \ar{r}\ar{d} & DFU \ar{r} & F \\
+DE \ar{r} & DIP \ar{r}\ar{d} & DFU \ar{r}\ar{d} & F \\
  & B \ar{r} & MC \ar{r} & P \\
 \end{tikzcd}
 \end{center}
