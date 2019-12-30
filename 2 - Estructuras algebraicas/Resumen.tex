@@ -1,4 +1,4 @@
-% Created 2019-11-19 Tue 19:16
+% Created 2019-12-30 Mon 18:38
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -6,6 +6,7 @@
 % Paquetes de matemáticas
 \usepackage{amsmath, amsfonts, amssymb, commath}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
 % Ajustes de idioma, gráficos, etc
 \usepackage{adjustbox}
@@ -98,9 +99,9 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Generalidades y teorema de Lagrange}
-\label{sec:orgd10473b}
+\label{sec:orga7dfdfb}
 \subsection*{Grupos}
-\label{sec:orgd1f0eaa}
+\label{sec:orgbf5b576}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -136,13 +137,13 @@ entonces $a = a^{-1}; b=b^{-1}$x y si $c = ab$ entonces
 
 \defi{1.5} Si \(G,G'\) son dos grupos con operaciones
 \(G \times G \rightarrow G: (a,b) \mapsto ab \quad;\quad G' \times G' \rightarrow G': (a', b') \mapsto a'b'\)
- el \textbf{producto cartesiano} \(G'' = G \times G''\) es un grupo con operación 
+ el \textbf{producto cartesiano} \(G'' = G \times G'\) es un grupo con operación 
 \(G'' \times G'' \rightarrow G'': ((a, a'), (b, b')) = (ab, a'b')\). La asociatividad se mantiene, 
 y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection*{Subgrupos}
-\label{sec:orga4e59d0}
+\label{sec:org4b67404}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICO QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -191,7 +192,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection*{Orden de un grupo}
-\label{sec:org2c7ab09}
+\label{sec:orgb20d426}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -211,7 +212,7 @@ que
 \end{itemize}
 
 \subsection*{Índice de un subgrupo}
-\label{sec:orgbf6a6c6}
+\label{sec:org942e28c}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -234,12 +235,12 @@ un conjunto infinito. Por otra parte, el índice de \(H\) en \(G\), \([G:H]\) es
 si \(G\) es finito, entonces \(o(H)\) es
 finito, \(H\) tiene índice finito en \(G\) y \(o(G) = o(H) \cdot [G:H]\).
 
-\cor{1.12.9} Si \(H,K\) son subgrupos finitos de \(G\), \(o(H) = m\), \(o(K) = n\), 
-entonces \(o(H \cap K) = 1 \iff H \cap K = \{ 1_G \}\)
+\cor{1.12.9} Si \(H,K\) son subgrupos finitos de \(G\), \(o(H) = m\), y 
+mcd(\(m, n) = 1\) entonces \(H \cap K = \{ 1_G \}\).
 
 \propo{1.12.10 (F de transitividad del índice)} Sean \(H,K\) 
 subgrupos de \(G\). Si \(H\) es subgrupo de \(K\), y los indices entre subgrupos, y con G,
-son finitos, entonces se cumple \([G:H] = [G:H][H:K]\)
+son finitos, entonces se cumple \([G:K] = [G:H][H:K]\)
 
 \importante\propo{1.12.11} Sean \(H,K\) subgrupos de \(G\), finito. Entonces
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
@@ -292,7 +293,7 @@ posee unas propiedades demostrables:
 
 
 \section*{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:org2577b4e}
+\label{sec:orgf4dee45}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -327,7 +328,7 @@ subgrupos son \(\{ 1_G \}, G\), luego \(G\) es simple.
 
 \propo{2.2.8} Todo subgrupo \(H \subset Z(G) = \{ a \in G \;|\; ag = ga\;
 \forall g \in
-H\}\) es subgrupo normal de \(G\).
+G\}\) es subgrupo normal de \(G\).
 
 \propo{2.2.10} Sea \(H\) subgrupo de \(G\).
 \begin{enumerate}
@@ -364,7 +365,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection*{Grupos cocientes}
-\label{sec:orge1df832}
+\label{sec:org1c6bdcc}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -398,7 +399,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection*{Homomorfismos}
-\label{sec:orged8740c}
+\label{sec:org5f8ade2}
  \importante  \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -487,7 +488,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection*{Teoremas de isomorfía}
-\label{sec:org6ea15f5}
+\label{sec:org431d6e5}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -511,7 +512,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection*{Estructura de grupos abelianos finitos}
-\label{sec:orga35b404}
+\label{sec:org9a30873}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -543,12 +544,12 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
 \section*{Grupos de automorfismos. Acción de un grupo sobre un conjunto}
-\label{sec:org5ec47aa}
+\label{sec:org3699bfb}
 \cor{3.4.3.1} Sea \(G\) un grupo y \(H \subset G\), \(H \subset Z(G)\).
 Entonces (1) \(H \subset_N G\) y (2) Si \(G/H\) es cíclico, \(G\) es
 abeliano.  
 \subsection*{Acciones de grupos sobre conjuntos}
-\label{sec:org6b93b7b}
+\label{sec:org9f2a8ff}
 \defi{3.8} Una \textbf{acción sobre un conjunto} \(X\) es la aplicación \(G \times
    X \rightarrow X: (g,x) \mapsto g(x) \forall g \in G, \forall x \in X\). Se
 cumple (1) \((gh)(x) = g(h(x))\), (2) \(1_G(x) = x\).
@@ -658,9 +659,9 @@ isomorfismo, los únicos grupos no abelianos de orden 8.
 \pagebreak
 
 \section*{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org9d56f21}
+\label{sec:org19b6900}
 \subsection*{Teorema de la Estructura}
-\label{sec:org8dc7c7a}
+\label{sec:org260e0ce}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -708,7 +709,7 @@ escribirse de forma única como producto de finitos elementos de \(I\) y sus inv
 
 
 \subsection*{Generadores y relaciones}
-\label{sec:org79bacc7}
+\label{sec:org63ce90a}
    \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
    \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
 \(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+

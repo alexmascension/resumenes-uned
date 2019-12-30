@@ -49,7 +49,7 @@ entonces $a = a^{-1}; b=b^{-1}$x y si $c = ab$ entonces
 
 \defi{1.5} Si $G,G'$ son dos grupos con operaciones
 $G \times G \rightarrow G: (a,b) \mapsto ab \quad;\quad G' \times G' \rightarrow G': (a', b') \mapsto a'b'$
- el *producto cartesiano* $G'' = G \times G''$ es un grupo con operación 
+ el *producto cartesiano* $G'' = G \times G'$ es un grupo con operación 
 $G'' \times G'' \rightarrow G'': ((a, a'), (b, b')) = (ab, a'b')$. La asociatividad se mantiene, 
 y se ve que $1_{G''} = (1_G, 1_{G'})$.
 Además, si $G, G'$ son abelianos, $G''$ también lo es. Se dice que \( G_1 \times \cdots \times G_r
@@ -159,15 +159,13 @@ un conjunto infinito. Por otra parte, el índice de \(  H \) en \(  G \), \(
 si \( G \) es finito, entonces \( o(H) \) es
 finito, \( H \) tiene índice finito en \( G \) y \( o(G) = o(H) \cdot [G:H] \).
 
-\cor{1.12.9} Si \( H,K \) son subgrupos finitos de \( G \), \( o(H) = m \), \(
-o(K) = n \), 
-entonces \( o(H \cap K) = 1 \iff H \cap K = \{ 1_G \}
-\)
+\cor{1.12.9} Si \( H,K \) son subgrupos finitos de \( G \), \( o(H) = m \), y 
+mcd(\(m, n) = 1 \) entonces \( H \cap K = \{ 1_G \} \).
 
 \propo{1.12.10 (F de transitividad del índice)} Sean \( H,K \) 
 subgrupos de \(
 G \). Si \( H \) es subgrupo de \( K \), y los indices entre subgrupos, y con G,
-son finitos, entonces se cumple \( [G:H] = [G:H][H:K] \)
+son finitos, entonces se cumple \( [G:K] = [G:H][H:K] \)
  
 \importante\propo{1.12.11} Sean \( H,K \) subgrupos de \( G \), finito. Entonces
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
@@ -257,7 +255,7 @@ subgrupos son \( \{ 1_G \}, G \), luego \( G \) es simple.
 
 \propo{2.2.8} Todo subgrupo \( H \subset Z(G) = \{ a \in G \;|\; ag = ga\;
 \forall g \in
-H\}\) es subgrupo normal de \( G \).
+G\}\) es subgrupo normal de \( G \).
  
 \propo{2.2.10} Sea \( H \) subgrupo de \( G \).
 1. \( H \) es subgrupo de \( N_G(H) = \{ a \in G \;|\; H = H^a \} \).
