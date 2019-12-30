@@ -224,8 +224,8 @@ i^2 = j^2 = k^2 = ijk = -1 \).
  *normal* (*LO DEFINO AQUÍ COMO* \( \subset_N\)) si se cumplen las condiciones equivalentes:
 1. Para todo \( a  \in G \), \( aH = Ha \)
 2. Para todo \( a \in G \), \( H = H^a \)
-3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego \( H \) es
-   abeliano.
+3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego si \( H \) es
+   abeliano, es normal.
 
 #+BEGIN_EXPORT latex
 \dem{ 1 \(\implies\) 2. Si \(y \in H^a\) entonces \( aya ^{-1} = h \in H  \). Como
