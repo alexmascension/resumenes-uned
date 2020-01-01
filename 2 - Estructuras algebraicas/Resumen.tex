@@ -1,4 +1,4 @@
-% Created 2019-12-30 Mon 18:45
+% Created 2020-01-01 Wed 17:56
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,9 +99,9 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Generalidades y teorema de Lagrange}
-\label{sec:org31c7578}
+\label{sec:org7c1496d}
 \subsection*{Grupos}
-\label{sec:orgba8cc4c}
+\label{sec:orgf289506}
 \defi{1.1} Un grupo es un conjunto no vacío \(G\) en el que se define una 
 operación binaria \(G \times G \rightarrow G\;;\; (a,b) \mapsto ab\) que cumple (1) \textbf{asociatividad}
 (\((ab)c = a(bc)\)), (2) \textbf{existencia de elemento neutro} \(u \in G\;;\;ua=a=au\)
@@ -143,7 +143,7 @@ y se ve que \(1_{G''} = (1_G, 1_{G'})\).
 Además, si \(G, G'\) son abelianos, \(G''\) también lo es. Se dice que \(G_1 \times \cdots \times G_r\) es el \textbf{producto directo}.
 
 \subsection*{Subgrupos}
-\label{sec:org52a71c5}
+\label{sec:org8d6205d}
 \defi{1.6} Un subconjunto no vacío \(H \subset G\) es un \textbf{subgrupo} de \(G\) si es un grupo con la misma operación que \(G\).
 \textbf{EN ALGUNOS SITIOS \(H \subset G\) INDICO QUE \(H\) ES SUBGRUPO DE \(G\).}
 Se puede ver que el elemento neutro de \(H\) es \(1_G\), y que si \(x \in H;
@@ -192,7 +192,7 @@ Para que \(HK\) sea un subgrupo de \(G\) entonces \(HK = KH\).
 Si \(H \subset K, HK = K = KH\).
 
 \subsection*{Orden de un grupo}
-\label{sec:org4c496cf}
+\label{sec:orgca3d2cc}
 \defi{1.9} El \textbf{orden} de un subgrupo finito \(H \subset G\) es el número de elementos que tiene. Se denota por \(o(H)\). Un elemento \(a \in G\) es \textbf{de torsión} si \(\langle a \rangle\) es finito. En tal caso el orden
 es \(o(a)\).
 
@@ -212,7 +212,7 @@ que
 \end{itemize}
 
 \subsection*{Índice de un subgrupo}
-\label{sec:org58be982}
+\label{sec:org0d3f954}
 \defi{1.2}/\obs{1.12.6/7} Sea \(G\) un grupo y \(H \subset G\).  Sean \(R^H, R_H\) las relaciones de equivalencia en \(G\):
 \[ xR_H y \iff xy^{-1} \in H \]
 \[ xR^H y \iff x^{-1}y \in H \]
@@ -293,7 +293,7 @@ posee unas propiedades demostrables:
 
 
 \section*{Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos}
-\label{sec:orge5d13a3}
+\label{sec:org8f6bef4}
 \importante  \propo{2.1} Sea \(G\) un grupo y \(H\) un subgrupo. \(H\) es un subgrupo
  \textbf{normal} (\textbf{LO DEFINO AQUÍ COMO} \(\subset_N\)) si se cumplen las condiciones equivalentes:
 \begin{enumerate}
@@ -365,7 +365,7 @@ Si \(N \subset_N H\) entonces \(N \subset K(H)\), pues para cada \(a \in G\): \(
 finito, también posee un subgrupo normal de índice finito.
 
 \subsection*{Grupos cocientes}
-\label{sec:org8e5c8f7}
+\label{sec:org760e3a7}
 \propo{2.3} El grupo cociente \(G/H\) de \(H \subset_N G\) tiene estructura de grupo con la operación:
 \begin{align*}
  &\; G/H \times G/H  
@@ -399,7 +399,7 @@ tenemos \(m,n\) tal que \(mcd(m,n)=1\), entonces \(\phi(mn) =
 p_i^{k_i}\), entonces \(\phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1)\)
 
 \subsection*{Homomorfismos}
-\label{sec:orgf592d31}
+\label{sec:orgaea44fe}
  \importante  \defi{2.4 / 2.6} Una aplicación \(f:G \rightarrow G'\) es un \textbf{homomorfismo de grupos} si \(f(ab) = f(a)f(b) \forall a,b \in G\).
 Para todo homomorfismo se tiene que \(f(1_G) = 1_{G'}\) y \(f(a^{-1}) =
 (f(a))^{-1}\). Si un homomorfismo es biyectivo se llama \textbf{isomorfismo}. 
@@ -468,7 +468,7 @@ tal que \( ker(f) = m \mathbb{Z} \). Si \( m = 0 \), \( ker(f) = 0 \mathbb{Z} = 
 \), y \( \mathbb{Z} \simeq G
 \). Si \( m > 0 \), \( \mathbb{Z}/m \mathbb{Z} \simeq G \).}
 
-\ejem{2.9.4.4} Si \(n\) es múltiplo de \(m\), existen homomorfismos
+\ejem{2.9.4.4} Para \(f: \mathbb{Z}/m \mathbb{Z} \rightarrow \mathbb{Z}/n \mathbb{Z}\), si \(n\) es múltiplo de \(m\), existen homomorfismos
 inyectivos y el número de homomorfismos es \(\phi(m)\). Si \(mcd(m,n) = n\),
 existen isomorfismos sobreyectivos y el número es \(\phi(n)\).
 
@@ -488,7 +488,7 @@ tiene subgrupos de orden \(6\). Esto verifica que el \textbf{recíproco del teor
 Lagrange no es cierto siempre}. 
 
 \subsection*{Teoremas de isomorfía}
-\label{sec:orgece2158}
+\label{sec:orge15a463}
 \propo{2.15 (Segundo teorema de isomorfía)} Sean \(N,H \subset_N G\), y \(N \subset H\). Entonces \(H/N \subset_N G/N\) y \((G/N)/(H/N) \simeq G/H\)
 
 \propo{2.16 (Tercer teorema de isomorfía} Si \(H,N \subset G\), y \(N \subset_N G\), 
@@ -512,7 +512,7 @@ Lagrange no es cierto siempre}.
 \end{itemize}
 
 \subsection*{Estructura de grupos abelianos finitos}
-\label{sec:org1eed25c}
+\label{sec:orgd436a4f}
 \lema{2.20} Sea \(G\) grupo abeliano finito y \(x \in G\) un elemento de
 orden máximo. Entonces, para cada \(y \in G\), el orden de \(y\) divide al
 de \(x\).
@@ -544,12 +544,12 @@ orden \(n = p_1 \cdots p_s\) es cíclico.
 \propo{2.23} Si \(p\) es primo, \(\mathbb{Z}_p^*\) es cíclico.
 
 \section*{Grupos de automorfismos. Acción de un grupo sobre un conjunto}
-\label{sec:orge0fe702}
+\label{sec:org8ac41dc}
 \cor{3.4.3.1} Sea \(G\) un grupo y \(H \subset G\), \(H \subset Z(G)\).
 Entonces (1) \(H \subset_N G\) y (2) Si \(G/H\) es cíclico, \(G\) es
 abeliano.  
 \subsection*{Acciones de grupos sobre conjuntos}
-\label{sec:orgfc6f300}
+\label{sec:orgb85dc2c}
 \defi{3.8} Una \textbf{acción sobre un conjunto} \(X\) es la aplicación \(G \times
    X \rightarrow X: (g,x) \mapsto g(x) \forall g \in G, \forall x \in X\). Se
 cumple (1) \((gh)(x) = g(h(x))\), (2) \(1_G(x) = x\).
@@ -659,9 +659,9 @@ isomorfismo, los únicos grupos no abelianos de orden 8.
 \pagebreak
 
 \section*{Grupos abelianos finitamente generados. Generadores relacionales}
-\label{sec:org7f9e35f}
+\label{sec:org9765076}
 \subsection*{Teorema de la Estructura}
-\label{sec:org5388804}
+\label{sec:orgc9be234}
 \importante \defi{7.1} Si \(G\) es un grupo, denotamos \(T(G) = \{ x \in G \;|\; o(x)
    \text{ es finito} \}\). \(G\) tiene \textbf{torsión} si \(T(G) \neq \{ 1 \}\).
 \begin{enumerate}
@@ -709,7 +709,7 @@ escribirse de forma única como producto de finitos elementos de \(I\) y sus inv
 
 
 \subsection*{Generadores y relaciones}
-\label{sec:org26c7873}
+\label{sec:orgde493a9}
    \propo{7.10} Sea \(G\) abeliano y finitamente generado, con \(S = \{ x_1,
    \cdots, x_n \}\) un sistema de generadores. Sea \(f_S\) el homomorfismo 
 \(f_S: \mathbb{Z} \times  \cdots_n \times  \mathbb{Z} = \mathbb{Z}^n \rightarrow G: (m_1, \cdots, m_n) \mapsto m_1 x_1+ \cdots+
