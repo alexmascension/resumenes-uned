@@ -209,6 +209,8 @@ tales que \( z = ax + by \).
 \defi{2.21} Dos elementos \( x,y \in A^* \) son primos entre sí si no comparten
 más divisores que las unidades, es decir, \( mcd(x,y) = 1_A \).
 
+El esquema de todas las relaciones queda así.
+
 #+BEGIN_EXPORT latex
 \vspace{-1em}
 \begin{center}
@@ -219,3 +221,67 @@ DE \ar{r} & DIP \ar{r}\ar{d} & DFU \ar{r}\ar{d} & F \\
 \end{center}
 \vspace{-1em}
 #+END_EXPORT
+\vspace{-2em}
+\propo{2.26 Ecuaciones diofánticas lineales con dos incógnitas.} Las ecuaciones 
+son de la forma \( \textcolor{blue}{c = aX + bY} \), de un dominio. Si se cumple la identidad de 
+Bezout, y \( d = \text{mcd}(a, b) \), entonces se cumple que \(\textcolor{orange}{ d = \alpha a +
+\beta b }\). Por tanto, existen \( a_0, b_0, c_0 \in A \) tales que \( \textcolor{brown}{c = c_0d},
+\textcolor{brown}{a = a_0d},\textcolor{brown}{ b = b_0d} \), y \(\textcolor{orange}{ 1 = \alpha a_0 + \beta b_0 }\),
+de modo que la nueva ecuación a resolver es \( \textcolor{blue}{c_0 = a_0X +
+b_0Y) \).
+
+Multiplicando por \( \alpha \) y sustituyendo \( \alpha a_0 = 1 - \beta b_0 \)
+tenemos \( X = \alpha c_0 + b_0 (\beta X - \alpha Y) \). Igualmente,
+multiplicando por  \( \beta \) y sustituyendo \( \alpha a_0 = 1 - \beta b_0 \)
+tenemos \( Y = \beta c_0 - a_0 (\beta X - \alpha Y) \). Así, si \( t = \beta x -
+\alpha y \), para algunos \( x,y \), 
+tenemos las ecuaciones \( \textcolor{rojo}{ x = \alpha c_0 + b_0 t};  \textcolor{rojo}{ y = \beta c_0 - a_0 t}
+\).
+
+Así, primero hallamos \(\textcolor{orange}{ d = \alpha a +
+\beta b }\), con lo cual obtenemos \( \alpha, \beta, a, b \), y de ahí sacamos
+\( \textcolor{brown}{a_0 = a / \text{mcd}} \), \( \textcolor{brown}{b_0 = b /
+\text{mcd}}\), \( \textcolor{brown}{c_0 = c/\text{mcd}} \). Para obtener  \(\textcolor{orange}{ d = \alpha a +
+\beta b }\) empleamos el algoritmo de Euclides.
+
+\propo{2.27 Algoritmo de Euclides.} Este algoritmo sólo es válido en DIPs, ya
+que en ellos se da B y MC. Ponemos un ejemplo práctico con \( 4329 / 132 \):
+
+\( \textcolor{red}{4329} = \textcolor{orange}{132} \cdot 32 +
+\textcolor{amarillo}{105}, \qquad
+\textcolor{orange}{132} = \textcolor{amarillo}{105} \cdot 1 + \textcolor{green}{27}, \qquad
+\textcolor{amarillo}{105} = \textcolor{green}{27} \cdot 3 + \textcolor{blue}{24}, \qquad
+\textcolor{green}{27} = \textcolor{blue}{24} \cdot 1 + \textcolor{violet}{8}, \qquad
+ \textcolor{blue}{24} = \textcolor{violet}{8} \cdot \textcolor{gray}{3}
+\)
+
+Si tenemos la ecuación diofántica \( 4329X + 132Y = 33 \), vemos que tiene
+solución pues \( \text{mcd}(4329, 132) = 3 \) y \( 3 | 33 \). Para encontrar las
+soluciones primero necesitamos reconstruir la ecuación  \(\textcolor{orange}{ d = \alpha a +
+\beta b }\), con \( a = 4329, b = 132 \). Para ello vamos sustituyendo el cociente de cada una de las
+ecuaciones por la siguiente. 
+
+\(  \textcolor{red}{a} = 32\textcolor{orange}{b} +
+\textcolor{amarillo}{x_2} \iff \textcolor{amarillo}{x_2} = \textcolor{red}{a} -
+32\textcolor{orange}{b} \;\;||\;\;  \)
+\( \textcolor{orange}{b} = \textcolor{amarillo}{x_2} +
+\textcolor{green}{x_3} \iff \textcolor{green}{x_3} = \textcolor{orange}{b} -
+\textcolor{amarillo}{x_2} \;\; || \;\; \)
+\( \textcolor{amarillo}{x_2} = 3 \textcolor{green}{x_3}+
+\textcolor{blue}{x_4} \iff  \textcolor{blue}{x_4} = \textcolor{amarillo}{x_2} -
+3\textcolor{green}{x_3} \) 
+
+Finalmente, \( \textcolor{gray}{3} = \textcolor{green}{x_3} -
+\textcolor{blue}{x_4} \). De aquí empezamos a sustituir todas las secuencias, al
+reves, hasta llegar con \( a, b \). \(  \textcolor{gray}{3} = \textcolor{green}{x_3} -
+\textcolor{blue}{x_4} = 4 \textcolor{green}{x_3} - \textcolor{amarillo}{x_2} =
+4\textcolor{orange}{b}  - 5\textcolor{amarillo}{x_2} = 164
+\textcolor{orange}{b} - 5\textcolor{red}{a}
+\). Luego \( \textcolor{gray}{3} = 164
+\textcolor{orange}{b} - 5\textcolor{red}{a} = \beta b + \alpha a  \). Así, \(
+\beta = 164, \alpha = -5 \). Si, además, \( a_0 = a/\text{mcd} = 4329 / 3 = 1443
+\),  \( b_0 = b/\text{mcd} = 132 / 3 = 44
+\),  \( c_0 = c/\text{mcd} = 33 / 3 = 11
+\), tenemos las ecuaciones  \( \textcolor{rojo}{ x = -5 \cdot 11 + 44 t};  
+\textcolor{rojo}{ y = 164 \cdot 11 - 1443 t}
+\).
