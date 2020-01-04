@@ -1,4 +1,4 @@
-% Created 2020-01-03 Fri 00:51
+% Created 2020-01-04 Sat 14:37
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,10 +99,10 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:org5821c78}
+\label{sec:org3f3911b}
 \vspace{-1em}
 \subsection*{Generalidades}
-\label{sec:orgffd66ef}
+\label{sec:orga03702f}
 \vspace{-1em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
@@ -209,7 +209,7 @@ conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo en
 ellos.
 
 \subsection*{Divisibilidad}
-\label{sec:org6bb58d2}
+\label{sec:orgeb8da65}
 \vspace{-1em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
@@ -352,4 +352,49 @@ reves, hasta llegar con \(a, b\). \(\textcolor{gray}{3} = \textcolor{green}{x_3}
 \textcolor{orange}{b} - 5\textcolor{red}{a}\). Luego \(\textcolor{gray}{3} = 164
 \textcolor{orange}{b} - 5\textcolor{red}{a} = \beta b + \alpha a\). Así, \(\beta = 164, \alpha = -5\). Si, además, \(a_0 = a/\text{mcd} = 4329 / 3 = 1443\),  \(b_0 = b/\text{mcd} = 132 / 3 = 44\),  \(c_0 = c/\text{mcd} = 33 / 3 = 11\), tenemos las ecuaciones  \(\textcolor{rojo}{ x = -5 \cdot 11 + 44 t};  
 \textcolor{rojo}{ y = 164 \cdot 11 - 1443 t}\).
+
+\propo{3.7 (Teoreama chino del resto)} Si \((a,b)\) son enteros primos entre
+sí, \(\mathbb{Z} / ab \mathbb{Z} = \mathbb{Z} / (ab) \simeq \mathbb{Z}/(a)
+\times \mathbb{Z}/(b)\). Así, el sistema de congruencias \(X \equiv m \text{ 
+mod } a \;;\; X \equiv n \text{ mod } b\).
+
+\propo{3.8} Sean \(n > 1\) y \(k \in \mathbb{Z}\). Son equivalentes:
+\begin{itemize}
+\item \([k] \in U(\mathbb{Z} / (n))\)
+\item \(\text{mcd}(k,n) = 1\)
+\item \([k] \neq 0\) y \(k\) no es divisor de cero en \(\mathbb{Z}/(n)\).
+\end{itemize}
+
+\defi{3.9 (Identidad de Euler)} Sea \(m\) positivo. Definimos \(\phi (m)\)
+como el número de enteros coprimos con \(m\).
+\begin{itemize}
+\item \(\phi(ab) = \phi(a)\phi(b) \iff \text{mcd}(a,b) = 1\)
+\item \(\phi(p^a) = p^a - p^{a-1} = p^a(1- 1/p)\) si \(p\) primo
+\item \(\phi(m) =  m \prod_{i=1}^{s}(1-1/p_i)\)
+\end{itemize}
+
+\(\propo{3.12}\) Para cada entero \(n\), \(n= \sum _{d|n, d \ge 1}^{}
+\phi(d)\).
+\textcolor{gray}{\footnotesize Consideramos el grupo aditivo \( H = \mathbb{Z}/(n) \), 
+que es cíclico de orden \( n \). Para \( 1 \le d \le n \), \( H_d \) es el cjto de elementos 
+de \( H \) con orden \( d  \). Por el Tma de Lagrange, para ser \( H_d  \) subgrupo, \( d | n \).
+Además, para cada \( d \) \( H_d  \) es disjunto (dos elementos diferentes no pueden tener el mismo orden),
+luego \( H = \cup_{d|n} H_d \). Finalmente, se puede demostrar que \( o(H_d) = \phi(d) \).}
+
+\propo{3.13, 3.14 (Euler, p. t. de Fermat)} Si \(\text{mcd}(k,n) = 1\), \(k^{\phi(n)} \equiv 1 \text{ mod } n\). Si \(p\) es primo, \(k^{p-1} \equiv 1
+\text{ mod } p\).
+\textcolor{gray}{\footnotesize Basta ver que \mathbb{Z}^*_n tiene \( \phi(n) \) 
+elementos, luego si \( \text{mcd}(k,n) = 1 \), o(k) = o(\mathbb{Z}^*_n) = \phi(n) y \( k^{\phi(n)} = 1 \).}
+
+\propo{3.15 (Teorema de Wilson)} Sea \(p\) primo. Entonces \((p-1)! \equiv -1
+\text{ mod } p\). 
+\textcolor{gray}{\footnotesize Demo basada en el libro de EA, que me gusta más.
+(\mathbb{Z}/p \mathbb{Z}, \cdot)\) es grupo. Quitando \( [1], [-1] \), \( o([a]) \) > 2,
+ya que [a][b] \equiv - 1 \text{ o } 1 \iff a = (p+1), b = (p-1) o (p+1) \). Como \( o(x) = o(-x) \),
+para cada \( [a] \) existe un \( [b] \) tal que \( [a][b] = [1] \), y denotamos a ese cjto \( M \).
+Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
+\( [p-1]! = [p-1]([p-2]!) = [p-1][1] = [-1][1] = [-1] \) y \( (p-1)! \equiv -1 \text{ mod } p \).  }
+
+\cor{3.16} Sea \(p \neq 2\) primo. Entonces si \(q = (p-1)/2\), \((q!)^2
+\equiv (-1)^{q+1} \text{ mod } p\).
 \end{document}
