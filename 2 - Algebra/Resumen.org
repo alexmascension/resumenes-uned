@@ -1,0 +1,335 @@
+#+TITLE: \Huge\vspace{-1em}Álgebra
+#+DATE:
+#+SETUPFILE: ../Plantillas/Plantilla.org
+#+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
+#+OPTIONS: num:nil
+#+LATEX: \vspace{-8em}
+
+* Anillos
+#+LATEX: \vspace{-1em}
+** Generalidades 
+#+LATEX: \vspace{-1em}
+\defi{1.1 (Anillo)} Un *anillo* es una estructura \( (A, +, \cdot) \) con las
+propiedades: \vspace{-1em}
+- \( (A, +) \) es un grupo conmutativo
+- Asociatividad: \( (xy)z = x(yz) \)
+- Distributividad: \( (x + y)z = xz + yz \qquad x(y+z) = xy+xz \)
+Se denota al elemento unitario de \( (A, +) \) por \( 0_A \) y al unitario de 
+\( (A, +, \cdot) \), si existe, por \( 1_A \). \( A^* = A\\ \{ 0 \} \). \( 0_A =
+1_A \iff A = \{ 0 \}\).
+
+\defi{1.6} Si \( 1_A \in A \), entonces \( A \) es un *anillo unitario*. Una
+*unidad* de \( A \) es un elemento \( x \) que tiene su inverso \( y \): \( xy=1
+\). El conjunto de unidades es \( U(A) \). El inverso, si existe, se puede denotar por \( x
+^{-1} \) y \( x/y = xy ^{-1} \).
+
+\defi{1.8} Un *cuerpo* es un anillo \( K \) tal que \( K^* \) es un grupo. O, un
+anillo unitario con inverso.  
+
+\defi{1.10} Un *divisor de cero* es un elemento \( x \in A^* \) tal que, para
+algún \( y \in A^* \), \( xy = 0_A \). Un cuerpo nunca tiene divisores de cero:
+\( x = x(yy ^{-1}) = (xy) y ^{-1} = 0 y ^{-1} = 0 \)
+
+\defi{1.11} Se denomina *dominio de integridad* a un anillo unitario sin divisores
+de cero. El producto de dos anillos conmutativos \( C = A \times  B \) nunca es
+un dominio de integridad, pues \( (a, 0) \neq 1_A, (0, b) \neq 1_B \) y \(
+(a, 0) \times (0, b) = (0, 0) = 0_C \).
+
+A un dominio de integridad se le puede asociar un cuerpo mediante el *cuerpo de
+fracciones de un dominio*. 
+Dada la relación \( (x,y) R (x', y') \iff xy' = x'y
+\), para el producto de dominios \( A \times  A^* \) 
+entonces para la clase de equivalencia \( [x,y] \), las operaciones \( [x,y] +
+[x', y'] = [xy' + y'x, yy'], [x,y]\cdot [x',y'] = [xx', yy'] \) forman un
+cuerpo, \( K \), con \( 0_K = [0, 1] \), \( 1_K = [1,1] \), y \( [x,y] ^{-1} =
+ [y, x] \).
+
+\defi{1.14 (Ideal)} Un *ideal* es un subconjunto \( I \subset A \) tal que \vspace{-1em}
+- \(I  \) es subgrupo de \( A \)
+- \( \forall i \in I, a \in A, ia \in I  \).
+\( A, \{ 0 \} \) son los *ideales triviales*, y si \( I \neq A \), \( I  \) es un  
+*ideal propio*. Si \( 1_A \in I  \), \( I = A \): \( \forall a \in A \), \( a = a
+\cdot 1 \), y como \( 1 \in I, a \in I  \).
+
+\defi{1.16} Dado un ideal \( I  \) de \( A \), dada la relación \( xRy \iff x-y
+\in I \), se forma el *anillo cociente* \( A/I  \) con las clases de equivalencia
+\( [x] = x + I = \{ x + a \;|\; a \in I  \} \).
+Las operaciones suma y producto definidas por \( (x + I) + (y + I) = (x + y) +
+I, \; (x + I)(y + I) = xy + I  \), son inyectivas.
+
+\defi{1.17 - 1.19} Sea \( A \) un anillo conmutativo y \( L \) un subconjunto de \( A
+\). El conjunto \( I  \) de sumas finitas \( a_1x_1 + ... + a_lx_l,\; a_i \in A,
+l_i \in L\) es un *ideal generado por \( L \)*. Además, \( I  \) es el mínimo 
+ideal que contiene a \( L
+\). Si \( L \) es finito, \( I  \) es *finitamente generado*; y si \( L \) tiene
+un solo elemento, es decir, \( I = Al \), el ideal es *principal*.
+
+En los ideales se definen la (1) suma: \( I + J \) está dado por \( a_1, \cdots,
+a_r, b_1, \cdots, b_s \in A, x_1, \cdots, x_r \in I, y_1, \cdots, y_s \in J,
+a_1x_1 + \cdots + a_rx_r + b_1y_1 + \cdots + b_sy_s = x + y \); (2) producto: IJ
+= \( x_1y_1 + \cdots + x_ry_r, x_1, \cdots, x_r \in I, y_1, \cdots, y_r \in J
+\), (3) intersección \( I \cap J \).
+
+\defi{1.21} Un ideal es *maximal* si (1) \(  A/I  \) es un cuerpo y (2) \( I \) es
+propio y ningún otro ideal propio lo contiene. \( (1) \iff (2) \).
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Si \( A/I  \) es
+un cuerpo, luego contiene una unidad. Ninguna unidad \( i \) de \( A/I  \) puede estar
+en \( I^* = I + i \) porque entonces \( I^* = A \)}.
+#+END_EXPORT
+
+\defi{1.22} Sean \( A \) unitario e \( I  \) un ideal. Se dice que \( I  \) es
+*primo* si (1) \( A/I  \) es un dominio de integridad y (2) \( I  \) es propio, y
+\( \forall x,y \in A \), si \( xy \in I  \), \( x \in I  \) o \( y \in I  \). \(
+(1) \iff (2) \).
+#+BEGIN_EXPORT latex
+\dem{ Si \( xy \in I  \), \( 0 + I = xy + I = (x+I)(y+I) \). Como \( A/I  \) es dominio, 
+\( x+I = 0 + I \rightarrow x \in I \) o \( y+I = 0 + I \rightarrow y \in I  \).  }
+#+END_EXPORT
+
+\defi{1.24} Un *homomorfismo* de los anillos \( A,B \) es una aplicación \( f: A
+\rightarrow B \) definida por: \vspace{-1em}
+- \( f(x+y) = f(x) + f(y) \)
+- \( f(xy) = f(x)f(y) \)
+- \( f(1_A) = 1_B \)
+#+BEGIN_EXPORT latex
+\vspace{-1em}\textcolor{gray}{\footnotesize \( f(x) (f(1_A) - 1_B) = f(x)f(1_A) - f(x)1_B = f(x\cdot 1_A) - f(x) = 0 \). 
+Si \( f(1_A) \neq 1_B \), f(A) son divisores de 0.}
+#+END_EXPORT
+La aplicación composición \( \phi: A \rightarrow A: g \mapsto g \circ f  \) es
+homeomorfismo. 
+
+\defi{1.26 (Núcleo e imagen)} Se define el *núcleo* de \( f \) al ideal: \(
+\text{ker } f
+= \{ x \in A \;|\; f(x) = 0 \}\), y se define la *imagen* de \( f \) al anillo \(
+\text{im } f = \{ y \in B \;|\; \exists x \in A, f(x) = y \} \).
+
+\propo{1.27 / 1.30} *Teorema de isomorfía*. Dado un homomorfismo \( f \), el diagrama
+ 
+#+BEGIN_EXPORT latex
+\vspace{-1em}
+\begin{center}
+\begin{tikzcd}
+A \ar{r}{f} \ar{d}{p}        & B                            \\
+A/\text{ker } f \ar{r}{\overline{f}} & \text{im } f \ar{u}{j}
+\end{tikzcd}
+\end{center}
+\vspace{-1em}
+#+END_EXPORT
+Con \( p: x \mapsto x + \text{ker }f \) sobreyectiva / *epimorfismo*, \( \overhead{f}: x +
+\text{ker }f \mapsto f(x) \) biyectiva / *isomorfismo*, \( j: y \mapsto y \)
+inyectiva / *monomorfismo*; es
+conmutativo.  
+Si \( f \) es monomorfismo entonces \( \text{ker }f = \{ 0 \} \). Dos anillos
+conmutativos son *isomorfos* (\( A \simeq B \)) si existe un isomorfismo entre
+ellos.
+
+** Divisibilidad
+#+LATEX: \vspace{-1em}
+\defi{2.1} *x es un divisor de y* o *y es un múltiplo de x*, \( x | y \) si existe
+\( a \in A, y = ax \). Si \( (x) = \{ kx \;|\; k \in \mathbb{Z} \} \), entonces
+\( x|y \iff (y) \subset (x) \). \( x \) *está relacionado con* \( y \) si \( (x) =
+(y) \iff x|y, y|x\). En ese caso, existe una unidad \( a \in U(A) \) tal que \(
+y = ax \).
+#+BEGIN_EXPORT latex
+\vspace{-1em}\textcolor{gray}{\footnotesize Si \( (y) = (x), y \in(x), x \in(y); y = ax, x = by. y = aby \iff 1 = ab \).}
+#+END_EXPORT
+
+Denotamos \( \text{div } (y) \) al conjunto de divisores de \( y \). Si \( y \)
+genera un ideal primo, entonces decimos que \( y \) *es primo*. \( y \) es
+*irreducible* si sus divisores son las unidades y productos de \( y \) por
+unidades. 
+*Todo primo es irreducible*, pero *NO TODO irreducible es primo* (hay irreducibles
+que no generan ideales primos).
+
+\defi{2.6} Se dice que \( A \) es un *dominio euclídeo \textcolor{red}{DE}* 
+si existe una aplicación \( \left\Vert \cdot \right\Vert : A \rightarrow
+\mathbb{N} \) tal que \vspace{-1em}
+- \( \left\Vert x \right\Vert = 0 \iff x = 0 \)
+- \( \left\Vert xy \right\Vert  = \left\Vert x \right\Vert \cdot \left\Vert y \right\Vert  \)
+- Si \( x,y \in A^* \) existe \( r \in A \) tal que \( y |(x-r) \) y \(
+  \left\Vert r \right\Vert < \left\Vert y \right\Vert  \)
+#+BEGIN_EXPORT latex
+\vspace{-1em}\textcolor{gray}{\footnotesize \( \mathbb{Z} \) es DE porque el valor absoluto cumple la función. 
+En \( \mathbb{Z}[i] \) la función \( \left\Vert a+ bi \right\Vert = a^2 + b^2 \) cumple las propiedades y \( \mathbb{Z}[i] \) es DE.
+}
+#+END_EXPORT
+
+\propo{2.8} Si \( A \) es DE, entonces \( U(A) = \{ x \in A \;|\; \left\Vert x
+\right\Vert = 1 \} \). 
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize \( \rightarrow) \( \left\Vert 1_A \right\Vert  = 1 \) porque 
+\( \left\Vert 1_A \right\Vert = \left\Vert 1_A\cdot 1_A \right\Vert = \left\Vert 1_A \right\Vert \left\Vert 1_A \right\Vert \), y como \( \left\Vert 1_A \right\Vert \neq 0, \left\Vert 1_A \right\Vert  = 1 \).
+Si \( x \in A \), existe \( x ^{-1} \) y \( \left\Vert x \right\Vert \left\Vert x ^{-1} \right\Vert = \left\Vert xx ^{-1} \right\Vert = 1 \) 
+y como \( \left\Vert x \right\Vert \in \mathbb{N} , \left\Vert x \right\Vert = \left\Vert x ^{-1} \right\Vert = 1 \)}
+#+END_EXPORT
+
+\propo{2.10}/\defi{2.11} En un *dominio de ideales principales \textcolor{red}{DPI}*
+todos los ideales son principales. Un DE es un DIP. 
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Elegimos \( x \) tal que \( \left\Vert x \right\Vert = \text{min}\{ \left\Vert y \right\Vert  \;|\; 0 \neq y \in I  \} \). 
+Entonces \( x > 0 \) y \( I  \) está generado por \( x \), ya que si \( y \neq 0, y \in I  \),
+existe \( r \in A \) tal que \( x|(y-r), \left\Vert r \right\Vert < \left\Vert x \right\Vert  \). Entonces \( y-r \in I  \) y como \( y \in I  \),
+\( r \in I \), pero como \( \left\Vert r \right\Vert < \left\Vert x \right\Vert  \), y \( \left\Vert x \right\Vert  \) es el mínimo en \( I  \), r = 0 y \( y \in (x) \).}
+#+END_EXPORT
+
+\propo{2.12} Si \( A \) es un DIP, todo elemento irreducible \( a \in A^* \)
+genera un ideal maximal. 
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Sea \( I  \), \( (a) \subset I  \). Entonces \( I = (a) \) o 
+\( I = A \). Sea \( b \in A \) tal que \( I = (b) \). Entonces \( (a) \subset I = (b), b | a \). 
+Como \( a \) es irreducible, o bien \( b = ua, u \in U(A) \), y (a) = (b) = I \) o \( b \in U(A) \), y I = (b) = A.}
+#+END_EXPORT
+
+\defi{2.13 (Característica de un dominio de integridad)} Definimos \( \phi =
+\phi_A: \mathbb{Z} \rightarrow A: k \mapsto k\cdot 1_A = 1_A + \cdots + 1_A\; (k >
+0), 0\; (k = 0), -((-k) \cdot 1_A)\; (k < 0) \). \( \phi \) es un homomorfismo.
+Si \( \text{ker }\phi = \{ 0 \} \), \( \mathbb{Z} \subset A \), y tiene
+característica 0; y si \( \text{ker }\phi \neq \{ 0 \} \), \( A \) tiene
+característica positiva. En este caso, como \( A \) es dominio de integridad y
+\( Z/\text{ker }\phi \simeq \text{im } A \subset A \), \( Z/\text{ker } \phi \)
+también es dominio y \( \text{ker }\phi = (p) \) es un ideal primo.
+
+\defi{2.14} Sean \( x,y \in A^*, z \in A \). \( z \) es un *máximo común divisor*
+si \( z|x, \; z|y \), y \( z \) divide cualquier otro divisor de ambos. 
+\( z \) es un *mínimo común múltiplo* si \( x|z, \; y|z \) y \( z \) divide a
+cualquier otro múltiplo de ambos. Estos elementos son únicos.
+
+\propo{2.17 / 2.18 / 2.19}. Para un dominio de integridad \( A^* \): \vspace{-1em}
+- \( \forall x,y \in A^* \) tiene mcd: \( (x) + (y) \subset (mcd) \).
+- \( \forall x,y \in A^* \) tiene mcm: \( (x) \cap (y) = (mcm) \).
+- xy = mcm\cdot mcd.
+*Si se cumple cualquiera de los dos primeros puntos* *\textcolor{red}{MC}* , 
+*todo elemento irreducible es primo \textcolor{red}{P}* . 
+
+\propo{2.20} (*Identidad de Bezout \textcolor{red}{B}*). Si \( x,y \in A^*  \) 
+generan un ideal principal, existe \( z = mcd(x,y) \) y existen \( a,b \in A \) 
+tales que \( z = ax + by \).
+
+\defi{2.21} Dos elementos \( x,y \in A^* \) son primos entre sí si no comparten
+más divisores que las unidades, es decir, \( mcd(x,y) = 1_A \).
+
+El esquema de todas las relaciones queda así.
+
+#+BEGIN_EXPORT latex
+\vspace{-1em}
+\begin{center}
+\begin{tikzcd}
+DE \ar{r} & DIP \ar{r}\ar{d} & DFU \ar{r}\ar{d} & F \\
+ & B \ar{r} & MC \ar{r} & P \\
+\end{tikzcd}
+\end{center}
+\vspace{-1em}
+#+END_EXPORT
+\vspace{-2em}
+\propo{2.26 Ecuaciones diofánticas lineales con dos incógnitas.} Las ecuaciones 
+son de la forma \( \textcolor{blue}{c = aX + bY} \), de un dominio. Si se cumple la identidad de 
+Bezout, y \( d = \text{mcd}(a, b) \), entonces se cumple que \(\textcolor{orange}{ d = \alpha a +
+\beta b }\). Por tanto, existen \( a_0, b_0, c_0 \in A \) tales que \( \textcolor{brown}{c = c_0d},
+\textcolor{brown}{a = a_0d},\textcolor{brown}{ b = b_0d} \), y \(\textcolor{orange}{ 1 = \alpha a_0 + \beta b_0 }\),
+de modo que la nueva ecuación a resolver es \( \textcolor{blue}{c_0 = a_0X +
+b_0Y) \).
+
+Multiplicando por \( \alpha \) y sustituyendo \( \alpha a_0 = 1 - \beta b_0 \)
+tenemos \( X = \alpha c_0 + b_0 (\beta X - \alpha Y) \). Igualmente,
+multiplicando por  \( \beta \) y sustituyendo \( \alpha a_0 = 1 - \beta b_0 \)
+tenemos \( Y = \beta c_0 - a_0 (\beta X - \alpha Y) \). Así, si \( t = \beta x -
+\alpha y \), para algunos \( x,y \), 
+tenemos las ecuaciones \( \textcolor{rojo}{ x = \alpha c_0 + b_0 t};  \textcolor{rojo}{ y = \beta c_0 - a_0 t}
+\).
+
+Así, primero hallamos \(\textcolor{orange}{ d = \alpha a +
+\beta b }\), con lo cual obtenemos \( \alpha, \beta, a, b \), y de ahí sacamos
+\( \textcolor{brown}{a_0 = a / \text{mcd}} \), \( \textcolor{brown}{b_0 = b /
+\text{mcd}}\), \( \textcolor{brown}{c_0 = c/\text{mcd}} \). Para obtener  \(\textcolor{orange}{ d = \alpha a +
+\beta b }\) empleamos el algoritmo de Euclides.
+
+\propo{2.27 Algoritmo de Euclides.} Este algoritmo sólo es válido en DIPs, ya
+que en ellos se da B y MC. Ponemos un ejemplo práctico con \( 4329 / 132 \):
+
+\( \textcolor{red}{4329} = \textcolor{orange}{132} \cdot 32 +
+\textcolor{amarillo}{105}, \qquad
+\textcolor{orange}{132} = \textcolor{amarillo}{105} \cdot 1 + \textcolor{green}{27}, \qquad
+\textcolor{amarillo}{105} = \textcolor{green}{27} \cdot 3 + \textcolor{blue}{24}, \qquad
+\textcolor{green}{27} = \textcolor{blue}{24} \cdot 1 + \textcolor{violet}{8}, \qquad
+ \textcolor{blue}{24} = \textcolor{violet}{8} \cdot \textcolor{gray}{3}
+\)
+
+Si tenemos la ecuación diofántica \( 4329X + 132Y = 33 \), vemos que tiene
+solución pues \( \text{mcd}(4329, 132) = 3 \) y \( 3 | 33 \). Para encontrar las
+soluciones primero necesitamos reconstruir la ecuación  \(\textcolor{orange}{ d = \alpha a +
+\beta b }\), con \( a = 4329, b = 132 \). Para ello vamos sustituyendo el cociente de cada una de las
+ecuaciones por la siguiente. 
+
+\(  \textcolor{red}{a} = 32\textcolor{orange}{b} +
+\textcolor{amarillo}{x_2} \iff \textcolor{amarillo}{x_2} = \textcolor{red}{a} -
+32\textcolor{orange}{b} \;\;||\;\;  \)
+\( \textcolor{orange}{b} = \textcolor{amarillo}{x_2} +
+\textcolor{green}{x_3} \iff \textcolor{green}{x_3} = \textcolor{orange}{b} -
+\textcolor{amarillo}{x_2} \;\; || \;\; \)
+\( \textcolor{amarillo}{x_2} = 3 \textcolor{green}{x_3}+
+\textcolor{blue}{x_4} \iff  \textcolor{blue}{x_4} = \textcolor{amarillo}{x_2} -
+3\textcolor{green}{x_3} \) 
+
+Finalmente, \( \textcolor{gray}{3} = \textcolor{green}{x_3} -
+\textcolor{blue}{x_4} \). De aquí empezamos a sustituir todas las secuencias, al
+reves, hasta llegar con \( a, b \). \(  \textcolor{gray}{3} = \textcolor{green}{x_3} -
+\textcolor{blue}{x_4} = 4 \textcolor{green}{x_3} - \textcolor{amarillo}{x_2} =
+4\textcolor{orange}{b}  - 5\textcolor{amarillo}{x_2} = 164
+\textcolor{orange}{b} - 5\textcolor{red}{a}
+\). Luego \( \textcolor{gray}{3} = 164
+\textcolor{orange}{b} - 5\textcolor{red}{a} = \beta b + \alpha a  \). Así, \(
+\beta = 164, \alpha = -5 \). Si, además, \( a_0 = a/\text{mcd} = 4329 / 3 = 1443
+\),  \( b_0 = b/\text{mcd} = 132 / 3 = 44
+\),  \( c_0 = c/\text{mcd} = 33 / 3 = 11
+\), tenemos las ecuaciones  \( \textcolor{rojo}{ x = -5 \cdot 11 + 44 t};  
+\textcolor{rojo}{ y = 164 \cdot 11 - 1443 t}
+\).
+
+\propo{3.7 (Teoreama chino del resto)} Si \( (a,b) \) son enteros primos entre
+sí, \( \mathbb{Z} / ab \mathbb{Z} = \mathbb{Z} / (ab) \simeq \mathbb{Z}/(a)
+\times \mathbb{Z}/(b) \). Así, el sistema de congruencias \( X \equiv m \text{ 
+mod } a \;;\; X \equiv n \text{ mod } b \).
+
+\propo{3.8} Sean \( n > 1 \) y \( k \in \mathbb{Z} \). Son equivalentes:
+- \( [k] \in U(\mathbb{Z} / (n)) \)
+- \(\text{mcd}(k,n) = 1\)
+- \( [k] \neq 0 \) y \( k \) no es divisor de cero en \( \mathbb{Z}/(n) \).
+
+\defi{3.9 (Identidad de Euler)} Sea \( m \) positivo. Definimos \( \phi (m) \)
+como el número de enteros coprimos con \( m \).
+- \( \phi(ab) = \phi(a)\phi(b) \iff \text{mcd}(a,b) = 1 \)
+- \( \phi(p^a) = p^a - p^{a-1} = p^a(1- 1/p)\) si \( p \) primo
+- \( \phi(m) =  m \prod_{i=1}^{s}(1-1/p_i)\)
+
+\( \propo{3.12} \) Para cada entero \( n \), \( n= \sum _{d|n, d \ge 1}^{}
+\phi(d) \).
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Consideramos el grupo aditivo \( H = \mathbb{Z}/(n) \), 
+que es cíclico de orden \( n \). Para \( 1 \le d \le n \), \( H_d \) es el cjto de elementos 
+de \( H \) con orden \( d  \). Por el Tma de Lagrange, para ser \( H_d  \) subgrupo, \( d | n \).
+Además, para cada \( d \) \( H_d  \) es disjunto (dos elementos diferentes no pueden tener el mismo orden),
+luego \( H = \cup_{d|n} H_d \). Finalmente, se puede demostrar que \( o(H_d) = \phi(d) \).}
+#+END_EXPORT
+
+\propo{3.13, 3.14 (Euler, p. t. de Fermat)} Si \( \text{mcd}(k,n) = 1 \), \(
+k^{\phi(n)} \equiv 1 \text{ mod } n \). Si \( p \) es primo, \( k^{p-1} \equiv 1
+\text{ mod } p\).
+ #+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Basta ver que \mathbb{Z}^*_n tiene \( \phi(n) \) 
+elementos, luego si \( \text{mcd}(k,n) = 1 \), o(k) = o(\mathbb{Z}^*_n) = \phi(n) y \( k^{\phi(n)} = 1 \).}
+#+END_EXPORT
+
+\propo{3.15 (Teorema de Wilson)} Sea \( p \) primo. Entonces \( (p-1)! \equiv -1
+\text{ mod } p\). 
+ #+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Demo basada en el libro de EA, que me gusta más.
+(\mathbb{Z}/p \mathbb{Z}, \cdot)\) es grupo. Quitando \( [1], [-1] \), \( o([a]) \) > 2,
+ya que [a][b] \equiv - 1 \text{ o } 1 \iff a = (p+1), b = (p-1) o (p+1) \). Como \( o(x) = o(-x) \),
+para cada \( [a] \) existe un \( [b] \) tal que \( [a][b] = [1] \), y denotamos a ese cjto \( M \).
+Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
+\( [p-1]! = [p-1]([p-2]!) = [p-1][1] = [-1][1] = [-1] \) y \( (p-1)! \equiv -1 \text{ mod } p \).  }
+#+END_EXPORT
+
+\cor{3.16} Sea \( p \neq 2 \) primo. Entonces si \( q = (p-1)/2 \), \( (q!)^2
+\equiv (-1)^{q+1} \text{ mod } p \).

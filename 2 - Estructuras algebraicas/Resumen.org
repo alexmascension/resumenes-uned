@@ -36,7 +36,7 @@ Todo grupo con dos elementos es abeliano, pues \( aa = aa; uu=uu; ua=a=au \);
 pero para \( n \ge 3 \), \( S_n \) no puede ser abeliano. \( GL_n; n \ge 2 \),
 ni \( D_n; n \ge 3 \) son abelianos.
 
-\propo{1.4} (1) Si \( x^2 = 1 \; \forall x \in G \), entonces \( G \) es
+\importante \propo{1.4} (1) Si \( x^2 = 1 \; \forall x \in G \), entonces \( G \) es
 abeliano; (2) si \( (ab)^2=a^2b^2 \) entonces \( G \) es abeliano.
 
 #+BEGIN_EXPORT latex
@@ -58,7 +58,7 @@ Además, si $G, G'$ son abelianos, $G''$ también lo es. Se dice que \( G_1 \tim
 ** Subgrupos
 \defi{1.6} Un subconjunto no vacío \( H \subset G
 \) es un *subgrupo* de \( G \) si es un grupo con la misma operación que \( G \).
-*EN ALGUNOS SITIOS \( H \subset G\) INDICA QUE \( H \) ES SUBGRUPO DE \( G \).*
+*EN ALGUNOS SITIOS \( H \subset G\) INDICO QUE \( H \) ES SUBGRUPO DE \( G \).*
 Se puede ver que el elemento neutro de \( H \) es \( 1_G \), y que si \( x \in H;
 x^{-1} \in H\). Para que (1) \( H \) sea subgrupo de \( G \) se tiene que cumplir que
 (2) si \(x,y \in H  \), entonces \( x y^{-1} \in H \).
@@ -118,7 +118,7 @@ Si \( H \subset K, HK = K = KH\).
 a \in G\) es *de torsión* si \( \langle a \rangle \) es finito. En tal caso el orden
 es \( o(a) \).
 
-\propo{1.10} Sea \( G \) un grupo y \( a \in G \) de torsión. Entonces se cumple
+\importante\propo{1.10} Sea \( G \) un grupo y \( a \in G \) de torsión. Entonces se cumple
 que 
 - Existe \( k \ge 1 \) tal que \( a^k=1 \)
 - \( o(a) \) es el menor número tal que \( a^n=1 \)
@@ -159,17 +159,15 @@ un conjunto infinito. Por otra parte, el índice de \(  H \) en \(  G \), \(
 si \( G \) es finito, entonces \( o(H) \) es
 finito, \( H \) tiene índice finito en \( G \) y \( o(G) = o(H) \cdot [G:H] \).
 
-\cor{1.12.9} Si \( H,K \) son subgrupos finitos de \( G \), \( o(H) = m \), \(
-o(K) = n \), 
-entonces si \( \text{mcd}(m,n) = 1 \iff H \cap K = \{ 1_G \}
-\)
+\cor{1.12.9} Si \( H,K \) son subgrupos finitos de \( G \), \( o(H) = m \), y 
+mcd(\(m, n) = 1 \) entonces \( H \cap K = \{ 1_G \} \).
 
 \propo{1.12.10 (F de transitividad del índice)} Sean \( H,K \) 
 subgrupos de \(
 G \). Si \( H \) es subgrupo de \( K \), y los indices entre subgrupos, y con G,
 son finitos, entonces se cumple \( [G:K] = [G:H][H:K] \)
  
-\propo{1.12.11} Sean \( H,K \) subgrupos de \( G \), finito. Entonces
+\importante\propo{1.12.11} Sean \( H,K \) subgrupos de \( G \), finito. Entonces
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
 
 
@@ -177,7 +175,7 @@ son finitos, entonces se cumple \( [G:K] = [G:H][H:K] \)
  \( a \in G \) tal que \( G
 = \langle a \rangle\). Si \( o(a) = p \), primo, el grupo es cíclico.
 
-\propo{1.16 / 1.17} Sea \( G \) cíclico y \( n = o(G) \), para cada divisor \( m \) de
+\importante\propo{1.16 / 1.17} Sea \( G \) cíclico y \( n = o(G) \), para cada divisor \( m \) de
 \( n \)
 existe un único subgrupo de \( G \) de orden \( m \), y ese subgrupo es cíclico.
 Además, todo subgrupo de un grupo cíclico [finito o no] es cíclico.
@@ -204,10 +202,21 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
 }
 #+END_EXPORT
 
-#+LaTeX:	\pagebreak
-#+LaTeX:	\textcolor{gris}{\textit{Page intentionally left in blank}}
-#+LaTeX:	\newpage
-#+LaTeX:	\pagebreak
+\pagebreak
+
+\defi{Grupo diédrico \(D_n\)} Definimos el grupo diédrico al grupo con las
+operaciones \( f, g \) tales que \( o(g) = 2 \) y \( o(f) = n \). Entonces \(
+D_n = \{ 1, f, f^2, \cdots, f^{n-1}, g, gf, \cdots, gf^{n-1}  \} \). Este grupo
+posee unas propiedades demostrables:
+- \( f^kgf^k = g \)
+- \( gf^kg = f^{n-k} \)
+
+\defi{Grupo cuaternión \( Q \)} El grupo cuaternión tiene los elementos \( Q =
+\{ 1, -1, i, j, k, -i, -j, -k \} \). Las relaciones que definen el grupo son \(
+i^2 = j^2 = k^2 = ijk = -1 \).
+
+
+\pagebreak
 
 
 * Subgrupos normales, homomorfismos, teorema de estructura de grupos abelianos finitos
@@ -215,7 +224,8 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
  *normal* (*LO DEFINO AQUÍ COMO* \( \subset_N\)) si se cumplen las condiciones equivalentes:
 1. Para todo \( a  \in G \), \( aH = Ha \)
 2. Para todo \( a \in G \), \( H = H^a \)
-3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego si \( H \) es abeliano, es normal.
+3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego si \( H \) es
+   abeliano, es normal.
 
 #+BEGIN_EXPORT latex
 \dem{ 1 \(\implies\) 2. Si \(y \in H^a\) entonces \( aya ^{-1} = h \in H  \). Como
@@ -235,11 +245,11 @@ Por hipótesis \( h' = a ^{-1}x \in H \) y \( x = ah' \in aH \), luego \( Ha \su
 \obs{2.2.1} Si \( H \) es normal, entonces \( R^H = R_H \), y \( G/R_H \) se
 escribe \( G/H \).
 
-\obs{2.2.4/2.2.5} Si \( H \) es un subgrupo de \( G \), y \( [G:H] = 2 \), \( H
+\importante\obs{2.2.4/2.2.5} Si \( H \) es un subgrupo de \( G \), y \( [G:H] = 2 \), \( H
 \) es subgrupo normal de \( G \). Asimismo, los subgrupos \( \{ 1_G \}, G \) son 
 normales.
 
-\defi{2.2.14} Un grupo \( G \) es *simple* si los únicos subgrupos son  \( \{ 1_G
+\importante\defi{2.2.14} Un grupo \( G \) es *simple* si los únicos subgrupos son  \( \{ 1_G
 \}, G \). Si \( o(G) \) es primo \( p \), por el teorema de Lagrange, los únicos
 subgrupos son \( \{ 1_G \}, G \), luego \( G \) es simple.
 
@@ -325,7 +335,7 @@ tenemos \( m,n \) tal que \( mcd(m,n)=1 \), entonces \( \phi(mn) =
 p_i^{k_i} \), entonces \( \phi(a) = p_1^{k_1-1} \cdots p_i^{k_i-1} (p_1-1) \cdots(p_i-1) \)
 
 ** Homomorfismos
-   \defi{2.4 / 2.6} Una aplicación \( f:G \rightarrow G'
+ \importante  \defi{2.4 / 2.6} Una aplicación \( f:G \rightarrow G'
 \) es un *homomorfismo de grupos* si \( f(ab) = f(a)f(b) \forall a,b \in G \).
 Para todo homomorfismo se tiene que \( f(1_G) = 1_{G'} \) y \( f(a^{-1}) =
 (f(a))^{-1} \). Si un homomorfismo es biyectivo se llama *isomorfismo*. 
@@ -416,10 +426,10 @@ tal que \( ker(f) = m \mathbb{Z} \). Si \( m = 0 \), \( ker(f) = 0 \mathbb{Z} = 
 \). Si \( m > 0 \), \( \mathbb{Z}/m \mathbb{Z} \simeq G \).}
 #+END_EXPORT
 
-\ejem{2.9.4.4} Para \( f: \mathbb{Z}/m \mathbb{Z} \rightarrow \mathbb{Z}/n \mathbb{Z}\), 
-si \( n \) es múltiplo de \( m \), el número de homomorfismos es \( \text{mcd}(m,n) \). Además, existen homomorfismos
+\ejem{2.9.4.4} Para \( f: \mathbb{Z}/m \mathbb{Z} \rightarrow \mathbb{Z}/n \mathbb{Z} \), si \( n \) es múltiplo de \( m \), existen homomorfismos
 inyectivos y el número de homomorfismos es \( \phi(m) \). Si \( mcd(m,n) = n \),
-existen isomorfismos sobreyectivos y el número es \( \phi(n) \).
+existen isomorfismos sobreyectivos y el número es \( \phi(n) \). El número de homomorfismos en general es 
+\( \text{mcd}(n,m) \).
 
 \ejem{2.9.5.2} Todo grupo finito de orden par tiene un subgrupo de orden 2.
 
@@ -479,7 +489,7 @@ de \( x \).
 \( H = \langle x \rangle \) e \( y \in G \), entonces existe \( z \in Hy \) tal
 que \( o(z) = o(Hy) \)
 
-\lema{2.20.3} Sean \( H,K \subset_N G
+\importante\lema{2.20.3} Sean \( H,K \subset_N G
 \) tales que \( H \cap K = \{ 1 \} \). Entonces \( HK \simeq H \times K
 \).
 
@@ -489,7 +499,7 @@ torsión de G*, tales que \[ G \simeq \mathbb{Z}/m_1 \mathbb{Z} \times \cdots
 \times \mathbb{Z}/m_r \mathbb{Z}\] y cada \( m_i \) divide a \( m_{i-1} \).
 Además, los coeficientes son únicos.
 
-\propo{2.22} Sean \( G_1, G_2 \) grupos cíclicos de órdenes \( m \) y \( n \), y 
+\importante\propo{2.22} Sean \( G_1, G_2 \) grupos cíclicos de órdenes \( m \) y \( n \), y 
 \( G = G_1 \times G_2
 \), entonces las afirmaciones (1) \( G \) es cíclico, (2) \( mcd(m,n) = 1 \) son
 equivalentes.
@@ -508,6 +518,9 @@ orden \( n = p_1 \cdots p_s \) es cíclico.
 \) es cíclico.
 
 * Grupos de automorfismos. Acción de un grupo sobre un conjunto
+\cor{3.4.3.1} Sea \( G \) un grupo y \( H \subset G \), \( H \subset Z(G) \).
+Entonces (1) \( H \subset_N G\) y (2) Si \( G/H \) es cíclico, \( G \) es
+abeliano.  
 ** Acciones de grupos sobre conjuntos
    \defi{3.8} Una *acción sobre un conjunto* \( X \) es la aplicación \( G \times
    X \rightarrow X: (g,x) \mapsto g(x) \forall g \in G, \forall x \in X \). Se
@@ -518,7 +531,7 @@ orden \( n = p_1 \cdots p_s \) es cíclico.
    \). Definimos \( ker(\theta) = \{ g \in G | g(x) = x \forall x \in X \}\). Se dice que una
    acción es *fiel* cuando \( ker (\theta) = \{ 1_G \} \).
 
-\propo{3.9 (Teorema de Cayley)} Todo grupo \( G \) es isomorfo a un subgrupo \(
+\importante\propo{3.9 (Teorema de Cayley)} Todo grupo \( G \) es isomorfo a un subgrupo \(
 Biy(G) \).
 
 \propo{3.10} Sea \( G \times X \rightarrow X \) una acción. Se llaman
@@ -527,10 +540,13 @@ Biy(G) \).
   O_x = \emptyset \).
 - \( x \) es un *punto fijo* de \( g \) si \( G_x = G \).
 
+\defi{} Una acción es *libre* si \( G_x = \{ 1_G \} \). Una acción es *efectiva* si 
+\( \cap_{x \in X} G_x = \{ 1_G \} \).
+
 \obs{3.10.3} La aplicación \( G/R^{G_x} \rightarrow O_x: gG_x \mapsto g(x) \) es biyectiva, y \(
 card(O_x) = [G:G_x] \). 
 
-\obs{3.10.4} \( ker(\theta) = \bigcap_{x \in X}^{G_x} \)
+\obs{3.10.4} \( ker(\theta) = \bigcap_{x \in X} {G_x} \)
 
 \defi{3.11.2.1} Se llama *clase de conjugación del elemento \( x \)* a \( Cl(x) =
 \{ axa^{-1} | a \in G \} \), y el conjunto de elementos de órbitas (un elemento
@@ -540,7 +556,7 @@ por órbita), \( Y \) se llama *sistema de representantes por conjugación de \(
 \defi{} \( Z(G) = \{ a \in G | ax = xa \; \forall x \in G \} \), \( C_G(x) = \{ a \in
 G | ax = xa \}\).
 
-\propo{3.11.3} Sea \( G \) finito e \( Y \) un sistema de representantes por
+\importante\propo{3.11.3} Sea \( G \) finito e \( Y \) un sistema de representantes por
 conjugación. Entonces \( o(G) = o(Z(G)) + \sum _{x \in Y\;;\;x \not\in Z(G)}^{} [G:C_G(x)]
 \)
 
@@ -569,6 +585,61 @@ G \).
 G \) y \( a \not\in Cl(b) \). Sea \( m \) el máximo de los órdenes de \( C_G(x) \);
 entonces \( o(G) < m^3 \). 
 
+\ejem{3.12} Sean \( H \subset G \) y \( X = G/R^H \). Definimos la acción \( G
+\times G/R^H \rightarrow G/R^H \;;\; g(xH) = gxH\). Entonces \( ker(\theta) = K(H) \).
+
+\propo{3.12.1} (generaliza 2.2.4). Sea \( G \) finito y \( p \neq o(G) \) el
+menor divisor de \( G \), y \( H \subset G, o(H) = p \). Entonces \( H \subset_N
+G \) y \( G \) no es simple. 
+
+\propo{3.12.2} Sea \( G \) finito de orden \( n \) y \( H \subset G \), \( [G:H]
+= m \neq 1\). Si \( n  \nmid m!\)  entonces \(K(H) \neq \{ 1 \}\) y \( G  \) no es
+simple. 
+
+\importante\propo{3.12.3} Sea \( G \) finito con \( o(G) > 2 \). Si \( G \) posee un
+subgrupo \( H \), \( [G:H] = n \neq 1 \), y \( G \not \simeq A_n \), entonces \(
+G  \) no es simple.
+
+\ejem{3.12.3.1} Si \( o(G) \ge 5 \), y \( H \subset G \) tal que \( 2 \le [G:H]
+\le 4 \), entonces \( G \) no es simple.
+
+\propo{3.12.4} Sea \( G \) finítamente generado. Para cada \( n \), \( G \)
+tiene una cantidad finita (o nula) de subgrupos de índice \( n \).
+
+\importante \cor{3.12.5 (Generalización Teorema de Poincaré)}
+Si \( G \) es finitamente generado y \( H \subset G\) tiene índice finito,
+existe un subgrupo \( K \subset H \) tal que \( [G:K] \) es finito.
+
+\importante \propo{3.13 (Teorema de Cauchy-Fröbenius)} Sea \( p \) primo y \( G \) finito
+con orden múltiplo de \( p \). Entonces el número de elementos \( y \in G \)
+tales que \( y^p=1 \) es múltiplo de \( p \). Existe un elemento de orden \( p
+\) en \( G \).
+
+\cor{3.14} Sean \( m,p \), \( p  \) primo tales que \( p >m>1 \). Los grupos de
+orden \( mp \) no son simples.
+
+\cor{3.15} Sean \( p,q \) primos. Entonces, un grupo de orden \( pq \) no es
+simple. 
+
+\cor{3.16} Sea \( G \) con \( o(G) > 1 \). Entonces \( G \) es simple sii \( G
+\) es finito y \( o(G) \) es primo.
+
+\propo{3.17} Sea \( G \) un grupo de orden \( p^m \), \( p \) primo y \( m \ge 1
+\). Si \( H \neq \{ 1 \} \subset_N G \), entonces \( H \cap Z(G) \neq \{ 1 \}
+\).
+
+\cor{3.18}  Sea \( p \) primo, \( m \ge 1 \) uy \( o(G) = p^m \), y \( H \)
+subgrupo normal de orden \( p \), entonces \( H \subset Z(G) \).
+
+\ejem{3.19} El grupo cuaternión \( Q \) y el diedral \( D_4 \) son, salvo
+isomorfismo, los únicos grupos no abelianos de orden 8.
+
+
+
+
+
+\pagebreak
+
 * Grupos abelianos finitamente generados. Generadores relacionales
 ** Teorema de la Estructura
    \importante \defi{7.1} Si \( G \) es un grupo, denotamos \( T(G) = \{ x \in G \;|\; o(x)
@@ -590,7 +661,7 @@ entonces \( o(G) < m^3 \).
    1 \} \), y si \( G \) no tiene torsión, \( K \) tampoco la tiene.
 8. Si \( K = T(G) \), \( T(T(G)) = T(K) =  K \cap T(G) = T(G) \)
 
-\ejem{7.2 / 7.3} Si \( G = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
+\importante\ejem{7.2 / 7.3} Si \( G = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
 \mathbb{Z}/m_r \mathbb{Z} \times \mathbb{Z} \times \cdots \times \mathbb{Z}
 \), entonces \( T(G) = \mathbb{Z}/m_1 \mathbb{Z} \times \cdots \times
 \mathbb{Z}/m_r \mathbb{Z} \times \{0\} \times \cdots \times \{0\}
@@ -617,7 +688,7 @@ Sea \( G \) abeliano finitamente generado. Existen enteros no negativos \( n,r
 4. \( G \simeq T(G) \times G/T(G)
    \).
 
-\ejem{7.8} Si \( G \) no es finítamente generado, puede ser que \( G \not\simeq
+\importante\ejem{7.8} Si \( G \) no es finítamente generado, puede ser que \( G \not\simeq
 T(G) \times G/T(G)  \). P. ej. en el grupo \( G = \prod_{n \in \mathbb{N}}^{}
 \mathbb{Z}/p_n \mathbb{Z}
 \), si \( T(G) = \{ a \in G \;|\; \text{sop}(a) \text{ es finito} \} \), \(
@@ -641,13 +712,13 @@ Vemos que \( ker(f_S) \) es el conjunto que hace que \( m_1x_1 + \cdots + m_nx_n
    r_1, \cdots, r_l \} \) como el sistema generador de \( R(S) \). El par \( (R,S) \)
    se denomina *presentación de \( G \) mediante generadores y relaciones*.
 
-\propo{7.13} Sea \( G \) un grupo abeliano finitamente generado por \( S = \{
+\importante\propo{7.13} Sea \( G \) un grupo abeliano finitamente generado por \( S = \{
 x_1, \cdots, x_n \} \). Entonces se cumple que  \( S = \{ x_1, \cdots,
 -x_i, \cdots, x_n\} \) también es sistema generador, y si \( \lambda _2, \cdots, \lambda _n \) son
 enteros, y \( y_1 = x_1 + \lambda_2 x_2 + \cdots + \lambda _n x_n \), entonces \( S = \{
 y_1, x_2, \cdots, x_n \} \) también es un sistema generador.
 
-\propo{7.14} Sea \( (S,R) \) una presentación de \( G \), entonces se pueden
+\importante\propo{7.14} Sea \( (S,R) \) una presentación de \( G \), entonces se pueden
 obtener los coeficientes de torsión y el coeficiente de Betti mediante un ejemplo (aborrezco el 
 algoritmo en forma de matriz).
 

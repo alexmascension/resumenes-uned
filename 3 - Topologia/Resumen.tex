@@ -1,4 +1,4 @@
-% Created 2019-10-01 Tue 19:30
+% Created 2019-12-08 Sun 20:45
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -6,6 +6,7 @@
 % Paquetes de matemáticas
 \usepackage{amsmath, amsfonts, amssymb, commath}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
 % Ajustes de idioma, gráficos, etc
 \usepackage{adjustbox}
@@ -97,8 +98,9 @@ version={3.0},
 \maketitle
 \vspace{-8em}
 
+
 \section{Espacios topológicos}
-\label{sec:orgea9d8e5}
+\label{sec:org0edd81f}
 Se dice que \(p\) es el límite de una sucesión de reales \(a_1, \cdots, a_n\) cuando, para todo abierto \(p - \epsilon, p + \epsilon\), existe un \(m\)
 tal que para todo \(n \ge m\) se cumple que \(a_n \in (p- \epsilon, p +
 \epsilon)\). 
@@ -138,7 +140,7 @@ cuando determinan la misma topología \(T\) en \(X\); es decir, que para cada
 \subset V\).
 
 \subsection{Propiedades de una topología}
-\label{sec:orgd57d9ef}
+\label{sec:orga9dc678}
 Sea un conjunto \(X\). La topología \(T\) determinada en \(X\) cumple:
 \begin{itemize}
 \item P1: \(\emptyset \in T\) y \(X \in T\).
@@ -173,7 +175,7 @@ Si \((X,T)\) es un estacio topológico y \(M \subset X\), la topología \(T_M = 
 abiertos \(U\) de \((X,T)\) se llama \textbf{topología inducida o subordinada} de \(T\). Así, el espacio \(M, T_M\) es un subespacio de \((X,T)\).
 
 \section{Base de una topología}
-\label{sec:org0425ffa}
+\label{sec:org8e21784}
 Dada una topología \(T\) en \(X\), la \textbf{base de la topología}, \(B\), es una
 familia de conjuntos tal que cualquier abierto no vacío \(U \subset T\) es una unión
  de elementos de \(B\). \(\forall U \subset
@@ -192,7 +194,7 @@ punto \(t \in  A_\lambda
 
 
 \subsection{1er y 2º axioma de numerabilidad}
-\label{sec:orgd645cf6}
+\label{sec:org1cb37c1}
 Un espacio \((X,T)\) verifica el 1er axioma de numerabilidad si para todo \(x
 \in X\) 
 existe una base de entornos de \(x\) que sea numerable. Un espacio 
@@ -200,7 +202,7 @@ existe una base de entornos de \(x\) que sea numerable. Un espacio
 tiene una base numerable.
 
 \subsection{Topología engendrada for una familia de subconjuntos}
-\label{sec:org4088ad1}
+\label{sec:org452920b}
 
 Cualquier familia \(\{ A_\lambda \}\) de \(X\) que cumpla I es una subase de
 una topología de \(X\). Si \(H = \{ A_\lambda \}\) cumple I y II, la familia \(B\) formada por las
@@ -209,7 +211,7 @@ topología de \(X\) y se llama \textbf{topología engendrada}.
 
 
 \section{Entornos en un espacio topológico}
-\label{sec:org2179cb1}
+\label{sec:orgc0245d0}
 Sea \((X,T)\) un espacio topológico, y \(p \in X\). \(A \subset X\) es entorno de \(p\) si existe un abierto \(U\) de la topología \(T\) tal que \(p \in U \subset A\). No todo entorno ha de ser abierto. Por ejemplo, \([0, 1)\) es entorno de
 \(1/2\) (existe \(U = (1/2-1/4, 1/2+1/4) \subset [0, 1)\), pero no de \(0\) (ningún abierto en \(T\) cumple \(U \subset [0,1)\).
 
@@ -228,13 +230,13 @@ entornos] si todo entorno de \(p\) contiene un elemento de \(A(p)\).
 Los sistemas de bases de entornos \(B(p)\) resultan ser sistemas fundamentales
 de entornos. P. ej. en \(( \mathbb{R}, T_u)\) cada punto \(x\) tiene una
 base de entornos numerable, los intervalos abiertos de radio racional: \(\{
-(x-r, x+r) \}_{0<r \in \mathbb{Q})\).
+(x-r, x+r) \}_{0<r \in \mathbb{Q}}\).
 
 Un espacio topológico métrico verifica el primer axioma de numerabilidad, pues \(\{
-(x-r, x+r) \}_{0<r \in \mathbb{Q})\) es un sistema de entornos numerable.
+(x-r, x+r) \}_{0<r \in \mathbb{Q}}\) es un sistema de entornos numerable.
 
 \section{Subconjuntos en un espacio topológico}
-\label{sec:orgaea6e8f}
+\label{sec:orgf1afdd8}
 Todo punto en un espacio topológico puede ser de 3 tipos distintos. Si
 consideramos el espacio \((X,T)\) y \(M \subset T\), entonces
 \begin{itemize}
@@ -274,9 +276,9 @@ subconjunto es denso sii para todo abierto no vacío \(U \subset X\) se tiene qu
 Un espacio topológico es \textbf{separable} si tiene un subconjunto numerable y denso.
 
 \section{Sucesiones, límites de sucesiones}
-\label{sec:org703c4a7}
+\label{sec:org23ddbeb}
 Una \textbf{sucesión} en un conjunto \(X\) es una aplicación \(s: \mathbb{N}
-  \rightarrow X\;;\;s(i) \mapsto a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
+  \rightarrow X\;;\; i \mapsto s(i) = a_i\). Cuando se tiene una aplicación \(f: X \rightarrow  Y\) y una sucesión \(s: \mathbb{N} \rightarrow X\), definimos la sucesión \(s': \mathbb{N} \rightarrow Y\) a la composición \(s' = f \circ s\) de modo que \(s'(i) = f\) o \(s(i)
   = f(a_i) \in Y\). La sucesión \(s(i) = a_i\) se representa por \(\{ a_i \}\).
 
 Dada una sucesión \(\{ a_i \}\) en \(X\), se define \(A_m = \{ a_i \in s
@@ -326,4 +328,421 @@ Si \(\mathcal{B}\) es una base de filtro en \((X,T)\), \(p\) es de
 aglomeración cuando para todo entorno \(U\) de \(p\) y para todo \(A_\lambda \in \mathcal{B}\), \(U \cap A_\lambda \neq \emptyset\).
  El conjunto \(\cap_\lambda \{ adh(A_m) \}\) es el conjunto de puntos de
  aglomeración de \(\mathcal{B}\).
+
+\section{Aplicaciones continuas. Homeomorfismos}
+\label{sec:org247b535}
+Sea \(f:(X,T) \rightarrow (Y, S)\), y \(p \in X\). Entonces \(f\) es
+\textbf{continua} en \(p\) cuando para todo entorno \(V \in (Y,S)\) existe un entorno
+\(U \in (X,T)\) tal que \(f(U) \subset V\). Si consideramos una base de \(\mathcal{B}\), entonces \(f\) es continua en \(p\) si para toda base de
+filtro \(\mathcal{B}\) convergente a \(p\), \(f(\mathcal{B})\) converge a
+\(f(p)\).
+
+Una aplicación \(f\) es continua en \((X,T)\) si lo es para todo \(p \in X\). Una condición necesaria y suficiente para que \(f\) sea continua es que
+para todo abierto \(V\) de \((Y,S)\) [o de la base del espacio], 
+\(f^{-1}(V)\) sea abierto en \((X,
+T)\). Análogamente, \(f\) es continua si para todo cerrado \(V\), \(f
+^{-1}(V)\) es cerrado en \((X,T)\).
+
+Sea \(f: (X,T) \rightarrow (Y,S)\) y \(g:(Y,S) \rightarrow (Z,T')\), si \(f\) y \(g\) son continuas, \(g \circ f\) también lo es.
+
+Una aplicación \(f: (X,T) \rightarrow  (Y,S)\) es un \textbf{homeomorfismo} si \(f\)
+es biyectiva, y tanto \(f\) como \(f ^{-1}\) son continuas. Dos espacios
+topológicos son homeomorfos si existe un homeomorfismo entre ellos.
+
+Se llama propiedad topológica o \textbf{invariante} topológico a aquella que si la tiene
+un espacio topológico, la tienen todos los que son homeomorfos a este. Ejemplos
+de invariantes son los axiomas de numerabilidad, poseer un denso numerable
+(separabilidad) o ser espacio \(T_2\). Por ejemplo, espacios con topologías \(T_u\) y \(D\) no son homeomorfos.
+
+\section{Topología inducida por una o varias aplicaciones}
+\label{sec:orge3a2230}
+Dada una aplicación \(f: X \rightarrow  (Y, T')\), se llama \textbf{topología inducida} o \textbf{topología
+inicial} por \(f\) en \(X\) a la topología \(T = \{ f ^{-1}(V) \;|\; V \in T' \}\), que es la
+topología menos fina de \(X\) que hace continua a \(f\).
+
+En la topología inducida en \(X\) por \(f: X \rightarrow (Y, T')\), un
+conjunto \(A \subset X\) es cerrado sii \(A = f ^{-1}(U)\), siendo \(U\) 
+un cerrado de \((Y, T')\). Lo mismo se aplica si \(A\) es abierto o es un
+entorno. 
+
+\textbf{Topología inducida por la composición.} Sean \(X, X^*\) conjuntos, \((X', T')\)
+un espacio topológico y las aplicaciones \(h: X^* \rightarrow  X\) y \(f: X
+\rightarrow (X', T')\). Si \(T\) es la topología inducida por \(f\) en \(X\), y \(T^*\) es la topología inducida por \(h\) en \(X*\), entonces \(T^*\) es la topología inducida por \(f \circ h\) en \(X^*\).
+
+\textbf{Topología inducida por varias aplicaciones.}  Sea \(X\) un conjunto, y 
+\((Y_1, S_1), (Y_2, S_2), \cdots, (Y_n, S_n)\) diferentes espacios
+topológicos. Entonces, la topología de \(X\) más fina que haga continuas las
+aplicaciones \(f_1, \cdots, f_n\) es aquella que tenga por base la familia de
+subconjuntos de \(X\) de la forma \(f_1 ^{-1}(U_1) \cap \cdots f_n ^{-1}(U_n)\), donde \(U_1 \in S_1, \cdots, U_n \in S_n\).
+
+\textbf{Propiedad universal de la topología inducida (una o varias aplicaciones)}. 
+Sea \((X,T)\) un espacio
+topológico con la topología \(T\) inducida por las aplicación \(f_i :
+(X, T)
+\rightarrow (Y_i,T_i)\). Se verifica que para todo espacio \((M,S)\) y
+cualquier aplicación \(g: (M,S) \rightarrow (X,T)\), \(g\) es continua sii
+\(f_i \circ g : (M,S) \rightarrow  (Y_i,T_i)\) lo es para todo \(i\).
+
+\section{Topología relativa. Subespacio topológico}
+\label{sec:org31a628e}
+
+Sea \((X, T)\) un espacio topológico, \(M\) un subconjunto de \((X,T)\) y
+\(j: \; M \longrightarrow (X,T) \;;\; x \mapsto j(x) = x\). La topología \(T_M\) inducida en \(X\) for \(j\) se llama \textbf{topología relativa}, o \textbf{topología
+subordinada} por \((X, T)\) en \(M\). El espacio \((M, T_M)\) es un
+subespacio topológico de \((X,T)\).
+
+Sea \(M\) un subconjunto del espacio \((X, T)\). Una parte \(A\) de \(M\) es un abierto en \((M, T_M)\) sii existe un abierto \(U \in T\) tal que
+\(A = U \cap M\). Así, \(T_M = \{ M \cap U  \}\).
+
+La topología inducida tiene las siguientes propiedades:
+\begin{itemize}
+\item En el subespacio \((M, T_M)\) de \((X,T)\) un subconjunto \(W\) es
+cerrado sii existe un cerrado \(W'\) de \((X,T)\) tal que \(W = M \cap W'\).
+\item Un conjunto \(A \subset M\) es entorno de \(p \in M\) para el espacio \((M, T_M)\) sii existe un
+entorno \(A' \subset X\) tal que \(A = A' \cap M = j ^{-1} (A')\).
+\item Propiedad universal: Para un subespacio \((M, T_M)\) de un espacio \((X,T)\), la aplicación \(g: (X^*, S) \rightarrow  (M, T_M)\) es continua sii la
+aplicación \(j \circ g: (X^*, S) \rightarrow  (X, T)\) es continua.
+\item Transitividad: Si \((M, T_M)\) es un subespacio de \((X,T)\) y \(M'\) es
+un subconjunto de \(M\), se verifica que la topología subordinada en \(M'\) por \((M, T_M)\) coincide con la subordinada por \((X,T)\).
+\end{itemize}
+
+Sea \(M, T_M\) subespacio de \((X,T)\). Para que todo abierto / cerrado \(A\) de
+\((M, T_M)\) sea abierto / cerrado en \((X,T)\), es condición necesaria y
+suficiente que \(M\) sea abierto / cerrado en \((X,T)\).
+
+Si \(f: (X,T) \rightarrow  (Y,S)\) es una aplicación continua, la restricción
+\(f|_M\) de \((M, T_M)\) a \((X, T)\) es continua. Sin embargo, que \(f|_M\)
+sea continua no implica que \(f\) sea continua.
+
+Se llama \textbf{propiedad hereditaria} una propiedad topológica que si un espacio la
+tiene, la tienen todos sus subespacios. Propiedades hereditarias son la
+separación \(T_2\), o los axiomas de numerabilidad.
+
+También es hereditario el ser un espacio metrizable. Si \((X,d)\) es un
+espacio métrico, con \(T\) la topología de \(X\) correspondiente a la
+distancia \(d\), la topología inducida por \(T\) en \(M\) coincide con la
+topología definida en \(M\) por \(d_M\).
+
+Un espacio es \(T_1\) separable cuando cada conjunto unitario \(\{ x \}\) es cerrado.
+
+\section{Topología producto}
+\label{sec:org1bcd7cb}
+Dados dos espacios \((X_1, T_1)\) y \((X_2, T_2)\), una base para la 
+topología producto \(T_1 \times T_2\) es la familia de abiertos \(B = \{ U_1 \times U_2
+  \;|\; U_1 \in T_1, U_2 \in T_2 \}\). Estos abiertos \(U_1 \times U_2\) se
+llaman \textbf{abiertos elementales}  de la Topología producto.
+Así, un abierto \(A \in T_1 \times T_2\) es abierto sii es unión de abiertos
+de \(B\): \(A = \cup_{\lambda \in L} \{ U_1^\lambda \times  U_2^\lambda \}\).
+
+Las propiedades de la Topología producto son las siguientes:
+\begin{itemize}
+\item Las propiedades \(p_1: X_1 \times X_2 \rightarrow X_1\) y \(p_2:X_1 \times
+  X_2 \rightarrow X_2\) son aplicaciones continuas, y \(X_1 \times X_2\) es
+la Topología menos fina de \(X_1 \times X_2\) para las que son continuas.
+\item Propiedad universal: una aplicación \(f: (Y,S) \rightarrow (X_1 \times X_2,
+  T_1 \times T_2)\) es continua sii \(p_1 \circ f\) y \(p_2 \circ f\) son
+continuas.
+\end{itemize}
+Las aplicaciones \(f_1 = p_1 \circ f\) y \(f_2 = p_2 \circ f\) se llaman
+\textbf{componentes de \(f\)}. Un punto \(y \in (Y,S)\) se representa como \((x_1,x_2) = f(y)\) o como \(x_1 = f_1(y), x_2 = f_2(y)\).
+
+Una aplicación \(f: (X,T) \rightarrow  (Y,S)\) es continua si para cada abierto
+\(U \in T\), \(f(U)\) es abierto de \(S\). Entonces, en el espacio
+producto, \(p_1, p_2\) son aplicaciones abiertas.
+
+Para cada punto \(a \in X_1\), el subespacio \(p_1 ^{-1}(a) = \{ a \} \times
+X_2\) es homeomorfo a \((X_2, T_2)\) y viceversa.
+
+Si una aplicación \(f:(X_1 \times X_2, T_1 \times T_2) \rightarrow (Y,S)\) es
+continua, sus restricciones a subespacios \(f_a: \{ a \} \times  X_2
+\rightarrow (Y, S)\) y \(f_b: X_1 \times \{ b \} \rightarrow (Y,S)\) también
+son continuas. También son continuas las aplicaciones por composición \(g_a:
+(X_2, T_2) \rightarrow (Y,S)\), \(g_b: (X_1 \rightarrow T_1) \rightarrow (Y,S)\). Sin embargo, aunque las aplicaciones por cada una de las variables (\(f_a,
+f_b)\)  garanticen
+la continuidad, no se deduce que sea continua la aplicación en \(y = f(x_1,x_2)\). 
+
+Sea \(p(x_1, x_2)\) un punto del espacio producto \((X_1 \times X_2, T_1
+\times T_2\). Si \(\{ V_j \}\) es una base de entornos de \(x_1\) en \((X_1, T_1)\) y \(\{ W_k \}\) es una base de entornos de \(x_2\) en \((X_2,
+T_2)\), entonces \(\{ V_j \times W_k \}\) constituyen una base de entornos en
+\((X_1 \times X_2, T_1 \times T_2)\).
+
+Una propiedad topológica es \textbf{finito-multiplicativa} sii verifica que la poseen los
+espacios \((X_1, T_1)\), \((X_2, T_2)\), \((X_n, T_n)\) entonces la posee
+su producto. Si la cantidad de espacios es infinito, entoces es multiplicativa.
+Los axiomas de numerabilidad, la separación \(T_2\) y la metricabilidad son
+proiedades finito-multiplicativas.
+
+Para dos puntos \(x = (x_1,x_2), y = (y_1, y_2)\), las distancias \(d(x,y) =
+\sqrt{d_1^2(x_1,y_1) + d_2^2(x_2,y_2)}, d'(x,y) = max \{ d_1(x_1,y_1),
+d_2(x_2,y_2) \}, d^*(x,y) = d_1(x_1,y_1) + d_2(x_2,y_2)\) cumplen que \(d' \le
+d \le d^* \le 2d'\), luego todas las métricas resultan equivalentes, y con ello
+sus bases de entornos. Por tanto, las 3 métricas determinan la misma topología
+métrica en \(X_1 \times X_2\).
+
+\section{Topología final para una o varias aplicaciones}
+\label{sec:orga4f76f6}
+Sea una aplicación \(f:(X,T) \rightarrow  Y\). La familia de conjuntos de \(Y\) tales que sus imágenes inversas son abiertos de \(T\) constituyen una
+topología de \(Y\). Esta topología, la \textbf{topología final},
+ \(S = \{ A \subset Y \;|\; f ^{-1}(A) \in
+T\}\) es la topología más fina de \(Y\) para la que \(f\) es continua.
+Si \(S\) contiene algún conjunto \(U\) tal que \(f ^{-1}(U) \not \in T\),
+entonces f no es continua. x
+
+En la topología final de \(f: (X,T) \rightarrow  (Y,S)\) un conjunto \(M\) es cerrado
+sii \(f ^{-1}(M)\) es cerrado en \((X,T)\). Si \(f\) no es sobreyectiva,
+\(f(X)\) es abierto y cerrado en la topología final de \(f\), pues \(f
+^{-1}(f(X)) = X\), que es cerrado y abierto en \((X,T)\) por definición.
+Si \(q \in f(X)\) es un punto de \(Y\), tal que \(f(p) = q\), \(V(q) \in S\)
+es un entorno de \(q\) en \((Y,S)\) sii \(f ^{-1}(V)\) es entorno de \(p\) en \((X,T)\).
+
+La Topología final cumple la composición. Sea \((X,T)\) y los conjuntos \(Y,
+Y^*\); y las aplicaciones \(f: (X,T) \rightarrow  Y\), \(g: Y \rightarrow  Y^*\). Si \(S\) es
+la topología final para \(f\), \(S^*\) es la topología para \(g\) sii \(S^*\) es la topología final para \(g \circ f\).
+
+Dada una familia de aplicaciones \(f_ \lambda : (X_ \lambda, T_ \lambda) \rightarrow Y\) con espacios
+topológicos iguales o distintos, la topología final de \(Y\) es la topología
+más fina que hace continua toda \(f_ \lambda\). Un conjunto \(A \subset Y\) es abierto
+en esta topología sii para todo \(\lambda\), \(f_ \lambda ^{-1}(A) \in T_ \lambda\). Hay que
+considerar que la topología menos fina de \(Y\) es siempre la trivial: \(\{
+\emptyset, Y \}\).
+
+La topología final también cumple la propiedad universal. Para las aplicaciones
+\(f_ \lambda : (X_ \lambda, T_ \lambda) \rightarrow Y\) continuas, para el espacio topológico \((Y^*, T^*)\) y la
+aplicación \(g: (Y,S) \rightarrow (Y^*, T^*)\) se cumple que \(g\) es continua sii
+cada una de las aplicaciones \(g \circ f_ \lambda\) lo es.
+
+\section{Topología cociente}
+\label{sec:org518a504}
+Conceptos a recordar:
+\begin{itemize}
+\item Si \(X\) es un conjunto y \(E\) es una relación de equivalencia, \(\overline{x}\), también 
+llamado \(E(x)\) es la clase de \(x\) por \(E\).
+\item \(A \subset X\) es un \textbf{conjunto saturado} si \(\forall x \in A\), \(E(x)
+  \subset A \iff A = \cup_{x \in A} \{ E(x) \}\).
+\item El saturado de \(A\) es el mínimo conjunto saturado que contiene a \(A\):
+\(E(A) =  \cup_{x \in A} \{ E(x) \}\). Si \(p: X \rightarrow  X/E\) es la
+aplicación canónica, \(A\) es saturado sii \(E(A) = p ^{-1}(p(A)) = A\).
+\item Una aplicación \(f: X \rightarrow  Y\) es \textbf{compatible} con la relación \(E\)
+de \(X\) cuando \(xEy \rightarrow  f(x) = f(y)\) o cuando \(p(x) = p(y)
+  \rightarrow  f(x) = f(y)\).
+\item Si \(E, E'\) son dos relaciones de equivalencia, \(E\) es más fina que \(E'\) cuando si \(xEy\), entonces \(xE'y\). De otro modo, si \(E\) es
+más fina, si la aplicación canónica \(p': X \rightarrow  X/E\) es compatible
+con \(E\), \(xEy \rightarrow  p'(x) = p'(y)\).
+\end{itemize}
+
+Si \(E\) es la relación de equivalencia en \((X,T)\) y \(X/E\) es el
+conjunto cociente se dota a este conjunto la \textbf{topología cociente} \(T_E\) basado en la
+proyección canónica \(p: (X,T) \rightarrow (X/E, T_E)\). \(T_E\) es la
+topología final de esta aplicación.
+\(A\) es abierto en \((X, T_E)\) si \(p ^{-1}(A)\) es abierto en \((X,T)\).
+
+Si \(f:(X,T) \rightarrow  Y\) es una aplicación sobreyectiva, \(f\)
+determina la relación de equivalencia \(E(f)\) en \(X\) tal que \(xE(f)y
+\iff f(x) = f(y)\). Entonces, la aplicación \(f^*: (X/E(f), T_f) \rightarrow  (Y,S)\), con \(T_f\) la topologia cociente
+para \(E(f)\) y \(S\) la topología final para \(f\), es un homeomorfismo.
+
+La topología cociente presenta las siguientes propiedades:
+\begin{itemize}
+\item Un conjunto \(M\) de \(X/E\) es cerrado en \(T_E\) sii \(p
+  ^{-1}(M)\) es cerrado en \((X,T)\).
+\item Propiedad universal: Para todo espacio \((Y,S)\) y para cualquier aplicación
+\(g: (X/E, T_E) \rightarrow (Y,S)\) \(g\) es continua sii \(g \circ p:
+  (X,T) \rightarrow  (Y,S)\) lo es.
+\item La aplicación canónica \(p\) es abierta sii el saturado de un abierto es
+abierto.
+\item La aplicación canónica \(p\) es cerrada sii el saturado de un cerrado es
+cerrado.
+\end{itemize}
+
+Cuando se tiene la composición \(f:(X,T) \rightarrow (Y,S)\), existe una
+\textbf{descomposición canónica} de la aplicación así,
+\[ (X,T) \xrightarrow{p} (X/E(f), T_E) \xrightarrow{f^*} f(X) \xrightarrow{j}
+(Y,S) \]
+
+Donde \(p\) es sobreyectiva, \(f^*\) es biyectiva y \(j\) es inyectiva; y
+\(f = j \circ f^* \circ p\). En estas condiciones, \(f^*\) es homeomorfismo
+si la imagen por \(f\) de todo abierto o cerrado en \(X\) que sea saturado
+por \(E(f)\) es abierto o cerrado en \(f(X)\).
+
+\textbf{Transitividad de espacios cocientes}: Si en un espacio topológico \(X\) existen
+dos relaciones \(E, E'\), \(E\) más fina que \(E'\), la relación de
+equivalencia \(E'/E\) determina un espacio cociente en \(X/E\) homeomorfo a
+\(X/E'\) con el homeomorfismo \(\phi: (X/E)/(E'/E) \rightarrow  X/E'\).
+
+\section{Espacios compactos}
+\label{sec:orgbea4aa5}
+  Dado un conjunto \(X\), una familia \(\{ A_\lambda \}_\lambda \in L\) de 
+subconjuntos es un \textbf{recubrimiento} de \(X\) cuando \(\cup_{\lambda \in L} \{
+A_{\lambda} \} = X\). Si el número de \(\{ A_\lambda \}\) es finito, entonces
+es un reubrimiento finito. Un \textbf{subrecubrimiento} de \(A\) es toda subfamilia \(A^*\) de \(A\) que
+  sea, a su vez, recubrimiento de \(X\). 
+
+Si \((X,T)\) es un espacio
+  topológico, \(A = \{ A_\lambda \}\) es un recubrimiento de \(X\), y cada
+  \(A_\lambda\) es un abierto en \(T\), el recubrimiento es un
+  \textbf{recubrimiento abierto} en \((X,T)\). Si además tomamos la topología inducida
+  \(M, T_M\), y \(M \subset \cup \{ A_\lambda \}\), entonces las
+  intersecciones \(\{ M \cap A_\lambda \}\) son abiertos en \((M, T_M)\).
+
+Un espacio topológico \((X,T)\) es \textbf{compacto} cuando \uline{todo} recubrimiento abierto
+tiene un subrecubrimiento finito. Equivalentemente, un espacio \((X,T)\) es 
+compacto sii toda familia de cerrados \(\{ F_\lambda
+\}_{\lambda \in L}\) de \((X,T)\) de intersección vacia tiene una subfamilia
+finita de intersección vacía. 
+
+Un espacio \((X,T)\) es compacto sii se verifica que toda base de filtro \(\{
+B_\lambda \}_{\lambda \in L}\) tiene algún punto de aglomeracion. Es decir, \(\cap_{\lambda \in L} \{ B_\lambda \} \neq \emptyset\). Por tanto, toda sucesión
+en un compacto tiene un punto de aglomeración. Además, en un compacto, si una
+sucesión tiene un solo punto de aglomeración, la solución converge a ese punto.
+
+Dada la topología \((\mathbb{R}, T_u)\) todo subespacio que no sea cerrado no
+será compacto en la topología subordinada.
+
+Si \((X,T)\) es compacto, todo subconjunto infinito de \(X\) tiene al menos
+un punto de acumulación en \(X\). De aquí se obtiene que todo espacio discreto
+ha de ser finito.
+
+Si \((X,T)\) es compacto y \(f:  (X,T) \rightarrow  (Y, S)\) es una
+aplicación continua, entonces \(f(X)\) con la topología relativa es compacto.
+En particular, si \(f\) es sobreyectiva, \((Y,S)\) es compacto.
+
+Si \(\{ (X_\lambda, T_\lambda) \}\) es una familia arbitraria de compactos, el
+espacio producto \((\prod_{\lambda \in L}^{X_\lambda}, T)\) es compacto. 
+
+La compacidad no es hereditaria: si tomamos el espacio \((\{ 1, 1/2, \cdots, 1/n,
+\cdots, 0 \},T_u\), éste es compacto porque 0 es un punto de aglomeración. Sin
+embargo, el subespacio \(\{ 1, 1/2, \cdots, 1/n, \cdots \}\) no es compacto,
+pues es discreto e infinito. Sin embargo, la compacidad es un \textbf{invariante topológico}.
+
+\section{Subconjuntos compactos de un espacio topológico}
+\label{sec:orgfa046e3}
+Si \((X,T)\) es un espacio topológico y \(M\) un subconjunto de \(X\), \(M\) es un subconjunto compacto de \((X,T)\) cuando \((M, T_M)\) es un
+subespacio de \((X,T)\). (¡Se define el conjunto a partir del espacio, y no al
+revés!)
+
+Si \((X,T)\) es un espacio topológico compacto, y \(M\) un subconjunto
+cerrado de \((X,T)\), \((M, T_M)\) es compacto. 
+
+Sean \((X,T)\) compacto, \((Y,S)\) de Hausdorff y \(f: (X,T) \rightarrow
+(Y,S)\) continua. Si \(f\) es inyectiva, \(f\) es homeomorfismo de \((X,T)\) en \(f(X)\).
+
+Un espacio topológico es \textbf{regular} cuando para cada cerrado \(M\) y cada \(p
+\not \in M\), existen abiertos \(U,V \in (X,T)\) tales que \(M \subset U, 
+\in V, U \cap V = \emptyset\). Todo espacio de Hausdorff y compacto es regular.
+
+En un espacio de Hausdorff, si \(M_1, M_2\) son disjuntos, existen abiertos \(U_1, U_2\) tales que \(M_1 \subset U_1, M_2 \subset U_2, U_1 \cap U_2 =
+\emptyset\). 
+
+Un espacio topológico es \textbf{normal} cuando dos conjuntos cerrados disjuntos tienen
+abiertos que los separan. Todo espacio topológico de Hausdorff y compacto es
+normal.
+
+En un espacio topológico, la unión de una familia finita de compactos es
+compacto. En un espacio de Hausdorff la intersección de una familia arbitraria
+de compactos es un compacto.
+
+En \(( \mathbb{R}, T_u)\) todo intervalo cerrado y acotado es compacto (sii).
+Esto es extrapolable  bolas en \((\mathbb{R}^n, T_u)\). Además, si \(f:(X,T)
+\rightarrow (\mathbb{R}, T_u)\) es continua y \((X,T)\) es compacto, \(f\)
+alcanza al menos un máximo y un mínimo absolutos.
+
+\section{Espacios métricos compactos}
+\label{sec:org45b49ae}
+Sea \(X\) un espacio métrico y \(M\) un subespacio de \(X\). Si \(p\)
+es un punto de acumulación de \(M\), existe en \(M\) una sucesión infinita
+de puntos \(x_1, x_2, \cdots, x_n, \cdots\) que converge a \(p\).
+
+Sea \(X\) un espacio métrico. El \textbf{número \(\rho\) de Lebesgue} de un
+recubrimiento abierto \(\{ A_\lambda \}_{\lambda \in L}\) de \(X\) es todo
+real \(\rho > 0\) tal que para cada \(x\) del espacio, la bola abierta \(E(x,\rho)\) está contenida en algún abierto \(\{ A_\lambda \}\) del
+recubrimiento. 
+
+Si \(X\) es un espacio métrico en el que toda sucesión infinita tiene un punto
+de acumulación, entonces existe un \(\rho\) de Lebesgue para todo
+recubrimiento abierto \(\{ A_\lambda \}\) de \(X\). 
+
+Propiedad P: a) Toda sucesión infinita de \(X\) tiene al menos un punto de
+acumulación. b) Todo subconjunto infinito de \(X\) tiene al menos un punto de
+acumulación. Todo espacio métrico con propiedad \(P\) con topología engendrada
+por la métrica cumple  que existe un \(\rho\) de Lebesgue. 
+
+Todo espacio métrico compacto cumple la propiedad del número \(\rho\) de
+Lebesgue. Además, si en un espacio métrico toda sucesión infinita tiene un punto
+de acumulación, \(X\) es compacto.
+
+Una sucesión \(x_1, x_2, \cdots, x_n, \cdots\) es una \textbf{sucesión de Cauchy} si
+para todo real positivo \(\epsilon\) existe un natural \(m\) tal que para
+dos índices \((i,j) > m\) se verifica \(d(x_i, x_j) < \epsilon\). Toda
+sucesión convergente es de Cauchy, pero no toda sucesión de Cauchy es
+convergente (\((1 + 1/n)^n\) en \(\mathbb{Q}\)).
+
+Un espacio métrico \(X\) se dice que es \textbf{completo} cuando en él toda sucesión de
+Cauchy es convergente. Un espacio métrico compacto es completo. Sin embargo, no
+todo espacio completo es compacto (\(\mathbb{R}, T_u\)).
+
+Todo espacio métrico es normal, regular, verifica ANII, y es separable.
+
+Si \((X,d)\) y \((Y, d')\) son espacios métricos, una apicación \(f: X
+\rightarrow Y\) es \textbf{uniformemente continua} cuando para cada real positivo \(\epsilon\) existe otro \(\delta\) tal que si \(x_1, x_2\) son dos puntos
+cualesquiera del espacio \(X\) cuya distancia es \(d(x_1,x_2) < \delta\)
+entonces la distancia entre sus imágenes es \(d'(f(x_1), f(x_2)) < \epsilon\).
+
+\section{Espacios conexos}
+\label{sec:org9a737ae}
+Un espacio topológico \((X,T)\) es \textbf{conexo} cuando no existen en él dos abiertos
+disjuntos distintos del vacío cuya unión es \(X\). Asimismo, \((X,T)\) es
+conexo si no existe ningún conjunto distinto de \(X\) que sea abierto y
+cerrado a la vez. \((\mathbb{R}, T_u)\) es conexo y un espacio discreto con
+más de un punto no.
+
+Si \(f:(X,T) \rightarrow (Y,S)\) es continua y \((X,T)\) es conexo, el
+subespacio \(f(X)\) de (Y,S) es conexo. Si \(f\) es homeomorfismo, \((Y,S)\) es conexo, y la conexión es invariante.
+
+Igual que la compacidad, la conexión de un subconjunto está determinada por la
+topología relativa \(T_M\) del subconjunto.
+
+Sea \((X,T)\) un espacio topológico y \(M\) un subconjunto de \(X\). Si \(M\) es conexo, también es conexo cualquier conjunto \(A\) tal que \(M
+\subset A \subset adh(M)\). En particular, \(adh(M)\) es conexo.
+
+Un conjunto \(M\) de \((\mathbb{R}, T_u)\) es conexo sii \(M\) se reduce a
+un punto o es un intervalo.
+
+Si un espacio \((X,T)\) es conexo, lo es también cualquier espacio cociente \((X/E, T_E)\) obtenido a partir de una relación de equivalencia en él.
+Si \((X,T), (Y,S)\) son dos espacios topológicos el espacio producto \(X
+\times Y\) es conexo sii son conexos \(X\) e \(Y\). Así, \((\mathbb{R}^n,
+T_u)\) es conexo.
+
+En un espacio \((X,T)\) se llama componente conexa de un punto \(p\) al
+mayor conjunto conexo del espacio que contiene a \(p\). Así, dos componentes
+conexas no tienen puntos comunes. Además, la componente conexa de un punto es
+siempre un cerrado.
+
+Un espacio \((X,T)\) es \textbf{totalmente desconexo} cuando cada componente conexa se
+reduce a un solo punto. Un conjunto \(M\) es totalmente desconexo cuando su
+subespacio \((M, T_M)\) lo es. Por ejemplo, para \(M \subset \mathbb{Q}\),
+\((M, T_M)\) es totalmente desconexo, pues \(M\) no acepta ningún intervalo. 
+
+\section{Resumen}
+\label{sec:org32c05ed}
+Topología inducida: \((X, \textcolor{red}{T}) \xrightarrow{f} (X',
+ T')\)
+
+Topología relativa / subordinada: \((M, \textcolor{red}{T_M})  \xrightarrow{id}
+(X,T)\)
+
+Topología producto: \((X_1, T_1) \times (X_2, T_2) \xrightarrow{f} (X_1 \times
+ X_2, \textcolor{red}{T_1 \times  T_2})\)
+
+
+\begin{tikzcd}
+(Y,S) \ar{r}{f}
+&
+(X_1 \times X_2, \textcolor{red}{T_1 \times T_2}) \ar{r}{p_1} \ar{dr}{p_2}
+&
+(X_1, T_1)
+\\
+& & (X_2, T_2)
+\end{tikzcd}
+
+Topología final: \((X, T) \xrightarrow{f} (Y, \textcolor{red}{S})\)
 \end{document}
