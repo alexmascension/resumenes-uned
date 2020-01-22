@@ -49,7 +49,7 @@ entonces $a = a^{-1}; b=b^{-1}$x y si $c = ab$ entonces
 
 \defi{1.5} Si $G,G'$ son dos grupos con operaciones
 $G \times G \rightarrow G: (a,b) \mapsto ab \quad;\quad G' \times G' \rightarrow G': (a', b') \mapsto a'b'$
- el *producto cartesiano* $G'' = G \times G''$ es un grupo con operación 
+ el *producto cartesiano* $G'' = G \times G'$ es un grupo con operación 
 $G'' \times G'' \rightarrow G'': ((a, a'), (b, b')) = (ab, a'b')$. La asociatividad se mantiene, 
 y se ve que $1_{G''} = (1_G, 1_{G'})$.
 Además, si $G, G'$ son abelianos, $G''$ también lo es. Se dice que \( G_1 \times \cdots \times G_r
@@ -161,13 +161,13 @@ finito, \( H \) tiene índice finito en \( G \) y \( o(G) = o(H) \cdot [G:H] \).
 
 \cor{1.12.9} Si \( H,K \) son subgrupos finitos de \( G \), \( o(H) = m \), \(
 o(K) = n \), 
-entonces \( o(H \cap K) = 1 \iff H \cap K = \{ 1_G \}
+entonces si \( \text{mcd}(m,n) = 1 \iff H \cap K = \{ 1_G \}
 \)
 
 \propo{1.12.10 (F de transitividad del índice)} Sean \( H,K \) 
 subgrupos de \(
 G \). Si \( H \) es subgrupo de \( K \), y los indices entre subgrupos, y con G,
-son finitos, entonces se cumple \( [G:H] = [G:H][H:K] \)
+son finitos, entonces se cumple \( [G:K] = [G:H][H:K] \)
  
 \propo{1.12.11} Sean \( H,K \) subgrupos de \( G \), finito. Entonces
 \[ card(HK) = \frac{o(H)o(K)}{o(H \cap K)} \]
@@ -215,8 +215,7 @@ Por tanto, \( [G:H_1] \ge 2^{p-1} \), y como \( o(H_1) \ge 2 \), entonces,
  *normal* (*LO DEFINO AQUÍ COMO* \( \subset_N\)) si se cumplen las condiciones equivalentes:
 1. Para todo \( a  \in G \), \( aH = Ha \)
 2. Para todo \( a \in G \), \( H = H^a \)
-3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego \( H \) es
-   abeliano.
+3. Para todo \( a,b \in G \), \( ab \in H \iff ba \in H \), luego si \( H \) es abeliano, es normal.
 
 #+BEGIN_EXPORT latex
 \dem{ 1 \(\implies\) 2. Si \(y \in H^a\) entonces \( aya ^{-1} = h \in H  \). Como
@@ -246,7 +245,7 @@ subgrupos son \( \{ 1_G \}, G \), luego \( G \) es simple.
 
 \propo{2.2.8} Todo subgrupo \( H \subset Z(G) = \{ a \in G \;|\; ag = ga\;
 \forall g \in
-H\}\) es subgrupo normal de \( G \).
+G\}\) es subgrupo normal de \( G \).
  
 \propo{2.2.10} Sea \( H \) subgrupo de \( G \).
 1. \( H \) es subgrupo de \( N_G(H) = \{ a \in G \;|\; H = H^a \} \).
@@ -417,9 +416,12 @@ tal que \( ker(f) = m \mathbb{Z} \). Si \( m = 0 \), \( ker(f) = 0 \mathbb{Z} = 
 \). Si \( m > 0 \), \( \mathbb{Z}/m \mathbb{Z} \simeq G \).}
 #+END_EXPORT
 
-\ejem{2.9.4.4} Si \( n \) es múltiplo de \( m \), existen homomorfismos
+\ejem{2.9.4.4} Para \( f: \mathbb{Z}/m \mathbb{Z} \rightarrow \mathbb{Z}/n \mathbb{Z}\), 
+si \( n \) es múltiplo de \( m \), el número de homomorfismos es \( \text{mcd}(m,n) \). Además, existen homomorfismos
 inyectivos y el número de homomorfismos es \( \phi(m) \). Si \( mcd(m,n) = n \),
 existen isomorfismos sobreyectivos y el número es \( \phi(n) \).
+
+\ejem{2.9.5.2} Todo grupo finito de orden par tiene un subgrupo de orden 2.
 
 \ejem{2.9.6} Sea \( n \ge 2 \) y \( X = \{ 1, 2, \cdots, n \} \) y \( f_n \in
 S_n = Biy(X) \). Se llama *signatura de f*, \( s(f) \) al número de pares \( (i,j)
@@ -551,7 +553,7 @@ abeliano e isomorfo a \( \mathbb{Z}/p^2 \mathbb{Z} \) o a \( \mathbb{Z}/p \mathb
 \cor{3.11.6} Sea \( G \) de orden \( p^m, m > 1 \). Entonces \( G \) no es
 simple.
 #+BEGIN_EXPORT latex
-\dem{ Si \( G \) es abeliano, \( Z(G) \subset_N G \) ya que \( \{ 1 \} \neq_{3.11.5} Z(G) \) y \( Z(G) \neq G \) 
+\dem{ Si \( G \) no es abeliano, \( Z(G) \subset_N G \) ya que \( \{ 1 \} \neq_{3.11.5} Z(G) \) y \( Z(G) \neq G \) 
 porque si no es abeliano.  
 Si \( G \) es abeliano tomamos \( a \in G/\{1\} \); y si \( o(a) \neq p^m \), \( H = \langle a \rangle \)
 es grupo normal y \( \{1\} \neq H \neq G \).
@@ -655,9 +657,9 @@ Procuramos obtener que todos los términos de
 pero si no se consigue, se repite tantas veces como sea necesario.
 #+BEGIN_EXPORT latex
 $$\begin{cases}
-7x+11y+13z+5u =  0 \\ 
+7x+23y+13z+27u =  0 \\ 
 3x+11y+7z+14u = 0 \\ 
-5x+7y+11z+7u = 0 \\ 
+5x+13y+11z+17u = 0 \\ 
 \end{cases} \xrightarrow[r_1:r_1-2r_2]{r_3:r_3-r_1}  
 \begin{cases}
 x+y-z-u =  0 \\
@@ -698,36 +700,35 @@ $$\begin{cases}
 \end{cases} \xrightarrow{r_2:r_2-r_1} 
 \begin{cases}
 4z+12u+8y=0\\
-2z-7u=0\\
+2z-7u-8y=0\\
 \end{cases}$$
 #+END_EXPORT
-Ahora \( r_2 \) ya puede eliminarse. Sin embargo, los términos \( 2z \) y \( 7u\)
- no son múltiplos, así que habrá que reducir la expresión.
+Ahora \( r_2 \) ya puede eliminarse. Para ello tenemos que simplificar la expresión de 3 variables a 2.
 #+BEGIN_EXPORT latex
 $$\begin{cases}
-4(z-4u)+28u+8y=0\\
-2(z-4u)+u=0\\
+4(z-3u-4y) + 24u + 24y=0\\
+2(z-3u-4y) - u=0\\
 \end{cases}
 \rightarrow 
 \begin{cases}
-28u+4b+8y=0\\
-u+2b=0\\
+4v + 24u + 24y = 0\\
+2v - u =0\\
 \end{cases}
  \rightarrow 
 \begin{cases}
-28(u+2b)-52b+8y=0\\
-u+2b=0\\
+u-2v=0\\
+24(u-2v) + 52v + 24y =0\\
 \end{cases}
 \rightarrow 
 \begin{cases}
-28c-52b+8y=0\\
+52v + 24y=0\\
 \textcolor{blue}{c=0}\\
 \end{cases}$$
 #+END_EXPORT
-Ahora sólo nos queda \( 8y-52b=0 \), que se simplifica a \( 8(y-7b) + 4b=0
-\rightarrow 4b+8d = 0 \rightarrow 4(b+2e)=0 \). En este último caso, por ser la
+Ahora sólo nos queda \( 52v +24y=0 \), que se simplifica a \( 24(y + 2v) + 4v=0
+\rightarrow 4v+24d = 0 \rightarrow 4(v+6d)=0 \). En este último caso, por ser la
 última ecuación, que viene dada por dos variables, tenemos que \( \beta(G) = 1
-\), y obtenemos \( 4f=0 \), luego \( G \simeq \mathbb{Z}/ 4 \mathbb{Z} \times
+\), y obtenemos \( 4e=0 \), luego \( G \simeq \mathbb{Z}/ 4 \mathbb{Z} \times
 \mathbb{Z} \).
 
 #+BEGIN_EXPORT latex
