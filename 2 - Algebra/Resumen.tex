@@ -1,4 +1,4 @@
-% Created 2020-01-04 Sat 14:37
+% Created 2020-01-26 Sun 12:33
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,10 +99,10 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:org3f3911b}
+\label{sec:orgcdcb153}
 \vspace{-1em}
 \subsection*{Generalidades}
-\label{sec:orga03702f}
+\label{sec:orgc137059}
 \vspace{-1em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
@@ -209,7 +209,7 @@ conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo en
 ellos.
 
 \subsection*{Divisibilidad}
-\label{sec:orgeb8da65}
+\label{sec:org6dffcbf}
 \vspace{-1em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
@@ -397,4 +397,73 @@ Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
 
 \cor{3.16} Sea \(p \neq 2\) primo. Entonces si \(q = (p-1)/2\), \((q!)^2
 \equiv (-1)^{q+1} \text{ mod } p\).
+
+\section*{Polinomios}
+\label{sec:org07f851a}
+\subsection*{Generalidades}
+\label{sec:org5c31c53}
+\defi{1.1} Un polinomio es una construcción que necesita un anillo conmutativo
+unitario \(B\) y un subanillo \(A\). Cada elemento \(f\) de \(B\) se
+escribe como la suma \(f = \sum _{v = (v_1, \cdots, v_n)}^{}a_vX_1^{v_1}\cdots 
+X_n^{v_n}\) donde cada \(X_i \in B\) y \(a \in A\). \(v = (v_1, \cdots,
+v_n)\) son las posibles combinaciones distintas de cero de los exponentes para
+las variables \(X_i\). Este anillo se denomina \textbf{anillo de polinomios en \(n\) 
+indeterminadas con coeficientes en \(A\)} y se representa por \(A[X_1, \cdots,
+X_n]\).
+
+Los polinomios cumplen la unicidad, y pueden sumarse y multiplicarse de la
+siguiente manera:
+\[ f + g = \sum _{v}^{}(a_v + b_v) X_1^{v_1}\cdots X_n^{v_n} \qquad 
+fg = \sum _{v}^{}\left( \sum _{v = \lambda + \mu}^{}a _\lambda b_\mu \right) 
+X_1^{v_1}\cdots X_n^{v_n} \]
+\defi{1.4} Si \(\phi: A \rightarrow A'\) es un homomorfismo entre anillos,
+entonces \(\phi\) induce un anillo entre polinomios: \(\Phi: A[X_1, \cdots,
+X_n] \rightarrow  A'[X_1, \cdots, X_n]\) tal que \(\sum _{v}^{}a_v
+X_1^{v_1}\cdots X_n^{v_n} \rightarrow  \sum _{v}^{}\phi(a_v) X_1^{v_1}\cdots
+X_n^{v_n}\). Además, \(\Phi\) es epi/monomorfismo ssi lo es \(\phi\).
+
+\defi{1.5} Evaluación de polinomios. Dado un polinomio \(f\), y dados \(x_1,
+\cdots, x_n \in B\), definimos la evaluación de un polinomio como \(ev: A[X_1,
+\cdots, X_n] \rightarrow B; f(x_1, \cdots, x_n) = \sum _{v}^{}a_v x_1^{v_1}
+\cdots x_n ^{v_n}\).
+
+El teorema de isomorfía garantiza que \(A[X_1, \cdots, X_n]/ \text{ker }(ev)
+\simeq A[x_1, \cdots, x_n]\). Los \textbf{ceros} de \(f\) son los elementos del núcleo
+(\(f(x_1, \cdots, x_n) = 1_B\)), y en polinomios de una variable (\(A[T]\))
+se llaman \textbf{raíces}.
+
+\defi{1.5.3} Sustitución. Los polinomio permiten el cambio de unas variables \(x_1, \cdots, x_n\) a unas nuevas \(h_1, \cdots, h_n\). Por ejemplo, si
+denotamos \(t = a + T\) en \(A[T]\), entonces podemos definir la sustitución
+\(\phi_a: \; A[T] \longrightarrow A[T] \;;\; f \mapsto f(a+T)\). 
+
+\defi{1.5.4} Los ideales de un polinomio son de la forma \((X_i): A[X_1,
+\cdots, X_n]; x_j = {X_j \text{ si } j \neq i, 0 \text{ si } j = i\), es
+decir, cuando eliminamos una de las variables. Así, \(A[X_1, \cdots, X_n]/(X_i)
+\simeq A[X_1, \cdots, X_{i-1}, X_{i+1}, \cdots, X_n]\).
+
+\defi{1.6} Funciones polinomiales. Sea \(f =  A[X_1,
+\cdots, X_n]\). Se define una \textbf{función polinomial}, \(F: \; B \times \cdots
+\times B \longrightarrow B ;\; (x_1, \cdots, x_n) \mapsto f(x_1, ..., x_n)\).  
+
+\defi{1.7} Dado un polinomio no nulo \(f = \sum _{v = (v_1, \cdots, v_n)}^{}a_vX_1^{v_1}\cdots 
+X_n^{v_n}\) se define el \textbf{grado} del polinomio, \(\partial f\), a la máxima
+suma de exponentes de variables, es decir, \(\text{máx}(d) | v_1 + \cdots + v_n = d, a_v
+\neq 0\). El \textbf{grado parcial} es \(\partial_i f: \text{máx}(d) | v_i = d\), es
+decir, el exponente más alto de la variable \(X_i\). Por convenio, \(\partial
+0 = \partial_i 0 = - \infty\). Se verifica que \(\partial(f+g) \le
+\text{máx}(\partial f, \partial g)\) y \(\partial (fg) \le \partial f + \partial
+g\). Ídem para grados parciales. 
+
+En polinomios de una variable \(f = a_0 + a_1T + \cdots + a_nT^n\), el
+\textbf{coeficiente director} es \(a_n\). Si \(a_n = 1\), decimos que \(f\) es
+\textbf{mónico}. 
+
+\defi{1.8} Dado un polinomio \(f\) de grado \(p\), las \textbf{componentes
+homogéneas}, \(f_0, f_1, \cdots, f_p\) son los sumandos de igual grado total.
+Los \textbf{monomios} son las componentes homogéneas de un solo sumando, \(a_vX_1^{v_1} \cdots
+X_n^{v_n}\). Dadas dos formas homogéneas de grados \(p\) y \(q\), su
+producto tiene grado \(p + q\).
+
+\propo{1.9}/\cor{1.10} \(A[X_1, \cdots, X_n]\) es dominio de integridad ssi lo
+es \(A\). Entonces \(\partial(fg) = \partial f + \partial g\).
 \end{document}
