@@ -15,7 +15,7 @@ propiedades: \vspace{-1em}
 - Asociatividad: \( (xy)z = x(yz) \)
 - Distributividad: \( (x + y)z = xz + yz \qquad x(y+z) = xy+xz \)
 Se denota al elemento unitario de \( (A, +) \) por \( 0_A \) y al unitario de 
-\( (A, +, \cdot) \), si existe, por \( 1_A \). \( A^* = A\\ \{ 0 \} \). \( 0_A =
+\( (A, +, \cdot) \), si existe, por \( 1_A \). \( A^* = A/ \{ 0 \} \). \( 0_A =
 1_A \iff A = \{ 0 \}\).
 
 \defi{1.6} Si \( 1_A \in A \), entonces \( A \) es un *anillo unitario*. Una
@@ -209,7 +209,10 @@ tales que \( z = ax + by \).
 \defi{2.21} Dos elementos \( x,y \in A^* \) son primos entre sí si no comparten
 más divisores que las unidades, es decir, \( mcd(x,y) = 1_A \).
 
-El esquema de todas las relaciones queda así.
+\defi{2.23} Un dominio de factorización única, *\textcolor{red}{DFU}*, es un
+dominio de integridad donde todo elemento irreducible es primo
+(*\textcolor{red}{P}*) y todo elemento no unitario es producto de elementos
+irreducibles (*\textcolor{red}{F}*).
 
 #+BEGIN_EXPORT latex
 \vspace{-1em}
@@ -401,3 +404,69 @@ producto tiene grado \( p + q \).
 
 \propo{1.9}/\cor{1.10} \( A[X_1, \cdots, X_n] \) es dominio de integridad ssi lo
 es \( A \). Entonces \( \partial(fg) = \partial f + \partial g \).
+
+\cor{1.11} Si \( A \) es dominio, \( U(A) = U( A[X_1, \cdots, X_n]) \). 
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Si \( a \in U(A)\), existe \( a^{-1} \) en \( U(A) \),
+ y es inverso en \(  A[X_1, \cdots, X_n] \), luego \( a \in U( A[X_1, \cdots, X_n]) \). 
+ Por otra parte, si \( f \in U(A[X_1, \cdots, X_n]) \), existe \( g \) tal que \( 1 = fg \), y 
+\(0 = \partial1 = \partial(fg) = \partial f+ \partial g \iff \partial f = \partial g = 0\), luego \( f \in U(A)  \).}
+#+END_EXPORT
+
+\defi{1.12.2} El cuerpo \( K(X_1, \cdots, X_n) \) es el *cuerpo de funciones 
+racionales* con coeficientes en \( K \) en \( n \) indeterminadas, y sus
+elementos vienen dados como \( f / g; f,g \in K[X_1, \cdots, X_n] \), donde \( K
+\) es el cuerpo de fracciones de \( A \). Así, cada elemento \( f/g \) es de la
+forma \( \sum _{\lambda}^{}a_\lambda X_1^{\lambda_1} \cdots X_n^{\lambda_n} /
+\sum _{\mu}^{}b_\mu X_1^{\mu_1} \cdots X_n^{\mu_n}   \).
+
+\defi{1.13} *Derivación*. Dado un anillo \( A[T] \), la derivada de un polinomio
+\( f = a_0 + a_1T + \cdots + a_p T^p \) es el polinomio \( \frac{\partial
+f}{\partial T}= a_1 + \cdots + pa_pT^{p-1}\). Se comprueba que \( \frac{\partial
+(f+g)}{\partial T} = \frac{\partial f}{\partial T} + \frac{\partial g}{\partial
+T} \) y \( \frac{\partial fg}{\partial T} = f \frac{\partial g}{\partial T} + g
+\frac{\partial f}{\partial T} \). 
+
+** División de polinomios
+\lema{2.1} Sea \( g \in A[T] \) y \( a \neq 0 \) su coeficiente director.
+Entonces para cualquier \( f \in A[T] \) existen \( Q, R \in A[T] \) únicos tales que
+\( a^rf = Qg + R \) y \( \partial R < \partial g \); siendo \( r = \text{max}(0,
+\partial f - \partial g + 1\).
+
+\cor{2.2 Regla de Ruffini}. Sea \( c \in A \) fijo. Para cada \( f \in A[T] \)
+existe un \( Q \in A[T] \) tal que \( f = Q(T-c) + f(c) \). En particular, \(
+(T-c)|f \iff f(c) = 0 \). 
+#+BEGIN_EXPORT latex
+\textcolor{gray}{\footnotesize Aplicando \( g = T-c \) obtenemos \( f = Q(T-c) + 
+R \), y como \( \partial R < \partial g = 1 \), \( \partial R = 0 \) y \( R \in A \). Evaluamos la expresión en 
+\( c \) y tenemos \( f(c) = Q(c)(c-c) + R(c) = R \) y resulta el lema.}
+#+END_EXPORT
+
+\cor{2.3} Un polinomio no nulo \( f \in A[T] \) tiene a lo sumo \( \partial f \)
+ceros distintos en \( A \).
+
+\cor{2.4} Sea \( A \) un dominio infinito. Sean \( f,g \in A[X_1, \cdots, X_n]
+\) dos polinomio tal que existe otro \( l \in A[X_1, \cdots, X_n] \) tal que
+para todo \( (x_1, \cdots, x_n) \), \( f(x_1, \cdots, x_n) \neq 0 \), y \(
+f(x_1, \cdots, x_n) = g(x_1, \cdots, x_n) \), entonces \( f=g \).
+
+\lema{2.5} Para los polinomios \( A[T] \) la aplicación \( || \cdot || : \; A[T]
+\longrightarrow \mathbb{N} \;;\; f \mapsto || f || = 2^{\partial f} \) define a
+\( A[T] \), *si \( A \) es cuerpo*, como DE.
+
+\propo{2.6} \( A \) es cuerpo \( \iff \) \( A[T] \) es DE \( \iff  \) \( A[T] \)
+es DIP.
+
+\propo{2.7} \( A \) es DFU \( \iff  \) \( A[T]  \) es DFU \( \iff  \) \( A[X_1,
+\cdots, X_n] \) es DFU.
+
+\defi{2.10.1} Se llama *contenido* de un polinomio \( f \in A[T] \) y se denota
+por  \( \textbf{c}f \), al máximo común divisor de sus coeficientes. Así, \(
+\textbf{c}(f)|f \) y \( f = \textbf{c}(f)f_1 \).
+
+\obs{2.11} Un polinomio \( f \in A[T] \) con contenido 1 es irreducible en \(
+A[T] \) ssi lo es en \( K[T] \).
+
+\propo{2.13} (simplificada). Sea \( A \) dominio y \( f \in A[T] \), con grado
+\( n \). Entonces existe un cuerpo \( L \supset A \) y elementos \( a_0, x_1,
+\cdots, x_n \in L \) tales que \( f = a_0(T - x_1)\cdots(T-x_n) \). 
