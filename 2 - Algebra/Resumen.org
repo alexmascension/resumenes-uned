@@ -431,7 +431,7 @@ T} \) y \( \frac{\partial fg}{\partial T} = f \frac{\partial g}{\partial T} + g
 \lema{2.1} Sea \( g \in A[T] \) y \( a \neq 0 \) su coeficiente director.
 Entonces para cualquier \( f \in A[T] \) existen \( Q, R \in A[T] \) únicos tales que
 \( a^rf = Qg + R \) y \( \partial R < \partial g \); siendo \( r = \text{max}(0,
-\partial f - \partial g + 1\).
+\partial f - \partial g + 1) \).
 
 \cor{2.2 Regla de Ruffini}. Sea \( c \in A \) fijo. Para cada \( f \in A[T] \)
 existe un \( Q \in A[T] \) tal que \( f = Q(T-c) + f(c) \). En particular, \(
@@ -470,3 +470,39 @@ A[T] \) ssi lo es en \( K[T] \).
 \propo{2.13} (simplificada). Sea \( A \) dominio y \( f \in A[T] \), con grado
 \( n \). Entonces existe un cuerpo \( L \supset A \) y elementos \( a_0, x_1,
 \cdots, x_n \in L \) tales que \( f = a_0(T - x_1)\cdots(T-x_n) \). 
+
+** Factorización 
+   \propo{3.2 (Factorización de Kronecker)} Sea \( f \in A[T]\), \( A \) de 
+característica 0 y \( U(A) \) es finito, \( \textbf{c}(f) = 1 \), \( \partial f
+> 0\) y sea \( s \) el mayor entero \( \le \partial f / 2 \). Entonces la
+factorización, si existe, se da en los siguientes pasos:
+- Elegir \( s+1 \) elementos distintos \( n_0, ..., n_s \) tales que \( f(n_0),
+  f(n_1), \cdots, f(n_s) \neq 0 \).
+- Creamos, para cada \( n_i \), el conjunto de divisores \(D_i \) en \( A \) de
+  \( f_(n_i) \), y establecemos \( D = D_0 \times \cdots \times D_s \).
+- Para cada \( M = (m_0, \cdots, m_s) \in D \) creamos el polinomio
+\[ f_M = \sum _{k}^{s}m_k \prod_{l \neq k}^{s}\frac{T - n_l_}{n_k - n_l} \in K[T]c
+\]
+- Si \( f_M | f \), hemos encontrado un polinomio divisor. Si ningún \( f_M \)
+  es divisor de \( f \), \( f \) es irreducible.
+
+\propo{3.4} Sea \( f \in K[T] \), \( 2 \le \partial f \le 3 \). Entonces \( f \)
+es reducible ssi \( f \) tiene alguna raíz de en \( K \).
+
+\propo{3.5} Sea \( f = a_0 + a_1T + \cdots + a_pT^p \in A[T], a_p \in U(A) \).
+Entonces toda raíz en \( K \) está en \( A \) y es divisor de \( a_0 = f(0) \)
+en \( A \).
+
+\propo{3.7 (Eisenstein)} Sea \( f = a_0 + a_1T + \cdots + a_pT^p \in A[T] \) con
+contenido 1 y \( d \in A \) irreducible. Si \( d|a_0, \cdots, d|a_{p-1}, d
+\nmid a_p, d^2 \nmid a_0 \) entonces \( f \) es irreducible. 
+
+\propo{3.8} Sea \( f \in A[T] \). \( f \) es irreducible en \( A[T] \) ssi para
+cada \( a \in A \), \( f(a + T) \) es irreducible ssi existe \( a \) tal que \(
+f(a+T) \) es irreducible.
+
+\propo{3.10 (criterio del módulo finito)} Sea \( f =a_0 + \cdots + a_pT^p \in
+A[T] \), \( a_p \in U(A) \). Supongamos que existe \( d \in A \) irreducible tal
+que en \( A/(d)[T] \) el polinomio \( \overline{f} = \overline{a_0} + \cdots +
+\overline{a_p}T^p, \overline{a} = a + (d) \) es irreducible. Entonces \( f \) es
+irreducible. 
