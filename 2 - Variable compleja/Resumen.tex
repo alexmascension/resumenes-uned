@@ -1,0 +1,116 @@
+% Created 2020-02-23 Sun 15:07
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, 11pt]{extarticle}
+             \usepackage[utf8]{inputenc}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+% Paquetes de matemáticas
+\usepackage{amsmath, amsfonts, amssymb, commath}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
+% Ajustes de idioma, gráficos, etc
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish, english]{babel}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+%Fuentes.
+% Alegreya tiene este toque antiguo con serifa, y la tipografía de las ecuaciones es también interesante.
+% Gillius no tiene serifa, y también es equilibrada.
+\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+\usepackage{newpxtext, newpxmath}
+% Paquete para añadir Creative Commons al final del documento
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+% Propiedades de párrafo
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.1em}
+\renewcommand{\baselinestretch}{1.05}
+\setlength\itemsep{0em}
+% Definición de comandos. Muchos de ellos han surgido para Geometría, aunque se
+% irá actualizando la lista. POSIBLEMENTE LO INTRODUZCA COMO COMANDOS DE ORG
+\newcommand{\m}{\text{medio}}
+\newcommand{\iso}{\text{Isom}}
+% Para incluir mathcal en las ecuaciones. El /mathcal para Alegreya es el viejo
+% y floritural estilo que odio.
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+% Definición de colores agradables a la vista
+\definecolor{azul}{HTML}{107896}
+\definecolor{naranja}{HTML}{C2571A}
+\definecolor{rojo}{HTML}{9A2617}
+\definecolor{amarillo}{HTML}{BCA136}
+\definecolor{verde}{HTML}{829356}
+\definecolor{gris}{HTML}{909090}
+\definecolor{rosa}{HTML}{F9A7B0}
+\definecolor{amarillochillon}{HTML}{FBB117}
+% Definición de comandos para teoremas, etc. El comando también incluye
+% como argumento un texto, del estilo Teorema 3.5
+\newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+\newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+\newcommand{\propo}[1]{\textcolor{rojo}{\textbf{Proposición #1}}}
+\newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+\newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+\newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+\newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+\newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+\newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+% La demostración es igual pero va con una letra más pequeña y en gris.
+\newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. #1}}}
+% Esto pone un triangulito de peligro para cuando algo es importante.
+\newcommand{\importante}{\tikzcircle[amarillo, fill=amarillo]{4pt}\,}
+% Para usar columnas emplea este trozo de código
+% \begin{multicols*}{2}
+% [\section{Axiomas para la geometría euclidiana plana}]
+% \input{2.tex}\end{multicols*}\pagebreak
+% multicols* obliga a terminar una columna antes de empezar la siguiente.
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\let\mathcal\pazocal
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+\date{}
+\title{\Huge\vspace{-1em}Variable compleja}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={\Huge\vspace{-1em}Variable compleja},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.2.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\vspace{-8em}
+
+\section*{Los números complejos}
+\label{sec:org3819edf}
+
+\defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
+\(a,b \in \mathbb{R}\) y \(i\) es la unidad imaginaria, fruto de resolver la
+ecuación \(x^2 + 1 = 0\) en \(\mathbb{R}\). Así, definimos \(i = \sqrt{-1}\). Si \(z \in \mathbb{C} = a + bi\), \(a = \text{Re }z\) y \(b = \text{Im
+}z\) son la parte \textbf{real} e \textbf{imaginaria} de \(z\).
+
+\defi{1.2} La \textbf{suma} y \textbf{multiplicación} están definidas en los complejos así:
+\[ \left(x_{1}+y_{1} i\right)+\left(x_{2}+y_{2}
+i\right)=\left(x_{1}+x_{2}\right)+\left(y_{1}+y_{2}\right) i \]
+$$
+\left(x_{1}+y_{1} i\right)\left(x_{2}+y_{2} i\right)=\left(x_{1} x_{2}-y_{1} y_{2}\right)+\left(x_{1} y_{2}+x_{2} y_{1}\right) i
+$$
+Y con estas operaciones \((\mathbb{C}, +, \cdot)\) es un cuerpo, con \(0_{\mathbb{C}} = 0 + 0i\) y \(1_\mathbb{C} = 1 + 0i\).
+\end{document}

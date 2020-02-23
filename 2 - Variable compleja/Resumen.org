@@ -1,0 +1,24 @@
+#+TITLE: \Huge\vspace{-1em}Variable compleja
+#+DATE:
+#+SETUPFILE: ../Plantillas/Plantilla.org
+#+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
+#+OPTIONS: num:nil
+#+LATEX: \vspace{-8em}
+
+* Los números complejos
+
+\defi{1.1} Un número complejo es una expresión \( a + bi \) donde 
+\( a,b \in \mathbb{R} \) y \( i \) es la unidad imaginaria, fruto de resolver la
+ecuación \( x^2 + 1 = 0 \) en \( \mathbb{R} \). Así, definimos \( i = \sqrt{-1}
+\). Si \( z \in \mathbb{C} = a + bi \), \( a = \text{Re }z \) y \( b = \text{Im
+}z \) son la parte *real* e *imaginaria* de \( z \).
+
+\defi{1.2} La *suma* y *multiplicación* están definidas en los complejos así:
+\[ \left(x_{1}+y_{1} i\right)+\left(x_{2}+y_{2}
+i\right)=\left(x_{1}+x_{2}\right)+\left(y_{1}+y_{2}\right) i \]
+$$
+\left(x_{1}+y_{1} i\right)\left(x_{2}+y_{2} i\right)=\left(x_{1} x_{2}-y_{1} y_{2}\right)+\left(x_{1} y_{2}+x_{2} y_{1}\right) i
+$$
+Y con estas operaciones \( (\mathbb{C}, +, \cdot) \) es un cuerpo, con \(
+0_{\mathbb{C}} = 0 + 0i \) y \( 1_\mathbb{C} = 1 + 0i \).
+
