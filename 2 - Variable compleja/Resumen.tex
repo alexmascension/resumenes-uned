@@ -1,4 +1,4 @@
-% Created 2020-02-23 Sun 17:37
+% Created 2020-02-26 Wed 23:29
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,8 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:org60e157f}
+\label{sec:org0d97ac7}
+\begin{multicols}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
 \(a,b \in \mathbb{R}\) y \(i\) es la unidad imaginaria, fruto de resolver la
@@ -136,7 +137,8 @@ El módulo cumple que (1) \(|z| \ge 0\), (2) \(|z| = 0 \iff z = 0\),
 \defi{1.5} Dado un \(z = a + bi\), aplicando \(u = p + iq = z/|z|\),
 entonces \(|u| = 1 = p^2 + q^2\). El ángulo tal que \(p = \cos \alpha, q =
 \sin \alpha\) se denomina \textbf{argumento}, \(\arg z\).  Así, \(z\) puede representarse como \(z
-= |z|(\cos  \alpha  + i \sin \alpha )\). 
+= |z|(\cos  \alpha  + i \sin \alpha )\). Esta forma es la \textbf{forma polar}, y
+también se representa como \(z = |z|e^{i\alpha}\).x 
 
 El argumento cumple que (1) \(\arg \overline{z} = - \arg z\) y (2) \(\arg
 z_1z_2 = \arg z_1 + \arg z_2\).
@@ -144,13 +146,12 @@ z_1z_2 = \arg z_1 + \arg z_2\).
 \defi{1.7 / 1.8} El espacio topológico \((\mathbb{C}, \delta_E)\) con distancia
 euclídea no es compacto. Sin embargo, si tomamos \(\hat{\mathbb{C}} =
 \mathbb{C} \cup \{ \infty \}\) entonces sí es compacto, y lo denominamos \textbf{plano
-complejo ampliado}. La \textbf{esfera de Riemann} es la representación del conjunto \(\hat{\mathbb{C}}\) en \(\mathbb{R}^3_{(\xi, \eta, \zeta)}\) en una esfera con
+complejo ampliado}. La \textbf{esfera de Riemann}, \(\mathbb{S}\), es la representación del conjunto \(\hat{\mathbb{C}}\) en \(\mathbb{R}^3_{(\xi, \eta, \zeta)}\) en una esfera con
 centro \((0, 0, 1/2)\) con ecuación \(\xi^{2}+\eta^{2}+\zeta^{2}-\zeta=0\).
-
-\begin{wrapfigure}{l}{0.3\textwidth}
+\begin{figure}[H]
+\centering
 \includegraphics[width=5cm]{imagenes/esfera.png}
-\end{wrapfigure}
-
+\end{figure}
 La relación entre la esfera y el plano es 
 \[ \xi=\frac{x}{1+x^{2}+y^{2}}, \eta=\frac{y}{1+x^{2}+y^{2}}, \zeta=\frac{x^{2}+y^{2}}{1+x^{2}+y^{2}} \]
 La \textbf{distancia cordal} entre dos puntos \(z_1,z_2\) es la distancia euclídea 
@@ -162,4 +163,50 @@ entre los puntos \(P_1,P_2\) de la esfera de la esfera de Riemman.
 \sqrt{\left(1+x_{1}^{2}+y_{1}^{2}\right)\left(1+x_{2}^{2}+y_{2}^{2}\right)}}\)
 
 Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt{1+x^{2}+y^{2}}}\)
+
+\end{multicols}
+\pagebreak
+
+
+
+
+\section*{Funciones complejas}
+\label{sec:org6e3dcf2}
+\begin{multicols}{2}
+\defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
+\mathbb{C}\) (f. compleja de var. real) o 
+\(f: \mathbb{C} \rightarrow  \mathbb{C}\) (f. compleja de var. compleja).
+
+\defi{2.1.1} \(f = f(z)\) es \textbf{continua} en \(z_0 \in \mathbb{C}\) si para todo \(\epsilon > 0\) existe \(\delta > 0\) tal que si \(|z - z_0| < \delta\)
+entonces \(|f(z) - f(z_0)| < \epsilon\). \(f\) es \textbf{uniformemente continua} en
+\(B \subset \mathbb{C}\) si
+dado \(\epsilon > 0\) existe \(\delta > 0\) tal que para todo \(z_0 \in B\) y para todo \(z\) tal que \(|z-z_0| < \delta\) entonces \(|f(z) -
+f(z_0)| < \epsilon\).  Si \(f\) es uniformemente continua es continua, pero
+no siempre a la inversa.
+
+\tma{2.1.1} Si \(f_1(z), f_2(z)\) están definidas en \(A \subset \mathbb{C}\), \(A\) abierto, y son continuas en \(z_0 \in A\), f\textsubscript{1} + f\textsubscript{2} y f\textsubscript{1}/f\textsubscript{2} son
+continuas en \(z_0\). Así, los polinomios complejos son continuos.
+
+\defi{2.1.2} Una función \(f(z)\) en \(A \subset \mathb{S}\) es continua en
+\(z_0\) si para todo \(\epsilon > 0\)
+ existe \(\eta > 0\) tal que para todo \(z \in A\) donde \(\delta(z, z_0) <
+\eta\) entonces \(\delta(f(z_0), f(z)) < \epsilon\).
+
+\defi{2.2.1, 2.2.2} Una función \(f(z)\) es \textbf{derivable} en \(z_0\) si existe el
+límite \(\lim_{z \to z_0} \frac{f(z) - f(z_0)}{z-z_0}\) y es finito.
+Si \(z_0 = \infty\), consideramos \(g(z) = f(1/z)\) y \(f\) es derivable
+en \(\infty\) si \(g\) es derivable en \(z=0\).
+Una función \(f:A\sub \mathbb{C} \rightarrow  \mathbb{C}\) derivable en todo
+\(A\) se llama función \textbf{holomorfa} o \textbf{analítica.}
+
+\propo{2.3.2} Si \(f\) es derivable en un punto, también es continua en ese
+punto.
+
+\propo{2.3.4 (Regla de la cadena)} Sean \(g:A \rightarrow  \mathbb{C}\) y \(f: B \rightarrow \mathbb{C}\) tal que \(g(A) \subset B\). Si \(g\) es
+derivable en \(z_0\) y \(f\) es derivable en \(g(z_0)\) entonces \(f
+\circ g'(z_0) = f'(g(z_0))g'(z_0)\).
+
+
+\end{multicols}
+\pagebreak
 \end{document}
