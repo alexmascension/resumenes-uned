@@ -119,7 +119,7 @@ continuas en \( z_0 \). Así, los polinomios complejos son continuos.
 límite \( \lim_{z \to z_0} \frac{f(z) - f(z_0)}{z-z_0} \) y es finito.
 Si \( z_0 = \infty \), consideramos \( g(z) = f(1/z) \) y \( f \) es derivable
 en \( \infty \) si \( g \) es derivable en \( z=0 \).
-Una función \( f:A\sub \mathbb{C} \rightarrow  \mathbb{C} \) derivable en todo
+Una función \( f:A \subset \mathbb{C} \rightarrow  \mathbb{C} \) derivable en todo
 \( A \) se llama función *holomorfa* o *analítica.*
 
 \propo{2.3.2} Si \( f \) es derivable en un punto, también es continua en ese
@@ -129,6 +129,58 @@ punto.
 f: B \rightarrow \mathbb{C} \) tales que \( g(A) \subset B \). Si \( g \) es
 derivable en \( z_0 \) y \( f\) es derivable en \( g(z_0)  \) entonces \( f
 \circ g'(z_0) = f'(g(z_0))g'(z_0) \).
+
+\defi{2.4.1} Una función \( f: A \rightarrow  \mathbb{C} \) es conforme en \(
+z_0 \) si existe exsite \( \theta \in [0, 2\pi] \) tal que cualquier curva \(
+\gamma(t) \) diferenciable en \( t_0 \), \( \gamma(t_0) = z_0 \) y \(
+\gamma'(t_0) \neq 0 \) se transforma por \( f \) en una curva \( \sigma(t) =
+f(\gamma(t)) \) diferenciable en \( t_0 \) tal que \( \sigma'(t_0) =
+\gamma'(t_0) + \theta \). Si \( \alpha \) es el ángulo en el punto de cruce \(
+z_0 \) entre \( \gamma_1, \gamma_2 \), entonces el ángulo de \( f(\gamma_1),
+f(\gamma_2) \) es \( \alpha \).  
+
+\tma{2.4.1} Si \( f \) es derivable en \( z_0 \) y \( f'(z_0) \neq 0 \) entonces
+\( f \) es conforme en \( z_0 \) y \( \theta = \arg f'(z_0) \). Si \( f \) es
+holomorfa, es conforme.
+ #+BEGIN_EXPORT latex
+\dem{ Por la regla de la cadena, \( \sigma'(t_0) = f'(\gamma(t_0))\cdot \gamma'(t_0) \)  y \( \arg  \sigma'(t_0)
+ = \arg f'(\gamma(t_0))+\arg  \gamma'(t_0) \) }
+#+END_EXPORT
+
+\defi{2.5.1} Una función de variable compleja puede transformarse a una función
+\( f: \mathbb{R}^2 \rightarrow  \mathbb{R}^2 \): \( f(x,y) = (u(x,y) + v(x,y)) =
+u(x,y) + v(x,y)i \)
+
+\tma{2.5.1} Sea \( f \). \( f'(z_0) \) existe sii \( f \) es diferenciable como
+función de dos variables y las funciones \( u(x,y), v(x,y) \) satisfacen
+\vspace{-1em} \[
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, 
+\frac{\partial u}{\partial y} = - \frac{\partial v}{\partial x} \]
+#+BEGIN_EXPORT latex
+\dem{ Suponemos \( f \) derivable en \( z_0 \) complejo, con derivada \( \lambda = f'(z_0) \). 
+Si tomamos la aplicación lineal \( l_c : \mathbb{C} \rightarrow  \mathbb{C}; \eta \rightarrow \lambda\eta \).
+Entonces \( \lim_{\eta \to 0} \left|\frac{f(z_0 + \eta) - f(z_0)}{\eta} - \lambda  \right| = \lim_{\eta \to 0} 
+\frac{|f(z_0 + \eta) - f(z_0) - l_c(\eta)|}{|\eta|} =  0 \). Escribiendo \( f(z_0) \) y 
+\( l_c(\eta) \) como componentes reales: (1) \( f(z_0) = u(x_0, y_0) + v(x_0,y_0)i = 
+(u(x_0, y_0), v(x_0, y_0)) \) su jacobiano es \( D= \begin{bmatrix}
+\frac{\partial u}{\partial x} &  \frac{\partial u}{\partial y} \\ 
+\frac{\partial v}{\partial x} &  \frac{\partial v}{\partial y} \\ 
+\end{bmatrix}  \) y (2)
+\(l_c(\eta) = \lambda\eta = (\lambda_1 + \lambda_2i)(\eta_1 + \eta_2i) = (\lambda_1\eta_1 - \lambda_2\eta_2, \lambda_1\eta_2 + \lambda_2\eta_1)  \), 
+que como aplicación lineal \( \mathbb{R}^2 \rightarrow  \mathbb{R}^2 \) 
+es \( A= \begin{bmatrix}
+\lambda_1 &  -\lambda_2 \\ 
+\lambda_2 &  \lambda_1 \\ 
+\end{bmatrix}  \). Como el jacobiano la derivada de \( f \) en los reales, y \( A \) es también la diferencial de 
+\( f \) en \( z_0 \), \( D = A \), y se dan las ecuaciones. }
+#+END_EXPORT
+
+\tma{2.6.1 (Teorema de la función inversa)} Sea \( f \) analítica con derivada
+continua en \( A \). Sea \( z_0 \in A\) tal que \( f'(z_0) \neq 0  \). Entonces,
+existen \( U, V \) abiertos tal que \( z_0 \in U \), \( f(z_0) \in V \) y \( f:
+U \rightarrow  V \) es biyectiva. Además, \(f^{-1}\) es analítica en \( V \) y para
+todo \( z \in U \), \( (f^{-1})'(f(z)) = \frac{1}{f'(z)} \).
+
 
 
 #+BEGIN_EXPORT latex
