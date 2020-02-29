@@ -151,7 +151,7 @@ holomorfa, es conforme.
 \( f: \mathbb{R}^2 \rightarrow  \mathbb{R}^2 \): \( f(x,y) = (u(x,y) + v(x,y)) =
 u(x,y) + v(x,y)i \)
 
-\tma{2.5.1} Sea \( f \). \( f'(z_0) \) existe sii \( f \) es diferenciable como
+\tma{2.5.1(Ecuaciones de Cauchy-Riemman) } Sea \( f \). \( f'(z_0) \) existe sii \( f \) es diferenciable como
 función de dos variables y las funciones \( u(x,y), v(x,y) \) satisfacen
 \vspace{-1em} \[
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, 
