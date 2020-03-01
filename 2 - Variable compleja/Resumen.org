@@ -7,7 +7,7 @@
 
 * Los números complejos
 #+BEGIN_EXPORT latex
-\begin{multicols}{2}
+\begin{multicols*}{2}
 #+END_EXPORT
 
 \defi{1.1} Un número complejo es una expresión \( a + bi \) donde 
@@ -82,7 +82,7 @@ entre los puntos \( P_1,P_2 \) de la esfera de la esfera de Riemman.
 Para un punto en el infinito, la distancia es \( \delta(z, \infty)=\frac{1}{\sqrt{1+x^{2}+y^{2}}} \)
 
 #+BEGIN_EXPORT latex
-\end{multicols}
+\end{multicols*}
 \pagebreak
 #+END_EXPORT
 
@@ -91,7 +91,7 @@ Para un punto en el infinito, la distancia es \( \delta(z, \infty)=\frac{1}{\sqr
 
 * Funciones complejas
 #+BEGIN_EXPORT latex
-\begin{multicols}{2}
+\begin{multicols*}{2}
 #+END_EXPORT
 \defi{2.0} Una función puede ser de tipo \( f: \mathbb{R} \rightarrow
 \mathbb{C} \) (f. compleja de var. real) o 
@@ -151,7 +151,7 @@ holomorfa, es conforme.
 \( f: \mathbb{R}^2 \rightarrow  \mathbb{R}^2 \): \( f(x,y) = (u(x,y) + v(x,y)) =
 u(x,y) + v(x,y)i \)
 
-\tma{2.5.1(Ecuaciones de Cauchy-Riemman) } Sea \( f \). \( f'(z_0) \) existe sii \( f \) es diferenciable como
+\tma{2.5.1 (Ecuaciones de Cauchy-Riemman) } Sea \( f \). \( f'(z_0) \) existe sii \( f \) es diferenciable como
 función de dos variables y las funciones \( u(x,y), v(x,y) \) satisfacen
 \vspace{-1em} \[
 \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}, 
@@ -184,6 +184,74 @@ todo \( z \in U \), \( (f^{-1})'(f(z)) = \frac{1}{f'(z)} \).
 
 
 #+BEGIN_EXPORT latex
-\end{multicols}
+\end{multicols*}
+\pagebreak
+#+END_EXPORT
+
+* Series de potencias. Funciones elementales
+
+#+BEGIN_EXPORT latex
+\begin{multicols*}{2}
+#+END_EXPORT
+
+\defi{3.0.1} Una *sucesión* de complejos es una aplicación \( \mathbb{N}
+\rightarrow  \mathbb{C} \) tal que para cada \( n \in \mathbb{N} \) se le
+corresponde \( a_n \in \mathbb{C} \). 
+
+\defi{3.0.2} Una *serie* es una sucesión de complejos \( \{A_n\}_{n \in \mathbb{N} }
+\) tal que \( A_n = \sum _{i=0}^{n} a_i\).
+
+\defi{3.0.3} Una sucesión es de *Cauchy* o *fundamental* si dado \( \epsilon > 0 \)
+existe \( n_0 \in \mathbb{N} \) tal que para todo \( n_1, n_2 \ge n_0 \), se
+tiene que \(|a_{n_1} - a_{n_2}| < \epsilon  \).
+
+\defi{3.0.4} Se dice que \( {a_n}_{n \in \mathbb{N}} \) es *convergente* a \( a \)
+si dado \( \epsilon > 0 \) existe \( n_0 \in \mathbb{N} \) tal que para todo \(
+n \ge n_0 \) se tiene \( |a_n-a| < \epsilon \), y diremos \( \lim_{n \to \infty}
+a_n=a\).  Asimismo, \( A_n \) es convergente a \( A \) si \( \lim_{n \to \infty}
+A_n = A\).
+
+\defi{3.0.5} Una serie \( A_n \) es absolutamente convergente si la serie \(
+\sum |a_n|  \) es convergente.
+
+\tma{3.1.1 (Criterio de la raíz) } Dado \( \sum _{i=1}^{\infty} a_i \), sea \(
+\lambda = \lim_{n \to \infty} \text{sup} \sqrt[\leftroot{1}\uproot{1}n]{|a_n|}
+\). Si \( \lambda < 1 \) la serie converge y si \( \lambda > 1 \) diverge.
+
+\tma{3.1.2 (Criterio del cociente)} Dado  
+\( \sum _{i=1}^{\infty} a_i \) sea \( \beta = \lim_{n \to \infty}
+\frac{|a_n|}{|a_{n-1}|} \), si \( \beta < 1 \) la serie converge, y si \( \beta >
+1 \) diverge.
+
+\defi{3.2.0} Una *sucesión* *de variable compleja* es una aplicación de tal manera
+que a cada \( n \in \mathbb{N} \) le corresponde una función \( f_n: A
+\rightarrow  \mathbb{C} \). Representamos la sucesión por \( \{ f_n \}_{n \in
+\mathbb{N}} \). Asimismo, una *serie de funciones de variable compleja* es el
+resultado de sumar dichas funciones: \( F_n(z) = \sum _{i=1}^{n}f_i\).
+
+\defi{3.2.1} Una sucesión \( \{ f_n \}_{n \in N}  \) converge en \( z_0 \in A \) cuando
+converge la sucesión numérica \( \{ f_n(z_0) \}_{n \in \mathbb{N}} \). Diremos
+que \( \{ f_n \}_{n \in \mathbb{N}} \) *converge puntualmente* cuando converge
+para todo \( z \in A \).
+
+\defi{3.2.2} La serie \( f_0 + \cdots + f_n + \cdots \) converge en un punto \(
+z_0 \in A \), \( A abierto en \mathbb{C} \) si la sucesión \( \{ F_n(z_0) \}_{n
+\in \mathbb{N}} \) con \( F_n = f_0 + \cdots + f_n \)
+converge. La serie converge puntualmente en \( A  \) si \( \{ F_n \}_{n \in
+\mathbb{N}} \) converge puntualmente en \( A \).
+
+\defi{3.2.3} La sucesión de funciones \( \{ f_n \}_{n \in N} \) converge
+uniformemente a \( f \) si para todo \( \epsilon > 0 \) existe \( n_0 \in
+\mathbb{N} \) tal que \( |f_n(z) - f(z)| < \epsilon \) para todo \( z \in A, n
+\ge n_0 \). 
+
+\defi{3.2.4} La serie \( \sum _{n=1}^{\infty} f_n(z) \) converge uniformemente
+en \( A \) si la sucesión \( \{ F_n \}_{n \in N} \) converge uniformemente en \(
+A \).
+
+
+
+#+BEGIN_EXPORT latex
+\end{multicols*}
 \pagebreak
 #+END_EXPORT
