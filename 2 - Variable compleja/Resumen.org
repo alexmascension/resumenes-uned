@@ -205,7 +205,7 @@ corresponde \( a_n \in \mathbb{C} \).
 existe \( n_0 \in \mathbb{N} \) tal que para todo \( n_1, n_2 \ge n_0 \), se
 tiene que \(|a_{n_1} - a_{n_2}| < \epsilon  \).
 
-\defi{3.0.4} Se dice que \( {a_n}_{n \in \mathbb{N}} \) es *convergente* a \( a \)
+\defi{3.0.4} Se dice que \( \{a_n\}_{n \in \mathbb{N}} \) es *convergente* a \( a \)
 si dado \( \epsilon > 0 \) existe \( n_0 \in \mathbb{N} \) tal que para todo \(
 n \ge n_0 \) se tiene \( |a_n-a| < \epsilon \), y diremos \( \lim_{n \to \infty}
 a_n=a\).  Asimismo, \( A_n \) es convergente a \( A \) si \( \lim_{n \to \infty}
@@ -235,7 +235,7 @@ que \( \{ f_n \}_{n \in \mathbb{N}} \) *converge puntualmente* cuando converge
 para todo \( z \in A \).
 
 \defi{3.2.2} La serie \( f_0 + \cdots + f_n + \cdots \) converge en un punto \(
-z_0 \in A \), \( A abierto en \mathbb{C} \) si la sucesión \( \{ F_n(z_0) \}_{n
+z_0 \in A \), \( A \) abierto en \( \mathbb{C} \) si la sucesión \( \{ F_n(z_0) \}_{n
 \in \mathbb{N}} \) con \( F_n = f_0 + \cdots + f_n \)
 converge. La serie converge puntualmente en \( A  \) si \( \{ F_n \}_{n \in
 \mathbb{N}} \) converge puntualmente en \( A \).
@@ -249,6 +249,97 @@ uniformemente a \( f \) si para todo \( \epsilon > 0 \) existe \( n_0 \in
 en \( A \) si la sucesión \( \{ F_n \}_{n \in N} \) converge uniformemente en \(
 A \).
 
+\tma{3.2.1 Criterio de la mayorante de Weierstrass)} Una condición suficiente
+para que \( \sum _{n=1}^{\infty} f_n \) converja uniformemente en \( A \subset
+\mathbb{C} \) es que exista una serie \( \sum _{n=1}^{\infty} a_n \) convergente
+tal que \( |f_n(z)| \le a_n \) para todo \( z \) y \( n \in \mathbb{N} \).
+En tal caso, \( \sum _{n=1}^{\infty} a_n \) es una mayorante de \( \sum
+_{n=1}^{\infty} f_n \). 
+
+\defi{3.3.0} Una *serie de potencias* es una serie de la forma \( \sum
+_{n=1}^{\infty} a_n(z - z_0)^n \), con \( z_0, a_n \in \mathbb{C} \) para todo
+\( n \). Los \( a_n \) se llaman *coeficientes* de la serie.
+Si \( z_0=0 \), es decir, \( \sum _{n=1}^{\infty} a_nz^n \) decimos que la serie
+está *centrada en el origen*.
+
+\defi{3.3.1 (Teorema de Cauchy-Hadamard)} Dada la serie \( \sum _{n=1}^{\infty}
+a_n(z - z_0)^n \) considerando  \(
+\lambda = \lim_{n \to \infty} \text{sup} \sqrt[\leftroot{1}\uproot{1}n]{|a_n|}
+\); si llamamos \( R = \frac{1}{\lambda} \), tenemos:
+- La serie converge absolutamente en el interior del círculo \( D_R = \{z| |z-z_0| < R \} \) y diverge en el exterior \( \overline{D_R} = \{ z| |z-z_0|> R \} \) 
+- La convergencia es uniforme en todo circulo de radio \( 0 \le r < R \) 
+\( R \) se llama *radio de convergencia* de la serie. 
+
+
+\tma{3.3.2} La función definida por la suma de serie de potencias en su círculo
+de convergencia es derivable en todo punto de dicho círculo:
+\[ \frac{\text{d}}{\text{d}z} \left( \sum _{n=0}^{\infty}a_n(z-z_0)^n \right) = 
+\sum _{n=0}^{\infty}na_n(z-z_0)^{n-1} \].
+
+\defi{3.4.1} La función exponencial compleja es \[ e^z = \sum_{n=0}^{\infty}
+\frac{z^n}{n!} \].
+Su radio de convergencia es \( R = \infty \). Cumple también que \( e^{z_1+z_2}
+ = e^{z_1}e^{z_2} \).
+El exponente puede reescribirse como \( e^z = e^{x+yi} = e^xe^{iy} = e^x(\cos
+y + i \sin y) \)
+
+\defi{3.4.2} La función logaritmo se obtiene desde la exponencial. Escribiendo
+\( z = r e^{i\theta} \) tenemos que \( \log z  = \log|r| + i\theta = \log|r| + i
+\arg(z) \). Como \( \arg(z) = \theta + 2\pi k \), el logaritmo principal es \(
+\theta \in [0, 2\pi] = \text{Arg } z \).
+
+\defi{3.4.3} Las funciones seno y coseno se definen a través de sus series de
+potencias con \( R = \infty \):
+\[ \sin(z) = \sum _{n=0}^{\infty} (-1)^n \frac{z^{2n+1}}{(2n+1)!}\;,\; 
+\cos(z) = \sum _{n=0}^{\infty}(-1)^n \frac{z^{2n}}{(2n)!} \]
+La derivación es como con los números reales, y las identidades de Euler son
+idénticas:
+\[ \cos(z) = \frac{e^{iz} + e^{-iz}}{2} \;,\; \sin(z) = \frac{e^{iz} -
+e^{-iz}}{2i} \]
+\[ \sinh(z) = \frac{e^z - e^{-z}}{2}\;,\; \cosh(z) = \frac{e^z + e^{-z}}{2} \]
+
+\defi{3.4.4} La función potencial con exponente complejo, \( z^\zeta, \zeta \in
+\mathbb{C} \) es \( z^{\zeta} = e^{\zeta \log z} \)
+
+\defi{3.5.1 (Funciones multiformes)}  Una función \( f \) es multiforme cuando
+\( w = f(z) \) puede tomar diferentes valores para el mismo \( z \). Por
+ejemplo, para \( f = \sqrt{z} \), \( f(2i) = 1+i \) y \( f(2i) = -1-i \). 
+Esto se debe a que \( z^{1/2} = e^{\frac{1}{2} \log{z}} =
+e^{\frac{1}{2}(\log{|z| + i \arg(z))}} = |z|^{\frac{1}{2}}e^{i \frac{\text{Arg
+}z + 2k\pi}{2}}, k = 0,1\).
+
+Observamos que como \( k \) puede tomar dos valores, entonces la función tiene
+dos ramas, es decir, \( w_1 = \sqrt{r}e^{i \frac{\theta}{2}}\;,\;w_2 =
+-\sqrt{r}e^{-i \frac{\theta}{2}} \).
+Por tanto, para completar un ciclo en \( w \) necesitamos completar dos ciclos
+en \( z \) (uno por rama). Esto genera una *superficie de Riemann* como la
+siguiente figura:
+
+#+BEGIN_EXPORT latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=9cm]{imagenes/riemann_sqrt.png}
+\end{figure}
+#+END_EXPORT
+
+En este caso los ejes \( X \) e \( Y \) representan el plano complejo de \( z
+\). El eje \( Z \) representa la parte real de \( f(z) \), y el color representa
+la imaginaria. El punto de corte del plano es el caso \( \sqrt{-a}, a \in
+\mathbb{R}  = 0 + i \sqrt{a}\). Sin embargo, el corte es un artefacto de la
+visualización tridimensional de 4 dimensiones.
+
+Debajo se muestra el ejemplo de \( f = \log{z} \), donde el eje \( X \)
+representa el argumento, y el color representa la parte real. 
+
+#+BEGIN_EXPORT latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{imagenes/riemann_log.png}
+\end{figure}
+#+END_EXPORT
+
+Vemos que el el plano "cae" de nivel en cada vuelta. Esto es el equivalente a
+cada rama del logaritmo.
 
 
 #+BEGIN_EXPORT latex
