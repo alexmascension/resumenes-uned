@@ -1,4 +1,4 @@
-% Created 2020-03-01 Sun 23:59
+% Created 2020-03-03 Tue 23:43
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:orged06d1a}
+\label{sec:org57aff89}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:orgb70471a}
+\label{sec:org45463ca}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:org5faf46a}
+\label{sec:orgd2ef5bb}
 
 \begin{multicols*}{2}
 
@@ -392,6 +392,45 @@ representa el argumento, y el color representa la parte real.
 
 Vemos que el el plano "cae" de nivel en cada vuelta. Esto es el equivalente a
 cada rama del logaritmo.
+
+
+\end{multicols*}
+\pagebreak
+
+\section*{Integración en el campo complejo}
+\label{sec:org33f3f60}
+\begin{multicols*}{2}
+
+
+\defi{4.0.1} Una curva \(\gamma:[a,b] \rightarrow  \mathbb{C}\) es
+\textbf{rectificable} cuando presenta una longitud finita.
+
+\defi{4.0.2} Una \textbf{partición} de un intervalo es el conjunto \(\Delta = \{ a =
+t_0 < t_1 < \cdots < t_n = b \}\). La \textbf{norma} de la partición es \(|\Delta| =
+\max \{ |t_{k-1} - t_k|, k = 0, 1, \cdots, n-1 \}\). Una partición \(\Delta'\) es \textbf{más fina} que otra partición \(\Delta\) cuando \(\Delta \subset \Delta'\).
+
+\defi{4.0.3} Dados \(f, \gamma, \Delta\), definimos la suma de
+Riemman-Stieljes como \(S(\Delta, f, \gamma) = \sum_{k=0}^{n-1}
+f(s_k)[\gamma(t_{k+1}) - \gamma(t_{k})]\), con \(s_k \in [t_k, t_{k+1}]\).
+\(f\) es \textbf{integrable} Riemman-Stieljes (RS) si existe un complejo \(I\) tal que 
+para cualquier \(\epsilon > 0\)
+existe una partición \(\Delta_{\epsilon}\) tal que para toda \(\Delta_{\epsilon} \subset \Delta\), \(|S(\Delta, f, \gamma) - I| < \epsilon\). \(I\) se denota por \(\int_ { a }^{ b } f \; \text{d}\gamma\).
+
+\propo{4.1.1} Sean \(f, \gamma\). Entonces existe la integral RS y 
+\(\left|\int_ { a }^{ b } f \; \text{d}\gamma  \right| \le ML(\gamma)\), 
+donde \(M = \max \{ |f(t)|\;|\;t \in [a,b] \}\) y \(L(\gamma)\) es la
+longitud de \(\gamma\).
+
+\dem{ \( |S(\Delta, f, \gamma)|  \leq \sum_{k=0}^{n-1}\left|f\left(s_{k}\right)\right|\left|\gamma\left(t_{k+1}\right)-\gamma\left(t_{k}\right)\right| 
+ \leq(\max \{|f(t)|, t \in[a, b]\}) \sum_{k=0}^{n-1}\left|\gamma\left(t_{k+1}\right)-\gamma\left(t_{k}\right)\right| 
+ \leq M L(\gamma)\) }
+
+\propo{4.1.2} Si \(f\) es continua en \([a, b]\) y \(\gamma\) define un
+camino de clase \(C^1\) entonces la integral RS viene dada por 
+\(\int_{a}^{b} f d \gamma=\int_{a}^{b} f \gamma^{\prime} d t\)
+
+
+
 
 
 \end{multicols*}
