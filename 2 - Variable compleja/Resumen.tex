@@ -1,4 +1,4 @@
-% Created 2020-03-04 Wed 09:26
+% Created 2020-03-05 Thu 20:29
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:orge6c1c72}
+\label{sec:org3cea7f7}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:org1a4b32c}
+\label{sec:orgfa67182}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:org1af0155}
+\label{sec:org8ba7407}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:orgf52c106}
+\label{sec:org5fc9e3e}
 \begin{multicols*}{2}
 
 
@@ -478,6 +478,29 @@ _{n=1}^{\infty} \int _\gamma f_n \; \text{d}z  = \int _\gamma F \; \text{d}z\).
  \)  }
 
 
+\propo{4.3.1} Sean \(f, \gamma\), \(\gamma: [a,b] \rightarrow  \mathbb{C}\) de clase \(\mathbb{C}^1\). Si
+\(F\) es una frimitiva de \(F\), se tiene que \(\int _\gamma f \; \text{d}
+z\) = F(\(\gamma\)(a)) - F(\(\gamma\)(b)).
+\dem{ Si \( \int _\gamma f \; \text{d}z = \int_ { a }^{ b } f(\gamma(t))\gamma'(t) \; \text{d}t   \), como la derivada de 
+\( F(\gamma(t) = F'(\gamma(t))\gamma'(t) = f(\gamma(t))\gamma'(t) \); por el Teorema Fundamental del Cálculo se cumple 
+que \(\int_{\gamma} f d z =\int_{a}^{b}[F(\gamma(t))]^{\prime} d t=F(\gamma(b))-F(\gamma(a)) \)}
+
+\propo{4.3.2} Sea \(f\) y \(\gamma_1, \gamma_2\) tales que \(\gamma_1(a) =
+\gamma_2(a)\) y \(\gamma_1(b) = \gamma_2(b)\). Entonces \(\int _{\gamma_1}f
+\; \text{d}z  = \int _{\gamma_2}f \; \text{d}z\).
+
+
+\tma{4.4.1 (Preliminar del T de Cauchy)} Sea \(f\) analítica y \(\gamma
+\subset A\) es una curva cerrada y su interior. Entonces \(\int _\gamma f \;
+\text{d}z  = 0\).
+\dem{ La fórmula de Green indica que \( \int_{\gamma} P(x, y) d x+Q(x, y) d y=\iint_{A}\left[\frac{\partial Q}{\partial x}(x, y)-\frac{\partial P}{\partial y}(x, y)\right] d x d y \)
+Con \( A \) el interior de \( \gamma \). Si describimos \( f = u(x,y) + iv(x,y) \) operando
+tenemos que 
+\(\int_{\gamma} f d z =\int_{\gamma}(u+i v)(d x+i d y) 
+=\int_{\gamma}(u d x-v d y)+i \int_{\gamma}(u d y+v d x)\). Applicando el teorema de Green 
+tenemos que \( \int_{\gamma} f d z=\iint_{A}\left[-\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\right] d x d y+\iint_{A}\left[\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right] d x d y \)
+y, por las ecs. de Cauchy-Riemman, \( - \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 
+\frac{\partial u}{\partial y} - \frac{\partial u}{\partial y} = 0\). Ídem para la segunda integral.  }
 
 
 \end{multicols*}
