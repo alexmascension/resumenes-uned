@@ -469,6 +469,26 @@ y, por las ecs. de Cauchy-Riemman, \( - \frac{\partial v}{\partial x} - \frac{\p
 \frac{\partial u}{\partial y} - \frac{\partial u}{\partial y} = 0\). Ídem para la segunda integral.  }
 #+END_EXPORT
  
+\tma{4.4.2 (T de Cauchy-Goursat para el triángulo)} Sea \( f: A \rightarrow
+\mathbb{C} \), \( A \subset \mathbb{C} \) abierto, y \( f \) analítica en \(  A\
+\{ p \}\). Si \( T \) es el triángulo cerrado contenido en \( A \), se tiene \(
+\int _{\partial T} f \; \text{d} z = 0   \).
+
+\tma{4.4.3 (T de Cauchy para un conjunto convexo}. Sea \( f \) analítica en \(
+A\{p} \) con \( p \in A \) y continua en \( A \). Entonces   \(
+\int _{\partial T} f \; \text{d} z = 0   \) para todo camino cerrado y
+rectificable en \( A \).
+
+#+BEGIN_EXPORT latex
+\end{multicols*}
+\pagebreak
+#+END_EXPORT
+
+* Consecuencias del Teorema de Cauchy
+#+BEGIN_EXPORT latex
+\begin{multicols*}{2}
+#+END_EXPORT
+
 
 #+BEGIN_EXPORT latex
 \end{multicols*}
