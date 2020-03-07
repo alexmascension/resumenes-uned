@@ -1,4 +1,4 @@
-% Created 2020-03-05 Thu 22:55
+% Created 2020-03-07 Sat 18:02
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:org107680d}
+\label{sec:orgdade891}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:orged7631d}
+\label{sec:org897e810}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:org15f335f}
+\label{sec:org19a6f77}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:orga246ba6}
+\label{sec:org6f241de}
 \begin{multicols*}{2}
 
 
@@ -513,10 +513,79 @@ rectificable en \(A\).
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org6f3538f}
+\label{sec:org559474a}
 \begin{multicols*}{2}
 
 
+\defi{5.0} Llamamos índice de \(\gamma\) respecto de \(\alpha\),
+representado por \(Ind_{\gamma}(\alpha)\) a la integral 
+\[ Ind_{\gamma}(\alpha) = \frac{1}{2\pi i}\int _\gamma \frac{\text{d}
+z}{z-\alpha}   \]
+Intuitivamente \(Ind_\gamma(\alpha)\) representa el número de vueltas de \(\gamma\) respecto de \(\alpha\).
+\dem{ La función \( \frac{1}{z-\alpha} \) admite la primitiva \( \log{z - \alpha} \) en todo entorno expcepto 
+para \( \alpha \). Subdividimos \( \gamma \) en subarcos suficientemente pequeños \( \gamma_1, \gamma_2, \cdots, \gamma_n \), tal que
+\( \gamma_i = z_iz_{i+1}; z_i,z_{i+1} \in \gamma \). Así, la integral se puede calcular como 
+\( \frac{1}{2\pi i} \int _\gamma  \frac{\text{d} z}{z - \alpha} =
+ \sum _{j=1}^{n-1} \frac{1}{2\pi i} \int _{\gamma_j}  \frac{\text{d} z}{z - \alpha} 
+= \sum_{j=1}^{n-1} \frac{1}{2 \pi i}[\ln (z_{j+1}-\alpha)-\ln (z_{j}-\alpha)] = 
+ \sum_{j=1}^{n-1} \frac{1}{2 \pi i}[\ln |(z_{j+1}-\alpha)|-\ln |(z_{j}-\alpha)|]+\sum_{j=1}^{n-1} 
+\frac{1}{2 \pi}[\operatorname{Arg}(z_{j+1}-\alpha)-\operatorname{Arg}(z_{j}-\alpha)]
+ \). La primera suma es 0 por ser teléscopica y \( z_1 = z_n \), luego 
+\( \frac{1}{2\pi i} \int _\gamma  \frac{\text{d} z}{z - \alpha} = \sum_{j=1}^{n-1} 
+\frac{1}{2 \pi}[\operatorname{Arg}(z_{j+1}-\alpha)-\operatorname{Arg}(z_{j}-\alpha)] \). Cada elemento de la suma
+es una variación de la circunferencia, y en conjunto representa el número de vueltas
+recorrido.}
+
+\tma{5.1.1} Si \(\gamma\) es diferenciable cerrado, \(\gamma^*\) su
+interior, entonces \(Ind_\gamma(\alpha)\) es
+entero si \(\alpha \in \gamma^*\), o es cero si \(\alpha \in
+\mathbb{C}/\gamma^*\). 
+
+\tma{5.2.1 (Fórmula integral de Cauchy)} Sea \(f: A \rightarrow  \mathbb{C}\),
+y sea \(\gamma\) un camino cerrado en \(A\). Entonces para todo \(z \in A\) tal que \(z \not \in \gamma^*\)
+ se tiene \[ f(z) Ind_\gamma(z) = \frac{1}{2\pi i}\int _\gamma
+\frac{f(\zeta)}{\zeta - z} \text{d}\zeta   \]
+\dem{  Definimos $g: A \rightarrow \mathbb{C}$ mediante:
+$$
+g(\zeta)=\left\{\begin{array}{cccc}
+\frac{f(\zeta)-f(z)}{\zeta-z} & \text { para } & \zeta \in A, & \zeta \neq z \\
+f^{\prime}(z) & \text { para } & \zeta=z
+\end{array}\right.
+$$
+donde $z \in A \backslash \gamma^{*}$ es un punto fijo. La función $g$ es analítica para $\zeta \neq z$ y
+$
+g^{\prime}(\zeta)=\frac{(\zeta-z) f^{\prime}(\zeta)-f(\zeta)+f(z)}{(\zeta-z)^{2}}
+$
+y es continua para $\zeta=z$ pues
+$
+\lim _{\zeta \rightarrow z} g(\zeta)=f^{\prime}(z)
+$.
+Por tanto podemos aplicar el Teorema de Cauchy-Goursat y 
+$
+\frac{1}{2 \pi i} \int_{\gamma} g(\zeta) d \zeta=0
+$ y como $z \notin \gamma^{*},$ se puede escribir
+$
+0 =\frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)-f(z)}{\zeta-z} d \zeta=\frac{1}{2 \pi i} \int \frac{f(\zeta)}{\zeta-z} d \zeta 
+-\frac{f(z)}{2 \pi i} \int_{\gamma} \frac{d \zeta}{\zeta-z} \iff \frac{f(z)}{2 \pi i} 
+\int_{\gamma} \frac{d \zeta}{\zeta-z}=\frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{\zeta-z} d \zeta
+$
+es decir
+$f(z) \operatorname{Ind}_{\gamma}(z)=\frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{\zeta-z} d \zeta$ }
+
+\tma{5.3.1 (Teorema de Taylor)} 
+Sea \(f\) holomorfa, \(A \subset \mathbb{C}\) abierto,
+y \(\alpha \in A\). Sea \(d>0\) la distancia de \(\alpha\) a la frontera de \(A\); 
+entonces para todo \(z \in B(\alpha, d)\)
+$$
+f(z)=\sum_{n=0}^{\infty} \frac{f^{(n)}(\alpha)}{n !}(z-\alpha)^{n}
+$$
+El radio de convergencia es mayor o igual que
+\(d\), y en \(B(\alpha, d)\) su suma es \(f(z)\). 
+Además las derivadas sucesivas \(f^{(n)}\) \((\alpha)\) de \(f\) en \(\alpha\) vienen dadas por
+$$
+f^{(n)}(\alpha)=\frac{n !}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{(\zeta-\alpha)^{n+1}} d \zeta
+$$
+donde \(\gamma\) es una circunferencia de centro \(\alpha\) y radio \(r\), con \(0<r<d\).
 \end{multicols*}
 \pagebreak
 \end{document}
