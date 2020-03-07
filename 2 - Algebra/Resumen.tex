@@ -1,4 +1,4 @@
-% Created 2020-02-01 Sat 19:28
+% Created 2020-03-08 Sun 00:01
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,17 +99,19 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:orgf77ee56}
-\vspace{-1em}
+\label{sec:org7d43234}
+\begin{multicols*}{2}
+
+\vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org4dad383}
-\vspace{-1em}
+\label{sec:orga9892d5}
+\vspace{-1.5em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
 \begin{itemize}
 \item \((A, +)\) es un grupo conmutativo
 \item Asociatividad: \((xy)z = x(yz)\)
-\item Distributividad: \((x + y)z = xz + yz \qquad x(y+z) = xy+xz\)
+\item Distributividad: \((x + y)z = xz + yz\), \(x(y+z) = xy+xz\)
 \end{itemize}
 Se denota al elemento unitario de \((A, +)\) por \(0_A\) y al unitario de 
 \((A, +, \cdot)\), si existe, por \(1_A\). \(A^* = A/ \{ 0 \}\). \(0_A =
@@ -207,10 +209,10 @@ conmutativo.
 Si \(f\) es monomorfismo entonces \(\text{ker }f = \{ 0 \}\). Dos anillos
 conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo entre
 ellos.
-
+\vspace{-1.5em}
 \subsection*{Divisibilidad}
-\label{sec:orgfdac41d}
-\vspace{-1em}
+\label{sec:org28bc1d3}
+\vspace{-1.5em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
 \(x|y \iff (y) \subset (x)\). \(x\) \textbf{está relacionado con} \(y\) si \((x) =
@@ -401,10 +403,16 @@ Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
 \cor{3.16} Sea \(p \neq 2\) primo. Entonces si \(q = (p-1)/2\), \((q!)^2
 \equiv (-1)^{q+1} \text{ mod } p\).
 
+\end{multicols*}
+\pagebreak
+
 \section*{Polinomios}
-\label{sec:orgb2b4b92}
+\label{sec:org9940270}
+\begin{multicols*}{2}
+\vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org7f20d91}
+\label{sec:org3eee46e}
+\vspace{-1.5em}
 \defi{1.1} Un polinomio es una construcción que necesita un anillo conmutativo
 unitario \(B\) y un subanillo \(A\). Cada elemento \(f\) de \(B\) se
 escribe como la suma \(f = \sum _{v = (v_1, \cdots, v_n)}^{}a_vX_1^{v_1}\cdots 
@@ -416,8 +424,8 @@ X_n]\).
 
 Los polinomios cumplen la unicidad, y pueden sumarse y multiplicarse de la
 siguiente manera:
-\[ f + g = \sum _{v}^{}(a_v + b_v) X_1^{v_1}\cdots X_n^{v_n} \qquad 
-fg = \sum _{v}^{}\left( \sum _{v = \lambda + \mu}^{}a _\lambda b_\mu \right) 
+\[ f + g = \sum _{v}^{}(a_v + b_v) X_1^{v_1}\cdots X_n^{v_n} \]
+\[ fg = \sum _{v}^{}\left( \sum _{v = \lambda + \mu}^{}a _\lambda b_\mu \right) 
 X_1^{v_1}\cdots X_n^{v_n} \]
 \defi{1.4} Si \(\phi: A \rightarrow A'\) es un homomorfismo entre anillos,
 entonces \(\phi\) induce un anillo entre polinomios: \(\Phi: A[X_1, \cdots,
@@ -488,9 +496,10 @@ f}{\partial T}= a_1 + \cdots + pa_pT^{p-1}\). Se comprueba que \(\frac{\partial
 (f+g)}{\partial T} = \frac{\partial f}{\partial T} + \frac{\partial g}{\partial
 T}\) y \(\frac{\partial fg}{\partial T} = f \frac{\partial g}{\partial T} + g
 \frac{\partial f}{\partial T}\). 
-
+\vspace{-1.5em}
 \subsection*{División de polinomios}
-\label{sec:orgc6916da}
+\label{sec:org248a86b}
+\vspace{-1.5em}
 \lema{2.1} Sea \(g \in A[T]\) y \(a \neq 0\) su coeficiente director.
 Entonces para cualquier \(f \in A[T]\) existen \(Q, R \in A[T]\) únicos tales que
 \(a^rf = Qg + R\) y \(\partial R < \partial g\); siendo \(r = \text{max}(0,
@@ -526,9 +535,10 @@ por  \(\textbf{c}f\), al máximo común divisor de sus coeficientes. Así, \(\te
 \propo{2.13} (simplificada). Sea \(A\) dominio y \(f \in A[T]\), con grado
 \(n\). Entonces existe un cuerpo \(L \supset A\) y elementos \(a_0, x_1,
 \cdots, x_n \in L\) tales que \(f = a_0(T - x_1)\cdots(T-x_n)\). 
-
+\vspace{-1.5em}
 \subsection*{Factorización}
-\label{sec:org73793ae}
+\label{sec:orgfd183d3}
+\vspace{-1.5em}
    \propo{3.2 (Factorización de Kronecker)} Sea \(f \in A[T]\), \(A\) de 
 característica 0 y \(U(A)\) es finito, \(\textbf{c}(f) = 1\), \(\partial f
 > 0\) y sea \(s\) el mayor entero \(\le \partial f / 2\). Entonces la
@@ -566,4 +576,6 @@ A[T]\), \(a_p \in U(A)\). Supongamos que existe \(d \in A\) irreducible tal
 que en \(A/(d)[T]\) el polinomio \(\overline{f} = \overline{a_0} + \cdots +
 \overline{a_p}T^p, \overline{a} = a + (d)\) es irreducible. Entonces \(f\) es
 irreducible. 
+\end{multicols*}
+\pagebreak
 \end{document}
