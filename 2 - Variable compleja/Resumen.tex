@@ -1,4 +1,4 @@
-% Created 2020-03-07 Sat 18:02
+% Created 2020-03-07 Sat 23:50
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:orgdade891}
+\label{sec:orga7d5865}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:org897e810}
+\label{sec:orgc42daf5}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:org19a6f77}
+\label{sec:orgc694624}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:org6f241de}
+\label{sec:org74cd684}
 \begin{multicols*}{2}
 
 
@@ -513,11 +513,11 @@ rectificable en \(A\).
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org559474a}
+\label{sec:org164e837}
 \begin{multicols*}{2}
 
 
-\defi{5.0} Llamamos índice de \(\gamma\) respecto de \(\alpha\),
+\defi{5.0} Llamamos \textbf{índice} de \(\gamma\) respecto de \(\alpha\),
 representado por \(Ind_{\gamma}(\alpha)\) a la integral 
 \[ Ind_{\gamma}(\alpha) = \frac{1}{2\pi i}\int _\gamma \frac{\text{d}
 z}{z-\alpha}   \]
@@ -585,7 +585,87 @@ Además las derivadas sucesivas \(f^{(n)}\) \((\alpha)\) de \(f\) en \(\alpha\) 
 $$
 f^{(n)}(\alpha)=\frac{n !}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{(\zeta-\alpha)^{n+1}} d \zeta
 $$
-donde \(\gamma\) es una circunferencia de centro \(\alpha\) y radio \(r\), con \(0<r<d\).
+donde \(\gamma\) es una circunferencia de centro \(\alpha\) y radio \(r\), con
+\(0<r<d\).
+
+\tma{5.4.1 (Desigualdades de Cauchy)} Si \(f\) es analítica y \(B(\alpha, d)
+\subset A\) entonces 
+\(|f^{(n)}(\alpha)| \le \frac{n!M(r)}{r^n}\), con \(M(r) =
+\max_{|z|=r<d}|f(z)|\)
+
+\tma{5.4.2 (Teorema de Liouville)} Si \(f\) es entera (analítica en todo \(\mathbb{C}\)) y acotada, entonces es constante.
+\dem{  Por ser $f$ analítica existe un desarrollo
+$
+f(z)=\sum_{n=0}^{\infty} a_{n} z^{n}
+$
+con radio de convergencia infinito. Sea $K$ una cota de $f$, es decir
+$
+|f(z)|<K, \text { para todo } z \in \mathbb{C}
+$
+entonces de las desigualdades de Cauchy se obtiene
+$
+\left|a_{n}\right|<\frac{K}{r^{n}}, n=1,2, . .
+$
+para todo $r$. Como \( r \rightarrow \infty \), \( a_n \rightarrow 0 \) y \( f(z) = a_0 \). }
+
+\tma{5.5.1} Sea \(\{ f_n \}_{n \in \mathbb{N}}\) una sucesión de funciones 
+analíticas en \(A\) que converge uniformemente en todo compacto de \(A\).
+Entonces la sucesión \(\{ f'_n \}\) converge uniformemente en todo compacto
+de \(A\). Además, si \(\lim_{n \to \infty} f_n(z) = f(z)\) entonces \(\lim_{n \to \infty} f'_n(z) = f'(z)\) para todo \(z \in A\).
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=7cm]{imagenes/T-5_5_1.png}
+\end{figure}
+
+\dem{   Bastará demostrar la convergencia uniforme de la sucesión
+$\left\{f_{n}^{\prime}\right\}$ a $f^{\prime}$ en todo círculo $B \subset A,$ pues todo compacto
+ $K \subset A$ puede ser recubierto por una cantidad finita de círculos.
+Sea $\gamma^{*} \subset A$ una circunferencia concéntrica con $B$ con $r = r_\gamma - r_B$.
+ Sea $z \in B$ y $\gamma_{z}$ la circunferencia de centro $z$ y 
+radio $r$. Entonces
+$
+f^{\prime}(z)=\frac{1}{2 \pi i} \int_{\gamma_{z}} \frac{f(\zeta)}{(\zeta-z)^{2}} d \zeta, \quad f_{n}^{\prime}(z)
+=\frac{1}{2 \pi i} \int_{\gamma_{z}} \frac{f_{n}(\zeta)}{(\zeta-z)^{2}} d \zeta
+$
+de donde
+$
+|f^{\prime}(z)-f_{n}^{\prime}(z)|  \leq \frac{1}{2 \pi} \int_{\gamma_{z}} 
+\frac{eft|f(\zeta)-f_{n}(\zeta)|}{|\zeta-z|^{2}}|d \zeta|
+ \leq \frac{1}{2 \pi} \frac{M_{n}}{r^{2}} 2 \pi r=\frac{M_{n}}{r}
+$
+donde $M_{n}$ es $\max(\left|f(\zeta)-f_{n}(\zeta)\right|)$
+en $\gamma_z$.
+Puesto que $\left\{f_{n}\right\}$ converge uniformemente sobre todo círculo 
+cerrado, se tiene que
+$
+\lim _{n \rightarrow \infty} M_{n}=0
+$ de tal manera que $\frac{M_{n}}{r}<\epsilon$
+para $n \geq n_{0}$, y $z \in B$ .
+}
+
+\defi{5.6} \(f\) en \(A \subset \mathbb{C}\) tiene la \textbf{propiedad de la media}
+si para todo cerrado \(\overline{D}(\alpha, r) = \{ z \;|\; |z - \alpha| \le r
+\} \subset A\), el valor \(f(\alpha)\) en el centro es la media de f en la
+circunferencia:
+\[ f(\alpha) = \frac{1}{2 \pi} \int_{0}^{2 \pi} f\left(\alpha+r e^{i t}\right) d t \]
+
+\propo{5.6.1} Toda función analítica \(f\) en \(A\) tiene la propiedad de
+la media.
+
+\tma{5.6.1 (Principio del módulo máximo)}
+Sea \(f\) analítica en \(A\), abierto conexo. Entonces para todo \(\alpha
+\in A\) en cualquier entorno de \(\alpha\) existe \(\beta \in A\) para el
+cual \(|f(\alpha)| < |f(\beta)|\).
+
+\lema{5.7.1 (Lema de Schwarz)}
+Sea \(f: B(0,1) \rightarrow  B(0,1)\) analítica. \(|f(z)| < 1\) para todo \(z
+\in B(0,1)\) y \(f(0) = 0\). Entonces se tiene \(|f(z)| \leq|z|\) para todo
+ \(z \in B(0,1)\) y \(\left|f^{\prime}(0)\right| \leq 1\). 
+Además, si para un \(z_{0} \in B(0,1), z_{0} \neq 0\), se tiene 
+\(\left|f\left(z_{0}\right)\right|=\left|z_{0}\right|\), o si se verifica 
+\(f^{\prime}(0)=1\), entonces \(f(z)\) es de la forma \(f(z)=c z\), con \(|c|=1\)
+
 \end{multicols*}
 \pagebreak
 \end{document}
