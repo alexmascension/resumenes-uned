@@ -75,7 +75,7 @@ a_1x_1 + \cdots + a_rx_r + b_1y_1 + \cdots + b_sy_s = x + y \); (2) producto: IJ
 \), (3) intersección \( I \cap J \).
 
 \ejem{1.20.2} En un cuerpo \( K \) sólo son ideales \( \{0\} \) y \( K \). Si \( I
-\) es ideal no trivial de \( K \), para \( x \in I \ \{0\} existe \( x^{-1} \in
+\) es ideal no trivial de \( K \), para \( x \in I \ \{0\} \) existe \( x^{-1} \in
 K \) y \( 1 = xx^{-1} \in I  \), y \( I  \) es ideal impropio. \)
 
 \defi{1.21} Un ideal es *maximal* si (1) \(  A/I  \) es un cuerpo y (2) \( I \) es
@@ -601,13 +601,38 @@ elementos de \( E \). Se tiene un homomorfismo evaluación \( K[X_1, \cdots, X_n
 \rightarrow  E: f \mapsto (a_1, \cdots, a_n)\) con nucleo \( I  \). \( a_1,
 \cdots, a_n \) son *alegráicamente independientes* sobre \( K \) si \( I = \{ 0 \}
 \), es decir,  \(f(a_1, \cdots, a_n) \neq 0\) para todo polinomioi no nulo; y
-*âlgebráicamente dependientes* si \( I \neq \{ 0 \} \).
+*algebráicamente dependientes* si \( I \neq \{ 0 \} \).
 
 \obs{1.14.3} Si \( n = 1 \) y \( a_1 \) es algebráicamente independiente, \( a_1
-\) es *trascendente* sobre \( K \).
+\) es *transcendente* sobre \( K \).
 
 
 
+\vspace{-1.5em}
+** Extensiones simples
+   \vspace{-1.5em}
+   \defi{2.0} Una extensión es *simple* cuando \( E \) está generado sobre \( K \)
+   por \( \alpha \in E \).  
+   - Si \( \alpha \) es transcendente, \( T \mapsto \alpha \) define un isomorfismo \( K(T) \simeq K(\alpha) \) Y E es un *cuerpo de funciones racionales en \( \alpha \)*, y \( [E:K] = \infty \).
+   - Si \( \alpha \) es algebráico, \( T \mapsto \alpha \) define el epimorfismo
+     \(K[T] \rightarrow  K[\alpha] \) y \( E \) es un *anillo de polinomios en \alpha*.
+El epimorfismo tiene un núcleo distinto de cero, y el elemento es el *polinomio
+irreducible*. Ese polinomio es el *polinomio mínimo de \( \alpha \) sobre \( K \)*,
+\( f = P(\alpha, K) \in K[T] \), y es único.
+
+\propo{2.3} Si \( P(\alpha,K) \) tiene grado \( n \), \( \{ 1, \alpha, \cdots,
+\alpha^{n-1} \} \) es una base de \( E \) sobre \( K \) y, en consecuencia, \(
+[E:K] = n \).
+
+\propo{2.5 (Lüroth)} Sea \( E/K \) una extensión simple transcendente. Entonces
+toda subextensión no trivial \( L/K \) es también simple transcendente. 
+
+\propo{2.6} Sea \( E/K \) extensión simple algebráica. Entonces toda
+subextensión no trivial \( L/K \) es también simple algebráica, y tiene una
+cantidad finita de subextensiones.
+
+\obs{2.7} Toda subextensión de una extensión simple es simple y
+transcendente/algebráica si la extensión inicial lo es.
 
 #+BEGIN_EXPORT latex
 \end{multicols*}
