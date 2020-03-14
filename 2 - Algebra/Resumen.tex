@@ -1,4 +1,4 @@
-% Created 2020-03-14 Sat 00:17
+% Created 2020-03-14 Sat 13:24
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,12 +99,12 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:org7c5a984}
+\label{sec:org76754f3}
 \begin{multicols*}{2}
 
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org8415ef9}
+\label{sec:orgd58bac8}
 \vspace{-1.5em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
@@ -216,7 +216,7 @@ conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo en
 ellos.
 \vspace{-1.5em}
 \subsection*{Divisibilidad}
-\label{sec:orgf224326}
+\label{sec:org24d6551}
 \vspace{-1.5em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
@@ -412,11 +412,11 @@ Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
 \pagebreak
 
 \section*{Polinomios}
-\label{sec:orgb047cc0}
+\label{sec:orgd0c3f7d}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org0bbba41}
+\label{sec:org3d78a41}
 \vspace{-1.5em}
 \defi{1.1} Un polinomio es una construcción que necesita un anillo conmutativo
 unitario \(B\) y un subanillo \(A\). Cada elemento \(f\) de \(B\) se
@@ -503,7 +503,7 @@ T}\) y \(\frac{\partial fg}{\partial T} = f \frac{\partial g}{\partial T} + g
 \frac{\partial f}{\partial T}\). 
 \vspace{-1.5em}
 \subsection*{División de polinomios}
-\label{sec:org573772b}
+\label{sec:orgc254655}
 \vspace{-1.5em}
 \lema{2.1} Sea \(g \in A[T]\) y \(a \neq 0\) su coeficiente director.
 Entonces para cualquier \(f \in A[T]\) existen \(Q, R \in A[T]\) únicos tales que
@@ -542,7 +542,7 @@ por  \(\textbf{c}f\), al máximo común divisor de sus coeficientes. Así, \(\te
 \cdots, x_n \in L\) tales que \(f = a_0(T - x_1)\cdots(T-x_n)\). 
 \vspace{-1.5em}
 \subsection*{Factorización}
-\label{sec:orgc7c1a15}
+\label{sec:org7cdf9fd}
 \vspace{-1.5em}
    \propo{3.2 (Factorización de Kronecker)} Sea \(f \in A[T]\), \(A\) de 
 característica 0 y \(U(A)\) es finito, \(\textbf{c}(f) = 1\), \(\partial f
@@ -585,11 +585,11 @@ irreducible.
 \pagebreak
 
 \section*{Extensiones de cuerpos}
-\label{sec:org0214070}
+\label{sec:orgdb12577}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org1193c88}
+\label{sec:org9cc7244}
 \vspace{-1.5em}
 \defi{1.1} Sean \(K, E\) cuerpos. Se dice que \(E\) es una \textbf{extensión} de \(K\), y se escribe \(E/K\) cuando existe un homomorfismo de cuerpos \(j: K
 \rightarrow E\). Como \(K\) es cuerpo, \(\text{ker } f = \{ 0 \}\) y \(f\) es monomorfismo, isomorfo a \(j(K)\), subcuerpo de \(E\).
@@ -653,7 +653,7 @@ elementos de \(E\). Se tiene un homomorfismo evaluación \(K[X_1, \cdots, X_n]
 
 \vspace{-1.5em}
 \subsection*{Extensiones simples}
-\label{sec:orgf42a4e4}
+\label{sec:orgf7df71c}
 \vspace{-1.5em}
 \defi{2.0} Una extensión es \textbf{simple} cuando \(E\) está generado sobre \(K\)
 por \(\alpha \in E\).  
@@ -678,6 +678,33 @@ cantidad finita de subextensiones.
 
 \obs{2.7} Toda subextensión de una extensión simple es simple y
 transcendente/algebráica si la extensión inicial lo es.
+
+\subsection*{Extensiones finitamente generadas}
+\label{sec:orgead2c48}
+\defi{3.1} Se llama \textbf{grado de trascendencia} de \(E/K\) al mayor número
+posible de elementos de \(E\) algebráicamente independientes sobre \(K\).
+
+\propo{3.2} La extensión \(E/K\) tiene grado de trascendencia cero sii es
+finita.
+
+\propo{3.5 (Steinitz)} El grado de trascendencia de una extensión finitamente
+generada, no finita, \(E/K\) es un enero \(r \ge 1\) tal que existen
+elementos \(\alpha_1, \cdots, \alpha_r \in E\) algebráicamente independientes
+sobre \(K\), tales que \(E/K(\alpha_1, \cdots, \alpha_r)\) es una extensión
+finita. 
+
+\cor{3.7} Si \(E/K\) está generada por \(n\) elementos, entonces el grado de
+transitividad es \(E/K \ge n\).
+
+\cor{3.8} Sean \(E/L, L/K\) extensiones finitamente generadas. Entonces
+gr.trans. \(E/K\) = gr.trans \(E/L\) + gr.trans \(L/K\).
+
+\propo{3.9 (Teorema del elemento primitivo)} Si \(E/L\) es una extensión
+finita de cuerpos de característica cero, entonces es simple algebráica: \(E =
+L(\alpha)\) para algún para algún \(\alpha \in E\). Este \(\alpha\) se
+llama elemento primitivo de la extensión.
+
+
 
 \end{multicols*}
 \pagebreak

@@ -634,6 +634,32 @@ cantidad finita de subextensiones.
 \obs{2.7} Toda subextensión de una extensión simple es simple y
 transcendente/algebráica si la extensión inicial lo es.
 
+** Extensiones finitamente generadas
+   \defi{3.1} Se llama *grado de trascendencia* de \( E/K \) al mayor número
+   posible de elementos de \( E \) algebráicamente independientes sobre \( K \).
+
+   \propo{3.2} La extensión \( E/K \) tiene grado de trascendencia cero sii es
+   finita.
+
+\propo{3.5 (Steinitz)} El grado de trascendencia de una extensión finitamente
+generada, no finita, \( E/K \) es un enero \( r \ge 1 \) tal que existen
+elementos \( \alpha_1, \cdots, \alpha_r \in E \) algebráicamente independientes
+sobre \( K \), tales que \(  E/K(\alpha_1, \cdots, \alpha_r) \) es una extensión
+finita. 
+
+\cor{3.7} Si \( E/K \) está generada por \( n \) elementos, entonces el grado de
+transitividad es \( E/K \ge n \).
+
+\cor{3.8} Sean \( E/L, L/K \) extensiones finitamente generadas. Entonces
+gr.trans. \( E/K \) = gr.trans \( E/L \) + gr.trans \( L/K \).
+
+\propo{3.9 (Teorema del elemento primitivo)} Si \( E/L \) es una extensión
+finita de cuerpos de característica cero, entonces es simple algebráica: \( E =
+L(\alpha) \) para algún para algún \( \alpha \in E \). Este \( \alpha \) se
+llama elemento primitivo de la extensión.
+
+
+
 #+BEGIN_EXPORT latex
 \end{multicols*}
 \pagebreak
