@@ -583,12 +583,12 @@ dice que *\( L \) está generado por \( A \) sobre \( K \)*.
 \cdots, a_r \in A \) y polinomios \( f,g \in K[X_1, \cdots, X_r] \) tales que \(
 g(a_1, \cdots, a_r) \neq 0 \) y \( x = f(a_1, \cdots, a_r)/g(a_1, \cdots, a_r)
 \)
-xx
+
 \defi{1.11} Una extensión \( L/K \) es *finitamente generada* si \( L \) está
 generado sobre \( K \) por un conjunto finito. Si ese conjunto tiene un solo
 elemento, decimos que la extensión es \( simple \).
 \(  L = K(A) = K(a_1, \cdots, a_n) \).
-x
+
 \ejem{1.12.6} Sea \( E/K \). Si \( A,B \subset E \) entonces \( K(A)(B) \subset
 K(A \cup B) \).
 
