@@ -1,4 +1,4 @@
-% Created 2020-03-07 Sat 23:50
+% Created 2020-03-19 Thu 13:23
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:orga7d5865}
+\label{sec:org7ea6947}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:orgc42daf5}
+\label{sec:org47938e2}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:orgc694624}
+\label{sec:orgf7272de}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:org74cd684}
+\label{sec:orgbf6a3f8}
 \begin{multicols*}{2}
 
 
@@ -513,7 +513,7 @@ rectificable en \(A\).
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org164e837}
+\label{sec:orga7c5b5f}
 \begin{multicols*}{2}
 
 
@@ -665,6 +665,160 @@ Sea \(f: B(0,1) \rightarrow  B(0,1)\) analítica. \(|f(z)| < 1\) para todo \(z
 Además, si para un \(z_{0} \in B(0,1), z_{0} \neq 0\), se tiene 
 \(\left|f\left(z_{0}\right)\right|=\left|z_{0}\right|\), o si se verifica 
 \(f^{\prime}(0)=1\), entonces \(f(z)\) es de la forma \(f(z)=c z\), con \(|c|=1\)
+
+\end{multicols*}
+\pagebreak
+
+\section*{Teorema general de Cauchy}
+\label{sec:orgc43e73b}
+\begin{multicols*}{2}
+
+\defi{6.1.1} Dos caminos \(\gamma_0, \gamma_1\) con \(\gamma_0^*, \gamma_1^*
+\subset A\) son \(A\)-homótopos si existe una aplicación \(h\):
+\[ \begin{aligned}
+h: &\; I \times  I  \longrightarrow A \\
+&\; (s,t) \longmapsto h((s,t)) = \gamma_s(t)
+\end{aligned} \]
+
+Si \(\gamma_0, \gamma_1\) tienen los mismos extremos, se exige que \(h(s,0) =
+\gamma_0(0) = \gamma_1(0)\) y  \(h(s,1) =
+\gamma_0(1) = \gamma_1(1)\). Finalmente, si los caminos son cerrados, \(h(s,0)
+= h(s,1)\).
+
+\(\gamma_0, \gamma_1\) son \textbf{\(A\)-homotópos} cuando \(\gamma_0\) se puede
+deformar a \(\gamma_1\) continuamente a través de una familia de caminos \(\gamma_s\). Un camino \(\gamma\) es homotópico a \(z_0 \in A\) cuando \(\gamma\) es homotópico al camino constante \(\gamma_{z_0}\).
+
+\tma{6.1.1 (Teorema de Cauchy, versión homotópica)} 
+Sea \(f: A \rightarrow \mathbb{C}, A\) abierto una función analitica y sean
+ \(\gamma_{0}, \gamma_{1}\) dos caminos tales que
+ \(\gamma_{0}(0)=\gamma_{1}(0), \gamma_{0}(1)=\gamma_{1}(1)\), entonces
+$$
+\int_{\gamma_{0}} f d z=\int_{\gamma_{1}} f d z
+$$
+También si \(\gamma_{0}, \gamma_{1}\) son cerrados y homotópicos obtenemos
+ la misma conclusión.
+
+\defi{6.2.1} Dos caminos cerrados \(\gamma_{0}, \gamma_{1}\) contenidos en
+ el mismo abierto \(A\) son \textbf{\(A\)-homólogos} cuando
+$$
+\operatorname{Ind}_{\gamma_{0}}(\alpha)=\operatorname{Ind}_{\gamma_{1}}(\alpha)
+$$
+para todo \(\alpha \notin A\)
+
+\tma{6.2.1} Si \(\gamma_0, \gamma_1\) son cerrados en \(A\), y \(\gamma_0,
+\gamma_1\) son \(A\)-homótopos, son también \(A\)-homólogos. Si \(\gamma_0\) es homótopo a un punto en \(A\), entonces es \(A\)-homólogo a cero.
+
+\tma{6.2.2 (Teorema de Cauchy, versión homológica)} 
+Sea \(f: A \rightarrow \mathbb{C}, A\) abierto una función analitica y sean \(\gamma_{0}, \gamma_{1}\) dos ciclos \(A\) homológos, entonces
+$$
+\int_{\gamma_{0}} f d z=\int_{\gamma_{1}} f d z
+$$
+
+\defi{6.3.1}/\tma{6.3.1} Un abierto conexo no vacío \(A \subset \mathbb{C}\) es
+simplemente conexo si todo cerrado \(\gamma \sub A\) es \(A\)-homótopo a
+cero.
+Si \(f\) es analítica en \(A\), simplemente conexo, entonces \(\int _\gamma
+f \; \text{d} z = 0\) para todo camino cerrado y rectificable en \(A\).
+
+\tma{6.3.2} Sea \(A \in \mathbb{C}\) un dominio, entonces las siguientes
+afirmaciones son equivalentes:
+\vspace{-1em}
+\begin{itemize}
+\item \(A\) es simplemente conexo
+\item Todo ciclo \(\gamma\) contenido en \(A\) es homólogo a 0.
+\item \(\hat{\mathbb{C}} \ A\) es conexo
+\end{itemize}
+
+\vspace{-1em}
+\subsection*{Desarrollo en serie de Laurent}
+\label{sec:org81987f0}
+\vspace{-1em}
+\tma{6.4.1 (Series de Laurent)} Sea \(f(z)\) analítica en la corona circular
+\(A = \{ z \;|\; r < |z-\alpha| < R \}\), donde \(r\) puede ser 0 y \(R\)
+infinito. 
+Entonces existen dos desarrollos en serie
+según las potencias de \(z-\alpha\) y de \((z-\alpha)^{-1}\)
+\(\sum_{n=0}^{\infty} a_{n}(z-\alpha)^{n}, \sum_{n=1}^{\infty} \frac{b_{n}}{(z-\alpha)^{n}}\)
+convergentes en \(A\) y tales que
+$$
+f(z)=\sum_{n=0}^{\infty} a_{n}(z-\alpha)^{n}+\sum_{n=1}^{\infty} \frac{b_{n}}{(z-\alpha)^{n}}
+$$
+para \(z \in A\). Además estas series convergen uniformemente en toda corona
+cerrada \(A^{\prime} \subset A\) de la forma \(A^{\prime}=\left\{z\left|r<r^{\prime} \leq\right| z-\alpha | \leq
+R^{\prime}<R\right\}\)
+\(y\) los coeficientes \(a_{n}, b_{n}\) vienen dados por
+\[\begin{aligned}
+a_{n} &=\frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{(\zeta-\alpha)^{n+1}} d \zeta \\
+b_{n} &=\frac{1}{2 \pi i} \int_{\gamma} f(\zeta)(\zeta-\alpha)^{n-1} d \zeta
+\end{aligned}\]
+donde \(\gamma\) es una circunferencia dada por \(\gamma(t)=\alpha+\rho e^{i t}, t \in[0,2 \pi]\)
+siendo \(\rho\) un radio cualquiera entre \(r\) y \(R\).
+\begin{figure}[H]
+\centering
+\includegraphics[width=3cm]{imagenes/laurent.png}
+\end{figure}
+\dem{Sean $r_{1}, r_{2}$ dos radios tales que $r<r_{1}<r_{2}<R,$ y sean $\gamma_{1}, \gamma_{2}$ las circunferencias
+$
+\gamma_{1}(t)=\alpha+r_{1} e^{i t}, \gamma_{2}(t)=\alpha+r_{2} e^{i t}, t \in[0,2 \pi]
+$
+tal que si $z$ está entre ambas se tiene
+ $\operatorname{Ind}_{\gamma_{2}}(z)=1, \operatorname{Ind}_{\gamma_{1}}(z)=0$.
+Sea $r_{1}<|z-\alpha|<r_{2},$ y supongamos que $z$ no pertenece al segmento $\gamma_{3}$ (si no movemos $\gamma_3$).
+Sea $\Gamma=\gamma_{2}-\gamma_{3}-\gamma_{1}+\gamma_{3}$; entonces $z$ está en el recinto simplemente
+ conexo encerrado por $\Gamma$ y de la 
+Fórmula integral de Cauchy obtenemos
+$$
+f(z) =\frac{1}{2 \pi i} \int_{\Gamma} \frac{f(\zeta)}{\zeta-z} d \zeta 
+=\frac{1}{2 \pi i} \left( \int_{\gamma_{2}} \frac{f(\zeta)}{\zeta-z} d \zeta- \int_{\gamma_{1}} \frac{f(\zeta)}{\zeta-z} d \zeta \right)
+$$
+Utilizaremos ahora desarrollos en serie similares a los de Taylor. 
+Para $\zeta \in \gamma_{2}$ y $z$ en el interior de $\gamma_{2}$ tendremos
+$$
+\frac{1}{\zeta-z}=\frac{1}{\zeta-\alpha} \cdot \frac{1}{1-\frac{z-\alpha}{\zeta-\alpha}}=\sum_{n=0}^{\infty} \frac{(z-\alpha)^{n}}{(\zeta-\alpha)^{n+1}}
+$$
+y para $\zeta \in \gamma_{1}$ y $z$ exterior a $\gamma_{1}$ tendremos
+$$
+-\frac{1}{\zeta-z}=\frac{1}{z-\alpha} \frac{1}{1-\frac{\zeta-\alpha}{z-\alpha}}=\sum_{n=1}^{\infty} \frac{(\zeta-\alpha)^{n-1}}{(z-\alpha)^{n}}
+$$
+siendo convergentes las series geométricas y 
+uniformemente convergentes en $\zeta \in \gamma_{2}$ y $\zeta \in \gamma_{1}$ respectivamente.
+Integrando término a término ambos desarrollos se tiene
+$$
+\begin{array}{c}
+\frac{1}{2 \pi i} \int_{\gamma_{2}} \frac{f(\zeta)}{\zeta-z} d \zeta=\sum_{n=0}^{\infty} \frac{1}{2 \pi i}\left(\int_{\gamma_{2}} 
+\frac{f(\zeta)}{(\zeta-\alpha)^{n+1}} d \zeta\right)(z-\alpha)^{n} \\
+-\frac{1}{2 \pi i} \int_{\gamma_{1}} \frac{f(\zeta)}{\zeta-z} d \zeta=\sum_{n=1}^{\infty} \frac{1}{2 \pi i}\left(\int_{\gamma_{1}}
+ f(\zeta)(\zeta-\alpha)^{n-1} d \zeta\right) \frac{1}{(z-\alpha)^{n}}
+\end{array}
+$$
+Puesto que los caminos $\gamma_{1}, \gamma_{2}, \gamma$ son A-homótopos y las funciones
+$\frac{f(\zeta)}{(\zeta-\alpha)^{n+1}}, f(\zeta)(\zeta-\alpha)^{n-1}$
+son analíticas en $A$, se tiene
+$$
+\begin{array}{c}
+\frac{1}{2 \pi i} \int_{\gamma_{2}} \frac{f(\zeta)}{(\zeta-\alpha)^{n+1}} d \zeta=\frac{1}{2 \pi i} \int_{\gamma} \frac{f(\zeta)}{(\zeta-\alpha)^{n+1}} d \zeta=a_{n} \\
+\frac{1}{2 \pi i} \int_{\gamma_{1}} f(\zeta)(\zeta-\alpha)^{n-1}=\frac{1}{2 \pi i} \int_{\gamma} f(\zeta)(\zeta-\alpha)^{n-1}=b_{n}
+\end{array}
+$$
+Por tanto concluimos
+$$
+f(z)=\sum_{n=0}^{\infty} a_{n}(z-\alpha)^{n}+\sum_{n=1}^{\infty} b_{n} \frac{1}{(z-\alpha)^{n}}, z \in A
+$$
+Queda por probar la convergencia uniforme en una corona cerrada contenida en $A$.
+Sean $z_{1}, z_{2}$ puntos de $A$ tales que
+$r<\left|z_{1}-\alpha\right|<r^{\prime}<R^{\prime}<\left|z_{2}-\alpha\right|<R$.
+Como $z_{2} \in A,$ la serie de potencias
+$\sum_{n=0}^{\infty} a_{n}(z-\alpha)^{n}$
+uniformemente en el círculo cerrado de centro $\alpha$ converge y por tanto converge
+y radio $R^{\prime}<\left|z_{2}\right|$ Análogamente, puesto que $z_{1} \in A$, la serie
+$\sum_{n=1}^{\infty} b_{n}\left(\frac{1}{z_{1}-\alpha}\right)^{n}$
+converge y la serie
+$\sum_{n=1}^{\infty} b_{n}\left(\frac{1}{z-\alpha}\right)^{n}$
+convergerá uniformemente para $|z-\alpha| \geq r^{\prime}$ con $r^{\prime}>\left|z_{1}-\alpha\right|,$ pues en estas
+condiciones
+$\left|\frac{1}{z-\alpha}\right| \leq \frac{1}{r^{\prime}}<\left|\frac{1}{z_{1}-\alpha}\right|\end{array}
+$. Análogamente se compruebca la convergencia uniforme en \( |z-\alpha| < R' \) de la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
+
 
 \end{multicols*}
 \pagebreak
