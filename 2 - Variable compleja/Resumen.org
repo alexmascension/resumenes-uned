@@ -26,7 +26,7 @@ Y con estas operaciones \( (\mathbb{C}, +, \cdot) \) es un cuerpo, con \(
 0_{\mathbb{C}} = 0 + 0i \) y \( 1_\mathbb{C} = 1 + 0i \).
 
 \defi{1.3} Dado un complejo \( z = x + yi \), llamamos *conjugado* de \( z \), \(
-\oveline{z} \) a \( x - yi \).
+\overline{z} \) a \( x - yi \).
 
 \propo{1.3.1} Se verifica que \( \overline{z_{1}+z_{2}}=\overline{z_{1}}+\overline{z_{2}} \) 
 y \( \overline{z_{1} z_{2}}=\overline{z_{1}} \cdot \overline{z_{2}} \).
@@ -110,7 +110,7 @@ no siempre a la inversa.
 \), \( A \) abierto, y son continuas en \( z_0 \in A \), f_1 + f_2 y f_1/f_2 son
 continuas en \( z_0 \). Así, los polinomios complejos son continuos.
 
-\defi{2.1.2} Una función \( f(z) \) en \( A \subset \mathb{S} \) es continua en
+\defi{2.1.2} Una función \( f(z) \) en \( A \subset \mathbb{S} \) es continua en
 \( z_0 \) si para todo \( \epsilon > 0 \)
  existe \( \eta > 0 \) tal que para todo \( z \in A \) donde \( \delta(z, z_0) <
 \eta \) entonces \( \delta(f(z_0), f(z)) < \epsilon \).
@@ -426,8 +426,8 @@ La integral cumple:
 y \( \gamma \). Si \( f_n \) son continuas y \( f_n \rightarrow  f \) entonces
 \( \lim_{n \to \infty} \int _{\gamma} f_n = \int _\gamma f dz \). 
 #+BEGIN_EXPORT latex
-\dem{ Si \( |dz| \) es la longitud de la curva, \( L \), entonces \( \left|\int_{\gamma} f d z-\int_{\gamma} f_{n} d z\right| \leq \int_{\gamma}\left|f-f_{n}\right||d z|<\epsilon L \)
- }.
+\dem{ Si \( |dz| \) es la longitud de la curva, \( L \), entonces 
+\( \left|\int_{\gamma} f d z-\int_{\gamma} f_{n} d z\right| \leq \int_{\gamma}\left|f-f_{n}\right||d z|<\epsilon L \) }.
 #+END_EXPORT
 
 También, si \( \sum f_n \) converge uniformemente a \( F \), entonces \( \sum
@@ -435,7 +435,7 @@ _{n=1}^{\infty} \int _\gamma f_n \; \text{d}z  = \int _\gamma F \; \text{d}z
 \). 
 #+BEGIN_EXPORT latex
 \dem{ \(
-\int_{\gamma}\left(\sum_{n=1}^{\infty} f_{n}\right) d z &=\int_{\gamma}\left(\lim _{n \rightarrow \infty} F_{n}\right) d z=\lim _{n \rightarrow \infty} \int_{\gamma} F_{n} d z 
+\int_{\gamma}\left(\sum_{n=1}^{\infty} f_{n}\right) d z =\int_{\gamma}\left(\lim _{n \rightarrow \infty} F_{n}\right) d z=\lim _{n \rightarrow \infty} \int_{\gamma} F_{n} d z 
 =\lim _{n \rightarrow \infty} \int_{\gamma}\left(\sum_{k=1}^{n} f_{k}\right) d z=\lim _{n \rightarrow \infty} \sum_{k=1}^{n} \int_{\gamma} f_{k} d z=\sum_{n=1}^{\infty} \int_{\gamma} f_{n} d z
  \)  }
 #+END_EXPORT
@@ -474,7 +474,7 @@ y, por las ecs. de Cauchy-Riemman, \( - \frac{\partial v}{\partial x} - \frac{\p
 \{ p \}\). Si \( T \) es el triángulo cerrado contenido en \( A \), se tiene \(
 \int _{\partial T} f \; \text{d} z = 0   \).
 
-\tma{4.4.3 (T de Cauchy para un conjunto convexo}. Sea \( f \) analítica en \(
+\tma{4.4.3 (T de Cauchy para un conjunto convexo)}. Sea \( f \) analítica en \(
 A\{p} \) con \( p \in A \) y continua en \( A \). Entonces   \(
 \int _{\partial T} f \; \text{d} z = 0   \) para todo camino cerrado y
 rectificable en \( A \).
@@ -708,7 +708,7 @@ $$
 $$
 
 \defi{6.3.1}/\tma{6.3.1} Un abierto conexo no vacío \( A \subset \mathbb{C} \) es
-simplemente conexo si todo cerrado \( \gamma \sub A \) es \( A \)-homótopo a
+simplemente conexo si todo cerrado \( \gamma \subset A \) es \( A \)-homótopo a
 cero.
 Si \( f \) es analítica en \( A \), simplemente conexo, entonces \( \int _\gamma
 f \; \text{d} z = 0   \) para todo camino cerrado y rectificable en \( A \).
@@ -760,7 +760,7 @@ tal que si $z$ está entre ambas se tiene
  $\operatorname{Ind}_{\gamma_{2}}(z)=1, \operatorname{Ind}_{\gamma_{1}}(z)=0$.
 Sea $r_{1}<|z-\alpha|<r_{2},$ y supongamos que $z$ no pertenece al segmento $\gamma_{3}$ (si no movemos $\gamma_3$).
 Sea $\Gamma=\gamma_{2}-\gamma_{3}-\gamma_{1}+\gamma_{3}$; entonces $z$ está en el recinto simplemente
- conexo encerrado por $\Gamma$ y de la 
+ conexo encerrado por $\Gamma$ y de la
 Fórmula integral de Cauchy obtenemos
 $$
 f(z) =\frac{1}{2 \pi i} \int_{\Gamma} \frac{f(\zeta)}{\zeta-z} d \zeta 
@@ -811,11 +811,10 @@ converge y la serie
 $\sum_{n=1}^{\infty} b_{n}\left(\frac{1}{z-\alpha}\right)^{n}$
 convergerá uniformemente para $|z-\alpha| \geq r^{\prime}$ con $r^{\prime}>\left|z_{1}-\alpha\right|,$ pues en estas
 condiciones
-$\left|\frac{1}{z-\alpha}\right| \leq \frac{1}{r^{\prime}}<\left|\frac{1}{z_{1}-\alpha}\right|\end{array}
-$. Análogamente se compruebca la convergencia uniforme en \( |z-\alpha| < R' \) de la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
+$\left|\frac{1}{z-\alpha}\right| \leq \frac{1}{r^{\prime}}<\left|\frac{1}{z_{1}-\alpha}\right|$. 
+Análogamente se comprueba la convergencia uniforme en \( |z-\alpha| < R' \) de 
+la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 #+END_EXPORT
-
-
 #+BEGIN_EXPORT latex
 \end{multicols*}
 \pagebreak
