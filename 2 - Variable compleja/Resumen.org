@@ -819,3 +819,240 @@ la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 \end{multicols*}
 \pagebreak
 #+END_EXPORT
+
+
+\vspace{-1.5em}
+* Ceros de las funciones analíticas. Singularidades aisladas.
+\vspace{-1.5em}
+#+BEGIN_EXPORT latex
+\begin{multicols*}{2}
+#+END_EXPORT
+\tma{7.1.1} Sea \( f: A \rightarrow  \mathbb{C} \), con \(  A  \) un dominio. 
+El conjunto \( \mathbb{Z}(f) \), los ceros de \( f \), o coincide con \( A \) (\(f
+= 0\)) o no tiene puntos de acumulación en \( A \). En este último caso, para cada
+\( \alpha \in A  \) existe un \( m \in \mathbb{N} \) tal que \( f(z) = (z -
+\alpha)^m g(z) \), con \( g(\alpha) \neq 0 \).
+
+\tma{7.1.2 (Ppo de Identidad)} Si \( f_1, f_2 \) son funciones analíticas en \(
+A \) tal que \( f_1(z) = f_2(z), z \in B \subset A \); si \( B \) tiene punto de
+acumulación en \( A \) entonces \( f_1 = f_2 \) en \( A \).
+
+\defi{7.2.0} \( f \) tiene una *singularidad aislada* en \( \alpha \in A  \)
+si \( f \) es analítica en \( A/ \{ \alpha \} \) pero desconocemos el
+comportamiento en \( \alpha \).
+
+\defi{7.2.1} \( f \) tiene una *singularidad evitable* en \( \alpha \) si tiene
+una singularidad aislada pero se puede encontrar un valor \( b \in \mathbb{C} \)
+tal que poniendo \( f(\alpha) = b \), \( f \) es analítica en \( A \).
+
+\tma{7.2.1} Sea \( \alpha \) aislada para \( f \) en \( A \), y supongamos \( f
+\) *acotada* en un círculo perforado \( B^*(\alpha, r) \) contenido en \( A / \{
+\alpha \} \). Entonces la singularidad es evitable.
+#+BEGIN_EXPORT latex
+\dem{ Definamos la función $h: A \rightarrow \mathbb{C}$ mediante
+$$
+h(z)=\left\{\begin{array}{ccc}
+(z-\alpha)^{2} f(z) & \text { para } & z \in A \backslash\{\alpha\} \\
+0 & \text { para } & z=\alpha
+\end{array}\right.
+$$
+Por la hipótesis de acotación (pues \( f \) es acotada) 
+ existe $h^{\prime}(\alpha)$ y
+$h^{\prime}(\alpha)=0$. Luego $h$ es analítica en $A$ y existe un desarrollo 
+en serie de potencias en un \( B(\alpha, r'), r' \ge r \), donde tendremos que
+$h(z)=\sum_{n=0}^{\infty} a_{n}(z-\alpha)^{n}$
+para todo $z$ en dicho círculo y, por tanto, también en $B(\alpha, r)$. 
+Se tiene que  $a_{0}=h(\alpha)=0, a_{1}=h^{\prime}(\alpha)=0$ y, considerando entonces la función 
+analítica en $B(\alpha, r)$ definida por
+$
+\sum_{n=0}^{\infty} a_{n+2}(z-\alpha)^{n}
+$, vale $a_{2}$ en $z=\alpha$ y coincide con $f$ en $B^{*}(\alpha, r),$ luego
+ concluimos que $\alpha$ es una singularidad evitable para $f$.}
+#+END_EXPORT
+
+\tma{7.2.2 (Weierstrass)} Sea \( \alpha \in A \) una singularidad aislada para
+\( f \) en \( A / \{ \alpha \} \). Entonces (1) \( f \) tiene una singularidad
+evitable en \( \alpha \), (2) existen complejos \( c_1, \cdots, c_m \neq 0 \) 
+y la función \( f(z) - \sum _{k=1}^{m} \frac{c_k}{(z-\alpha)^k} \) tiene una
+singularidad evitable en \( \alpha \), o (3) para todo \( B(alpha, r) \subset A, r > 0 \)
+la imagen de \( f \) en \( B^*(\alpha, r) \) es densa en \( \mathbb{C} \).
+
+\defi{7.2.2} Sea \( A \subset \overline{\mathbb{C}} \) abierto y \( f \)
+analítica en \( A \backslash \{ \infty \} \). Se dice que \( f \) tiene una
+singularidad evitable en \( \infty \), un polo de orden \( m \) o una
+singularidad esencial, si la función \( \phi: B \rightarrow  \mathbb{C} \), \(
+\phi(z) = f(\frac{1}{z}) \), con \( B = \{ z \;|\; \frac{1}{z} \in A \} \) tiene
+una singularidad de tal tipo en \( z = 0 \).
+
+\tma{7.2.3} Si existe una singularidad aislada en \( \infty  \) entonces (1) \(
+f \) tiene una singularidad evitable sii existe un entorno perforado de \(
+\infty \); (2) \( f \) tiene un polo de orden \( m \) si existe un polinomio \(
+h(z) = a_1z + \cdots + a_mz^m \neq 0 \) tal que \( f(z) - h(z) \) está acotada
+en \( \{ z \;|\; |z| > r \} \); (3) para todo \( r \) la imagen de \( \{ z
+\;|\; |z| > r \}\) es densa en \(\mathbb{C} \).
+
+
+\defi{7.3.1} Diremos que \( f_ A \rightarrow  \mathbb{C} \), \( A \subset
+\mathbb{C} \) abierto es meromorfa si existe un conjunto \( P \subset A \), sin
+puntos de acumulación en \( A \), tal que \( f \) es analítica en \( A
+\backslash P \) y \( f \) presenta en cada \( p \in P \) una singularidad
+aislada, que es un polo.
+
+\tma{7.3.1} \( f(z) \) tiene un *polo* de orden \( m \) en \( \alpha \in \mathbb{C} \) sii existe
+un entero \( m > 0 \) y un entorno \( U_\alpha 
+\subset A \) de definición de \( f \) tal que la función \( g(z) = f(z)(z -
+\alpha)^m \) es analítica en \( U_\alpha \) y \( g(\alpha) \neq 0 \). 
+#+BEGIN_EXPORT latex
+\dem{ Sea
+$$
+p(z)=\sum_{n=1}^{m} \frac{c_{n}}{(z-\alpha)^{n}}
+$$
+la parte principal del polo, de tal forma que $h=f-p$
+es analítica en un entorno $U(\alpha)$ de $\alpha$ y por tanto también lo será la función
+$h(z)(z-\alpha)^{m}$. \\Como
+$p(z)(z-\alpha)^{m}=c_{m}+c_{m-1}(z-\alpha)+\ldots+c_{1}(z-\alpha)^{m-1}$
+es también analítica, también lo será la función
+$f(z)(z-\alpha)^{m}=h(z)(z-\alpha)^{m}+p(z)(z-\alpha)^{m}$.
+Llamando $g(z)$ a esta función, obtenemos
+$g(\alpha)=c_{m} \neq 0$.\\
+Inversamente, si para un entero $m>0$ se tiene que $g(z)=f(z)(z-\alpha)^{m}$ 
+es analítica y $g(\alpha) \neq 0$ en un entorno $U(\alpha)$ de $\alpha$ entonces admitirá 
+un desarrollo en serie de potencias de $z-\alpha$;
+$f(z)(z-\alpha)^{m}=\sum_{n=0}^{\infty} b_{n}(z-\alpha)^{n}, \text { con } b_{0} \neq 0$.
+De esta igualdad resulta si $z \neq \alpha$
+$$
+f(z) &=\frac{1}{(z-\alpha)^{m}} \sum_{n=0}^{\infty} b_{n}(z-\alpha)^{n}
+=p(z)+\sum_{n=m}^{\infty} b_{n}(z-\alpha)^{n-m}
+$$
+donde
+$$
+p(z)=\sum_{n=1}^{m} \frac{b_{m-n}}{(z-\alpha)^{n}}, \text { con } b_{0} \neq 0
+$$
+De aquí se deduce que $\alpha$ es un polo de orden $m$ y su parte principal es $p$.
+  }
+#+END_EXPORT
+
+\tma{7.3.2} Si \( f(z) \) es analítica en el abierto \( A \) y si \( f(z) \)
+tiene un cero de orden \( m \) en \( \alpha \in A \), entonces la función \(
+g(z) = \frac{1}{f(z)} \) tiene un polo de orden \( m \) en \( \alpha \).
+Repíprocamente, si \( f(z) \) tiene un polo de orden \( m \) en \( \alpha \),
+entonces \( g(z) = \frac{1}{f(z)} \) es analíotica en un entorno de \( \alpha \)
+y tiene un cero de orden \( m \) en \( \alpha \).
+
+\defi{7.3.2} Si \( f(z) \) es una función con un polo de orden \( m \) en \(
+\alpha \) y su parte principal es \( p(z) = \sum _{n=1}^{m}
+\frac{c_m}{(z-\alpha)^n} \), llamaremos *residuo* de \( f \) en \( \alpha \) al
+coeficiente \( c_1 \) del término \( \frac{1}{z - \alpha}\), y se designa por \(
+Res(f, \alpha) \).
+
+\tma{7.3.3 (Residuos para funciones meromorfas)}
+ Sea $A \subset \mathbb{C}$ un abierto simplemente conexo y $f(z)$ una función
+ meromorfa con polos $\alpha_{1}, \alpha_{2}, \ldots, \alpha_{r}$. 
+Sea $\gamma$ un camino cerrado contenido en $A$ que no pasa por ninguno de 
+los polos. Entonces se tiene
+$$
+\int_{\gamma} f(z) d z=2 \pi i \sum_{i=1}^{r} \operatorname{Ind}_{\gamma}\left(\alpha_{i}\right) \operatorname{Res}\left(f, \alpha_{i}\right)
+$$
+#+BEGIN_EXPORT latex
+\dem{Sean los polos $\alpha_{1}, \ldots, \alpha_{r}$ de multiplicidades
+ $m_{1}, \ldots, m_{r}$ y sean
+$p_{i}(z), i=1, \ldots, r$ sus partes principales con
+$$
+p_{i}(z)=\sum_{n=1}^{m_{i}} \frac{c_{i, n}}{\left(z-\alpha_{i}\right)^{n}}, i=1, \ldots, r
+$$.
+Entonces la función $f-\sum_{i=1}^{r} p_{i}$ es analitica en $A$ pues ambas
+ funciones $f$ y $\sum_{i=1}^{r} p_{i}$ son meromorfas en $A$, con los mismos polos, 
+cuyas partes principales se cancelan en cada polo.
+Así pues podemos aplicar el Teorema de Cauchy para
+dominios simplemente conexos (\tma{7.4.1}) y obtenemos 
+$$
+\int_{\gamma} f-\left(p_{1}+p_{2}+\ldots+p_{r}\right) d z=0 \rightarrow 
+\int_{\gamma} f d z=\sum_{i=1}^{r} \int_{\gamma} p_{i} d z
+$$
+Por otra parte
+$$
+\begin{aligned}
+\int_{\gamma} p_{i}(z) &=\int_{\gamma} \frac{c_{i, 1}}{z-\alpha_{i}} d z+\ldots+\int_{\gamma} \frac{c_{i, m_{i}}}{\left(z-\alpha_{i}\right)^{m_{i}}} d z \\
+&=2 \pi i c_{i, 1} \operatorname{Ind}_{\gamma}\left(\alpha_{i}\right)
+\end{aligned}
+$$
+las últimas $m_{i}-1$ integrales son nulas pues las funciones integrando tienen
+ primitiva. De ambas igualdades se concluye el enunciado del teorema.}
+#+END_EXPORT
+
+
+\obs{7.3.3} Si \( f \) es meromorfa con polo en \( \infty \); para el desarrollo
+en serie \( f(z) = \sum _{n=0}^{m}a_nz^n + \sum _{n=1}^{\infty}b_n \frac{1}{z_n}
+\), \( Res(f, \infty) = -b_1 \).
+#+BEGIN_EXPORT latex
+\dem{ Los residuos pertenecen a los \textbf{diferenciales} de las funciones, no a las funciones en sí.
+Por tanto, dado el diferencial \( f(z) dz \) con el cambio de variable 
+\( z = 1/w \) tenemos que \( f(z)dz = f(1/w)(1/w)'dw = f(1/w)(-1/w^2)dw \).
+Entonces, \( Res(f, \infty) = Res(- \frac{f(1/z)}{z^2}, 0) \). 
+Con este cambio, 
+la representación por series \( f(z) =  \sum _{n=0}^{m}a_nz^n + 
+\sum _{n=1}^{\infty}b_n \frac{1}{z^n}  \) con \( z \rightarrow \infty \) pasa a ser 
+\( -\frac{1}{z^2}f(\frac{1}{z}) (\sum _{n=0}^{m} a_n(\frac{1}{z})^n +
+ \sum _{n=1}^{\infty}\frac{b_n}{(\frac{1}{z})^n} )\) \(  = - (\sum _{n=0}^{m} a_n(\frac{1}{z})^{n+2} +
+ \sum _{n=1}^{\infty}b_nz^{n-2} \) y \( \int _\gamma - \frac{1}{z^2}f(\frac{1}{z})  \; \text{d}z  
+= - \int _\gamma \frac{b_1}{z} \; \text{d}z  = -2 \pi i b_i = 2\pi i Res(f, \infty) \). 
+ }
+#+END_EXPORT
+
+La opción (3) del \tma{7.2.2} se puede extender a dos teoremas extra, el segundo
+más potente que el primero.
+
+\tma{7.A (Casorati - Weierstrass)} Sea \( \alpha \) una singularidad esencial de
+\( f \). Entonces para cada \( w \in \mathbb{C} \) existe una secuencia de
+complejos \( \{ z_n \} \) convergente a \( \alpha \) tal que \( f(\{ z_n \})
+\rightarrow w \). 
+
+\tma{7.B (Picard)} Sea \( \alpha \) una singularidad esencial de \( f \).
+Entonces, para cada \( w \in \mathbb{C} \), con una excepción a lo sumo, existe
+una sucesión \( z_n \rightarrow  \alpha  \) tal que \( f(z_n) = w  \). \\ 
+Por ejemplo, para \( f(z) = e^{1/z} \), que tiene una singularidad esencial en
+0, queremos que \( w = 3 + i \). Entonces, la sucesión \( z_n =
+\frac{3 + i}{2n\pi i} \) cumple que para \( n \rightarrow \infty \), 
+
+\vspace{-1.5em}
+** Resumen de casos (según series de Laurent)
+\vspace{-1.5em}
+- Singularidad evitable: \( a_0 + a_1 (z - \alpha) + \cdots \)
+- Polo de orden \( m \): \( \frac{a_{-m}}{(z - \alpha)^m} + \cdots +
+  \frac{a_{-1}}{z-\alpha} + a_0 + a_1(z - \alpha) + \cdots \)
+- Singularidad esencial: \(  \cdots +
+  \frac{a_{-1}}{z-\alpha} + a_0 + a_1(z - \alpha) + \cdots \)
+ 
+\vspace{-1.5em}
+** Calculo de residuos para polos
+\vspace{-1.5em}
+- Polo simple
+$$ f(z) = \frac{b_1}{z - \alpha} + a_0 + a_1(z -
+  \alpha) + \cdots $$
+$$ (z-\alpha)f(z) = b_1 + a_0(z - \alpha) + \cdots$$
+$$ Res(f, \alpha) = b_1 = \lim_{z \to \alpha} (z - \alpha)f(z) $$ 
+
+- Polo de orden m
+$$f(z) = \frac{b_m}{(z-\alpha)^m} + \cdots + \frac{b_1}{z-\alpha} + a_0 +
+a_1(z-\alpha) + \cdots$$
+$$(z-\alpha)^mf(z) = b_m + \cdots + b_1(z-\alpha)^{m-1} + a_0(z-\alpha)^m +
+\cdots$$
+$$ Res(f, \alpha) = \frac{1}{(m-1)!} \lim_{z \to \alpha} \frac{d^{m-1}}{dz^{m-1}}((z-\alpha)^mf(z)) $$
+#+BEGIN_EXPORT latex
+\end{multicols*}
+\pagebreak
+#+END_EXPORT
+
+
+\vspace{-1.5em}
+* Aplicación del método de residuos al cálculo de integrales reales
+\vspace{-1.5em}
+#+BEGIN_EXPORT latex
+\begin{multicols*}{2}
+#+END_EXPORT
+
+
+#+BEGIN_EXPORT latex
+\end{multicols*}
+\pagebreak
+#+END_EXPORT
