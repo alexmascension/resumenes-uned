@@ -1,4 +1,4 @@
-% Created 2020-03-21 Sat 20:40
+% Created 2020-03-22 Sun 00:24
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:org0777b70}
+\label{sec:org79e0b5b}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:org295ac45}
+\label{sec:org01ffaa5}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:orgc73a3ce}
+\label{sec:org763f524}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:org7e02f81}
+\label{sec:orgc88f240}
 \begin{multicols*}{2}
 
 
@@ -513,7 +513,7 @@ rectificable en \(A\).
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org5ad7406}
+\label{sec:org7a0259a}
 \begin{multicols*}{2}
 
 
@@ -670,7 +670,7 @@ Además, si para un \(z_{0} \in B(0,1), z_{0} \neq 0\), se tiene
 \pagebreak
 
 \section*{Teorema general de Cauchy}
-\label{sec:orgc6e1e2c}
+\label{sec:org6b54788}
 \begin{multicols*}{2}
 
 \defi{6.1.1} Dos caminos \(\gamma_0, \gamma_1\) con \(\gamma_0^*, \gamma_1^*
@@ -731,7 +731,7 @@ afirmaciones son equivalentes:
 
 \vspace{-1em}
 \subsection*{Desarrollo en serie de Laurent}
-\label{sec:org1166b0e}
+\label{sec:org257657b}
 \vspace{-1em}
 \tma{6.4.1 (Series de Laurent)} Sea \(f(z)\) analítica en la corona circular
 \(A = \{ z \;|\; r < |z-\alpha| < R \}\), donde \(r\) puede ser 0 y \(R\)
@@ -825,7 +825,7 @@ la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 
 \vspace{-1.5em}
 \section*{Ceros de las funciones analíticas. Singularidades aisladas.}
-\label{sec:orgf944812}
+\label{sec:orga92e5de}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 \tma{7.1.1} Sea \(f: A \rightarrow  \mathbb{C}\), con \(A\) un dominio. 
@@ -995,11 +995,14 @@ Entonces, para cada \(w \in \mathbb{C}\), con una excepción a lo sumo, existe
 una sucesión \(z_n \rightarrow  \alpha\) tal que \(f(z_n) = w\). \\
 Por ejemplo, para \(f(z) = e^{1/z}\), que tiene una singularidad esencial en
 0, queremos que \(w = 3 + i\). Entonces, la sucesión \(z_n =
-\frac{3 + i}{2n\pi i}\) cumple que para \(n \rightarrow \infty\), 
+\frac{1}{\log{3 + i}} = \frac{1}{\sqrt{4} + i\cdotArg(3+i) + 2\pi n}\) cumple que
+para \(n \rightarrow \infty\), \(z_n \rightarrow 0\) y \(e^{\frac{1}{z_n}}
+= e^{\sqrt{4} + i \cdot Arg(3+i) + 2\pi n} = 3+i\) para todo \(n\). La
+excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
-\vspace{-1.5em}
+\vspace{-2em}
 \subsection*{Resumen de casos (según series de Laurent)}
-\label{sec:org341896d}
+\label{sec:orga8f8bc7}
 \vspace{-1.5em}
 \begin{itemize}
 \item Singularidad evitable: \(a_0 + a_1 (z - \alpha) + \cdots\)
@@ -1009,13 +1012,14 @@ Por ejemplo, para \(f(z) = e^{1/z}\), que tiene una singularidad esencial en
   \frac{a_{-1}}{z-\alpha} + a_0 + a_1(z - \alpha) + \cdots\)
 \end{itemize}
 
-\vspace{-1.5em}
+\vspace{-2em}
 \subsection*{Calculo de residuos para polos}
-\label{sec:orgec78ea2}
+\label{sec:orga1ce62a}
 \vspace{-1.5em}
 \begin{itemize}
 \item Polo simple
 \end{itemize}
+\vspace{-1em}
 $$ f(z) = \frac{b_1}{z - \alpha} + a_0 + a_1(z -
   \alpha) + \cdots $$
 $$ (z-\alpha)f(z) = b_1 + a_0(z - \alpha) + \cdots$$
@@ -1024,6 +1028,7 @@ $$ Res(f, \alpha) = b_1 = \lim_{z \to \alpha} (z - \alpha)f(z) $$
 \begin{itemize}
 \item Polo de orden m
 \end{itemize}
+\vspace{-1em}
 $$f(z) = \frac{b_m}{(z-\alpha)^m} + \cdots + \frac{b_1}{z-\alpha} + a_0 +
 a_1(z-\alpha) + \cdots$$
 $$(z-\alpha)^mf(z) = b_m + \cdots + b_1(z-\alpha)^{m-1} + a_0(z-\alpha)^m +
@@ -1035,9 +1040,95 @@ $$ Res(f, \alpha) = \frac{1}{(m-1)!} \lim_{z \to \alpha} \frac{d^{m-1}}{dz^{m-1}
 
 \vspace{-1.5em}
 \section*{Aplicación del método de residuos al cálculo de integrales reales}
-\label{sec:org40ff530}
+\label{sec:org667e821}
 \vspace{-1.5em}
 \begin{multicols*}{2}
+
+\subsection*{\(\int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta\)}
+\label{sec:org79cfe04}
+\vspace{-1.5em}
+Tomamos el cambio de variable \(z = e^{i\theta}\), entonces
+\[ \cos\theta = \frac{1}{2} \left(    z + \frac{1}{z} \right)  \quad
+\sin\theta = \frac{1}{2i} \left(    z -
+\frac{1}{z} \right) \quad \( d\theta = \frac{dz}{iz} \) \]
+
+y obtenemos una integral \(\int f(z) \; \text{d}z\) con polos dentro de \(\gamma\),  \(\alpha_1,
+\cdots, \alpha_n\), y la resolvemos como 
+\[  \int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta = \int _\gamma
+f(z) \; \text{d}z  = \]\[ = 2\pi i \sum
+_{i=1}^{n} \text{Res} \left( f(z), \alpha_i \right)  \]
+
+
+\subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
+\label{sec:org6fbf44f}
+\vspace{-1.5em}
+Para resolver esta integral requerimos que \textbf{no haya polos en el eje real} y, que
+\(Q(x) \neq 0\) \textbf{en} \(\mathbb{R}\), y que
+\textbf{ord(Q) \(\ge\) 2 + ord(P)}.
+
+En estas condiciones, si \(\alpha_1, \cdots, \alpha_n\) son los polos en el
+\textbf{eje imaginario POSITIVO}, entonces
+\[ \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x  = 2\pi i \sum
+_{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}, \alpha_i \right)  \]
+
+\importante Tenemos que asegurar la existencia de \(\int_{- \infty}^{+ \infty}
+\frac{P(x)}{Q(x)} \; \text{d} x\), porque si no, el resultado será falso.  
+
+\subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} e^{iax} \; \text{d} x\)}
+\label{sec:org320b46d}
+\vspace{-1.5em}
+Para resolver esta integral, la \textbf{fracción no tiene que tener singularidades en
+el eje real}. 
+
+Entonces, 
+\begin{itemize}
+\item si \(a > 0\),  y \(\alpha_1, \cdots, \alpha_n\) son los polos en el \textbf{eje imaginario POSITIVO}, entonces
+\end{itemize}
+\[ \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x  = 2\pi i \sum
+_{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \alpha_i \right)  \]
+
+\begin{itemize}
+\item si \(a < 0\),  y \(\beta_1, \cdots, \beta_n\) son los polos en el \textbf{eje imaginario NEGATIVO}, entonces
+\end{itemize}
+\[ \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x  = -2\pi i \sum
+_{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \beta_i \right)  \]
+
+\subsection*{[Extra] \(V.P. \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
+\label{sec:org560b742}
+\vspace{-1.5em}
+
+\(V P . \int_{-\infty}^{+\infty} f(x) \mathrm{d} x=\)
+\vspace{-0.5em}
+\(\lim _{\varepsilon \rightarrow 0}\left(\int_{-\infty}^{x_{1}-\varepsilon} f(x) \mathrm{d} x+\sum_{j=1}^{p-1} \int_{x_{j}+\varepsilon}^{x_{j+1}-\varepsilon} f(x) \mathrm{d} x+\int_{x_{p}+\varepsilon}^{+\infty} f(x) \mathrm{d} x\right)\)
+
+En este tipo de integral  \textbf{ord(Q) \(\ge\) 2 + ord(P)} y \textbf{\(Q(x)\) tiene ceros simples
+en el eje real}.
+
+Entonces,
+
+\(V . P . \int_{-\infty}^{+\infty} \frac{P(x)}{Q(x)} \mathrm{d} x=2 \pi i \sum_{j=1}^{q} \operatorname{Res}\left(\frac{P(z)}{Q(z)}, z_{j}\right)+\pi i \sum_{j=1}^{p} \operatorname{Res}\left(\frac{P(z)}{Q(z)}, x_{j}\right)\)
+
+Donde \(z_j\) son los ceros de \(Q(z)\) en el semiplano superior, y \(x_j\) son los ceros en el eje real.
+
+\subsection*{[Extra] \(\int _{a}^{b} \frac{P(x)}{Q(x)} \; \text{d} x\)}
+\label{sec:orgf320552}
+En este tipo de integral  \textbf{ord(Q) \(\ge\) 1 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a,b]\)}.
+
+Entonces,
+\[ \int_{a}^{b} \frac{P(x)}{Q(x)} \mathrm{d} x=\sum_{j=1}^{q}
+\operatorname{Res}\left(\frac{P(z)}{Q(z)} \log \frac{z-b}{z-a}, z_{j}\right)\]
+
+
+\subsection*{[Extra] \(\int _{a}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
+\label{sec:org34a7edc}
+En este tipo de integral  \textbf{ord(Q) \(\ge\) 2 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a, +\infty)\)}.
+
+Entonces,
+\[ \int_{a}^{+\infty} \frac{P(x)}{Q(x)} \mathrm{d} x=-\sum_{j=1}^{q}
+\operatorname{Res}\left(\frac{P(z)}{Q(z)} \log (z-a), z_{j}\right) \]
+
+Donde \(\log\) es el logaritmo complejo.
+
 
 
 \end{multicols*}

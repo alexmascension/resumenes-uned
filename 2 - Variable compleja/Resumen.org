@@ -1012,9 +1012,12 @@ Entonces, para cada \( w \in \mathbb{C} \), con una excepción a lo sumo, existe
 una sucesión \( z_n \rightarrow  \alpha  \) tal que \( f(z_n) = w  \). \\ 
 Por ejemplo, para \( f(z) = e^{1/z} \), que tiene una singularidad esencial en
 0, queremos que \( w = 3 + i \). Entonces, la sucesión \( z_n =
-\frac{3 + i}{2n\pi i} \) cumple que para \( n \rightarrow \infty \), 
+\frac{1}{\log{3 + i}} = \frac{1}{\sqrt{4} + i\cdotArg(3+i) + 2\pi n} \) cumple que
+para \( n \rightarrow \infty \), \( z_n \rightarrow 0 \) y \( e^{\frac{1}{z_n}}
+= e^{\sqrt{4} + i \cdot Arg(3+i) + 2\pi n} = 3+i \) para todo \( n \). La
+excepción en este caso es \( w = 0 \), donde \( z_n \) no existe.
 
-\vspace{-1.5em}
+\vspace{-2em}
 ** Resumen de casos (según series de Laurent)
 \vspace{-1.5em}
 - Singularidad evitable: \( a_0 + a_1 (z - \alpha) + \cdots \)
@@ -1023,16 +1026,18 @@ Por ejemplo, para \( f(z) = e^{1/z} \), que tiene una singularidad esencial en
 - Singularidad esencial: \(  \cdots +
   \frac{a_{-1}}{z-\alpha} + a_0 + a_1(z - \alpha) + \cdots \)
  
-\vspace{-1.5em}
+\vspace{-2em}
 ** Calculo de residuos para polos
 \vspace{-1.5em}
 - Polo simple
+\vspace{-1em}
 $$ f(z) = \frac{b_1}{z - \alpha} + a_0 + a_1(z -
   \alpha) + \cdots $$
 $$ (z-\alpha)f(z) = b_1 + a_0(z - \alpha) + \cdots$$
 $$ Res(f, \alpha) = b_1 = \lim_{z \to \alpha} (z - \alpha)f(z) $$ 
 
 - Polo de orden m
+\vspace{-1em}
 $$f(z) = \frac{b_m}{(z-\alpha)^m} + \cdots + \frac{b_1}{z-\alpha} + a_0 +
 a_1(z-\alpha) + \cdots$$
 $$(z-\alpha)^mf(z) = b_m + \cdots + b_1(z-\alpha)^{m-1} + a_0(z-\alpha)^m +
@@ -1050,6 +1055,85 @@ $$ Res(f, \alpha) = \frac{1}{(m-1)!} \lim_{z \to \alpha} \frac{d^{m-1}}{dz^{m-1}
 #+BEGIN_EXPORT latex
 \begin{multicols*}{2}
 #+END_EXPORT
+
+** \( \int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta  \)
+\vspace{-1.5em}
+Tomamos el cambio de variable \( z = e^{i\theta} \), entonces
+\[ \cos\theta = \frac{1}{2} \left(    z + \frac{1}{z} \right)  \quad
+\sin\theta = \frac{1}{2i} \left(    z -
+\frac{1}{z} \right) \quad \( d\theta = \frac{dz}{iz} \) \]
+
+y obtenemos una integral \( \int f(z) \; \text{d}z  \) con polos dentro de \(
+\gamma \),  \( \alpha_1,
+\cdots, \alpha_n \), y la resolvemos como 
+\[  \int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta = \int _\gamma
+f(z) \; \text{d}z  = \]\[ = 2\pi i \sum
+_{i=1}^{n} \text{Res} \left( f(z), \alpha_i \right)  \]
+
+
+** \( \int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x   \)
+\vspace{-1.5em}
+Para resolver esta integral requerimos que *no haya polos en el eje real* y, que
+\( Q(x) \neq 0 \) *en* \( \mathbb{R} \), y que
+*ord(Q) \ge 2 + ord(P)*.
+
+En estas condiciones, si \( \alpha_1, \cdots, \alpha_n \) son los polos en el
+*eje imaginario POSITIVO*, entonces
+\[ \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x  = 2\pi i \sum
+_{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}, \alpha_i \right)  \]
+
+\importante Tenemos que asegurar la existencia de \( \int_{- \infty}^{+ \infty}
+\frac{P(x)}{Q(x)} \; \text{d} x \), porque si no, el resultado será falso.  
+
+** \( \int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} e^{iax} \; \text{d} x   \)
+\vspace{-1.5em}
+Para resolver esta integral, la *fracción no tiene que tener singularidades en
+el eje real*. 
+
+Entonces, 
+- si \( a > 0 \),  y \( \alpha_1, \cdots, \alpha_n \) son los polos en el *eje imaginario POSITIVO*, entonces
+\[ \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x  = 2\pi i \sum
+_{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \alpha_i \right)  \]
+
+- si \( a < 0 \),  y \( \beta_1, \cdots, \beta_n \) son los polos en el *eje imaginario NEGATIVO*, entonces
+\[ \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x  = -2\pi i \sum
+_{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \beta_i \right)  \]
+
+** [Extra] \(V.P. \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x   \)
+\vspace{-1.5em}
+
+\( V P . \int_{-\infty}^{+\infty} f(x) \mathrm{d} x= \)
+\vspace{-0.5em}
+\(\lim _{\varepsilon \rightarrow 0}\left(\int_{-\infty}^{x_{1}-\varepsilon} f(x) \mathrm{d} x+\sum_{j=1}^{p-1} \int_{x_{j}+\varepsilon}^{x_{j+1}-\varepsilon} f(x) \mathrm{d} x+\int_{x_{p}+\varepsilon}^{+\infty} f(x) \mathrm{d} x\right) \)
+
+En este tipo de integral  *ord(Q) \ge 2 + ord(P)* y *\( Q(x) \) tiene ceros simples
+en el eje real*.
+
+Entonces,
+
+\( V . P . \int_{-\infty}^{+\infty} \frac{P(x)}{Q(x)} \mathrm{d} x=2 \pi i \sum_{j=1}^{q} \operatorname{Res}\left(\frac{P(z)}{Q(z)}, z_{j}\right)+\pi i \sum_{j=1}^{p} \operatorname{Res}\left(\frac{P(z)}{Q(z)}, x_{j}\right) \)
+
+Donde \( z_j \) son los ceros de \( Q(z) \) en el semiplano superior, y \( x_j
+\) son los ceros en el eje real.
+
+** [Extra] \( \int _{a}^{b} \frac{P(x)}{Q(x)} \; \text{d} x   \)
+   En este tipo de integral  *ord(Q) \ge 1 + ord(P)* y *\( Q(x) \neq 0 \)  en \( [a,b] \)*.
+
+Entonces,
+\[ \int_{a}^{b} \frac{P(x)}{Q(x)} \mathrm{d} x=\sum_{j=1}^{q}
+\operatorname{Res}\left(\frac{P(z)}{Q(z)} \log \frac{z-b}{z-a}, z_{j}\right)\]
+
+
+** [Extra] \( \int _{a}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x   \)
+   En este tipo de integral  *ord(Q) \ge 2 + ord(P)* y *\( Q(x) \neq 0 \)  en \(
+   [a, +\infty) \)*.
+
+Entonces,
+\[ \int_{a}^{+\infty} \frac{P(x)}{Q(x)} \mathrm{d} x=-\sum_{j=1}^{q}
+\operatorname{Res}\left(\frac{P(z)}{Q(z)} \log (z-a), z_{j}\right) \]
+
+Donde \( \log \) es el logaritmo complejo.
+
 
 
 #+BEGIN_EXPORT latex
