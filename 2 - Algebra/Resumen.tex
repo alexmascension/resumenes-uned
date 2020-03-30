@@ -1,4 +1,4 @@
-% Created 2020-03-15 Sun 14:09
+% Created 2020-03-30 Mon 11:43
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,12 +99,12 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:org49228af}
+\label{sec:org4e4eff7}
 \begin{multicols*}{2}
 
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org0f5505b}
+\label{sec:org1ed9933}
 \vspace{-1.5em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
@@ -216,7 +216,7 @@ conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo en
 ellos.
 \vspace{-1.5em}
 \subsection*{Divisibilidad}
-\label{sec:org0fb8269}
+\label{sec:org7b5c89c}
 \vspace{-1.5em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
@@ -412,11 +412,11 @@ Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
 \pagebreak
 
 \section*{Polinomios}
-\label{sec:org53b6594}
+\label{sec:orga1c709d}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org23f4156}
+\label{sec:org388ff8c}
 \vspace{-1.5em}
 \defi{1.1} Un polinomio es una construcción que necesita un anillo conmutativo
 unitario \(B\) y un subanillo \(A\). Cada elemento \(f\) de \(B\) se
@@ -503,7 +503,7 @@ T}\) y \(\frac{\partial fg}{\partial T} = f \frac{\partial g}{\partial T} + g
 \frac{\partial f}{\partial T}\). 
 \vspace{-1.5em}
 \subsection*{División de polinomios}
-\label{sec:org7b599af}
+\label{sec:orga4bb7e7}
 \vspace{-1.5em}
 \lema{2.1} Sea \(g \in A[T]\) y \(a \neq 0\) su coeficiente director.
 Entonces para cualquier \(f \in A[T]\) existen \(Q, R \in A[T]\) únicos tales que
@@ -542,7 +542,7 @@ por  \(\textbf{c}f\), al máximo común divisor de sus coeficientes. Así, \(\te
 \cdots, x_n \in L\) tales que \(f = a_0(T - x_1)\cdots(T-x_n)\). 
 \vspace{-1.5em}
 \subsection*{Factorización}
-\label{sec:org2310751}
+\label{sec:orgf6701cf}
 \vspace{-1.5em}
    \propo{3.2 (Factorización de Kronecker)} Sea \(f \in A[T]\), \(A\) de 
 característica 0 y \(U(A)\) es finito, \(\textbf{c}(f) = 1\), \(\partial f
@@ -585,11 +585,11 @@ irreducible.
 \pagebreak
 
 \section*{Extensiones de cuerpos}
-\label{sec:org6be3cdc}
+\label{sec:org06ac142}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org1dfe85a}
+\label{sec:org3fb9832}
 \vspace{-1.5em}
 \defi{1.1} Sean \(K, E\) cuerpos. Se dice que \(E\) es una \textbf{extensión} de \(K\), y se escribe \(E/K\) cuando existe un homomorfismo de cuerpos \(j: K
 \rightarrow E\). Como \(K\) es cuerpo, \(\text{ker } f = \{ 0 \}\) y \(f\) es monomorfismo, isomorfo a \(j(K)\), subcuerpo de \(E\).
@@ -653,7 +653,7 @@ elementos de \(E\). Se tiene un homomorfismo evaluación \(K[X_1, \cdots, X_n]
 
 \vspace{-1.5em}
 \subsection*{Extensiones simples}
-\label{sec:org26194a5}
+\label{sec:orgb9bffc2}
 \vspace{-1.5em}
 \defi{2.0} Una extensión es \textbf{simple} cuando \(E\) está generado sobre \(K\)
 por \(\alpha \in E\).  
@@ -680,7 +680,7 @@ cantidad finita de subextensiones.
 transcendente/algebráica si la extensión inicial lo es.
 
 \subsection*{Extensiones finitamente generadas}
-\label{sec:org444161c}
+\label{sec:org13beff3}
 \defi{3.1} Se llama \textbf{grado de trascendencia} de \(E/K\) al mayor número
 posible de elementos de \(E\) algebráicamente independientes sobre \(K\).
 
@@ -704,6 +704,74 @@ finita de cuerpos de característica cero, entonces es simple algebráica: \(E =
 L(\alpha)\) para algún para algún \(\alpha \in E\). Este \(\alpha\) se
 llama elemento primitivo de la extensión.
 
+
+
+\end{multicols*}
+\pagebreak
+
+
+
+\section*{Teoría de Galois}
+\label{sec:orgff67af1}
+\begin{multicols*}{2}
+\vspace{-1.5em}
+
+\subsection*{Grupos de automorfismos}
+\label{sec:org9bbc25f}
+\defi{1.0} Si \(K\) tiene característica cero, y \(E/K\) es una extensión, 
+el isomorfismo \(E/K \simeq E/K\) es un isomorfismo de cuerpos \(\phi: E
+   \rightarrow  E\) tal que \(\phi|K = Id_K\). Este isomorfismo se denomina
+\textbf{automorfismo} y el conjunto de ellos se llama \(Aut(E:K)\) o \(G(E:K)\).
+
+\obs{1.0} Si \(Aut(G)\) o \(G(E)\) es el conjunto de isomorfismos de cuerpos
+\(\phi: E \rightarrow  E\), \(G(E)\) es un grupo que contiene a \(G(E:K)\)
+como subgrupo.
+
+\ejem{1.1.1} Sean \(X, Y\) dos indeterminadas, y sean \(K = \mathbb{Q}(X), E = K(Y) =
+\mathbb{Q}(X,Y)\). Se define el isomorfismo \(\phi: E \simeq E\) tal que \(\phi(X) = Y, \phi(Y) = X, \phi(q) = q, q \in \mathbb{Q}\).
+Se ve que \(\phi \in G(E), \phi \not\in G(E:K)\) porque \(\phi(X) \neq X
+\rightarrow \phi|_K \neq Id_K\). 
+
+\ejem{1.1.2} Sea \(\phi\) un isomorfismo, con \(E\) de característica cero.
+Entonces \(\phi|\mathbb{Q} = Id_\mathbb{Q}\), luego \(\phi \in G(E:\mathbb{Q})\) y \(G(E) = G(E:\mathbb{Q})\).
+
+\propo{1.2} Si \(E'/K \simeq E/K\) entonces \(G(E':K) \simeq G(E:K)\). 
+\dem{ Por hipótesis \( E'/K \simeq E/K \) y existe un isomorfismo de cuerpos \( h:E' \rightarrow  E \) tal que \( h|K = Id_K \), y 
+\( G(E:K) \rightarrow G(E':K): \phi \mapsto h^{-1} \circ \phi \circ h \) es isomorfismo de grupos.  }
+
+\obs{1.4} orden de \(G(E:K) \le [E:K]\).
+
+\subsection*{Extensiones de Galois}
+\label{sec:org89675a0}
+\vspace{-1.5em}
+\defi{2.1} La extensión finita \(E/K\) se denomina \textbf{extensión de Galois} si
+orden \(G(E:K) = [E:K]\).
+
+\obs{2.2} Si \(\alpha \in E\) es un elemento primitivo de \(E/K\), es decir,
+\(E = K(\alpha)\), \(E/K\) es de Galois sii el polinomio mínimo \(P =
+P(\alpha, K)\) tiene \(r = \partial P = [E:K]\) raices distintas en \(E\).
+
+\propo{2.3} Si \(E/K\) es de Galois y \(L/K\) es una subextensión de \(E/K\), entonces \(E/L\) es de Galois.
+
+\propo{2.4} Sea \(E\) un cuerpo de característica 0, y \(G(E)\) su grupo de
+automorfismos. Dado un subgrupo finito \(H\) de \(G(E)\) el conjunto \(F =
+\{ x \in E \;|\; \phi(x) = x \text{ para todo } \phi \in H \}\) es el \textbf{cuerpo
+fijo de \(H\)}, y \(E/F\) es una extensión de Galois con grupo de
+automorfismos \(G(E:F) = H\).
+
+\propo{2.5} Sea \(E/K\) una extensión finita y \(H = G(E:K)\) su grupo de
+automorfismos. Son equivalentes (1) \(E/K\) es de Galois y (2) \(K\) es el
+cuerpo fijo de \(H\).
+
+\propo{2.6 (Teorema fundamental de Galois, 1ª parte)}
+Sea \(E/K\) de Galois. Entonces la aplicación \(L/K \mapsto G(E:L)\) es una
+biyección del conjunto de las subextensiones de \(E/K\) sobre el conjunto de
+los subgrupos de \(G(E:K)\). La aplicación inversa: \(H \mapsto L/K\) queda
+definida por \(L = \text{ cuerpo fijo de } H\).
+
+\propo{2.7 (Teorema fundamental de Galois, 2ª parte)}
+Sea \(E/K\) de Galois. Entonces son equivalentes (1) \(L/K\) es una
+subextensión de Galois de \(E/K\), y (2) \(G(E:L)\) es subgrupo normal de \(G(E:K)\). En ese caso, además, \(G(L:K) \simeq G(E:K)/G(E:L)\).
 
 
 \end{multicols*}

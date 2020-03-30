@@ -664,3 +664,78 @@ llama elemento primitivo de la extensión.
 \end{multicols*}
 \pagebreak
 #+END_EXPORT
+
+
+
+* Teoría de Galois
+#+BEGIN_EXPORT latex
+\begin{multicols*}{2}
+#+END_EXPORT
+\vspace{-1.5em}
+
+** Grupos de automorfismos
+   \defi{1.0} Si \( K \) tiene característica cero, y \( E/K \) es una extensión, 
+   el isomorfismo \( E/K \simeq E/K \) es un isomorfismo de cuerpos \( \phi: E
+   \rightarrow  E \) tal que \( \phi|K = Id_K \). Este isomorfismo se denomina
+   *automorfismo* y el conjunto de ellos se llama \( Aut(E:K) \) o \( G(E:K) \).
+
+\obs{1.0} Si \( Aut(G) \) o \( G(E) \) es el conjunto de isomorfismos de cuerpos
+\( \phi: E \rightarrow  E \), \( G(E) \) es un grupo que contiene a \( G(E:K) \)
+como subgrupo.
+
+\ejem{1.1.1} Sean \( X, Y \) dos indeterminadas, y sean \( K = \mathbb{Q}(X), E = K(Y) =
+\mathbb{Q}(X,Y) \). Se define el isomorfismo \( \phi: E \simeq E \) tal que \(
+\phi(X) = Y, \phi(Y) = X, \phi(q) = q, q \in \mathbb{Q} \).
+Se ve que \( \phi \in G(E), \phi \not\in G(E:K) \) porque \( \phi(X) \neq X
+\rightarrow \phi|_K \neq Id_K \). 
+
+\ejem{1.1.2} Sea \( \phi \) un isomorfismo, con \( E \) de característica cero.
+Entonces \( \phi|\mathbb{Q} = Id_\mathbb{Q} \), luego \( \phi \in G(E:\mathbb{Q})
+\) y \( G(E) = G(E:\mathbb{Q}) \).
+
+\propo{1.2} Si \( E'/K \simeq E/K \) entonces \( G(E':K) \simeq G(E:K) \). 
+#+BEGIN_EXPORT latex
+\dem{ Por hipótesis \( E'/K \simeq E/K \) y existe un isomorfismo de cuerpos \( h:E' \rightarrow  E \) tal que \( h|K = Id_K \), y 
+\( G(E:K) \rightarrow G(E':K): \phi \mapsto h^{-1} \circ \phi \circ h \) es isomorfismo de grupos.  }
+#+END_EXPORT
+
+\obs{1.4} orden de \( G(E:K) \le [E:K] \).
+
+** Extensiones de Galois
+\vspace{-1.5em}
+\defi{2.1} La extensión finita \( E/K \) se denomina *extensión de Galois* si
+orden \( G(E:K) = [E:K] \).
+
+\obs{2.2} Si \( \alpha \in E \) es un elemento primitivo de \( E/K \), es decir,
+\( E = K(\alpha) \), \( E/K \) es de Galois sii el polinomio mínimo \(  P =
+P(\alpha, K) \) tiene \( r = \partial P = [E:K] \) raices distintas en \( E \).
+
+\propo{2.3} Si \( E/K \) es de Galois y \( L/K \) es una subextensión de \( E/K
+\), entonces \( E/L \) es de Galois.
+
+\propo{2.4} Sea \( E \) un cuerpo de característica 0, y \( G(E) \) su grupo de
+automorfismos. Dado un subgrupo finito \( H \) de \( G(E) \) el conjunto \( F =
+\{ x \in E \;|\; \phi(x) = x \text{ para todo } \phi \in H \} \) es el *cuerpo
+fijo de \( H \)*, y \( E/F \) es una extensión de Galois con grupo de
+automorfismos \( G(E:F) = H \).
+
+\propo{2.5} Sea \( E/K \) una extensión finita y \( H = G(E:K) \) su grupo de
+automorfismos. Son equivalentes (1) \( E/K \) es de Galois y (2) \( K \) es el
+cuerpo fijo de \( H \).
+
+\propo{2.6 (Teorema fundamental de Galois, 1ª parte)}
+Sea \( E/K \) de Galois. Entonces la aplicación \( L/K \mapsto G(E:L) \) es una
+biyección del conjunto de las subextensiones de \( E/K \) sobre el conjunto de
+los subgrupos de \( G(E:K) \). La aplicación inversa: \( H \mapsto L/K \) queda
+definida por \( L = \text{ cuerpo fijo de } H \).
+
+\propo{2.7 (Teorema fundamental de Galois, 2ª parte)}
+Sea \( E/K \) de Galois. Entonces son equivalentes (1) \( L/K \) es una
+subextensión de Galois de \( E/K \), y (2) \( G(E:L) \) es subgrupo normal de \(
+G(E:K) \). En ese caso, además, \( G(L:K) \simeq G(E:K)/G(E:L) \).
+ 
+
+#+BEGIN_EXPORT latex
+\end{multicols*}
+\pagebreak
+#+END_EXPORT
