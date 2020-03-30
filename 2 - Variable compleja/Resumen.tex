@@ -1,4 +1,4 @@
-% Created 2020-03-22 Sun 00:24
+% Created 2020-03-30 Mon 12:55
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:org79e0b5b}
+\label{sec:orge6e91f1}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:org01ffaa5}
+\label{sec:orga88788d}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:org763f524}
+\label{sec:orgaeef42b}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:orgc88f240}
+\label{sec:orgb96cff6}
 \begin{multicols*}{2}
 
 
@@ -506,14 +506,14 @@ y, por las ecs. de Cauchy-Riemman, \( - \frac{\partial v}{\partial x} - \frac{\p
 \mathbb{C}\), \(A \subset \mathbb{C}\) abierto, y \(f\) analítica en \(A\
 \{ p \}\). Si \(T\) es el triángulo cerrado contenido en \(A\), se tiene \(\int _{\partial T} f \; \text{d} z = 0\).
 
-\tma{4.4.3 (T de Cauchy para un conjunto convexo)}. Sea \(f\) analítica en \(A\{p}\) con \(p \in A\) y continua en \(A\). Entonces   \(\int _{\partial T} f \; \text{d} z = 0\) para todo camino cerrado y
+\tma{4.4.3 (T de Cauchy para un conjunto convexo)}. Sea \(f\) analítica en \(A\{p\}\) con \(p \in A\) y continua en \(A\). Entonces   \(\int _{\partial T} f \; \text{d} z = 0\) para todo camino cerrado y
 rectificable en \(A\).
 
 \end{multicols*}
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org7a0259a}
+\label{sec:org7b3ec7f}
 \begin{multicols*}{2}
 
 
@@ -670,7 +670,7 @@ Además, si para un \(z_{0} \in B(0,1), z_{0} \neq 0\), se tiene
 \pagebreak
 
 \section*{Teorema general de Cauchy}
-\label{sec:org6b54788}
+\label{sec:org62b66e3}
 \begin{multicols*}{2}
 
 \defi{6.1.1} Dos caminos \(\gamma_0, \gamma_1\) con \(\gamma_0^*, \gamma_1^*
@@ -731,7 +731,7 @@ afirmaciones son equivalentes:
 
 \vspace{-1em}
 \subsection*{Desarrollo en serie de Laurent}
-\label{sec:org257657b}
+\label{sec:org2e2d422}
 \vspace{-1em}
 \tma{6.4.1 (Series de Laurent)} Sea \(f(z)\) analítica en la corona circular
 \(A = \{ z \;|\; r < |z-\alpha| < R \}\), donde \(r\) puede ser 0 y \(R\)
@@ -825,7 +825,7 @@ la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 
 \vspace{-1.5em}
 \section*{Ceros de las funciones analíticas. Singularidades aisladas.}
-\label{sec:orga92e5de}
+\label{sec:orga245d29}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 \tma{7.1.1} Sea \(f: A \rightarrow  \mathbb{C}\), con \(A\) un dominio. 
@@ -871,7 +871,7 @@ $, vale $a_{2}$ en $z=\alpha$ y coincide con $f$ en $B^{*}(\alpha, r),$ luego
 \(f\) en \(A / \{ \alpha \}\). Entonces (1) \(f\) tiene una singularidad
 evitable en \(\alpha\), (2) existen complejos \(c_1, \cdots, c_m \neq 0\) 
 y la función \(f(z) - \sum _{k=1}^{m} \frac{c_k}{(z-\alpha)^k}\) tiene una
-singularidad evitable en \(\alpha\), o (3) para todo \(B(alpha, r) \subset A, r > 0\)
+singularidad evitable en \(\alpha\), o (3) para todo \(B(\alpha, r) \subset A, r > 0\)
 la imagen de \(f\) en \(B^*(\alpha, r)\) es densa en \(\mathbb{C}\).
 
 \defi{7.2.2} Sea \(A \subset \overline{\mathbb{C}}\) abierto y \(f\)
@@ -913,15 +913,14 @@ un desarrollo en serie de potencias de $z-\alpha$;
 $f(z)(z-\alpha)^{m}=\sum_{n=0}^{\infty} b_{n}(z-\alpha)^{n}, \text { con } b_{0} \neq 0$.
 De esta igualdad resulta si $z \neq \alpha$
 $$
-f(z) &=\frac{1}{(z-\alpha)^{m}} \sum_{n=0}^{\infty} b_{n}(z-\alpha)^{n}
+f(z) =\frac{1}{(z-\alpha)^{m}} \sum_{n=0}^{\infty} b_{n}(z-\alpha)^{n}
 =p(z)+\sum_{n=m}^{\infty} b_{n}(z-\alpha)^{n-m}
 $$
 donde
 $$
 p(z)=\sum_{n=1}^{m} \frac{b_{m-n}}{(z-\alpha)^{n}}, \text { con } b_{0} \neq 0
 $$
-De aquí se deduce que $\alpha$ es un polo de orden $m$ y su parte principal es $p$.
-  }
+De aquí se deduce que $\alpha$ es un polo de orden $m$ y su parte principal es $p$.}
 
 \tma{7.3.2} Si \(f(z)\) es analítica en el abierto \(A\) y si \(f(z)\)
 tiene un cero de orden \(m\) en \(\alpha \in A\), entonces la función \(g(z) = \frac{1}{f(z)}\) tiene un polo de orden \(m\) en \(\alpha\).
@@ -995,14 +994,14 @@ Entonces, para cada \(w \in \mathbb{C}\), con una excepción a lo sumo, existe
 una sucesión \(z_n \rightarrow  \alpha\) tal que \(f(z_n) = w\). \\
 Por ejemplo, para \(f(z) = e^{1/z}\), que tiene una singularidad esencial en
 0, queremos que \(w = 3 + i\). Entonces, la sucesión \(z_n =
-\frac{1}{\log{3 + i}} = \frac{1}{\sqrt{4} + i\cdotArg(3+i) + 2\pi n}\) cumple que
+\frac{1}{\log{3 + i}} = \frac{1}{\sqrt{4} + i\cdot Arg(3+i) + 2\pi n}\) cumple que
 para \(n \rightarrow \infty\), \(z_n \rightarrow 0\) y \(e^{\frac{1}{z_n}}
 = e^{\sqrt{4} + i \cdot Arg(3+i) + 2\pi n} = 3+i\) para todo \(n\). La
 excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
 \vspace{-2em}
 \subsection*{Resumen de casos (según series de Laurent)}
-\label{sec:orga8f8bc7}
+\label{sec:orgd5ce1c0}
 \vspace{-1.5em}
 \begin{itemize}
 \item Singularidad evitable: \(a_0 + a_1 (z - \alpha) + \cdots\)
@@ -1014,7 +1013,7 @@ excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
 \vspace{-2em}
 \subsection*{Calculo de residuos para polos}
-\label{sec:orga1ce62a}
+\label{sec:org9b259a1}
 \vspace{-1.5em}
 \begin{itemize}
 \item Polo simple
@@ -1040,17 +1039,17 @@ $$ Res(f, \alpha) = \frac{1}{(m-1)!} \lim_{z \to \alpha} \frac{d^{m-1}}{dz^{m-1}
 
 \vspace{-1.5em}
 \section*{Aplicación del método de residuos al cálculo de integrales reales}
-\label{sec:org667e821}
+\label{sec:orgea63641}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 
 \subsection*{\(\int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta\)}
-\label{sec:org79cfe04}
+\label{sec:org2d3044f}
 \vspace{-1.5em}
 Tomamos el cambio de variable \(z = e^{i\theta}\), entonces
 \[ \cos\theta = \frac{1}{2} \left(    z + \frac{1}{z} \right)  \quad
 \sin\theta = \frac{1}{2i} \left(    z -
-\frac{1}{z} \right) \quad \( d\theta = \frac{dz}{iz} \) \]
+\frac{1}{z} \right) \quad  d\theta = \frac{dz}{iz}  \]
 
 y obtenemos una integral \(\int f(z) \; \text{d}z\) con polos dentro de \(\gamma\),  \(\alpha_1,
 \cdots, \alpha_n\), y la resolvemos como 
@@ -1060,7 +1059,7 @@ _{i=1}^{n} \text{Res} \left( f(z), \alpha_i \right)  \]
 
 
 \subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org6fbf44f}
+\label{sec:org403698a}
 \vspace{-1.5em}
 Para resolver esta integral requerimos que \textbf{no haya polos en el eje real} y, que
 \(Q(x) \neq 0\) \textbf{en} \(\mathbb{R}\), y que
@@ -1075,7 +1074,7 @@ _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}, \alpha_i \right)  \]
 \frac{P(x)}{Q(x)} \; \text{d} x\), porque si no, el resultado será falso.  
 
 \subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} e^{iax} \; \text{d} x\)}
-\label{sec:org320b46d}
+\label{sec:org128cb85}
 \vspace{-1.5em}
 Para resolver esta integral, la \textbf{fracción no tiene que tener singularidades en
 el eje real}. 
@@ -1094,7 +1093,7 @@ _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \alpha_i \right)  \]
 _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \beta_i \right)  \]
 
 \subsection*{[Extra] \(V.P. \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org560b742}
+\label{sec:org8018ae8}
 \vspace{-1.5em}
 
 \(V P . \int_{-\infty}^{+\infty} f(x) \mathrm{d} x=\)
@@ -1111,7 +1110,7 @@ Entonces,
 Donde \(z_j\) son los ceros de \(Q(z)\) en el semiplano superior, y \(x_j\) son los ceros en el eje real.
 
 \subsection*{[Extra] \(\int _{a}^{b} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:orgf320552}
+\label{sec:orgafda0f7}
 En este tipo de integral  \textbf{ord(Q) \(\ge\) 1 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a,b]\)}.
 
 Entonces,
@@ -1120,7 +1119,7 @@ Entonces,
 
 
 \subsection*{[Extra] \(\int _{a}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org34a7edc}
+\label{sec:org6ef9e87}
 En este tipo de integral  \textbf{ord(Q) \(\ge\) 2 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a, +\infty)\)}.
 
 Entonces,
@@ -1129,6 +1128,85 @@ Entonces,
 
 Donde \(\log\) es el logaritmo complejo.
 
+
+
+\end{multicols*}
+\pagebreak
+
+\section*{Transformación conforme}
+\label{sec:orgbdbb4ce}
+\vspace{-1.5em}
+\begin{multicols*}{2}
+
+\defi{9.0} una \textbf{transformación de Möbius} es una transformación \(\phi:
+\hat{\mathbb{C}} \rightarrow  \hat{\mathbb{C}}\) o \(\phi: \mathbb{S}
+\rightarrow  \mathbb{S}\).
+\[ w = \phi(z) = \frac{az + b}{cz + d} \]
+Donde \(a,b,c,d \in \hat{\mathbb{C}}\) y \(ad - bc \neq 0\).
+
+\obs{9.1} Se tiene que \(\phi(\infty) = \frac{a}{c}\) y \(\phi ^{-1}(\infty)
+= - \frac{d }{c}\)
+
+\obs{9.2} Casos particulares
+\begin{itemize}
+\item Traslación: \(w = z+b\)
+\item Homotecia de centro el origen: \(w = az\)
+\item Giros alrededor del origen: \(w = az, |a| = 1\)
+\item Inversión: \(w = \frac{1}{z}\)
+\end{itemize}
+
+\propo{9.3.1} Una transformación de Möbius transforma el semiplano superior \(H^+ = \{ z \;|\; \text{Im }z > 0 \}\) en el círculo unidad \(D(0,1) = \{ z
+\;|\; |z| < 1 \}\) sii es de la forma 
+\[ w = e^{i\theta} \frac{z - \alpha}{z - \bar{\alpha}} \]
+donde \(\alpha \in H^+\) y \(\theta \in [0, 2\pi]\).
+
+\propo{9.3.2} Las transformaciones de Möbius que transforman el círculo unidad
+sobre sí mismo son aquellas de la forma 
+\[ w = e^{i\theta} \frac{z-\alpha}{1- \bar{\alpha}z} \]
+donde \(|\alpha| < 1\) y \(\theta \in [0, 2\pi]\).
+\dem{ Topológicamente, toda transformación de Möbius que transforme el círculo
+unida sobre sí mismo habrá de transformar la circunferencia unidad \( C(0,1) \)
+sobre sí misma.
+Sea \( \alpha \in D(0,1) \) que se transforma en el origen, de modo que el inverso 
+\( \frac{1}{\bar{\alpha}} \) se transforma en \( \infty \). Así, la transformación 
+\( w = \frac{az + b}{cz + d } \) debe satisfacer \( \alpha = - \frac{b}{a} \), 
+\( \frac{1}{\alpha} = - \frac{d }{c} \), luego 
+\[ w = \frac{a(z-\alpha)}{c(c - \frac{1}{\hat{\alpha}}} = \frac{a \hat{\alpha}}{c}\frac{z - \alpha}{\hat{\alpha} - 1} \]
+Como además la imagen de \( z = 1 \in C(0,1) \), \( w(1) \in C(0,1) \), entonces
+\( |w(1)| = 1 \) y \( \left|  \frac{a \hat{\alpha}}{c}\frac{z - \alpha}{\hat{\alpha} - 1}  \right| = 
+ \left|  \frac{a \hat{\alpha}}{c} \right| = 1 \),
+lo que prueba la proposición.}
+
+\tma{9.4.1 (Tma de Riemann de la transformación conforme)} Sea \(A \subset
+\mathbb{C}\) simplemente conexa y distinta a \(\mathbb{C}\). Entonces 
+existe una transformación conforme \(f: A \rightarrow  D(0,1)\) analítica 
+y biyectiva en \(C(0,1)\). Además, si fijamos \(z_0 \in A\) podemos
+construir \(f\) tal que \(f(z_0) = 0\) y \(f'(z_0) > 0 \in \mathbb{R}\).
+Además, \(f\) es única.
+\dem{ La unicidad es consecuencia del Lema de Schwarz. En efecto supongamos que 
+hubiera dos transformaciones conformes $f, g$ biyectivas $f, g: A \rightarrow D(0,1)$ con 
+$f\left(z_{0}\right)=g\left(z_{0}\right)=0$ y $f^{\prime}\left(z_{0}\right)>0, g^{\prime}\left(z_{0}\right)>0$. Entonces podemos definir
+$h: D(0,1) \rightarrow D(0,1)$ mediante $h(w)=g \circ f^{-1}(w)$, de tal forma que 
+$h(0)=$ $g\left(f^{-1}(0)\right)=g\left(z_{0}\right)=0$, y por tanto por el Lema de Schwarz 
+$|h(w)| \leq|w|$ para $w \in D$. El mismo argumento es aplicable a $h^{-1}=f \circ g^{-1}$, 
+de tal forma que $\left|h^{-1}(\zeta)\right| \leq|\zeta|$ para $\zeta \in D$ con $\zeta=h(w)$. 
+Concluimos que $|h(w)|=|w|$ para todo $w \in D$, pero xen este caso el 
+Lema de Schwarz asegura que $h(w)=e^{i \theta} w$ para $w \in D$ y por tanto tomando 
+$w=f(z), z \in A$ también $e^{i \theta} f(z)=$ $h(f(z))=g \circ f^{-1}(f(z))=g(z)$. 
+De aquí se concluye $e^{i \theta} f^{\prime}\left(z_{0}\right)=g^{\prime}\left(z_{0}\right)$ y
+puesto que $f^{\prime}\left(z_{0}\right), g^{\prime}\left(z_{0}\right)$ son ambos positivos, obtenemos que 
+$e^{i \theta}=1$ y por tanto $f(z) \equiv g(z)$.  }
+
+
+\tma{9.4.2 (Fórmula de Schwarz-Christoffel)} La transformación confrme del
+semiplano superior \(H^+ = \{ z \;|\; \text{Im }z>0 \}\) sobre el polígono
+\(P\) viene dada por 
+\[ w = f(z) = a \left( \int _{z_0}^z (\theta - x_1)^{-\alpha_1} \cdots 
+(\theta - x_n)^{-\alpha_n}  \; \text{d}\theta  \right)  + b \]
+donde \(a,b\) son parámetros a determinar a partir de los datos del polígono,
+la integración se realiza a lo largo de cualquier camino \(\gamma \in H^+\)
+comenzando en \(z_0 \in H^+\). Los puntos \(x_1, \cdots, x_n\) pueden ser
+elegidos arbitrariamente y se verifica que \(f(x_1) = w_1, \cdots, f(x_n) = w_n\).
 
 
 \end{multicols*}
