@@ -442,11 +442,11 @@ _{n=1}^{\infty} \int _\gamma f_n \; \text{d}z  = \int _\gamma F \; \text{d}z
 
 
 \propo{4.3.1} Sean \( f, \gamma \), \( \gamma: [a,b] \rightarrow  \mathbb{C} \) de clase \( \mathbb{C}^1 \). Si
-\( F \) es una frimitiva de \( F \), se tiene que \( \int _\gamma f \; \text{d}
+\( F \) es una primitiva de \( F \), se tiene que \( \int _\gamma f \; \text{d}
 z   \) = F(\gamma(a)) - F(\gamma(b)).
 #+BEGIN_EXPORT latex
 \dem{ Si \( \int _\gamma f \; \text{d}z = \int_ { a }^{ b } f(\gamma(t))\gamma'(t) \; \text{d}t   \), como la derivada de 
-\( F(\gamma(t) = F'(\gamma(t))\gamma'(t) = f(\gamma(t))\gamma'(t) \); por el Teorema Fundamental del Cálculo se cumple 
+\( F(\gamma(t)) = F'(\gamma(t)) \) es \(F'(\gamma(t))\gamma'(t) = f(\gamma(t))\gamma'(t) \); por el Teorema Fundamental del Cálculo se cumple 
 que \(\int_{\gamma} f d z =\int_{a}^{b}[F(\gamma(t))]^{\prime} d t=F(\gamma(b))-F(\gamma(a)) \)}
 #+END_EXPORT
 
@@ -463,7 +463,7 @@ que \(\int_{\gamma} f d z =\int_{a}^{b}[F(\gamma(t))]^{\prime} d t=F(\gamma(b))-
 Con \( A \) el interior de \( \gamma \). Si describimos \( f = u(x,y) + iv(x,y) \) operando
 tenemos que 
 \(\int_{\gamma} f d z =\int_{\gamma}(u+i v)(d x+i d y) 
-=\int_{\gamma}(u d x-v d y)+i \int_{\gamma}(u d y+v d x)\). Applicando el teorema de Green 
+=\int_{\gamma}(u d x-v d y)+i \int_{\gamma}(u d y+v d x)\). Aplicando el teorema de Green 
 tenemos que \( \int_{\gamma} f d z=\iint_{A}\left[-\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\right] d x d y+\iint_{A}\left[\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right] d x d y \)
 y, por las ecs. de Cauchy-Riemman, \( - \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 
 \frac{\partial u}{\partial y} - \frac{\partial u}{\partial y} = 0\). Ídem para la segunda integral.  }
@@ -497,7 +497,7 @@ z}{z-\alpha}   \]
 Intuitivamente \( Ind_\gamma(\alpha) \) representa el número de vueltas de \(
 \gamma \) respecto de \( \alpha \).
 #+BEGIN_EXPORT latex
-\dem{ La función \( \frac{1}{z-\alpha} \) admite la primitiva \( \log{z - \alpha} \) en todo entorno expcepto 
+\dem{ La función \( \frac{1}{z-\alpha} \) admite la primitiva \( \log{(z - \alpha)} \) en todo entorno excepto 
 para \( \alpha \). Subdividimos \( \gamma \) en subarcos suficientemente pequeños \( \gamma_1, \gamma_2, \cdots, \gamma_n \), tal que
 \( \gamma_i = z_iz_{i+1}; z_i,z_{i+1} \in \gamma \). Así, la integral se puede calcular como 
 \( \frac{1}{2\pi i} \int _\gamma  \frac{\text{d} z}{z - \alpha} =
@@ -585,9 +585,9 @@ $
 $
 entonces de las desigualdades de Cauchy se obtiene
 $
-\left|a_{n}\right|<\frac{K}{r^{n}}, n=1,2, . .
+\left|a_n|<\frac{K}{r^n}, n=1, 2, \cdots
 $
-para todo $r$. Como \( r \rightarrow \infty \), \( a_n \rightarrow 0 \) y \( f(z) = a_0 \). }
+. Como \( r \rightarrow \infty \), \( a_n \rightarrow 0 \) y \( f(z) = a_0 \). }
 #+END_EXPORT
 
 \tma{5.5.1} Sea \( \{ f_n \}_{n \in \mathbb{N}} \) una sucesión de funciones 
@@ -617,7 +617,7 @@ $
 de donde
 $
 |f^{\prime}(z)-f_{n}^{\prime}(z)|  \leq \frac{1}{2 \pi} \int_{\gamma_{z}} 
-\frac{eft|f(\zeta)-f_{n}(\zeta)|}{|\zeta-z|^{2}}|d \zeta|
+\frac{\left|f(\zeta)-f_{n}(\zeta)|}{|\zeta-z|^{2}}|d \zeta|
  \leq \frac{1}{2 \pi} \frac{M_{n}}{r^{2}} 2 \pi r=\frac{M_{n}}{r}
 $
 donde $M_{n}$ es $\max(\left|f(\zeta)-f_{n}(\zeta)\right|)$
@@ -657,6 +657,8 @@ $f^{\prime}(0)=1$, entonces $f(z)$ es de la forma $f(z)=c z$, con $|c|=1$
 \end{multicols*}
 \pagebreak
 #+END_EXPORT
+
+ 
 
 * Teorema general de Cauchy
 #+BEGIN_EXPORT latex

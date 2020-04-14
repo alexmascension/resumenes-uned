@@ -1,4 +1,4 @@
-% Created 2020-03-30 Mon 12:55
+% Created 2020-04-14 Tue 13:26
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:orge6e91f1}
+\label{sec:org2668699}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:orga88788d}
+\label{sec:org61b8f7d}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:orgaeef42b}
+\label{sec:org23c9c80}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:orgb96cff6}
+\label{sec:orgc07817c}
 \begin{multicols*}{2}
 
 
@@ -479,10 +479,10 @@ _{n=1}^{\infty} \int _\gamma f_n \; \text{d}z  = \int _\gamma F \; \text{d}z\).
 
 
 \propo{4.3.1} Sean \(f, \gamma\), \(\gamma: [a,b] \rightarrow  \mathbb{C}\) de clase \(\mathbb{C}^1\). Si
-\(F\) es una frimitiva de \(F\), se tiene que \(\int _\gamma f \; \text{d}
+\(F\) es una primitiva de \(F\), se tiene que \(\int _\gamma f \; \text{d}
 z\) = F(\(\gamma\)(a)) - F(\(\gamma\)(b)).
 \dem{ Si \( \int _\gamma f \; \text{d}z = \int_ { a }^{ b } f(\gamma(t))\gamma'(t) \; \text{d}t   \), como la derivada de 
-\( F(\gamma(t) = F'(\gamma(t))\gamma'(t) = f(\gamma(t))\gamma'(t) \); por el Teorema Fundamental del Cálculo se cumple 
+\( F(\gamma(t)) = F'(\gamma(t)) \) es \(F'(\gamma(t))\gamma'(t) = f(\gamma(t))\gamma'(t) \); por el Teorema Fundamental del Cálculo se cumple 
 que \(\int_{\gamma} f d z =\int_{a}^{b}[F(\gamma(t))]^{\prime} d t=F(\gamma(b))-F(\gamma(a)) \)}
 
 \propo{4.3.2} Sea \(f\) y \(\gamma_1, \gamma_2\) tales que \(\gamma_1(a) =
@@ -497,7 +497,7 @@ que \(\int_{\gamma} f d z =\int_{a}^{b}[F(\gamma(t))]^{\prime} d t=F(\gamma(b))-
 Con \( A \) el interior de \( \gamma \). Si describimos \( f = u(x,y) + iv(x,y) \) operando
 tenemos que 
 \(\int_{\gamma} f d z =\int_{\gamma}(u+i v)(d x+i d y) 
-=\int_{\gamma}(u d x-v d y)+i \int_{\gamma}(u d y+v d x)\). Applicando el teorema de Green 
+=\int_{\gamma}(u d x-v d y)+i \int_{\gamma}(u d y+v d x)\). Aplicando el teorema de Green 
 tenemos que \( \int_{\gamma} f d z=\iint_{A}\left[-\frac{\partial v}{\partial x}-\frac{\partial u}{\partial y}\right] d x d y+\iint_{A}\left[\frac{\partial u}{\partial x}-\frac{\partial v}{\partial y}\right] d x d y \)
 y, por las ecs. de Cauchy-Riemman, \( - \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 
 \frac{\partial u}{\partial y} - \frac{\partial u}{\partial y} = 0\). Ídem para la segunda integral.  }
@@ -513,7 +513,7 @@ rectificable en \(A\).
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org7b3ec7f}
+\label{sec:org1d276a8}
 \begin{multicols*}{2}
 
 
@@ -522,7 +522,7 @@ representado por \(Ind_{\gamma}(\alpha)\) a la integral
 \[ Ind_{\gamma}(\alpha) = \frac{1}{2\pi i}\int _\gamma \frac{\text{d}
 z}{z-\alpha}   \]
 Intuitivamente \(Ind_\gamma(\alpha)\) representa el número de vueltas de \(\gamma\) respecto de \(\alpha\).
-\dem{ La función \( \frac{1}{z-\alpha} \) admite la primitiva \( \log{z - \alpha} \) en todo entorno expcepto 
+\dem{ La función \( \frac{1}{z-\alpha} \) admite la primitiva \( \log{(z - \alpha)} \) en todo entorno excepto 
 para \( \alpha \). Subdividimos \( \gamma \) en subarcos suficientemente pequeños \( \gamma_1, \gamma_2, \cdots, \gamma_n \), tal que
 \( \gamma_i = z_iz_{i+1}; z_i,z_{i+1} \in \gamma \). Así, la integral se puede calcular como 
 \( \frac{1}{2\pi i} \int _\gamma  \frac{\text{d} z}{z - \alpha} =
@@ -604,9 +604,9 @@ $
 $
 entonces de las desigualdades de Cauchy se obtiene
 $
-\left|a_{n}\right|<\frac{K}{r^{n}}, n=1,2, . .
+\left|a_n|<\frac{K}{r^n}, n=1, 2, \cdots
 $
-para todo $r$. Como \( r \rightarrow \infty \), \( a_n \rightarrow 0 \) y \( f(z) = a_0 \). }
+. Como \( r \rightarrow \infty \), \( a_n \rightarrow 0 \) y \( f(z) = a_0 \). }
 
 \tma{5.5.1} Sea \(\{ f_n \}_{n \in \mathbb{N}}\) una sucesión de funciones 
 analíticas en \(A\) que converge uniformemente en todo compacto de \(A\).
@@ -631,7 +631,7 @@ $
 de donde
 $
 |f^{\prime}(z)-f_{n}^{\prime}(z)|  \leq \frac{1}{2 \pi} \int_{\gamma_{z}} 
-\frac{eft|f(\zeta)-f_{n}(\zeta)|}{|\zeta-z|^{2}}|d \zeta|
+\frac{\left|f(\zeta)-f_{n}(\zeta)|}{|\zeta-z|^{2}}|d \zeta|
  \leq \frac{1}{2 \pi} \frac{M_{n}}{r^{2}} 2 \pi r=\frac{M_{n}}{r}
 $
 donde $M_{n}$ es $\max(\left|f(\zeta)-f_{n}(\zeta)\right|)$
@@ -669,8 +669,10 @@ Además, si para un \(z_{0} \in B(0,1), z_{0} \neq 0\), se tiene
 \end{multicols*}
 \pagebreak
 
+
+
 \section*{Teorema general de Cauchy}
-\label{sec:org62b66e3}
+\label{sec:org3da1aeb}
 \begin{multicols*}{2}
 
 \defi{6.1.1} Dos caminos \(\gamma_0, \gamma_1\) con \(\gamma_0^*, \gamma_1^*
@@ -731,7 +733,7 @@ afirmaciones son equivalentes:
 
 \vspace{-1em}
 \subsection*{Desarrollo en serie de Laurent}
-\label{sec:org2e2d422}
+\label{sec:org338d836}
 \vspace{-1em}
 \tma{6.4.1 (Series de Laurent)} Sea \(f(z)\) analítica en la corona circular
 \(A = \{ z \;|\; r < |z-\alpha| < R \}\), donde \(r\) puede ser 0 y \(R\)
@@ -825,7 +827,7 @@ la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 
 \vspace{-1.5em}
 \section*{Ceros de las funciones analíticas. Singularidades aisladas.}
-\label{sec:orga245d29}
+\label{sec:org9a96033}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 \tma{7.1.1} Sea \(f: A \rightarrow  \mathbb{C}\), con \(A\) un dominio. 
@@ -1001,7 +1003,7 @@ excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
 \vspace{-2em}
 \subsection*{Resumen de casos (según series de Laurent)}
-\label{sec:orgd5ce1c0}
+\label{sec:org493ea02}
 \vspace{-1.5em}
 \begin{itemize}
 \item Singularidad evitable: \(a_0 + a_1 (z - \alpha) + \cdots\)
@@ -1013,7 +1015,7 @@ excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
 \vspace{-2em}
 \subsection*{Calculo de residuos para polos}
-\label{sec:org9b259a1}
+\label{sec:org928da22}
 \vspace{-1.5em}
 \begin{itemize}
 \item Polo simple
@@ -1039,12 +1041,12 @@ $$ Res(f, \alpha) = \frac{1}{(m-1)!} \lim_{z \to \alpha} \frac{d^{m-1}}{dz^{m-1}
 
 \vspace{-1.5em}
 \section*{Aplicación del método de residuos al cálculo de integrales reales}
-\label{sec:orgea63641}
+\label{sec:org48aad84}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 
 \subsection*{\(\int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta\)}
-\label{sec:org2d3044f}
+\label{sec:org70cb965}
 \vspace{-1.5em}
 Tomamos el cambio de variable \(z = e^{i\theta}\), entonces
 \[ \cos\theta = \frac{1}{2} \left(    z + \frac{1}{z} \right)  \quad
@@ -1059,7 +1061,7 @@ _{i=1}^{n} \text{Res} \left( f(z), \alpha_i \right)  \]
 
 
 \subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org403698a}
+\label{sec:orgb8336e0}
 \vspace{-1.5em}
 Para resolver esta integral requerimos que \textbf{no haya polos en el eje real} y, que
 \(Q(x) \neq 0\) \textbf{en} \(\mathbb{R}\), y que
@@ -1074,7 +1076,7 @@ _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}, \alpha_i \right)  \]
 \frac{P(x)}{Q(x)} \; \text{d} x\), porque si no, el resultado será falso.  
 
 \subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} e^{iax} \; \text{d} x\)}
-\label{sec:org128cb85}
+\label{sec:orgfaf1458}
 \vspace{-1.5em}
 Para resolver esta integral, la \textbf{fracción no tiene que tener singularidades en
 el eje real}. 
@@ -1093,7 +1095,7 @@ _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \alpha_i \right)  \]
 _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \beta_i \right)  \]
 
 \subsection*{[Extra] \(V.P. \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org8018ae8}
+\label{sec:org88c8b2f}
 \vspace{-1.5em}
 
 \(V P . \int_{-\infty}^{+\infty} f(x) \mathrm{d} x=\)
@@ -1110,7 +1112,7 @@ Entonces,
 Donde \(z_j\) son los ceros de \(Q(z)\) en el semiplano superior, y \(x_j\) son los ceros en el eje real.
 
 \subsection*{[Extra] \(\int _{a}^{b} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:orgafda0f7}
+\label{sec:org9dc7133}
 En este tipo de integral  \textbf{ord(Q) \(\ge\) 1 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a,b]\)}.
 
 Entonces,
@@ -1119,7 +1121,7 @@ Entonces,
 
 
 \subsection*{[Extra] \(\int _{a}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org6ef9e87}
+\label{sec:org44d67bc}
 En este tipo de integral  \textbf{ord(Q) \(\ge\) 2 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a, +\infty)\)}.
 
 Entonces,
@@ -1134,7 +1136,7 @@ Donde \(\log\) es el logaritmo complejo.
 \pagebreak
 
 \section*{Transformación conforme}
-\label{sec:orgbdbb4ce}
+\label{sec:orgb7887d2}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 
