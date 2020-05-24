@@ -1,4 +1,4 @@
-% Created 2020-04-14 Tue 13:26
+% Created 2020-05-24 Sun 16:52
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,7 +99,7 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Los números complejos}
-\label{sec:org2668699}
+\label{sec:org3779c57}
 \begin{multicols*}{2}
 
 \defi{1.1} Un número complejo es una expresión \(a + bi\) donde 
@@ -171,7 +171,7 @@ Para un punto en el infinito, la distancia es \(\delta(z, \infty)=\frac{1}{\sqrt
 
 
 \section*{Funciones complejas}
-\label{sec:org61b8f7d}
+\label{sec:org3d810bf}
 \begin{multicols*}{2}
 \defi{2.0} Una función puede ser de tipo \(f: \mathbb{R} \rightarrow
 \mathbb{C}\) (f. compleja de var. real) o 
@@ -255,7 +255,7 @@ todo \(z \in U\), \((f^{-1})'(f(z)) = \frac{1}{f'(z)}\).
 \pagebreak
 
 \section*{Series de potencias. Funciones elementales}
-\label{sec:org23c9c80}
+\label{sec:org8014152}
 
 \begin{multicols*}{2}
 
@@ -398,7 +398,7 @@ cada rama del logaritmo.
 \pagebreak
 
 \section*{Integración en el campo complejo}
-\label{sec:orgc07817c}
+\label{sec:orgc8739f8}
 \begin{multicols*}{2}
 
 
@@ -513,7 +513,7 @@ rectificable en \(A\).
 \pagebreak
 
 \section*{Consecuencias del Teorema de Cauchy}
-\label{sec:org1d276a8}
+\label{sec:orgeb1ff04}
 \begin{multicols*}{2}
 
 
@@ -672,7 +672,7 @@ Además, si para un \(z_{0} \in B(0,1), z_{0} \neq 0\), se tiene
 
 
 \section*{Teorema general de Cauchy}
-\label{sec:org3da1aeb}
+\label{sec:orgfcb81de}
 \begin{multicols*}{2}
 
 \defi{6.1.1} Dos caminos \(\gamma_0, \gamma_1\) con \(\gamma_0^*, \gamma_1^*
@@ -733,7 +733,7 @@ afirmaciones son equivalentes:
 
 \vspace{-1em}
 \subsection*{Desarrollo en serie de Laurent}
-\label{sec:org338d836}
+\label{sec:org2ce60b1}
 \vspace{-1em}
 \tma{6.4.1 (Series de Laurent)} Sea \(f(z)\) analítica en la corona circular
 \(A = \{ z \;|\; r < |z-\alpha| < R \}\), donde \(r\) puede ser 0 y \(R\)
@@ -826,8 +826,11 @@ la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 
 
 \vspace{-1.5em}
-\section*{Ceros de las funciones analíticas. Singularidades aisladas.}
-\label{sec:org9a96033}
+\section*{Ceros de las \begin{aligned}}
+\label{sec:org98106f4}
+f: \&$\backslash$; X \longrightarrow Y \\
+\&$\backslash$; x \longmapsto f(x) = 
+\end{aligned}iones analíticas. Singularidades aisladas.
 \vspace{-1.5em}
 \begin{multicols*}{2}
 \tma{7.1.1} Sea \(f: A \rightarrow  \mathbb{C}\), con \(A\) un dominio. 
@@ -1003,7 +1006,7 @@ excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
 \vspace{-2em}
 \subsection*{Resumen de casos (según series de Laurent)}
-\label{sec:org493ea02}
+\label{sec:org2f6e714}
 \vspace{-1.5em}
 \begin{itemize}
 \item Singularidad evitable: \(a_0 + a_1 (z - \alpha) + \cdots\)
@@ -1015,7 +1018,7 @@ excepción en este caso es \(w = 0\), donde \(z_n\) no existe.
 
 \vspace{-2em}
 \subsection*{Calculo de residuos para polos}
-\label{sec:org928da22}
+\label{sec:org6626aeb}
 \vspace{-1.5em}
 \begin{itemize}
 \item Polo simple
@@ -1041,12 +1044,12 @@ $$ Res(f, \alpha) = \frac{1}{(m-1)!} \lim_{z \to \alpha} \frac{d^{m-1}}{dz^{m-1}
 
 \vspace{-1.5em}
 \section*{Aplicación del método de residuos al cálculo de integrales reales}
-\label{sec:org48aad84}
+\label{sec:orga3df7e4}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 
 \subsection*{\(\int _0^{2\pi} R(\cos \theta, \sin \theta) \; \text{d}\theta\)}
-\label{sec:org70cb965}
+\label{sec:orgbd85860}
 \vspace{-1.5em}
 Tomamos el cambio de variable \(z = e^{i\theta}\), entonces
 \[ \cos\theta = \frac{1}{2} \left(    z + \frac{1}{z} \right)  \quad
@@ -1061,7 +1064,7 @@ _{i=1}^{n} \text{Res} \left( f(z), \alpha_i \right)  \]
 
 
 \subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:orgb8336e0}
+\label{sec:orgfb005e3}
 \vspace{-1.5em}
 Para resolver esta integral requerimos que \textbf{no haya polos en el eje real} y, que
 \(Q(x) \neq 0\) \textbf{en} \(\mathbb{R}\), y que
@@ -1076,7 +1079,7 @@ _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}, \alpha_i \right)  \]
 \frac{P(x)}{Q(x)} \; \text{d} x\), porque si no, el resultado será falso.  
 
 \subsection*{\(\int_{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} e^{iax} \; \text{d} x\)}
-\label{sec:orgfaf1458}
+\label{sec:org053e7be}
 \vspace{-1.5em}
 Para resolver esta integral, la \textbf{fracción no tiene que tener singularidades en
 el eje real}. 
@@ -1095,7 +1098,7 @@ _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \alpha_i \right)  \]
 _{i=1}^{n} \text{Res} \left( \frac{P(z)}{Q(z)}e^{iaz}, \beta_i \right)  \]
 
 \subsection*{[Extra] \(V.P. \int _{- \infty}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org88c8b2f}
+\label{sec:org017e381}
 \vspace{-1.5em}
 
 \(V P . \int_{-\infty}^{+\infty} f(x) \mathrm{d} x=\)
@@ -1112,7 +1115,7 @@ Entonces,
 Donde \(z_j\) son los ceros de \(Q(z)\) en el semiplano superior, y \(x_j\) son los ceros en el eje real.
 
 \subsection*{[Extra] \(\int _{a}^{b} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org9dc7133}
+\label{sec:orga86eaf8}
 En este tipo de integral  \textbf{ord(Q) \(\ge\) 1 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a,b]\)}.
 
 Entonces,
@@ -1121,7 +1124,7 @@ Entonces,
 
 
 \subsection*{[Extra] \(\int _{a}^{+ \infty} \frac{P(x)}{Q(x)} \; \text{d} x\)}
-\label{sec:org44d67bc}
+\label{sec:org8d7837e}
 En este tipo de integral  \textbf{ord(Q) \(\ge\) 2 + ord(P)} y \textbf{\(Q(x) \neq 0\)  en \([a, +\infty)\)}.
 
 Entonces,
@@ -1136,7 +1139,7 @@ Donde \(\log\) es el logaritmo complejo.
 \pagebreak
 
 \section*{Transformación conforme}
-\label{sec:orgb7887d2}
+\label{sec:org6119998}
 \vspace{-1.5em}
 \begin{multicols*}{2}
 
