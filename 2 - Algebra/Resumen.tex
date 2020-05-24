@@ -1,4 +1,4 @@
-% Created 2020-03-30 Mon 11:43
+% Created 2020-05-24 Sun 16:35
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -99,12 +99,12 @@ version={3.0},
 \vspace{-8em}
 
 \section*{Anillos}
-\label{sec:org4e4eff7}
+\label{sec:orgb45f0b8}
 \begin{multicols*}{2}
 
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org1ed9933}
+\label{sec:org206f9a9}
 \vspace{-1.5em}
 \defi{1.1 (Anillo)} Un \textbf{anillo} es una estructura \((A, +, \cdot)\) con las
 propiedades: \vspace{-1em}
@@ -166,7 +166,7 @@ a_1x_1 + \cdots + a_rx_r + b_1y_1 + \cdots + b_sy_s = x + y\); (2) producto: IJ
 = \(x_1y_1 + \cdots + x_ry_r, x_1, \cdots, x_r \in I, y_1, \cdots, y_r \in J\), (3) intersección \(I \cap J\).
 
 \ejem{1.20.2} En un cuerpo \(K\) sólo son ideales \(\{0\}\) y \(K\). Si \(I\) es ideal no trivial de \(K\), para \(x \in I \ \{0\}\) existe \(x^{-1} \in
-K\) y \(1 = xx^{-1} \in I\), y \(I\) es ideal impropio. $\backslash$)
+K\) y \(1 = xx^{-1} \in I\), y \(I\) es ideal impropio.
 
 \defi{1.21} Un ideal es \textbf{maximal} si (1) \(A/I\) es un cuerpo y (2) \(I\) es
 propio y ningún otro ideal propio lo contiene. \((1) \iff (2)\).
@@ -196,9 +196,6 @@ homeomorfismo.
 = \{ x \in A \;|\; f(x) = 0 \}\), y se define la \textbf{imagen} de \(f\) al anillo \(\text{im } f = \{ y \in B \;|\; \exists x \in A, f(x) = y \}\).
 
 \propo{1.27 / 1.30} \textbf{Teorema de isomorfía}. Dado un homomorfismo \(f\), el diagrama
-
-\ejem{1.31} Si \(f: K \rightarrow  B\) es homomorfismo de anillos unitarios
-conmutativos y \(K\) es un cuerpo, entonces \(f\) es monomorfismo, pues \(\text{ker } f = \{ 0 \}\) es ideal propio.
 \vspace{-1em}
 \begin{center}
 \begin{tikzcd}
@@ -214,15 +211,17 @@ conmutativo.
 Si \(f\) es monomorfismo entonces \(\text{ker }f = \{ 0 \}\). Dos anillos
 conmutativos son \textbf{isomorfos} (\(A \simeq B\)) si existe un isomorfismo entre
 ellos.
+\ejem{1.31} Si \(f: K \rightarrow  B\) es homomorfismo de anillos unitarios
+conmutativos y \(K\) es un cuerpo, entonces \(f\) es monomorfismo, pues \(\text{ker } f = \{ 0 \}\) es ideal propio.
 \vspace{-1.5em}
 \subsection*{Divisibilidad}
-\label{sec:org7b5c89c}
+\label{sec:orga5e7b94}
 \vspace{-1.5em}
 \defi{2.1} \textbf{x es un divisor de y} o \textbf{y es un múltiplo de x}, \(x | y\) si existe
 \(a \in A, y = ax\). Si \((x) = \{ kx \;|\; k \in \mathbb{Z} \}\), entonces
 \(x|y \iff (y) \subset (x)\). \(x\) \textbf{está relacionado con} \(y\) si \((x) =
 (y) \iff x|y, y|x\). En ese caso, existe una unidad \(a \in U(A)\) tal que \(y = ax\).
-\vspace{-1em}\textcolor{gray}{\footnotesize Si \( (y) = (x), y \in(x), x \in(y); y = ax, x = by. y = aby \iff 1 = ab \).}
+\textcolor{gray}{\footnotesize Si \( (y) = (x), y \in(x), x \in(y); y = ax, x = by. y = aby \iff 1 = ab \).}
 
 Denotamos \(\text{div } (y)\) al conjunto de divisores de \(y\). Si \(y\)
 genera un ideal primo, entonces decimos que \(y\) \textbf{es primo}. \(y\) es
@@ -313,7 +312,7 @@ Bezout, y \(d = \text{mcd}(a, b)\), entonces se cumple que \(\textcolor{orange}{
 \beta b }\). Por tanto, existen \(a_0, b_0, c_0 \in A\) tales que \(\textcolor{brown}{c = c_0d},
 \textcolor{brown}{a = a_0d},\textcolor{brown}{ b = b_0d}\), y \(\textcolor{orange}{ 1 = \alpha a_0 + \beta b_0 }\),
 de modo que la nueva ecuación a resolver es \(\textcolor{blue}{c_0 = a_0X +
-b_0Y)\).
+b_0Y}\).
 
 Multiplicando por \(\alpha\) y sustituyendo \(\alpha a_0 = 1 - \beta b_0\)
 tenemos \(X = \alpha c_0 + b_0 (\beta X - \alpha Y)\). Igualmente,
@@ -412,11 +411,11 @@ Entonces, \( M = \{ [2], [p-2], [3], [p-3], \cdots, [(p-1)/2], [(p+1)/2] \} \) y
 \pagebreak
 
 \section*{Polinomios}
-\label{sec:orga1c709d}
+\label{sec:org885c131}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org388ff8c}
+\label{sec:org5f120ac}
 \vspace{-1.5em}
 \defi{1.1} Un polinomio es una construcción que necesita un anillo conmutativo
 unitario \(B\) y un subanillo \(A\). Cada elemento \(f\) de \(B\) se
@@ -503,7 +502,7 @@ T}\) y \(\frac{\partial fg}{\partial T} = f \frac{\partial g}{\partial T} + g
 \frac{\partial f}{\partial T}\). 
 \vspace{-1.5em}
 \subsection*{División de polinomios}
-\label{sec:orga4bb7e7}
+\label{sec:org3d16649}
 \vspace{-1.5em}
 \lema{2.1} Sea \(g \in A[T]\) y \(a \neq 0\) su coeficiente director.
 Entonces para cualquier \(f \in A[T]\) existen \(Q, R \in A[T]\) únicos tales que
@@ -542,7 +541,7 @@ por  \(\textbf{c}f\), al máximo común divisor de sus coeficientes. Así, \(\te
 \cdots, x_n \in L\) tales que \(f = a_0(T - x_1)\cdots(T-x_n)\). 
 \vspace{-1.5em}
 \subsection*{Factorización}
-\label{sec:orgf6701cf}
+\label{sec:org3a986a2}
 \vspace{-1.5em}
    \propo{3.2 (Factorización de Kronecker)} Sea \(f \in A[T]\), \(A\) de 
 característica 0 y \(U(A)\) es finito, \(\textbf{c}(f) = 1\), \(\partial f
@@ -585,14 +584,14 @@ irreducible.
 \pagebreak
 
 \section*{Extensiones de cuerpos}
-\label{sec:org06ac142}
+\label{sec:org6d8304e}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 \subsection*{Generalidades}
-\label{sec:org3fb9832}
+\label{sec:org9ec282d}
 \vspace{-1.5em}
 \defi{1.1} Sean \(K, E\) cuerpos. Se dice que \(E\) es una \textbf{extensión} de \(K\), y se escribe \(E/K\) cuando existe un homomorfismo de cuerpos \(j: K
-\rightarrow E\). Como \(K\) es cuerpo, \(\text{ker } f = \{ 0 \}\) y \(f\) es monomorfismo, isomorfo a \(j(K)\), subcuerpo de \(E\).
+\rightarrow E\). Como \(K\) es cuerpo, \(\text{ker } j = \{ 0 \}\) y \(j\) es monomorfismo. Identificamos así a \(K\) con \(j(K)\), subcuerpo de \(E\).
 
 \defi{1.1.1} Un homomorfismo / isomorfismo de una extensión \(E_1/K\) en otra
 \(E_2/K\) es un homomorfismo/isomorfismo de cuerpos \(\phi: E_1 \rightarrow
@@ -644,7 +643,7 @@ K(A \cup B)\).
 \defi{1.13} Sea \(E/K\) extensión de cuerpos y \(a_1, \cdots, a_n\)
 elementos de \(E\). Se tiene un homomorfismo evaluación \(K[X_1, \cdots, X_n]
 \rightarrow  E: f \mapsto (a_1, \cdots, a_n)\) con nucleo \(I\). \(a_1,
-\cdots, a_n\) son \textbf{alegráicamente independientes} sobre \(K\) si \(I = \{ 0 \}\), es decir,  \(f(a_1, \cdots, a_n) \neq 0\) para todo polinomioi no nulo; y
+\cdots, a_n\) son \textbf{algegráicamente independientes} sobre \(K\) si \(I = \{ 0 \}\), es decir,  \(f(a_1, \cdots, a_n) \neq 0\) para todo polinomioi no nulo; y
 \textbf{algebráicamente dependientes} si \(I \neq \{ 0 \}\).
 
 \obs{1.14.3} Si \(n = 1\) y \(a_1\) es algebráicamente independiente, \(a_1\) es \textbf{transcendente} sobre \(K\).
@@ -653,7 +652,7 @@ elementos de \(E\). Se tiene un homomorfismo evaluación \(K[X_1, \cdots, X_n]
 
 \vspace{-1.5em}
 \subsection*{Extensiones simples}
-\label{sec:orgb9bffc2}
+\label{sec:orgfbd657d}
 \vspace{-1.5em}
 \defi{2.0} Una extensión es \textbf{simple} cuando \(E\) está generado sobre \(K\)
 por \(\alpha \in E\).  
@@ -680,7 +679,7 @@ cantidad finita de subextensiones.
 transcendente/algebráica si la extensión inicial lo es.
 
 \subsection*{Extensiones finitamente generadas}
-\label{sec:org13beff3}
+\label{sec:org4986269}
 \defi{3.1} Se llama \textbf{grado de trascendencia} de \(E/K\) al mayor número
 posible de elementos de \(E\) algebráicamente independientes sobre \(K\).
 
@@ -688,7 +687,7 @@ posible de elementos de \(E\) algebráicamente independientes sobre \(K\).
 finita.
 
 \propo{3.5 (Steinitz)} El grado de trascendencia de una extensión finitamente
-generada, no finita, \(E/K\) es un enero \(r \ge 1\) tal que existen
+generada, no finita, \(E/K\) es un entero \(r \ge 1\) tal que existen
 elementos \(\alpha_1, \cdots, \alpha_r \in E\) algebráicamente independientes
 sobre \(K\), tales que \(E/K(\alpha_1, \cdots, \alpha_r)\) es una extensión
 finita. 
@@ -712,12 +711,12 @@ llama elemento primitivo de la extensión.
 
 
 \section*{Teoría de Galois}
-\label{sec:orgff67af1}
+\label{sec:orgf021a03}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 
 \subsection*{Grupos de automorfismos}
-\label{sec:org9bbc25f}
+\label{sec:org52be0dc}
 \defi{1.0} Si \(K\) tiene característica cero, y \(E/K\) es una extensión, 
 el isomorfismo \(E/K \simeq E/K\) es un isomorfismo de cuerpos \(\phi: E
    \rightarrow  E\) tal que \(\phi|K = Id_K\). Este isomorfismo se denomina
@@ -742,7 +741,7 @@ Entonces \(\phi|\mathbb{Q} = Id_\mathbb{Q}\), luego \(\phi \in G(E:\mathbb{Q})\)
 \obs{1.4} orden de \(G(E:K) \le [E:K]\).
 
 \subsection*{Extensiones de Galois}
-\label{sec:org89675a0}
+\label{sec:org4172a75}
 \vspace{-1.5em}
 \defi{2.1} La extensión finita \(E/K\) se denomina \textbf{extensión de Galois} si
 orden \(G(E:K) = [E:K]\).

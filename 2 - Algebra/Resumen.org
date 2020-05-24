@@ -76,7 +76,7 @@ a_1x_1 + \cdots + a_rx_r + b_1y_1 + \cdots + b_sy_s = x + y \); (2) producto: IJ
 
 \ejem{1.20.2} En un cuerpo \( K \) sólo son ideales \( \{0\} \) y \( K \). Si \( I
 \) es ideal no trivial de \( K \), para \( x \in I \ \{0\} \) existe \( x^{-1} \in
-K \) y \( 1 = xx^{-1} \in I  \), y \( I  \) es ideal impropio. \)
+K \) y \( 1 = xx^{-1} \in I  \), y \( I  \) es ideal impropio.
 
 \defi{1.21} Un ideal es *maximal* si (1) \(  A/I  \) es un cuerpo y (2) \( I \) es
 propio y ningún otro ideal propio lo contiene. \( (1) \iff (2) \).
@@ -113,10 +113,6 @@ homeomorfismo.
 \text{im } f = \{ y \in B \;|\; \exists x \in A, f(x) = y \} \).
 
 \propo{1.27 / 1.30} *Teorema de isomorfía*. Dado un homomorfismo \( f \), el diagrama
- 
-\ejem{1.31} Si \( f: K \rightarrow  B \) es homomorfismo de anillos unitarios
-conmutativos y \( K \) es un cuerpo, entonces \( f \) es monomorfismo, pues \(
-\text{ker } f = \{ 0 \} \) es ideal propio.
 #+BEGIN_EXPORT latex
 \vspace{-1em}
 \begin{center}
@@ -134,6 +130,9 @@ conmutativo.
 Si \( f \) es monomorfismo entonces \( \text{ker }f = \{ 0 \} \). Dos anillos
 conmutativos son *isomorfos* (\( A \simeq B \)) si existe un isomorfismo entre
 ellos.
+\ejem{1.31} Si \( f: K \rightarrow  B \) es homomorfismo de anillos unitarios
+conmutativos y \( K \) es un cuerpo, entonces \( f \) es monomorfismo, pues \(
+\text{ker } f = \{ 0 \} \) es ideal propio.
 \vspace{-1.5em}
 ** Divisibilidad
 #+LATEX: \vspace{-1.5em}
@@ -143,7 +142,7 @@ ellos.
 (y) \iff x|y, y|x\). En ese caso, existe una unidad \( a \in U(A) \) tal que \(
 y = ax \).
 #+BEGIN_EXPORT latex
-\vspace{-1em}\textcolor{gray}{\footnotesize Si \( (y) = (x), y \in(x), x \in(y); y = ax, x = by. y = aby \iff 1 = ab \).}
+\textcolor{gray}{\footnotesize Si \( (y) = (x), y \in(x), x \in(y); y = ax, x = by. y = aby \iff 1 = ab \).}
 #+END_EXPORT
 
 Denotamos \( \text{div } (y) \) al conjunto de divisores de \( y \). Si \( y \)
@@ -241,8 +240,8 @@ son de la forma \( \textcolor{blue}{c = aX + bY} \), de un dominio. Si se cumple
 Bezout, y \( d = \text{mcd}(a, b) \), entonces se cumple que \(\textcolor{orange}{ d = \alpha a +
 \beta b }\). Por tanto, existen \( a_0, b_0, c_0 \in A \) tales que \( \textcolor{brown}{c = c_0d},
 \textcolor{brown}{a = a_0d},\textcolor{brown}{ b = b_0d} \), y \(\textcolor{orange}{ 1 = \alpha a_0 + \beta b_0 }\),
-de modo que la nueva ecuación a resolver es \( \textcolor{blue}{c_0 = a_0X +
-b_0Y) \).
+de modo que la nueva ecuación a resolver es \(\textcolor{blue}{c_0 = a_0X +
+b_0Y}\).
 
 Multiplicando por \( \alpha \) y sustituyendo \( \alpha a_0 = 1 - \beta b_0 \)
 tenemos \( X = \alpha c_0 + b_0 (\beta X - \alpha Y) \). Igualmente,
@@ -543,8 +542,8 @@ irreducible.
 \vspace{-1.5em}
 \defi{1.1} Sean \( K, E \) cuerpos. Se dice que \( E \) es una *extensión* de \( K
 \), y se escribe \( E/K \) cuando existe un homomorfismo de cuerpos \( j: K
-\rightarrow E \). Como \( K \) es cuerpo, \( \text{ker } f = \{ 0 \} \) y \( f
-\) es monomorfismo, isomorfo a \( j(K) \), subcuerpo de \( E \).
+\rightarrow E \). Como \( K \) es cuerpo, \( \text{ker } j = \{ 0 \} \) y \( j
+\) es monomorfismo. Identificamos así a \( K \) con \( j(K) \), subcuerpo de \( E \).
 
 \defi{1.1.1} Un homomorfismo / isomorfismo de una extensión \(  E_1/K \) en otra
 \( E_2/K \) es un homomorfismo/isomorfismo de cuerpos \( \phi: E_1 \rightarrow
@@ -599,7 +598,7 @@ K(A \cup B) \).
 \defi{1.13} Sea \( E/K \) extensión de cuerpos y \( a_1, \cdots, a_n \)
 elementos de \( E \). Se tiene un homomorfismo evaluación \( K[X_1, \cdots, X_n]
 \rightarrow  E: f \mapsto (a_1, \cdots, a_n)\) con nucleo \( I  \). \( a_1,
-\cdots, a_n \) son *alegráicamente independientes* sobre \( K \) si \( I = \{ 0 \}
+\cdots, a_n \) son *algegráicamente independientes* sobre \( K \) si \( I = \{ 0 \}
 \), es decir,  \(f(a_1, \cdots, a_n) \neq 0\) para todo polinomioi no nulo; y
 *algebráicamente dependientes* si \( I \neq \{ 0 \} \).
 
@@ -642,7 +641,7 @@ transcendente/algebráica si la extensión inicial lo es.
    finita.
 
 \propo{3.5 (Steinitz)} El grado de trascendencia de una extensión finitamente
-generada, no finita, \( E/K \) es un enero \( r \ge 1 \) tal que existen
+generada, no finita, \( E/K \) es un entero \( r \ge 1 \) tal que existen
 elementos \( \alpha_1, \cdots, \alpha_r \in E \) algebráicamente independientes
 sobre \( K \), tales que \(  E/K(\alpha_1, \cdots, \alpha_r) \) es una extensión
 finita. 
