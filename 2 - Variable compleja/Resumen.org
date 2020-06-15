@@ -824,10 +824,7 @@ la serie \( \sum _{n=0}^{\infty}a_n(z-\alpha)^n \).}
 
 
 \vspace{-1.5em}
-* Ceros de las \begin{aligned}
-  f: &\; X \longrightarrow Y \\
-  &\; x \longmapsto f(x) = 
-  \end{aligned}iones analíticas. Singularidades aisladas.
+* Ceros de las funciones analíticas. Singularidades aisladas.
 \vspace{-1.5em}
 #+BEGIN_EXPORT latex
 \begin{multicols*}{2}
