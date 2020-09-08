@@ -1,0 +1,148 @@
+% Created 2020-09-08 Tue 23:33
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper, 11pt]{extarticle}
+             \usepackage[utf8]{inputenc}
+\usepackage[left=2cm, right=2cm, bottom=2.5cm, top=2.5cm]{geometry}
+% Paquetes de matemáticas
+\usepackage{amsmath, amsfonts, amssymb, commath}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\newcommand{\tikzcircle}[2][red,fill=red]{\tikz[baseline=-0.5ex]\draw[#1,radius=#2] (0,0) circle ;}%
+% Ajustes de idioma, gráficos, etc
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{gensymb}
+\usepackage[spanish, english]{babel}
+\usepackage{tikz}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{wrapfig}
+%Fuentes.
+% Alegreya tiene este toque antiguo con serifa, y la tipografía de las ecuaciones es también interesante.
+% Gillius no tiene serifa, y también es equilibrada.
+\usepackage[T1]{fontenc}
+%\usepackage[default]{gillius}
+\usepackage{newpxtext, newpxmath}
+% Paquete para añadir Creative Commons al final del documento
+\usepackage[
+type={CC},
+modifier={by-nc-nd},
+version={3.0},
+]{doclicense}
+% Propiedades de párrafo
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1.1em}
+\renewcommand{\baselinestretch}{1.05}
+\setlength\itemsep{0em}
+% Definición de comandos. Muchos de ellos han surgido para Geometría, aunque se
+% irá actualizando la lista. POSIBLEMENTE LO INTRODUZCA COMO COMANDOS DE ORG
+\newcommand{\m}{\text{medio}}
+\newcommand{\iso}{\text{Isom}}
+% Para incluir mathcal en las ecuaciones. El /mathcal para Alegreya es el viejo
+% y floritural estilo que odio.
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+% Definición de colores agradables a la vista
+\definecolor{azul}{HTML}{107896}
+\definecolor{naranja}{HTML}{C2571A}
+\definecolor{rojo}{HTML}{9A2617}
+\definecolor{amarillo}{HTML}{BCA136}
+\definecolor{verde}{HTML}{829356}
+\definecolor{gris}{HTML}{909090}
+\definecolor{rosa}{HTML}{F9A7B0}
+\definecolor{amarillochillon}{HTML}{FBB117}
+% Definición de comandos para teoremas, etc. El comando también incluye
+% como argumento un texto, del estilo Teorema 3.5
+\newcommand{\axioma}[1]{\textcolor{naranja}{\textbf{Axioma #1}}}
+\newcommand{\tma}[1]{\textcolor{rojo}{\textbf{Teorema #1}}}
+\newcommand{\propo}[1]{\textcolor{rojo}{\textbf{Proposición #1}}}
+\newcommand{\defi}[1]{\textcolor{azul}{\textbf{Definición #1}}}
+\newcommand{\obs}[1]{\textcolor{verde}{\textbf{Observación #1}}}
+\newcommand{\ejem}[1]{\textcolor{verde}{\textbf{Ejemplo #1}}}
+\newcommand{\ej}[1]{\textcolor{amarillo}{\textbf{Ejercicio #1}}}
+\newcommand{\lema}[1]{\textcolor{rosa}{\textbf{Lema #1}}}
+\newcommand{\cor}[1]{\textcolor{rosa}{\textbf{Corolario #1}}}
+% La demostración es igual pero va con una letra más pequeña y en gris.
+\newcommand{\dem}[1]{\textcolor{gris}{\small{Demostración. #1}}}
+% Esto pone un triangulito de peligro para cuando algo es importante.
+\newcommand{\importante}{\tikzcircle[amarillo, fill=amarillo]{4pt}\,}
+% Para usar columnas emplea este trozo de código
+% \begin{multicols*}{2}
+% [\section{Axiomas para la geometría euclidiana plana}]
+% \input{2.tex}\end{multicols*}\pagebreak
+% multicols* obliga a terminar una columna antes de empezar la siguiente.
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\let\mathcal\pazocal
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Alex Martínez Ascensión}
+\chead{}
+\rhead{\today}
+\date{}
+\title{\Huge\vspace{-1em}Cálculo de Probabilidades}
+\hypersetup{
+ pdfauthor={},
+ pdftitle={\Huge\vspace{-1em}Cálculo de Probabilidades},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.2 (Org mode 9.2.5)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\vspace{-8em}
+
+
+\section*{El modelo matemático}
+\label{sec:orgd93670c}
+\begin{multicols*}{2}
+\vspace{-1.5em}
+El \textbf{espacio muestral} de un fenómeno aleatorio, \(\Omega\) es el conjunto
+de resultados posibles. Los subconjuntos de un único elemento son los 
+\textbf{sucesos simples}, y los sucesos de más de un elemento son los \textbf{sucesos compuestos}.
+El conjunto de todos los posibles sucesos de \(\Omega\) es el conjunto
+por partes, \(\mathcal{P}(\Omega)\).
+
+Una \textbf{probabilidad} es una aplicación 
+\[ P: \mathcal{P}(\Omega) \rightarrow [0,1] \]
+tal que se verifica
+
+\begin{itemize}
+\item Si \(A,B \in \Omega\) y \(A \cap B = \emptyset\) entonces \(P(A \cup B) = P(A) + P(B)\)
+
+\item \(P(\Omega) = 1\)
+\end{itemize}
+
+\(P(A)\) es la \textbf{probabilidad del suceso \(A\)} y el par \((\Omega, P)\) es
+el \textbf{espacio de probabilidad finito}. 
+
+De estas dos propiedades pueden construirse otra serie de propiedades
+\begin{itemize}
+\item Si \(B\) ocurre siempre que sucede \(A\), es decir, \(A \subset B \subset \Omega\) entonces \(P(A) \le P(B)\). Esto es cierto pues \(B = A \cup (B \cap
+  A^c)\), y al ser disjuntos, \(P(B) = P(A) + P(B \cap A^c)\).
+
+\item Como \(A \subset B \subset \Omega\) y \(B - A = B \cap A^c\), \(P(B-A) =
+  P(B) - P(A)\).
+\item Si tomamos \(B = \Omega\), \(P(A^c) = 1 - P(A)\).
+\item \(P(\emptyset) = P(\Omega^c) = 1 - 1 = 0\)
+\item Sean \(A, B \subset \Omega\). \(B\) se puede expresar como \(B = (B \cap
+  A) \cup (B \cap A^c)\), y al ser disjuntos, \(P(B) = P(B \cup A) + P(B - A)\).
+\item Como \(A \cap B = A \cup (B - A)\), y al ser disjuntos, \(P(A \cup B) =
+  P(A) + P(B-A) = P(A) + P(B) - P(A \cap B)\).
+\item Si \(A_1, A_2, \cdots, A_n\) son disjuntos dos a dos, se tiene que \(P(A_1
+  \cup A_2 \cup \cdots \cup A_n) = P(A_1) + P(A_2) + \cdots + P(A_n)\).
+\item Si \(\Omega = \{ \omega_1,\omega_2, \cdots, \omega_n \}\) de \((\Omega, P)\) y \(A = \{ \omega_{i1}, \cdots, \omega_{ik} \}\) con \(\omega_{ik}\) un
+suceso simple, entonces \(P(A) = P(\{ \omega_{i1} \}) + \cdots + P(\{ \omega_{ik}
+  \})\) y \(P(\{ \omega_1 \}) + P(\{ \omega_2 \}) + \cdots + P(\{ \omega_n
+  \}) = 1\).
+\end{itemize}
+
+\end{multicols*}
+\pagebreak
+\end{document}

@@ -1,0 +1,58 @@
+#+TITLE: \Huge\vspace{-1em}Cálculo de Probabilidades
+#+DATE:
+#+SETUPFILE: ../Plantillas/Plantilla.org
+#+OPTIONS: toc:nil ;; Nos quitamos el Índice del medio
+#+OPTIONS: num:nil
+#+LATEX: \vspace{-8em}
+
+
+* El modelo matemático
+#+BEGIN_EXPORT latex
+\begin{multicols*}{2}
+#+END_EXPORT
+#+LATEX: \vspace{-1.5em}
+El *espacio muestral* de un fenómeno aleatorio, \( \Omega \) es el conjunto
+de resultados posibles. Los subconjuntos de un único elemento son los 
+*sucesos simples*, y los sucesos de más de un elemento son los *sucesos compuestos*.
+El conjunto de todos los posibles sucesos de \( \Omega \) es el conjunto
+por partes, \( \mathcal{P}(\Omega)  \).
+
+Una *probabilidad* es una aplicación 
+\[ P: \mathcal{P}(\Omega) \rightarrow [0,1] \]
+tal que se verifica
+
+-  Si \( A,B \in \Omega \) y \( A \cap B = \emptyset \) entonces \( P(A \cup B) = P(A) + P(B) \)
+
+- \( P(\Omega) = 1 \)
+
+\( P(A) \) es la *probabilidad del suceso \( A \)* y el par \( (\Omega, P) \) es
+el *espacio de probabilidad finito*. 
+
+De estas dos propiedades pueden construirse otra serie de propiedades
+- Si $B$ ocurre siempre que sucede $A$, es decir, \( A \subset B \subset \Omega
+  \) entonces \( P(A) \le P(B) \). Esto es cierto pues \( B = A \cup (B \cap
+  A^c) \), y al ser disjuntos, \( P(B) = P(A) + P(B \cap A^c) \).
+
+- Como \( A \subset B \subset \Omega \) y \( B - A = B \cap A^c \), \( P(B-A) =
+  P(B) - P(A) \).
+- Si tomamos \( B = \Omega \), \( P(A^c) = 1 - P(A) \).
+- \( P(\emptyset) = P(\Omega^c) = 1 - 1 = 0 \)
+- Sean \( A, B \subset \Omega \). \( B \) se puede expresar como \( B = (B \cap
+  A) \cup (B \cap A^c) \), y al ser disjuntos, \( P(B) = P(B \cup A) + P(B - A) \).
+- Como \( A \cap B = A \cup (B - A) \), y al ser disjuntos, \( P(A \cup B) =
+  P(A) + P(B-A) = P(A) + P(B) - P(A \cap B) \).
+- Si \( A_1, A_2, \cdots, A_n \) son disjuntos dos a dos, se tiene que \( P(A_1
+  \cup A_2 \cup \cdots \cup A_n) = P(A_1) + P(A_2) + \cdots + P(A_n) \).
+- Si \( \Omega = \{ \omega_1,\omega_2, \cdots, \omega_n \} \) de \( (\Omega, P)
+  \) y \( A = \{ \omega_{i1}, \cdots, \omega_{ik} \} \) con \( \omega_{ik} \) un
+  suceso simple, entonces \( P(A) = P(\{ \omega_{i1} \}) + \cdots + P(\{ \omega_{ik}
+  \})  \) y \( P(\{ \omega_1 \}) + P(\{ \omega_2 \}) + \cdots + P(\{ \omega_n
+  \}) = 1 \).
+
+#+BEGIN_EXPORT latex
+\end{multicols*}
+\pagebreak
+#+END_EXPORT
+
+ 
+
