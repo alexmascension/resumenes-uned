@@ -1,4 +1,4 @@
-% Created 2020-09-08 Tue 23:33
+% Created 2020-09-19 Sat 12:09
 % Intended LaTeX compiler: pdflatex
 \documentclass[a4paper, 11pt]{extarticle}
              \usepackage[utf8]{inputenc}
@@ -100,7 +100,8 @@ version={3.0},
 
 
 \section*{El modelo matemático}
-\label{sec:orgd93670c}
+\label{sec:orgcbdc711}
+\vspace{-1.5em}
 \begin{multicols*}{2}
 \vspace{-1.5em}
 El \textbf{espacio muestral} de un fenómeno aleatorio, \(\Omega\) es el conjunto
@@ -143,6 +144,29 @@ suceso simple, entonces \(P(A) = P(\{ \omega_{i1} \}) + \cdots + P(\{ \omega_{ik
   \}) = 1\).
 \end{itemize}
 
+\end{multicols*}
+
+
+
+\section*{La asignación de probabilidades}
+\label{sec:org5d1ee0e}
+\vspace{-1.5em}
+\begin{multicols*}{2}
+\vspace{-1.5em}
+
+El resumen del capítulo culmina con la \textbf{Regla de Laplace:}
+La probabilidad de un suceso \(A\) relativo a un fenómeno aleatorio es
+\[ P(A) = \frac{\text{número de casos probables}}{\text{número de casos
+posibles}} \]
+suponiendo que \textbf{todos los casos posibles son equiprobables}.
+
+Como consejo. Un caso típico donde se falla en pensar es cuando se establece 
+\(\Omega\) con casos en los que el orden no importa (extraer 3 cartas de una
+baraja, o bolas de una urna, etc.), pues algunas combinaciones ponderan más
+que otras, y si no se tiene en cuenta, se desvirtuan las probabilidades). En
+esos casos lo ideal es considerar que los sucesos son diferentes (112 \(\neq\) 112) aludiendo a una propiedad extra (asignar un color, posición, etc.
+imaginarios), pues así nos aseguramos de contar todos los casos probables y
+posibles.  
 \end{multicols*}
 \pagebreak
 \end{document}
