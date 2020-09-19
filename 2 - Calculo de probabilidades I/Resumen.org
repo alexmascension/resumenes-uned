@@ -5,7 +5,6 @@
 #+OPTIONS: num:nil
 #+LATEX: \vspace{-8em}
 
-
 * El modelo matemático
 #+LATEX: \vspace{-1.5em}
 #+BEGIN_EXPORT latex
@@ -23,9 +22,7 @@ Una *probabilidad* es una aplicación
 tal que se verifica
 
 -  Si \( A,B \in \Omega \) y \( A \cap B = \emptyset \) entonces \( P(A \cup B) = P(A) + P(B) \)
-
 - \( P(\Omega) = 1 \)
-
 \( P(A) \) es la *probabilidad del suceso \( A \)* y el par \( (\Omega, P) \) es
 el *espacio de probabilidad finito*. 
 
@@ -33,7 +30,6 @@ De estas dos propiedades pueden construirse otra serie de propiedades
 - Si $B$ ocurre siempre que sucede $A$, es decir, \( A \subset B \subset \Omega
   \) entonces \( P(A) \le P(B) \). Esto es cierto pues \( B = A \cup (B \cap
   A^c) \), y al ser disjuntos, \( P(B) = P(A) + P(B \cap A^c) \).
-
 - Como \( A \subset B \subset \Omega \) y \( B - A = B \cap A^c \), \( P(B-A) =
   P(B) - P(A) \).
 - Si tomamos \( B = \Omega \), \( P(A^c) = 1 - P(A) \).
@@ -49,39 +45,49 @@ De estas dos propiedades pueden construirse otra serie de propiedades
   suceso simple, entonces \( P(A) = P(\{ \omega_{i1} \}) + \cdots + P(\{ \omega_{ik}
   \})  \) y \( P(\{ \omega_1 \}) + P(\{ \omega_2 \}) + \cdots + P(\{ \omega_n
   \}) = 1 \).
-
-#+BEGIN_EXPORT latex
-\end{multicols*}
-#+END_EXPORT
-
- 
-
+#+LATEX: \vspace{-2.5em}
 * La asignación de probabilidades
 #+LATEX: \vspace{-1.5em}
-#+BEGIN_EXPORT latex
-\begin{multicols*}{2}
-#+END_EXPORT
-#+LATEX: \vspace{-1.5em}
-
 El resumen del capítulo culmina con la *Regla de Laplace:*
 La probabilidad de un suceso \( A \) relativo a un fenómeno aleatorio es
 \[ P(A) = \frac{\text{número de casos probables}}{\text{número de casos
 posibles}} \]
 suponiendo que *todos los casos posibles son equiprobables*.
 
-Como consejo. Un caso típico donde se falla en pensar es cuando se establece 
+ Un caso donde se falla en pensar es cuando se establece 
 \( \Omega \) con casos en los que el orden no importa (extraer 3 cartas de una
-baraja, o bolas de una urna, etc.), pues algunas combinaciones ponderan más
-que otras, y si no se tiene en cuenta, se desvirtuan las probabilidades). En
-esos casos lo ideal es considerar que los sucesos son diferentes (112 \(\neq
+baraja, etc.), pues algunas combinaciones ponderan más
+que otras y se desvirtuan las probabilidades).Lo ideal es considerar que los
+ sucesos son diferentes (112 \(\neq
 \) 112) aludiendo a una propiedad extra (asignar un color, posición, etc.
-imaginarios), pues así nos aseguramos de contar todos los casos probables y
-posibles.  
+imaginarios).
+#+LATEX: \vspace{-1.5em}
+* Las fórmulas de inclusión-exclusión
+#+LATEX: \vspace{-1.5em}
+Si \( A_1, A_2, \cdots, A_n \) son sucesos de un espacio de probabilidad, se
+cumple 
+\[ P(A_1 \cup A_2 \cup \cdots \cup A_n) = S_1 + S_2 - \cdots + (-1)^{n-1}S_n \]
+donde
+\[ S_k = \sum _{1 \le i_1 < i_2 < \cdots < i_k \le n}^{} P(A_{i_1} \cap \cdots
+\cap A_{i_k} ) \]
+Un ejemplo para \( n=3 \): \( P(A_1 \cup A_2 \cup A_3) = [P(A_1) + P(A_2) +
+P(A_3)] - [P(A_1 \cap A_2) + P(A_1 \cap A_3) + P(A_2 \cap A_3)] + [P(A_1 \cap
+A_2 \cap A_3)]  \)
+
+Esta fórmula se puede derivar para que se derive a $m$ sucesos. En un espacio de
+probabilidad, si \( A_1, A_2, \cdots, A_n \) son sucesos cualesquiera, la
+probabilidad \( P_{[m]} \) de que ocurran exactamente \( m \) de ellos, es
+\[ P{[m]} = S_m - {m+1 \choose m} S_{m+1} + {m+2 \choose m} S_{m+2} - \cdots +
+(-1)^{n-m}{n \choose m}S_n  \]
+
+Si \( m=0 \), es la probabilidad de que no ocurra ninguno de los \( n \)
+sucesos, que es \( P_{[0]} = 1 - P(A_1 \cup \cdots \cup A_n) = 1 - (S_1 - S_2 +
+\cdots + (-1)^{n}S_n) \)
+
 #+BEGIN_EXPORT latex
 \end{multicols*}
 \pagebreak
 #+END_EXPORT
 
  
-
 
